@@ -6,6 +6,8 @@
 \usepackage{mathtools}
 \newcommand\tab[1][0.6cm]{\hspace*{#1}}
 \renewcommand\labelenumii{\theenumi.\arabic{enumii}.}
+\renewcommand\labelenumiii{\labelenumii\arabic{enumiii}.}
+\renewcommand\labelenumiv{\labelenumiii\arabic{enumiv}.}
 
 \renewcommand\labelitemi{$\cdot$ }
 \title{Requirements Analysis Document}
@@ -25,6 +27,46 @@
 	\item{System Description}
 	\begin{enumerate}
 		\item{Functional Requirements}
+		The application has two types of users:
+		\begin{enumerate}
+			\item User type 1: student
+			\begin{enumerate}
+				\item Log in to the application\\
+				\item View available courses and send an application to a course
+				And get e-mail notifications when they are accepted or declined.\\
+				\item Access to each subject unit/subunit/subsub... and unit notes\\
+				Each item will only be visible after certain date (decided by teacher) if the student belongs to the course and is not expelled.\\
+				\item Access and solve unit exercises \\
+				Which will only be visible and solvable after and before certain date (decided by teacher) \\
+				Also, student may not answer a question if he decides so, and may quit the exercise without sending it whenever he wants, no changes saved.\\
+				Each exercise will be solved as much as once. \\
+				View his marck in each exercise, as well as correct answers (only after the deadline for the exercise has passed).\\
+				\item See their mark in a course
+				\item Communicate with teachers and other students\\
+				Via e-mail		\\
+				
+			\end{enumerate}
+			\item User type 2: teacher
+			\begin{enumerate}
+				\item Log in to the application\\
+				
+				\item Accept/decline students applications\\
+				\item Set up courses, unit, subunits, subsubunits...\\
+				Also, write and add  notes and visibility to each unit \\
+				\item Use an exercise maker to add exercises to units\\
+				This maker will set the unit where the exercise belongs, the two dates between which it is visible, the number and type of questions (multiple choice/one choice/true-false/open answer), the order of the questions (random or not), the points of each questions, the penalty for each wrong answer, the value of the exercise for the final course mark. \\
+				Teacher can re-set up the whole exercise (excepting for the dates: only deadline can be changed and only if it is postponed), if no student has already done the exercise.\\
+				\item View statistics\\
+				Statistics per subject : marks, average mark, failed vs. passed for each subject.\\
+				Statistics per exercise : marks, average mark for each exercise.\\
+				Statistics per question : not answered, correct answers, wrong answers.\\
+				\item Expell students (and readmit them in the course)\\
+				\item Communicate with students\\
+				Via e-mail\\
+				
+				 
+			\end{enumerate}
+		\end{enumerate}
 		\item{Non-functional Requirements}
 	\end{enumerate}
 	\item{Use Cases}
