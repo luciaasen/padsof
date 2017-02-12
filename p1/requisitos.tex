@@ -19,15 +19,13 @@
 	\item{Introduction}
 	\begin{enumerate}
 		\item{Purpose of the system}
-		The system is an application with educational purposes. It offers a communication and evaluation platform between professors and students.
+		\\The system is an application with educational purposes. It offers a communication and evaluation platform between professors and students.
 		\item{Scope of the system}
-		The application should have two types of users: students and teachers. There will be courses, created by teachers, which will be divided in units, subunits, subsubunits and so on. In each unit there will be exercises and notes all of which are organized by subjects.. Therefore it also serves as a database, that also provides a statistic calculation system detailed below.
-		
-		Students will have as many accounts as te number of students using the application, however, there will only be one teacher account for all teachers.
+		\\The application should have two types of users: students and teachers. There will be courses, created by teachers, which will be divided in units, subunits, subsubunits and so on. In each unit there will be exercises and notes all of which are organized by subjects.. Therefore it also serves as a database, that also provides a statistic calculation system detailed below.\\Students will have as many accounts as te number of students using the application, however, there will only be one teacher account for all teachers.
 		\item{Objectives and success criteria of the project}
-		The objective is to create a user-friendly application that meets the functionality detailed in the next section.
+		\\The objective is to create a user-friendly application that meets the functionality detailed in the next section.
 		\item{Definitions, Acronyms and abbreviations}
-		Although sometimes in this document we will talk about units and sometimes about courses, we will be referring in both cases to the same thing.
+		\\Although sometimes in this document we will talk about units and sometimes about courses, we will be referring in both cases to the same thing.
 	\end{enumerate}
 	
 	\item{System Description}
@@ -44,24 +42,25 @@
 				\item Access and solve exercises, each of which belongs to a unit, which belongs to a course. Exercises will only be visible and solvable after and before certain dates decided by teacher \\
 				A student may leave a question unanswered, and may quit the exercise without sending it whenever he wants, his answers will not be saved.\\
 				Once a student finishes an exercise, he cannot do it again. \\
-				Each exercise will have a relevance specified y the teacher, this relevance should be displayed at any time.
+				Each exercise will have a relevance specified by the teacher, this relevance should be displayed at any time.
 				After the deadline of an exercise, students can view their marks in that exercise (normalized from 0 to 10), as well as correct answers and the answers they wrote.\\
-				\item See their mark in a course up to that point, normalized from 0 to 10
+				\item See their mark in a course up to that point, normalized from 0 to 10 \\
 				\item Communicate with teachers and other students via e-mail		\\
 				
 			\end{enumerate}
 			\item User type 2: teacher
 			\begin{enumerate}
 				\item Log in to the application\\
-				\item Get notifications via email when a student applies to a course.
+				\item Get notifications via email when a student applies to a course.\\
 				\item Accept/decline students applications to a certain course\\
 				\item Set up courses, unit, subunits, subsubunits...\\
 				Also, write and add  notes to each unit, subunit etc. This notes will be plain text.\\
 				\item Use an exercise maker to add exercises to units\\
-				This maker will set the unit where the exercise belongs, the two dates between which it is doable, the number of questions and the type of each of them (multiple choice/one choice/true-false/open answer), the order of the questions (which can be chosen to be random or a fixed order, also chosen by the teacher), the points of each question, the penalty for each wrong answer (if any), the value of the exercise for the final course mark, the text of the question, the correct answer and the possible answers in the multiple choice/one choice type of questions\\
+				This maker will set the unit where the exercise belongs, the two dates between which it is doable, the number of questions and the type of each of them (multiple choice/one choice/true-false/open answer), the order of the questions (which can be chosen to be random or a fixed order, also chosen by the teacher), the points of each question, the penalty for each wrong answer (if any), the value of the exercise for the final course mark (all of which don't ave to sum 10, since they will be normalized), the text of the question, the correct answer and the possible answers in the multiple choice/one choice type of questions\\
 				Teacher can re-set up the whole exercise (excepting for the dates: only deadline can be changed and only if it is postponed), if no student has already done the exercise.\\
-				\item Make notes and exercises (and, optionally, courses) visible or invisible. This visibility may also be scheduled.
-				\item Access to all the information of a student, except for his log in data. This means teachers have access to every mark of every student, in every exercise and every course, every answer he has given to every question in every exercise he has finished. He also will have access to the course average marks of every student.
+				\item Make notes and exercises (and, optionally, courses) visible or invisible. This visibility may also be scheduled.\\
+				\item Access to all the information of a student, except for his log in data. This means teachers have access to every mark of every student, in every exercise and every course, every answer he has given to every question in every exercise he has finished. He also will have access to the course average marks of every student.\\
+				\item Access courses list.\\
 				\item View statistics\\
 				Statistics per subject : marks, average mark, failed vs. passed for each subject.\\
 				Statistics per exercise : marks, average mark for each exercise.\\
@@ -74,7 +73,7 @@
 		\end{enumerate}
 		\item{Non-functional Requirements}
 			\begin{enumerate}
-				\item The application should be prepared to be used by the common user which does not have computer knowledge further than opening google.
+				\item The application should be prepared to be used by the common user who does not have computer knowledge further than opening google.
 				\item The statistics calculations should not take longer than a few seconds.
 			\end{enumerate}
 	\end{enumerate}
