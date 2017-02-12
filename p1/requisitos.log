@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.2.10)  12 FEB 2017 01:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.2.10)  12 FEB 2017 13:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -612,86 +612,86 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 17.
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--39
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--44
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--47
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 44--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--59
+Overfull \hbox (0.24152pt too wide) in paragraph at lines 56--57
+[]\T1/lmr/m/n/10 Get no-ti-fi-ca-tions via email when a stu-dent ap-plies to a 
+course. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
 
-Overfull \hbox (1.0525pt too wide) in paragraph at lines 59--63
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
+
+ []
+
+[2]
+Overfull \hbox (1.0525pt too wide) in paragraph at lines 65--69
 \T1/lmr/m/n/10 Statistics per sub-ject : marks, av-er-age mark, failed vs. pass
 ed
  []
 
 
-Overfull \hbox (1.42256pt too wide) in paragraph at lines 59--63
-\T1/lmr/m/n/10 Statistics per ques-tion : not an-swered, cor-rect an-swers, wro
-ng
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--63
+Underfull \hbox (badness 10000) in paragraph at lines 65--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--66
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 79.
+(Font)              <10> on input line 88.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 79.
+(Font)              <7> on input line 88.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 79.
-[2] [3] (./requisitos.aux) ) 
+(Font)              <5> on input line 88.
+[3] [4] (./requisitos.aux) ) 
 Here is how much of TeX's memory you used:
  3270 strings out of 494302
  44311 string characters out of 6162810
@@ -699,16 +699,16 @@ Here is how much of TeX's memory you used:
  6541 multiletter control sequences out of 15000+600000
  35218 words of font info for 37 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
- 53i,6n,30p,371b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,6n,30p,583b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/pu
 blic/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/
 lmsy10.pfb>
-Output written on requisitos.pdf (3 pages, 85983 bytes).
+Output written on requisitos.pdf (4 pages, 89166 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
