@@ -63,7 +63,7 @@
 				\item Access to all the information of a student, except for his log in data. This means teachers have access to every mark of every student, in every exercise and every course, every answer he has given to every question in every exercise he has finished. He also will have access to the course average marks of every student.\\
 				\item Access courses list.\\
 				\item View statistics\\
-				Statistics per subject : marks, average mark, failed vs. passed for each subject.\\
+				Statistics per subject : all the normalized marks, average mark, number of fails and number of passes.\\
 				Statistics per exercise : marks, average mark for each exercise.\\
 				Statistics per question : not answered, answered, correct answers, wrong answers.\\
 				\item Expel students (and readmit them in the course), also access to a list of the expelled students\\
@@ -88,17 +88,49 @@
 		\\
 		\item{Use case descriptions}
 		\begin{enumerate}
-			\item{Use case: Teacher}
+			\item{Use case: View statistics per subject}
 			\begin{itemize}
-				\item Primary Actor
-				\item Stakeholders and Goals
-				\item Preconditions
-				\item Success Guarantee
-				\item Main Success Scenario
-				\item Extensions
-				\item Special Requirements
-				\item Technology and Data Variations List
-				\item Frequency
+				\item Primary Actor: Teachers
+				\item Stakeholders and Goals: Teachers who want to check general statistics (this means, not student specific) 
+				\item Preconditions: the user has logged in as a teacher, accessed the courses list and selected one.
+				\item Success Guarantee: the needed statistics are displayed in some seconds.
+				\item Main Success Scenario: 
+					\begin{itemize}
+					\item 1. The teacher selects "Course statistics and data"
+					\item 2. The following data are displayed:
+						\begin{itemize}
+							\item Average mark in the subject.
+							\item Number of passes in the subject.
+							\item Number of fails in the subject.
+							\item List of all the student's normalized marks in the subject.
+							\item List of exercises in the subject.
+						\end{itemize}
+				
+					\end{itemize}
+				\item Extensions: 
+					\begin{itemize}
+						\item 2a. The user clicks on an exercise.
+						\item 3a. The following data is displayed:
+							\begin{itemize}
+								\item Average mark in the exercise.
+								\item Number of passes in the exercise.
+								\item Number of fails in the exercise.
+								\item Relevance of the exercise.
+								\item List of questions.
+							\end{itemize}
+						The teacher may also click on one question from the list: \\
+							\item 3b. The teacher clicks on one question from the list displayed in 3a.
+							\item 4b. The following data is displayed:
+								\begin{itemize}
+									\item Number of correct answers.
+									\item Number of incorrect answers.
+									\item Number of students who did not answer.
+									\item Correct answer.
+									\item List of answers given by the students.
+								\end{itemize}
+					\end{itemize}
+				\item Special Requirements: Quick response (a few seconds) in the process of calculating and displaying the data.
+				\item Frequency: no concurrency, one user at a time.
 				\item Open Issues
 			\end{itemize}
 			\item{Use case: Student}
