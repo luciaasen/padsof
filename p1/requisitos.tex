@@ -63,7 +63,7 @@
 				\item Access to all the information of a student, except for his log in data and student's emails. This means teachers have access to every mark of every student, in every exercise and every course, every answer he has given to every question in every exercise he has finished. He also will have access to the course average marks of every student.\\
 				\item Access courses list.\\
 				\item View statistics\\
-				Statistics per subject : all the normalized marks, average mark, number of fails and number of passes.\\
+				Statistics per subject : all the normalized marks, average mark, number of fails and number of students who have passed.\\
 				Statistics per exercise : marks, average mark for each exercise.\\
 				Statistics per question : not answered, answered, correct answers, wrong answers.\\
 				\item Expel students (and readmit them in the course), also access to a list of the expelled students\\
@@ -100,7 +100,7 @@
 					\item 2. The following data are displayed:
 						\begin{itemize}
 							\item Average mark in the subject.
-							\item Number of passes in the subject.
+							\item Number of students who have passed in the subject.
 							\item Number of fails in the subject.
 							\item List of all the student's normalized marks in the subject.
 							\item List of exercises in the subject.
@@ -113,7 +113,7 @@
 						\item 3a. The following data is displayed:
 							\begin{itemize}
 								\item Average mark in the exercise.
-								\item Number of passes in the exercise.
+								\item Number of students who have passed the exercise.
 								\item Number of fails in the exercise.
 								\item Relevance of the exercise.
 								\item List of questions.
@@ -133,17 +133,14 @@
 				\item Frequency: no concurrency, one user at a time.
 				\item Open Issues
 			\end{itemize}
-			\item{Use case: Student}
-			
-			
-			
+			\item{Use case: Add exercise}
 			\begin{itemize}
-				\item Primary Actor
-				\item Stakeholders and Goals
-				\item Preconditions
-				\item Success Guarantee
-				\item Main Success Scenario
-				\item Extensions
+				\item Primary Actors: teachers.
+				\item Stakeholders and Goals: a teacher who wants to add an exercise, and the students who will be interested in that course and do the exercise.
+				\item Preconditions: the teacher has logged in as a teacher and has accessed to the course's main page.
+				\item Success Guarantee: the exercise is recorded and displayed to everyone if made visible.
+				\item Main Success Scenario:
+					
 				\item Special Requirements
 				\item Technology and Data Variations List
 				\item Frequency

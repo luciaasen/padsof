@@ -1,8 +1,0 @@
-# Cosas de compilar
-*.o
-*.class
-
-# Cosas que no me gustan de latex
-*.log
-*.synctex.gz
-*.aux
