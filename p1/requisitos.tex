@@ -147,21 +147,47 @@
 				\item Open Issues
 				
 			\end{itemize}
-			\item{Use case: Student}
-			
-			
+		
+		
+		
+			\item{Use case: User applies for a course}
+		
 			
 			\begin{itemize}
-				\item Primary Actor
-				\item Stakeholders and Goals
-				\item Preconditions
-				\item Success Guarantee
+				\item Primary actor: Student
+				\item Stakeholders and goals: Students who want to apply for a new course
+				\item Preconditions: To have logged in the application.
+				\item Success Guarantee: an email will be sent back with the teacher's answer
 				\item Main Success Scenario
+				\begin{itemize}
+					\item 1. Student selects "Application".
+					\item 2. A list of available courses is displayed.
+					\item 3. Student selects the course he wants.
+					\item 4. An "Are you sure you want to apply for this course?" message is displayed on screen.
+					\item 5. Student selects "Yes".
+					\item 6. Student selects "Exit application mode".
+					\item 7. A notification with the application is sent via e-mail to the teacher.
+					\item 8. The teacher accepts the student in the course.
+					\item 9. The student is added to the course students list, and he can now access de visible information of that course.
+					\item 10. The student gets an e-mail notification telling him he has been accepted in the course.
+				\end{itemize}
 				\item Extensions
-				\item Special Requirements
-				\item Technology and Data Variations List
-				\item Frequency
-				\item Open Issues
+				\begin{itemize}
+					\item Extension 1
+					\begin{itemize}
+						\item 5a. Student selects "No".
+						\item 6a. Student selects "Exit application mode".
+					\end{itemize}
+					\item Extension 2
+					\begin{itemize}
+						\item 8a. The teacher declines the student's application.
+						\item 9b. The student gets an e-mail notification telling him he has not been accepted in the course.
+					\end{itemize}
+					
+					
+				\end{itemize}
+				\item Technology and Data Variations List: If teacher accepts, the Courses Students List is modified.
+				\item Frequency: no concurrency, one user at a time.
 				
 			\end{itemize}
 		\end{enumerate}
