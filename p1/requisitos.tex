@@ -57,8 +57,8 @@
 				\item Set up courses, unit, subunits, subsubunits...\\
 				Also, write and add  notes to each unit, subunit etc. This notes will be plain text.\\
 				\item Use an exercise maker to add exercises to units\\
-				This maker will set the unit where the exercise belongs, the two dates between which it is doable, the number of questions and the type of each of them (multiple choice/one choice/true-false/open answer), the order of the questions (which can be chosen to be random or a fixed order, also chosen by the teacher), the points of each question, the penalty for each wrong answer (if any), the value of the exercise for the final course mark (all of which don't ave to sum 10, since they will be normalized), the text of the question, the correct answer and the possible answers in the multiple choice/one choice type of questions\\
-				Teacher can re-set up the whole exercise (excepting for the dates: only deadline can be changed and only if it is postponed), if no student has already done the exercise.\\
+				This maker will set the unit where the exercise belongs, the two dates between which it is doable, the number of questions and the type of each of them (multiple choice/one choice/true-false/open answer), the order of the questions (which can be chosen to be random or a fixed order, also chosen by the teacher), the penalty for each wrong answer (if any), the value of the exercise for the final course mark (all of which don't have to sum 10, since they will be normalized), the text of the question, the points of each question, the correct answer and the possible answers in the multiple choice/one choice type of questions\\
+				Teacher can re-set up the whole exercise (excepting for the dates: only deadline can be changed and only if it is postponed), if no student has already done the exercise. (Students will get a notification whenever the exercise turns visible)\\
 				\item Make notes and exercises (and, optionally, courses) visible or invisible. This visibility may also be scheduled.\\
 				\item Access to all the information of a student, except for his log in data and student's emails. This means teachers have access to every mark of every student, in every exercise and every course, every answer he has given to every question in every exercise he has finished. He also will have access to the course average marks of every student.\\
 				\item Access courses list.\\
@@ -133,6 +133,7 @@
 				\item Frequency: no concurrency, one user at a time.
 				\item Open Issues
 			\end{itemize}
+<<<<<<< HEAD
 			\item{Use case: expel student}
 			\begin{itemize}
 				\item Primary Actors: teachers.
@@ -147,9 +148,60 @@
 				\item Technology and Data Variations List
 				\item Frequency
 				\item Open Issues
-				
-			\end{itemize}
+=======
 		
+		
+			\item{Use case: Teacher makes an exercise}
+						
+			\begin{itemize}
+				\item Primary Actor: Teachers
+				\item Stakeholders and Goals: Teachers who want to use the exercise maker so that they can evaluate the students
+				\item Preconditions: Have logged in as a teacher
+				\item Success Guarantee:
+				\item Main Success Scenario:
+				\begin{itemize}
+					\item 1. Teacher selects "Add exercise".
+					\item 2. A list of available courses is displayed.
+					\item 3. Teacher selects the course where to add the exercise.
+					\item 4. A list of units is displayed.
+					\item 5. Teacher selects the unit where to add the exercise.
+					\item 6. Teacher selects the dates where the exercise will be visible.
+					\item 7. A list with the four available types of questions (described in System Description 2.1.2.5)is displayed, teacher selects "multiple choice".
+					\item 8. Teacher writes down how many questions the exercise will have.
+					\item 9. Teacher selects the order of the questions in the exercise (random or not).
+					\item 10. Teacher selects the penalty, if any, for each wrong answer.
+					\item 11. Teacher selects the value of the exercise in the final mark.
+					\item 11. For each question, teacher decides how many statements to show,writes them down and assigns a truth value to each statement.
+					\item 12. Teacher will fill a table writing down the points associated to each question.
+					\item 12. When all the info is filled in, teacher selects "Save exercise". 
+				\end{itemize}
+				\item{Extensions}
+				\begin{itemize}
+					\item Extension 1: one choice test
+					\begin{itemize}
+						\item 7a. Teacher selects "one choice" exercise.
+						\item 11a. For each question, teacher decides how many statements to show, writes them down and \textit{selects one} true statement.
+					\end{itemize}
+					\item Extension 2: Teacher selects "true/false" exercise.
+					\begin{itemize}
+						\item 7b. Teacher selects "true/false" exercise.
+						\item 11b. For each question, teacher 	\textit{writes down one} statement and assigns a truth value to it.
+					\end{itemize}
+					\item Extension 3: Teacher selects "open answer" exercise.
+					\begin{itemize}
+						\item 7c. Teacher selects "open answer" exercise.
+						\item 11c. For each question, teacher writes down \textit{one question} and writes down \textit{one answer}.
+					\end{itemize}
+					
+>>>>>>> 47b23f2c44d8a57b7f32c6d8af086950caec0fee
+				
+				\end{itemize}
+				\item Special Requirements:
+				\item Technology and Data Variations List:
+				\item Frequency: No concurrency
+				\item Open Issues
+			\end{itemize}
+			
 		
 		
 			\item{Use case: User applies for a course}
