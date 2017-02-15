@@ -1,3 +1,4 @@
+
 \documentclass{article}
 
 \usepackage{lmodern}
@@ -85,6 +86,8 @@
 		\\
 		
 		\includegraphics[width=125mm]{Diagram_1.png}
+		\includegraphics[width=125mm]{teacher1.png}
+		\includegraphics[width=125mm]{teacher2.png}
 		\\
 		\item{Use case descriptions}
 		\begin{enumerate}
@@ -131,7 +134,6 @@
 					\end{itemize}
 				\item Special Requirements: Quick response (a few seconds) in the process of calculating and displaying the data.
 				\item Frequency: no concurrency, one user at a time.
-				\item Open Issues
 			\end{itemize}
 		
 		
@@ -141,7 +143,7 @@
 				\item Primary Actor: Teachers
 				\item Stakeholders and Goals: Teachers who want to use the exercise maker so that they can evaluate the students
 				\item Preconditions: Have logged in as a teacher
-				\item Success Guarantee:
+				\item Success Guarantee: The exercise will be added to the course exercises.
 				\item Main Success Scenario:
 				\begin{itemize}
 					\item 1. Teacher selects "Add exercise".
@@ -176,7 +178,6 @@
 						\item 7c. Teacher selects "open answer" exercise.
 						\item 11c. For each question, teacher writes down \textit{one question} and writes down \textit{one answer}.
 					\end{itemize}
-					
 				
 				\end{itemize}
 				\item Special Requirements:
@@ -204,9 +205,6 @@
 					\item 5. Student selects "Yes".
 					\item 6. Student selects "Exit application mode".
 					\item 7. A notification with the application is sent via e-mail to the teacher.
-					\item 8. The teacher accepts the student in the course.
-					\item 9. The student is added to the course students list, and he can now access de visible information of that course.
-					\item 10. The student gets an e-mail notification telling him he has been accepted in the course.
 				\end{itemize}
 				\item Extensions
 				\begin{itemize}
@@ -215,12 +213,6 @@
 						\item 5a. Student selects "No".
 						\item 6a. Student selects "Exit application mode".
 					\end{itemize}
-					\item Extension 2
-					\begin{itemize}
-						\item 8a. The teacher declines the student's application.
-						\item 9b. The student gets an e-mail notification telling him he has not been accepted in the course.
-					\end{itemize}
-					
 					
 				\end{itemize}
 				\item Technology and Data Variations List: If teacher accepts, the Courses Students List is modified.
