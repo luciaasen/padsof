@@ -1,3 +1,4 @@
+
 \documentclass{article}
 
 \usepackage{lmodern}
@@ -26,7 +27,7 @@
 		\item{Objectives and success criteria of the project}
 		\\The objective is to create a user-friendly application that meets the functionality detailed in the next section.
 		\item{Definitions, Acronyms and abbreviations}
-		\\Although sometimes in this document we will talk about units and sometimes about courses, we will be referring in both cases to the same thing.
+		\\Although sometimes in this document we will talk about subjects and sometimes about courses, we will be referring in both cases to the same thing.
 	\end{enumerate}
 	
 	\item{System Description}
@@ -58,7 +59,7 @@
 				Also, write and add  notes to each unit, subunit etc. This notes will be plain text.\\
 				\item Use an exercise maker to add exercises to units\\
 				This maker will set the unit where the exercise belongs, the two dates between which it is doable, the number of questions and the type of each of them (multiple choice/one choice/true-false/open answer), the order of the questions (which can be chosen to be random or a fixed order, also chosen by the teacher), the penalty for each wrong answer (if any), the value of the exercise for the final course mark (all of which don't have to sum 10, since they will be normalized), the text of the question, the points of each question, the correct answer and the possible answers in the multiple choice/one choice type of questions\\
-				Teacher can re-set up the whole exercise (excepting for the dates: only deadline can be changed and only if it is postponed), if no student has already done the exercise. (Students will get a notification whenever the exercise turns visible)\\
+				Teacher can re-set up the whole exercise (excepting for the dates: between which only the deadline can be changed and only if it is postponed), if no student has already done the exercise. (Students will get a notification whenever the exercise turns visible)\\
 				\item Make notes and exercises (and, optionally, courses) visible or invisible. This visibility may also be scheduled.\\
 				\item Access to all the information of a student, except for his log in data and student's emails. This means teachers have access to every mark of every student, in every exercise and every course, every answer he has given to every question in every exercise he has finished. He also will have access to the course average marks of every student.\\
 				\item Access courses list.\\
@@ -83,8 +84,17 @@
 	\begin{enumerate}
 		\item{Use Case diagram}
 		\\
-		
+		We divided our diagram in three parts so that it was easily understandable.\\
+		\begin{itemize}
+			\renewcommand\labelitemi{$\star$}
+			\item First one is for student use cases
+			\item Second one is for teacher use cases
+			\item Third one is also for teacher use cases \\ \\
+		\end{itemize}
+	
 		\includegraphics[width=125mm]{Diagram_1.png}
+		\includegraphics[width=125mm]{teacher1.png}
+		\includegraphics[width=125mm]{teacher2.png}
 		\\
 		\item{Use case descriptions}
 		\begin{enumerate}
@@ -131,7 +141,6 @@
 					\end{itemize}
 				\item Special Requirements: Quick response (a few seconds) in the process of calculating and displaying the data.
 				\item Frequency: no concurrency, one user at a time.
-				\item Open Issues
 			\end{itemize}
 
 		
@@ -142,7 +151,7 @@
 				\item Primary Actor: Teachers
 				\item Stakeholders and Goals: Teachers who want to use the exercise maker so that they can evaluate the students
 				\item Preconditions: Have logged in as a teacher
-				\item Success Guarantee:
+				\item Success Guarantee: The exercise will be added to the course exercises.
 				\item Main Success Scenario:
 				\begin{itemize}
 					\item 1. Teacher selects "Add exercise".
@@ -157,7 +166,7 @@
 					\item 10. Teacher selects the penalty, if any, for each wrong answer.
 					\item 11. Teacher selects the value of the exercise in the final mark.
 					\item 11. For each question, teacher decides how many statements to show,writes them down and assigns a truth value to each statement.
-					\item 12. Teacher will fill a table writing down the points associated to each question.
+					\item 12. Also, adds a value to each question in the exercise.
 					\item 12. When all the info is filled in, teacher selects "Save exercise". 
 				\end{itemize}
 				\item{Extensions}
@@ -177,11 +186,9 @@
 						\item 7c. Teacher selects "open answer" exercise.
 						\item 11c. For each question, teacher writes down \textit{one question} and writes down \textit{one answer}.
 					\end{itemize}
-					
 				
 				\end{itemize}
-				\item Special Requirements:
-				\item Technology and Data Variations List:
+				\item Technology and Data Variations List: The new exercise is added to the database.
 				\item Frequency: No concurrency
 				\item Open Issues
 			\end{itemize}
@@ -205,9 +212,6 @@
 					\item 5. Student selects "Yes".
 					\item 6. Student selects "Exit application mode".
 					\item 7. A notification with the application is sent via e-mail to the teacher.
-					\item 8. The teacher accepts the student in the course.
-					\item 9. The student is added to the course students list, and he can now access de visible information of that course.
-					\item 10. The student gets an e-mail notification telling him he has been accepted in the course.
 				\end{itemize}
 				\item Extensions
 				\begin{itemize}
@@ -216,12 +220,6 @@
 						\item 5a. Student selects "No".
 						\item 6a. Student selects "Exit application mode".
 					\end{itemize}
-					\item Extension 2
-					\begin{itemize}
-						\item 8a. The teacher declines the student's application.
-						\item 9b. The student gets an e-mail notification telling him he has not been accepted in the course.
-					\end{itemize}
-					
 					
 				\end{itemize}
 				\item Technology and Data Variations List: If teacher accepts, the Courses Students List is modified.
@@ -230,7 +228,7 @@
 			\end{itemize}
 		\end{enumerate}
 	\end{enumerate}
-	\item{Mockups}
+	
 	
 
 \end{enumerate}
