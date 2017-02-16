@@ -59,12 +59,12 @@
 				Also, write and add  notes to each unit, subunit etc. This notes will be plain text.\\
 				\item Use an exercise maker to add exercises to units\\
 				This maker will set the unit where the exercise belongs, the two dates between which it is doable, the number of questions and the type of each of them (multiple choice/one choice/true-false/open answer), the order of the questions (which can be chosen to be random or a fixed order, also chosen by the teacher), the penalty for each wrong answer (if any), the value of the exercise for the final course mark (all of which don't have to sum 10, since they will be normalized), the text of the question, the points of each question, the correct answer and the possible answers in the multiple choice/one choice type of questions\\
-				Teacher can re-set up the whole exercise (excepting for the dates: only deadline can be changed and only if it is postponed), if no student has already done the exercise. (Students will get a notification whenever the exercise turns visible)\\
+				Teacher can re-set up the whole exercise (excepting for the dates: between which only the deadline can be changed and only if it is postponed), if no student has already done the exercise. (Students will get a notification whenever the exercise turns visible)\\
 				\item Make notes and exercises (and, optionally, courses) visible or invisible. This visibility may also be scheduled.\\
 				\item Access to all the information of a student, except for his log in data and student's emails. This means teachers have access to every mark of every student, in every exercise and every course, every answer he has given to every question in every exercise he has finished. He also will have access to the course average marks of every student.\\
 				\item Access courses list.\\
 				\item View statistics\\
-				Statistics per subject : all the normalized marks, average mark, number of fails and number of passes.\\
+				Statistics per subject : all the normalized marks, average mark, number of fails and number of students who have passed.\\
 				Statistics per exercise : marks, average mark for each exercise.\\
 				Statistics per question : not answered, answered, correct answers, wrong answers.\\
 				\item Expel students (and readmit them in the course), also access to a list of the expelled students\\
@@ -92,7 +92,7 @@
 			\item Third one is also for teacher use cases \\ \\
 		\end{itemize}
 	
-		\includegraphics[width=125mm]{Diagram_1.png}
+		\includegraphics[width=125mm]{Diagram_p1_student.png}
 		\includegraphics[width=125mm]{teacher1.png}
 		\includegraphics[width=125mm]{teacher2.png}
 		\\
@@ -110,7 +110,7 @@
 					\item 2. The following data are displayed:
 						\begin{itemize}
 							\item Average mark in the subject.
-							\item Number of passes in the subject.
+							\item Number of students who have passed in the subject.
 							\item Number of fails in the subject.
 							\item List of all the student's normalized marks in the subject.
 							\item List of exercises in the subject.
@@ -123,7 +123,7 @@
 						\item 3a. The following data is displayed:
 							\begin{itemize}
 								\item Average mark in the exercise.
-								\item Number of passes in the exercise.
+								\item Number of students who have passed the exercise.
 								\item Number of fails in the exercise.
 								\item Relevance of the exercise.
 								\item List of questions.
@@ -142,6 +142,7 @@
 				\item Special Requirements: Quick response (a few seconds) in the process of calculating and displaying the data.
 				\item Frequency: no concurrency, one user at a time.
 			\end{itemize}
+
 		
 		
 			\item{Use case: Teacher makes an exercise}
@@ -187,8 +188,7 @@
 					\end{itemize}
 				
 				\end{itemize}
-				\item Special Requirements:
-				\item Technology and Data Variations List:
+				\item Technology and Data Variations List: The new exercise is added to the database.
 				\item Frequency: No concurrency
 				\item Open Issues
 			\end{itemize}
@@ -228,7 +228,7 @@
 			\end{itemize}
 		\end{enumerate}
 	\end{enumerate}
-	\item{Mockups}
+	
 	
 
 \end{enumerate}
