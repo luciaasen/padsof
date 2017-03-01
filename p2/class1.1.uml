@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Wed Mar 01 12:16:58 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Wed Mar 01 12:21:12 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -363,12 +363,6 @@
                   </UML:Parameter.type>
                 </UML:Parameter>
                 <UML:Parameter xmi.id = '127-0-1-1-369c01a0:15a89821dc4:-8000:0000000000000B1A'
-                  name = 'app' isSpecification = 'false' kind = 'in'>
-                  <UML:Parameter.type>
-                    <UML:Class xmi.idref = '127-0-1-1--1a474392:15a6c2da1cd:-8000:000000000000087E'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-                <UML:Parameter xmi.id = '127-0-1-1-369c01a0:15a89821dc4:-8000:0000000000000B1B'
                   name = 'accepted' isSpecification = 'false' kind = 'in'>
                   <UML:Parameter.type>
                     <UML:Class xmi.idref = '127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009A9'/>
@@ -2286,7 +2280,7 @@
               </UML:AssociationEnd.participant>
             </UML:AssociationEnd>
             <UML:AssociationEnd xmi.id = '127-0-1-1--16f66c46:15a7c7761bc:-8000:0000000000000ABA'
-              name = 'students' visibility = 'private' isSpecification = 'false' isNavigable = 'true'
+              name = 'users' visibility = 'private' isSpecification = 'false' isNavigable = 'true'
               ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>
               <UML:AssociationEnd.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-1-1--16f66c46:15a7c7761bc:-8000:0000000000000AC0'>
@@ -3688,7 +3682,7 @@
     </path>
   </group>
   <group name="Fig9"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[120, 680, 343, 96]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[88, 680, 225, 88]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="127-0-1-1--1a474392:15a6c2da1cd:-8000:000000000000087E"
        fill="1"
        fillcolor="white"
@@ -3699,19 +3693,19 @@
     </private>
     
     <rectangle name="Fig9.0"
-      x="120"
+      x="88"
       y="680"
-      width="343"
-      height="96"
+      width="225"
+      height="88"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
     <text name="Fig9.1"
-      x="121"
+      x="89"
       y="681"
-      width="341"
+      width="223"
       height="22"
       fill="0"
       fillcolor="white"
@@ -3725,7 +3719,7 @@
       justification="Center"
     >+ Application</text>
     <group name="Fig9.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[121, 681, 121, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[89, 681, 341, 0]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:000000000000087E"
          fill="0"
          fillcolor="white"
@@ -3737,9 +3731,9 @@
       </private>
       
       <rectangle name="Fig9.2.0"
-        x="121"
+        x="89"
         y="681"
-        width="121"
+        width="341"
         height="0"
         fill="0"
         fillcolor="white"
@@ -3748,9 +3742,9 @@
       />
     </group>
     <rectangle name="Fig9.3"
-      x="120"
+      x="88"
       y="703"
-      width="343"
+      width="225"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3758,7 +3752,7 @@
       strokecolor="black"
     />
     <group name="Fig9.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[121, 704, 341, 35]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[89, 704, 223, 31]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:000000000000087E"
          fill="0"
          fillcolor="white"
@@ -3769,19 +3763,19 @@
       </private>
       
       <rectangle name="Fig9.4.0"
-        x="121"
+        x="89"
         y="704"
-        width="341"
-        height="35"
+        width="223"
+        height="31"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
       <text name="Fig9.4.1"
-        x="121"
+        x="89"
         y="704"
-        width="341"
+        width="223"
         height="22"
         fill="0"
         fillcolor="white"
@@ -3796,9 +3790,9 @@
       >-answer : Bool</text>
     </group>
     <rectangle name="Fig9.5"
-      x="120"
-      y="739"
-      width="343"
+      x="88"
+      y="735"
+      width="225"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3806,7 +3800,7 @@
       strokecolor="black"
     />
     <group name="Fig9.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[121, 740, 341, 35]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[89, 736, 223, 31]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:000000000000087E"
          fill="0"
          fillcolor="white"
@@ -3817,19 +3811,19 @@
       </private>
       
       <rectangle name="Fig9.6.0"
-        x="121"
-        y="740"
-        width="341"
-        height="35"
+        x="89"
+        y="736"
+        width="223"
+        height="31"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
       <text name="Fig9.6.1"
-        x="121"
-        y="740"
-        width="341"
+        x="89"
+        y="736"
+        width="223"
         height="22"
         fill="0"
         fillcolor="white"
@@ -3841,7 +3835,7 @@
         bold="false"
         textsize="12"
         justification="Left"
-      >+appAnswer(app : Application,accepted : Bool) : Bool</text>
+      >+appAnswer(accepted : Bool) : Bool</text>
     </group>
   </group>
   <group name="Fig10"
@@ -4007,7 +4001,7 @@
       justification="Center"
     >+ Course</text>
     <group name="Fig11.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[353, 665, 217, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[353, 665, 246, 0]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000880"
          fill="0"
          fillcolor="white"
@@ -4021,7 +4015,7 @@
       <rectangle name="Fig11.2.0"
         x="353"
         y="665"
-        width="217"
+        width="246"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4449,7 +4443,7 @@
       justification="Center"
     >+ Exercise</text>
     <group name="Fig13.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[889, 641, 250, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[889, 641, 272, 0]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000882"
          fill="0"
          fillcolor="white"
@@ -4463,7 +4457,7 @@
       <rectangle name="Fig13.2.0"
         x="889"
         y="641"
-        width="250"
+        width="272"
         height="0"
         fill="0"
         fillcolor="white"
@@ -7754,9 +7748,9 @@
       strokecolor="black"
     >
       <moveto x="352"
-              y="775" />
-      <lineto x="352"
-              y="775" />
+              y="751" />
+      <lineto x="312"
+              y="751" />
     </path>
   </group>
   <group name="Fig50"
@@ -8897,7 +8891,7 @@ subunit are exclusive.</text>
       <moveto x="200"
               y="888" />
       <lineto x="200"
-              y="775" />
+              y="767" />
     </path>
   </group>
   <group name="Fig67"
@@ -8945,7 +8939,7 @@ subunit are exclusive.</text>
                         offset="5" />
     </private>
     <path name="Fig67.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9006,7 +9000,7 @@ subunit are exclusive.</text>
                         offset="5" />
     </private>
     <path name="Fig68.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9065,7 +9059,7 @@ subunit are exclusive.</text>
                         offset="29" />
     </private>
     <path name="Fig69.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9124,7 +9118,7 @@ subunit are exclusive.</text>
                         offset="21" />
     </private>
     <path name="Fig70.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9185,7 +9179,7 @@ subunit are exclusive.</text>
                         offset="5" />
     </private>
     <path name="Fig71.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9246,7 +9240,7 @@ subunit are exclusive.</text>
                         offset="14" />
     </private>
     <path name="Fig72.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
