@@ -82,7 +82,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Feb 27 00:51:41 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Thu Mar 02 16:52:50 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -1837,12 +1837,10 @@
                   isSpecification = 'false' isDynamic = 'false'>
                   <UML:StateVertex.outgoing>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA2'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAC'/>
                   </UML:StateVertex.outgoing>
                   <UML:StateVertex.incoming>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA4'/>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAE'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB1'/>
                   </UML:StateVertex.incoming>
                   <UML:State.entry>
                     <UML:UninterpretedAction xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A93'
@@ -1859,14 +1857,9 @@
                   <UML:StateVertex.outgoing>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA1'/>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAE'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB1'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB4'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB6'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB8'/>
                   </UML:StateVertex.outgoing>
                   <UML:StateVertex.incoming>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA2'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAC'/>
                   </UML:StateVertex.incoming>
                   <UML:State.entry>
                     <UML:UninterpretedAction xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A96'
@@ -1882,15 +1875,10 @@
                   isSpecification = 'false' isDynamic = 'false'>
                   <UML:StateVertex.outgoing>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA0'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABE'/>
                   </UML:StateVertex.outgoing>
                   <UML:StateVertex.incoming>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA1'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB4'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB6'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB8'/>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC0'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC2'/>
                   </UML:StateVertex.incoming>
                   <UML:State.entry>
                     <UML:UninterpretedAction xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A99'
@@ -1906,11 +1894,9 @@
                   isSpecification = 'false' isDynamic = 'false'>
                   <UML:StateVertex.outgoing>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC0'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC2'/>
                   </UML:StateVertex.outgoing>
                   <UML:StateVertex.incoming>
                     <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA0'/>
-                    <UML:Transition xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABE'/>
                   </UML:StateVertex.incoming>
                   <UML:State.entry>
                     <UML:UninterpretedAction xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A9E'
@@ -1950,7 +1936,7 @@
             <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA0'
               isSpecification = 'false'>
               <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABD'/>
+                <UML:CallEvent xmi.idref = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABD'/>
               </UML:Transition.trigger>
               <UML:Transition.source>
                 <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A98'/>
@@ -1962,7 +1948,7 @@
             <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA1'
               isSpecification = 'false'>
               <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB3'/>
+                <UML:CallEvent xmi.idref = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABC'/>
               </UML:Transition.trigger>
               <UML:Transition.source>
                 <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A95'/>
@@ -1974,7 +1960,7 @@
             <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA2'
               name = '' isSpecification = 'false'>
               <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAB'/>
+                <UML:CallEvent xmi.idref = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABA'/>
               </UML:Transition.trigger>
               <UML:Transition.source>
                 <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A92'/>
@@ -2001,76 +1987,16 @@
                 <UML:FinalState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA5'/>
               </UML:Transition.target>
             </UML:Transition>
-            <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAC'
-              isSpecification = 'false'>
-              <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAD'/>
-              </UML:Transition.trigger>
-              <UML:Transition.source>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A92'/>
-              </UML:Transition.source>
-              <UML:Transition.target>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A95'/>
-              </UML:Transition.target>
-            </UML:Transition>
             <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAE'
               isSpecification = 'false'>
               <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAF'/>
+                <UML:CallEvent xmi.idref = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABB'/>
               </UML:Transition.trigger>
               <UML:Transition.source>
                 <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A95'/>
               </UML:Transition.source>
               <UML:Transition.target>
                 <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A92'/>
-              </UML:Transition.target>
-            </UML:Transition>
-            <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB1'
-              isSpecification = 'false'>
-              <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB2'/>
-              </UML:Transition.trigger>
-              <UML:Transition.source>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A95'/>
-              </UML:Transition.source>
-              <UML:Transition.target>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A92'/>
-              </UML:Transition.target>
-            </UML:Transition>
-            <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB4'
-              isSpecification = 'false'>
-              <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB5'/>
-              </UML:Transition.trigger>
-              <UML:Transition.source>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A95'/>
-              </UML:Transition.source>
-              <UML:Transition.target>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A98'/>
-              </UML:Transition.target>
-            </UML:Transition>
-            <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB6'
-              isSpecification = 'false'>
-              <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB7'/>
-              </UML:Transition.trigger>
-              <UML:Transition.source>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A95'/>
-              </UML:Transition.source>
-              <UML:Transition.target>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A98'/>
-              </UML:Transition.target>
-            </UML:Transition>
-            <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB8'
-              isSpecification = 'false'>
-              <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB9'/>
-              </UML:Transition.trigger>
-              <UML:Transition.source>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A95'/>
-              </UML:Transition.source>
-              <UML:Transition.target>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A98'/>
               </UML:Transition.target>
             </UML:Transition>
             <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABC'
@@ -2082,34 +2008,10 @@
                 <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AA8'/>
               </UML:Transition.target>
             </UML:Transition>
-            <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABE'
-              isSpecification = 'false'>
-              <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABF'/>
-              </UML:Transition.trigger>
-              <UML:Transition.source>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A98'/>
-              </UML:Transition.source>
-              <UML:Transition.target>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A9B'/>
-              </UML:Transition.target>
-            </UML:Transition>
             <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC0'
               isSpecification = 'false'>
               <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC1'/>
-              </UML:Transition.trigger>
-              <UML:Transition.source>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A9B'/>
-              </UML:Transition.source>
-              <UML:Transition.target>
-                <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A98'/>
-              </UML:Transition.target>
-            </UML:Transition>
-            <UML:Transition xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC2'
-              isSpecification = 'false'>
-              <UML:Transition.trigger>
-                <UML:SignalEvent xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC3'/>
+                <UML:CallEvent xmi.idref = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABF'/>
               </UML:Transition.trigger>
               <UML:Transition.source>
                 <UML:ActionState xmi.idref = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000A9B'/>
@@ -2120,30 +2022,48 @@
             </UML:Transition>
           </UML:StateMachine.transitions>
         </UML:ActivityGraph>
-        <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAB'
-          name = 'Student applies' isSpecification = 'false'/>
         <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAD'
           name = 'new Application' isSpecification = 'false'/>
-        <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAF'
-          name = 'Student is rejected' isSpecification = 'false'/>
         <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB2'
           name = 'remove application' isSpecification = 'false'/>
-        <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB3'
-          name = 'Student is accepted' isSpecification = 'false'/>
         <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB5'
           name = 'Remove appplication' isSpecification = 'false'/>
         <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB7'
           name = 'Update student list of the course' isSpecification = 'false'/>
         <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB9'
           name = 'Update the student&apos;s course list' isSpecification = 'false'/>
-        <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABD'
-          name = 'Student is expelled from course' isSpecification = 'false'/>
         <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABF'
           name = 'Course&apos;s expelled list is updated' isSpecification = 'false'/>
-        <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC1'
-          name = 'Student is reaccepted' isSpecification = 'false'/>
         <UML:SignalEvent xmi.id = '127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC3'
           name = 'Course&apos;s expelled listis updated' isSpecification = 'false'/>
+        <UML:CallEvent xmi.id = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABA'
+          name = 'addApplication' isSpecification = 'false'/>
+        <UML:CallEvent xmi.id = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABB'
+          name = 'reject' isSpecification = 'false'/>
+        <UML:CallEvent xmi.id = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABC'
+          name = 'accept' isSpecification = 'false'/>
+        <UML:CallEvent xmi.id = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABD'
+          name = 'expel' isSpecification = 'false'>
+          <UML:Event.parameter>
+            <UML:Parameter xmi.id = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABE'
+              name = 's' isSpecification = 'false' kind = 'in'>
+              <UML:Parameter.type>
+                <UML:Class xmi.idref = '127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000873'/>
+              </UML:Parameter.type>
+            </UML:Parameter>
+          </UML:Event.parameter>
+        </UML:CallEvent>
+        <UML:CallEvent xmi.id = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000ABF'
+          name = 'reaccept' isSpecification = 'false'>
+          <UML:Event.parameter>
+            <UML:Parameter xmi.id = '127-0-1-1-6af7265:15a8fb6ca8c:-8000:0000000000000AC0'
+              name = 's' isSpecification = 'false' kind = 'in'>
+              <UML:Parameter.type>
+                <UML:Class xmi.idref = '127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000873'/>
+              </UML:Parameter.type>
+            </UML:Parameter>
+          </UML:Event.parameter>
+        </UML:CallEvent>
       </UML:Namespace.ownedElement>
     </UML:Model>
   </XMI.content>
@@ -7933,7 +7853,7 @@
                         offset="62" />
     </private>
     <path name="Fig6.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -7964,7 +7884,7 @@
                         offset="10" />
     </private>
     <path name="Fig7.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -7995,7 +7915,7 @@
                         offset="11" />
     </private>
     <path name="Fig8.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -8058,7 +7978,7 @@
                         offset="10" />
     </private>
     <path name="Fig10.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -8131,7 +8051,7 @@
                         offset="10" />
     </private>
     <path name="Fig12.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -8145,37 +8065,6 @@
   </group>
   <group name="Fig13"
        description="org.argouml.uml.diagram.state.ui.FigTransition"
-       href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAC"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig2.0"
-      destPortFig="Fig3.0"
-      sourceFigNode="Fig2"
-      destFigNode="Fig3"
-      <argouml:pathitem figname="Fig13.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
-                        ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAC"
-                        angle="92.99999999999999"
-                        offset="15" />
-    </private>
-    <path name="Fig13.0"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="157"
-              y="137" />
-      <lineto x="289"
-              y="137" />
-    </path>
-  </group>
-  <group name="Fig14"
-       description="org.argouml.uml.diagram.state.ui.FigTransition"
        href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAE"
        stroke="1"
        strokecolor="black"
@@ -8185,15 +8074,15 @@
       destPortFig="Fig2"
       sourceFigNode="Fig3"
       destFigNode="Fig2"
-      <argouml:pathitem figname="Fig14.1"
+      <argouml:pathitem figname="Fig13.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
                         ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AAE"
                         angle="-40.0"
                         offset="18" />
     </private>
-    <path name="Fig14.0"
-      description="org.tigris.gef.presentation.FigPoly"
+    <path name="Fig13.0"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -8209,135 +8098,7 @@
               y="170" />
     </path>
   </group>
-  <group name="Fig15"
-       description="org.argouml.uml.diagram.state.ui.FigTransition"
-       href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB1"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig3.0"
-      destPortFig="Fig2.0"
-      sourceFigNode="Fig3"
-      destFigNode="Fig2"
-      <argouml:pathitem figname="Fig15.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
-                        ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB1"
-                        angle="55.0"
-                        offset="19" />
-    </private>
-    <path name="Fig15.0"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="312"
-              y="153" />
-      <lineto x="312"
-              y="200" />
-      <lineto x="112"
-              y="200" />
-      <lineto x="112"
-              y="169" />
-    </path>
-  </group>
-  <group name="Fig16"
-       description="org.argouml.uml.diagram.state.ui.FigTransition"
-       href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB4"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig3.0"
-      destPortFig="Fig4.0"
-      sourceFigNode="Fig3"
-      destFigNode="Fig4"
-      <argouml:pathitem figname="Fig16.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
-                        ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB4"
-                        angle="77.00000000000001"
-                        offset="13" />
-    </private>
-    <path name="Fig16.0"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="374"
-              y="121" />
-      <lineto x="561"
-              y="121" />
-    </path>
-  </group>
-  <group name="Fig17"
-       description="org.argouml.uml.diagram.state.ui.FigTransition"
-       href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB6"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig3.0"
-      destPortFig="Fig4.0"
-      sourceFigNode="Fig3"
-      destFigNode="Fig4"
-      <argouml:pathitem figname="Fig17.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
-                        ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB6"
-                        angle="81.0"
-                        offset="33" />
-    </private>
-    <path name="Fig17.0"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="374"
-              y="121" />
-      <lineto x="561"
-              y="121" />
-    </path>
-  </group>
-  <group name="Fig18"
-       description="org.argouml.uml.diagram.state.ui.FigTransition"
-       href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB8"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig3.0"
-      destPortFig="Fig4.0"
-      sourceFigNode="Fig3"
-      destFigNode="Fig4"
-      <argouml:pathitem figname="Fig18.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
-                        ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AB8"
-                        angle="96.0"
-                        offset="49" />
-    </private>
-    <path name="Fig18.0"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="374"
-              y="121" />
-      <lineto x="561"
-              y="121" />
-    </path>
-  </group>
-  <group name="Fig19"
+  <group name="Fig14"
        description="org.argouml.uml.diagram.state.ui.FigTransition"
        href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABC"
        stroke="1"
@@ -8348,15 +8109,15 @@
       destPortFig="Fig0.0"
       sourceFigNode="Fig1"
       destFigNode="Fig0"
-      <argouml:pathitem figname="Fig19.1"
+      <argouml:pathitem figname="Fig14.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
                         ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABC"
                         angle="270.0"
                         offset="10" />
     </private>
-    <path name="Fig19.0"
-      description="org.tigris.gef.presentation.FigPoly"
+    <path name="Fig14.0"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -8368,38 +8129,7 @@
               y="136" />
     </path>
   </group>
-  <group name="Fig20"
-       description="org.argouml.uml.diagram.state.ui.FigTransition"
-       href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABE"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig4.0"
-      destPortFig="Fig5.0"
-      sourceFigNode="Fig4"
-      destFigNode="Fig5"
-      <argouml:pathitem figname="Fig20.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
-                        ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000ABE"
-                        angle="68.99999999999999"
-                        offset="90" />
-    </private>
-    <path name="Fig20.0"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="584"
-              y="145" />
-      <lineto x="584"
-              y="297" />
-    </path>
-  </group>
-  <group name="Fig21"
+  <group name="Fig15"
        description="org.argouml.uml.diagram.state.ui.FigTransition"
        href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC0"
        stroke="1"
@@ -8410,46 +8140,15 @@
       destPortFig="Fig4.0"
       sourceFigNode="Fig5"
       destFigNode="Fig4"
-      <argouml:pathitem figname="Fig21.1"
+      <argouml:pathitem figname="Fig15.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
                         ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC0"
                         angle="64.0"
                         offset="83" />
     </private>
-    <path name="Fig21.0"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="624"
-              y="297" />
-      <lineto x="624"
-              y="145" />
-    </path>
-  </group>
-  <group name="Fig22"
-       description="org.argouml.uml.diagram.state.ui.FigTransition"
-       href="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC2"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig5.0"
-      destPortFig="Fig4.0"
-      sourceFigNode="Fig5"
-      destFigNode="Fig4"
-      <argouml:pathitem figname="Fig22.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
-                        ownerhref="127-0-1-1--5143380b:15a7c7089df:-8000:0000000000000AC2"
-                        angle="80.0"
-                        offset="83" />
-    </private>
-    <path name="Fig22.0"
-      description="org.tigris.gef.presentation.FigPoly"
+    <path name="Fig15.0"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
