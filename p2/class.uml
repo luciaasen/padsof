@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Mar 03 01:43:22 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Mar 03 01:53:13 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -2538,7 +2538,7 @@
           isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
         <UML:Class xmi.id = '127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B11'
           name = 'VisibleElement' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'true' isActive = 'false'>
           <UML:GeneralizableElement.generalization>
             <UML:Generalization xmi.idref = '127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B18'/>
             <UML:Generalization xmi.idref = '127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B1E'/>
@@ -4040,7 +4040,7 @@
       justification="Center"
     >+ Course</text>
     <group name="Fig11.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[353, 665, 217, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[353, 665, 246, 0]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000880"
          fill="0"
          fillcolor="white"
@@ -4054,7 +4054,7 @@
       <rectangle name="Fig11.2.0"
         x="353"
         y="665"
-        width="217"
+        width="246"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4498,7 +4498,7 @@
       justification="Center"
     >+ Exercise</text>
     <group name="Fig13.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[889, 641, 250, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[889, 641, 254, 0]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000882"
          fill="0"
          fillcolor="white"
@@ -4512,7 +4512,7 @@
       <rectangle name="Fig13.2.0"
         x="889"
         y="641"
-        width="250"
+        width="254"
         height="0"
         fill="0"
         fillcolor="white"
@@ -8859,13 +8859,13 @@ subunit are exclusive.</text>
       strokecolor="black"
       textcolor="black"
       font="Dialog"
-      italic="false"
+      italic="true"
       bold="false"
       textsize="12"
       justification="Center"
     >+ VisibleElement</text>
     <group name="Fig65.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[649, 1121, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[649, 1121, 165, 0]"
          href="127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B11"
          fill="0"
          fillcolor="white"
@@ -8879,7 +8879,7 @@ subunit are exclusive.</text>
       <rectangle name="Fig65.2.0"
         x="649"
         y="1121"
-        width="64"
+        width="165"
         height="0"
         fill="0"
         fillcolor="white"
@@ -9029,7 +9029,7 @@ subunit are exclusive.</text>
                         offset="40" />
     </private>
     <path name="Fig66.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9086,7 +9086,7 @@ subunit are exclusive.</text>
                         offset="5" />
     </private>
     <path name="Fig67.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9119,7 +9119,7 @@ subunit are exclusive.</text>
                         offset="-10" />
     </private>
     <path name="Fig68.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9152,7 +9152,7 @@ subunit are exclusive.</text>
                         offset="-10" />
     </private>
     <path name="Fig69.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9187,7 +9187,7 @@ subunit are exclusive.</text>
                         offset="-10" />
     </private>
     <path name="Fig70.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9201,8 +9201,6 @@ subunit are exclusive.</text>
               y="872" />
       <lineto x="616"
               y="872" />
-      <lineto x="616"
-              y="792" />
       <lineto x="616"
               y="784" />
       <lineto x="624"
@@ -9228,7 +9226,7 @@ subunit are exclusive.</text>
                         offset="-10" />
     </private>
     <path name="Fig71.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
