@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Mar 06 23:59:57 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Tue Mar 07 00:02:03 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -3547,7 +3547,7 @@
     </group>
   </group>
   <group name="Fig7"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1248, 624, 221, 152]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1248, 624, 221, 168]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000883"
        fill="1"
        fillcolor="white"
@@ -3561,7 +3561,7 @@
       x="1248"
       y="624"
       width="221"
-      height="152"
+      height="168"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -3617,7 +3617,7 @@
       strokecolor="black"
     />
     <group name="Fig7.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1249, 648, 219, 40]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1249, 648, 219, 47]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000883"
          fill="0"
          fillcolor="white"
@@ -3631,7 +3631,7 @@
         x="1249"
         y="648"
         width="219"
-        height="40"
+        height="47"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3672,7 +3672,7 @@
     </group>
     <rectangle name="Fig7.5"
       x="1248"
-      y="687"
+      y="695"
       width="221"
       height="1"
       fill="1"
@@ -3681,7 +3681,7 @@
       strokecolor="black"
     />
     <group name="Fig7.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1249, 688, 219, 88]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1249, 696, 219, 95]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000883"
          fill="0"
          fillcolor="white"
@@ -3693,9 +3693,9 @@
       
       <rectangle name="Fig7.6.0"
         x="1249"
-        y="688"
+        y="696"
         width="219"
-        height="88"
+        height="95"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3703,7 +3703,7 @@
       />
       <text name="Fig7.6.1"
         x="1249"
-        y="688"
+        y="696"
         width="219"
         height="16"
         fill="0"
@@ -3719,7 +3719,7 @@
       >+calcNPasses() : Int</text>
       <text name="Fig7.6.2"
         x="1249"
-        y="704"
+        y="712"
         width="219"
         height="16"
         fill="0"
@@ -3735,7 +3735,7 @@
       >+calcNFails() : Int</text>
       <text name="Fig7.6.3"
         x="1249"
-        y="720"
+        y="728"
         width="219"
         height="16"
         fill="0"
@@ -3751,7 +3751,7 @@
       >+calcNAnswered() : Int</text>
       <text name="Fig7.6.4"
         x="1249"
-        y="736"
+        y="744"
         width="219"
         height="16"
         fill="0"
@@ -3767,7 +3767,7 @@
       >+calcNUnanswered() : Int</text>
       <text name="Fig7.6.5"
         x="1249"
-        y="752"
+        y="760"
         width="219"
         height="22"
         fill="0"
