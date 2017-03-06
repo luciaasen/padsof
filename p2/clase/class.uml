@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Mar 04 13:44:07 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon Mar 06 21:57:10 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -7258,12 +7258,6 @@
                         ownerhref="127-0-1-1-5a60577f:15a79de2794:-8000:0000000000000A67"
                         angle="91.0"
                         offset="29" />
-      <argouml:pathitem figname="Fig42.6"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigEdgePort"
-                        ownerhref="127-0-1-1-5a60577f:15a79de2794:-8000:0000000000000A65"
-                        angle="270.0"
-                        offset="0" />
     </private>
     <path name="Fig42.0"
       description="org.argouml.gefext.ArgoFigPoly"
@@ -8959,7 +8953,7 @@ subunit are exclusive.</text>
                         offset="5" />
     </private>
     <path name="Fig67.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9016,7 +9010,7 @@ subunit are exclusive.</text>
                         offset="17" />
     </private>
     <path name="Fig68.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9047,7 +9041,7 @@ subunit are exclusive.</text>
                         offset="-10" />
     </private>
     <path name="Fig69.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9080,7 +9074,7 @@ subunit are exclusive.</text>
                         offset="-10" />
     </private>
     <path name="Fig70.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9117,7 +9111,7 @@ subunit are exclusive.</text>
                         offset="-10" />
     </private>
     <path name="Fig71.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -9152,7 +9146,7 @@ subunit are exclusive.</text>
                         offset="56" />
     </private>
     <path name="Fig72.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
