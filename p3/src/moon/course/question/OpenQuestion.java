@@ -1,5 +1,5 @@
 package Question;
 
-public class OpenQuestion {
-
+class OpenQuestion {
+	private String answer;
 }
