@@ -1,4 +1,4 @@
-package moon;
+package moon.user;
 
 
 
@@ -7,6 +7,14 @@ public abstract class User {
 	private String name;
 	private String email;
 	private String password;
+	
+	public User(String name, String pwd, String email){
+		this.name=name;
+		password=pwd;
+		this.email=email;
+	}
+	
+	public abstract boolean isTeacher();
 	
 	public String getName() {
 		return name;
