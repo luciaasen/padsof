@@ -1,5 +1,5 @@
-package Question;
+package moon.course.question;
 
-class OpenQuestion {
+public class OpenQuestion {
 	private String answer;
 }

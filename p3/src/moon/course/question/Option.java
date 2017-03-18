@@ -1,5 +1,5 @@
 package moon.course.question;
 
-class Option {
+public class Option {
 	private String option;
 }

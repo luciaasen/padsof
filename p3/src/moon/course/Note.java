@@ -1,5 +1,5 @@
 package moon.course;
 
-public class Note extends CourseElement{
-
+class Note extends CourseElement{
+	private String file;
 }

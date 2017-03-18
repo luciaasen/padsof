@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Mar 18 12:27:25 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Mar 18 13:24:17 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -649,7 +649,7 @@
                 </UML:Multiplicity>
               </UML:StructuralFeature.multiplicity>
               <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009D9'/>
+                <UML:Class xmi.idref = '127-0-1-1--4533475d:15ae0fd7751:-8000:000000000000218D'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
             <UML:Attribute xmi.id = '127-0-1-1-5a60577f:15a79de2794:-8000:0000000000000A1E'
@@ -679,7 +679,7 @@
                 </UML:Multiplicity>
               </UML:StructuralFeature.multiplicity>
               <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009D9'/>
+                <UML:Class xmi.idref = '127-0-1-1--4533475d:15ae0fd7751:-8000:000000000000218D'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
             <UML:Operation xmi.id = '127-0-1-1-2ab06183:15a7adafa3f:-8000:0000000000000A8A'
@@ -878,7 +878,7 @@
                 </UML:Multiplicity>
               </UML:StructuralFeature.multiplicity>
               <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009D9'/>
+                <UML:Class xmi.idref = '127-0-1-1--4533475d:15ae0fd7751:-8000:000000000000218D'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
             <UML:Operation xmi.id = '127-0-1-1-2ab06183:15a7adafa3f:-8000:0000000000000A92'
@@ -2340,6 +2340,9 @@
         </UML:Association>
         <UML:Comment xmi.id = '127-0-1-1--4533475d:15ae0fd7751:-8000:00000000000016E8'
           isSpecification = 'false' body = 'NOTE: &#10;In exercise, visibFrom and&#10;visibTo are equivalent to&#10; ACTIVE DAYS. Visibility is&#10;handled through methods'/>
+        <UML:Class xmi.id = '127-0-1-1--4533475d:15ae0fd7751:-8000:000000000000218D'
+          name = 'double' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+          isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
       </UML:Namespace.ownedElement>
     </UML:Model>
   </XMI.content>
@@ -3135,7 +3138,7 @@
         bold="false"
         textsize="12"
         justification="Left"
-      >-relevance : float</text>
+      >-relevance : double</text>
       <text name="Fig6.4.3"
         x="921"
         y="632"
@@ -3167,7 +3170,7 @@
         bold="false"
         textsize="12"
         justification="Left"
-      >-penalty : float</text>
+      >-penalty : double</text>
       <text name="Fig6.4.5"
         x="921"
         y="664"
@@ -3500,7 +3503,7 @@
         bold="false"
         textsize="12"
         justification="Left"
-      >-relevance : float</text>
+      >-relevance : double</text>
     </group>
     <rectangle name="Fig7.5"
       x="1248"

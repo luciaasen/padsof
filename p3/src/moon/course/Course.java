@@ -1,5 +1,8 @@
 package moon.course;
 
-public class Course {
+import java.util.ArrayList;
 
+public class Course {
+	private ArrayList<Unit> units;
+	private String name;
 }
