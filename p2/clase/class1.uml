@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Tue Mar 07 00:00:28 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Mar 18 12:24:06 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -390,9 +390,6 @@
         <UML:Class xmi.id = '127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000880'
           name = 'Course' visibility = 'public' isSpecification = 'false' isRoot = 'false'
           isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '127-0-1-1-74cb4e59:15a992a2549:-8000:0000000000000B1D'/>
-          </UML:GeneralizableElement.generalization>
           <UML:Classifier.feature>
             <UML:Attribute xmi.id = '127-0-1-1-5a60577f:15a79de2794:-8000:0000000000000A72'
               name = 'name' visibility = 'private' isSpecification = 'false' ownerScope = 'instance'
@@ -2438,8 +2435,8 @@
           name = 'Note' visibility = 'public' isSpecification = 'false' isRoot = 'false'
           isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
         <UML:Class xmi.id = '127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B11'
-          name = 'VisibleElement' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'true' isActive = 'false'>
+          name = 'CourseElement' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+          isLeaf = 'false' isAbstract = 'true' isActive = 'false'>
           <UML:Classifier.feature>
             <UML:Operation xmi.id = '127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B19'
               name = 'isVisible' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
@@ -2513,15 +2510,6 @@
             </UML:AssociationEnd>
           </UML:Association.connection>
         </UML:Association>
-        <UML:Generalization xmi.id = '127-0-1-1-74cb4e59:15a992a2549:-8000:0000000000000B1D'
-          isSpecification = 'false'>
-          <UML:Generalization.child>
-            <UML:Class xmi.idref = '127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000880'/>
-          </UML:Generalization.child>
-          <UML:Generalization.parent>
-            <UML:Class xmi.idref = '127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B11'/>
-          </UML:Generalization.parent>
-        </UML:Generalization>
         <UML:Generalization xmi.id = '127-0-1-1-74cb4e59:15a992a2549:-8000:0000000000000B1E'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -5356,7 +5344,7 @@
       bold="false"
       textsize="12"
       justification="Center"
-    >+ VisibleElement</text>
+    >+ CourseElement</text>
     <group name="Fig27.2"
          description="org.argouml.uml.diagram.ui.FigStereotypesGroup[633, 945, 165, 0]"
          href="127-0-1-1--637f9cc5:15a91916a3d:-8000:0000000000000B11"
@@ -5595,39 +5583,6 @@
   </group>
   <group name="Fig30"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
-       href="127-0-1-1-74cb4e59:15a992a2549:-8000:0000000000000B1D"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-      sourcePortFig="Fig8.0"
-      destPortFig="Fig27"
-      sourceFigNode="Fig8"
-      destFigNode="Fig27"
-      <argouml:pathitem figname="Fig30.1"
-                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
-                        figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
-                        ownerhref="127-0-1-1-74cb4e59:15a992a2549:-8000:0000000000000B1D"
-                        angle="270.0"
-                        offset="-10" />
-    </private>
-    <path name="Fig30.0"
-      description="org.argouml.gefext.ArgoFigPoly"
-      fill="0"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="544"
-              y="847" />
-      <lineto x="544"
-              y="1024" />
-      <lineto x="632"
-              y="1024" />
-    </path>
-  </group>
-  <group name="Fig31"
-       description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="127-0-1-1-74cb4e59:15a992a2549:-8000:0000000000000B1E"
        stroke="1"
        strokecolor="black"
@@ -5637,14 +5592,14 @@
       destPortFig="Fig27"
       sourceFigNode="Fig9"
       destFigNode="Fig27"
-      <argouml:pathitem figname="Fig31.1"
+      <argouml:pathitem figname="Fig30.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="127-0-1-1-74cb4e59:15a992a2549:-8000:0000000000000B1E"
                         angle="-101.0"
                         offset="29" />
     </private>
-    <path name="Fig31.0"
+    <path name="Fig30.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
@@ -5654,12 +5609,10 @@
       <moveto x="664"
               y="776" />
       <lineto x="664"
-              y="920" />
-      <lineto x="664"
               y="944" />
     </path>
   </group>
-  <group name="Fig32"
+  <group name="Fig31"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="127-0-1-1--4777cabb:15aa4d61260:-8000:0000000000000B05"
        stroke="1"
@@ -5670,14 +5623,14 @@
       destPortFig="Fig2"
       sourceFigNode="Fig4"
       destFigNode="Fig2"
-      <argouml:pathitem figname="Fig32.1"
+      <argouml:pathitem figname="Fig31.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="127-0-1-1--4777cabb:15aa4d61260:-8000:0000000000000B05"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig32.0"
+    <path name="Fig31.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
