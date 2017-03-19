@@ -79,10 +79,8 @@ abstract public class Question {
 	}
 		
 	/**
-	 * Returns the correct answer to the questipn
+	 * Returns the correct answer to the question
 	 * @return 
 	 */
-	public Object getAnswer(){
-		return null;
-	}
+	public abstract Object getAnswer();
 }

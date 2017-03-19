@@ -18,4 +18,12 @@ public abstract class Mark {
 	public void setMark(double mark){
 		this.mark = mark;
 	}
+	
+	/**
+	 * Mark getter
+	 * @return double
+	 */
+	public double getMark(){
+		return this.mark;
+	}
 }

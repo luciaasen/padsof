@@ -4,7 +4,7 @@ import moon.course.*;
 import moon.user.*;
 import java.util.ArrayList;
 
-public class MCourse {
+public class MCourse extends Mark{
 	private Course course;
 	private Student student;
 	private ArrayList<MExercise> mExes;

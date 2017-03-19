@@ -15,7 +15,5 @@ public abstract class MQuestion extends Mark{
 		this.question = question;
 	}
 	
-	public Boolean isCorrect(){
-		return false;
-	}
+	public abstract Boolean isCorrect();
 }
