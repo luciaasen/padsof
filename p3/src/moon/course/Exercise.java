@@ -9,6 +9,7 @@ class Exercise extends CourseElement{
 	private double relevance;
 	private double penalty;
 	private String name;
+	private Unit unit;
 	
 
 }
