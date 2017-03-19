@@ -15,5 +15,17 @@ public class ChoiceAnswer extends MQuestion{
 		this.answers = answers;
 	}
 	
+	/**
+	 * Returns true if the student answers are correct
+	 * IMPORTANT: ANSWERS MUST BE IN THE SAME ORDER!
+	 * @return Boolean
+	 */
+	@Override
+	public Boolean isCorrect(){
+		if (this.answers.equals(super.question.getAnswer())){
+			return true;
+		}
+		return false;
+	}
 	
 }

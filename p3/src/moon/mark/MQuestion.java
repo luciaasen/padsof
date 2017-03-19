@@ -3,8 +3,8 @@ package moon.mark;
 import moon.course.question.*;
 
 
-public class MQuestion extends Mark{
-	private Question question;
+public abstract class MQuestion extends Mark{
+	protected Question question;
 	
 	/**
 	 * Constructor fot MQuestion
@@ -15,4 +15,7 @@ public class MQuestion extends Mark{
 		this.question = question;
 	}
 	
+	public Boolean isCorrect(){
+		return false;
+	}
 }

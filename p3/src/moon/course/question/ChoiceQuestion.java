@@ -32,5 +32,13 @@ public class ChoiceQuestion extends Question{
 		 return this.correct;
 	 }
 	
+	 /**
+	  * Returns the correct answers to the Question
+	  * @return ArrayList
+	  */
+	 @Override
+	 public ArrayList<Option> getAnswer(){
+		 return this.correct;
+	 }
 	
 }

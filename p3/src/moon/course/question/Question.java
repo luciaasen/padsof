@@ -2,6 +2,8 @@ package moon.course.question;
 
 import java.util.ArrayList;
 import moon.course.*;
+import moon.course.question.*;
+import moon.mark.*;
 
 abstract public class Question {
 	private String question;
@@ -31,7 +33,7 @@ abstract public class Question {
 				count++;
 			}
 		}
-		return cont;
+		return count;
 	}
 	
 	/**
@@ -64,5 +66,23 @@ abstract public class Question {
 	 */
 	public void answer(MQuestion m){
 		this.studentMarks.add(m);
+	}
+	
+	
+	
+	/**
+	 * Equals method for the abstract class
+	 */
+	@Override
+	public boolean equals(Object obj){
+		return false;
+	}
+		
+	/**
+	 * Returns the correct answer to the questipn
+	 * @return 
+	 */
+	public Object getAnswer(){
+		return null;
 	}
 }

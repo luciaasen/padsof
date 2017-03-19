@@ -2,7 +2,7 @@ package moon.course.question;
 
 public class TfQuestion extends Question{
 	
-	private boolean answer;
+	private Boolean answer;
 	
 	/**
 	 * TfQuestion constructor
@@ -19,8 +19,8 @@ public class TfQuestion extends Question{
 	 * Correct answer getter for the question
 	 * @return
 	 */
-	public boolean getAnswer(){
-		return this.answer
+	@Override
+	public Boolean getAnswer(){
+		return this.answer;
 	}
-	
 }

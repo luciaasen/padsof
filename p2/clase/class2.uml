@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Mar 19 18:37:30 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Mar 19 22:56:29 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -737,19 +737,6 @@
                 <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
-            <UML:Operation xmi.id = '127-0-1-1--7a3ad0bf:15a80afb38c:-8000:0000000000000AF0'
-              name = 'isActive' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '127-0-1-1--7a3ad0bf:15a80afb38c:-8000:0000000000000AF1'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:Class xmi.idref = '127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009A9'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
             <UML:Operation xmi.id = '127-0-1-1--7a3ad0bf:15a80afb38c:-8000:0000000000000AFD'
               name = 'addQuestion' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
               isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
@@ -1205,7 +1192,7 @@
           </UML:Generalization.parent>
         </UML:Generalization>
         <UML:Class xmi.id = '127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009E1'
-          name = 'TfCorrect' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+          name = 'TfAnswer' visibility = 'public' isSpecification = 'false' isRoot = 'false'
           isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
           <UML:GeneralizableElement.generalization>
             <UML:Generalization xmi.idref = '127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009E2'/>
@@ -2172,7 +2159,7 @@
               </UML:AssociationEnd.participant>
             </UML:AssociationEnd>
             <UML:AssociationEnd xmi.id = '127-0-1-1--4533475d:15ae0fd7751:-8000:0000000000000FB5'
-              name = 'answer' visibility = 'private' isSpecification = 'false' isNavigable = 'true'
+              name = 'answers' visibility = 'private' isSpecification = 'false' isNavigable = 'true'
               ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>
               <UML:AssociationEnd.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-1-1--4533475d:15ae0fd7751:-8000:0000000000000FB7'>
@@ -2989,7 +2976,7 @@
       strokecolor="black"
     />
     <group name="Fig6.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[921, 600, 254, 96]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[921, 600, 254, 104]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000882"
          fill="0"
          fillcolor="white"
@@ -3003,7 +2990,7 @@
         x="921"
         y="600"
         width="254"
-        height="96"
+        height="104"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3092,7 +3079,7 @@
     </group>
     <rectangle name="Fig6.5"
       x="920"
-      y="696"
+      y="704"
       width="256"
       height="1"
       fill="1"
@@ -3101,7 +3088,7 @@
       strokecolor="black"
     />
     <group name="Fig6.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[921, 697, 254, 176]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[921, 705, 254, 168]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000882"
          fill="0"
          fillcolor="white"
@@ -3113,9 +3100,9 @@
       
       <rectangle name="Fig6.6.0"
         x="921"
-        y="697"
+        y="705"
         width="254"
-        height="176"
+        height="168"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3123,7 +3110,7 @@
       />
       <text name="Fig6.6.1"
         x="921"
-        y="697"
+        y="705"
         width="254"
         height="16"
         fill="0"
@@ -3139,7 +3126,7 @@
       >+calcAverage() : Double</text>
       <text name="Fig6.6.2"
         x="921"
-        y="713"
+        y="721"
         width="254"
         height="16"
         fill="0"
@@ -3155,7 +3142,7 @@
       >+calcNPasses() : Integer</text>
       <text name="Fig6.6.3"
         x="921"
-        y="729"
+        y="737"
         width="254"
         height="16"
         fill="0"
@@ -3171,23 +3158,7 @@
       >+calcNFails() : Integer</text>
       <text name="Fig6.6.4"
         x="921"
-        y="745"
-        width="254"
-        height="16"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-        textcolor="black"
-        font="Dialog"
-        italic="false"
-        bold="false"
-        textsize="12"
-        justification="Left"
-      >+isActive() : Bool</text>
-      <text name="Fig6.6.5"
-        x="921"
-        y="761"
+        y="753"
         width="254"
         height="16"
         fill="0"
@@ -3201,9 +3172,9 @@
         textsize="12"
         justification="Left"
       >+addQuestion(q : Question) : Bool</text>
-      <text name="Fig6.6.6"
+      <text name="Fig6.6.5"
         x="921"
-        y="777"
+        y="769"
         width="254"
         height="16"
         fill="0"
@@ -3217,9 +3188,9 @@
         textsize="12"
         justification="Left"
       >+hasBeenDone() : Bool</text>
-      <text name="Fig6.6.7"
+      <text name="Fig6.6.6"
         x="921"
-        y="793"
+        y="785"
         width="254"
         height="16"
         fill="0"
@@ -3233,9 +3204,9 @@
         textsize="12"
         justification="Left"
       >+getExerciseMark(s : Student) : Double</text>
-      <text name="Fig6.6.8"
+      <text name="Fig6.6.7"
         x="921"
-        y="809"
+        y="801"
         width="254"
         height="16"
         fill="0"
@@ -3249,9 +3220,9 @@
         textsize="12"
         justification="Left"
       >+getMExercise(s : Student) : MExercise</text>
-      <text name="Fig6.6.9"
+      <text name="Fig6.6.8"
         x="921"
-        y="825"
+        y="817"
         width="254"
         height="16"
         fill="0"
@@ -3265,9 +3236,9 @@
         textsize="12"
         justification="Left"
       >+makeVisible() : void</text>
-      <text name="Fig6.6.10"
+      <text name="Fig6.6.9"
         x="921"
-        y="841"
+        y="833"
         width="254"
         height="22"
         fill="0"
@@ -4224,7 +4195,7 @@
       bold="false"
       textsize="12"
       justification="Center"
-    >+ TfCorrect</text>
+    >+ TfAnswer</text>
     <group name="Fig16.2"
          description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1521, 809, 121, 0]"
          href="127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009E1"
