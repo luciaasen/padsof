@@ -3,7 +3,7 @@ package moon.course.question;
 import java.util.ArrayList;
 import moon.course.*;
 
-public class Question {
+abstract public class Question {
 	private String question;
 	private double relevance;
 	private Exercise exe;
@@ -25,7 +25,13 @@ public class Question {
 	 * @return
 	 */
 	public int calcNPasses(){
-		
+		int count = 0;
+		for(MQuestion mq: this.studentMarks){
+			if(mq.isCorrect() == true){
+				count++;
+			}
+		}
+		return cont;
 	}
 	
 	/**
@@ -33,7 +39,7 @@ public class Question {
 	 * @return
 	 */
 	public int calcNFails(){
-		
+		return this.exe.getCourse().getStudents().size() - this.calcNPasses();
 	}
 	
 	/**
@@ -41,7 +47,7 @@ public class Question {
 	 * @return
 	 */
 	public int calcNAnswered(){
-		return this.studentMarks.lentgh();
+		return this.studentMarks.size();
 	}
 	
 	/**
@@ -49,7 +55,7 @@ public class Question {
 	 * @return
 	 */
 	public int calcNUnanswered(){
-		return this.studentMarks.length() - this.exe.u
+		return this.exe.getCourse().getStudents().size() - this.studentMarks.size();
 	}
 	
 	/**
@@ -57,6 +63,6 @@ public class Question {
 	 * @param m
 	 */
 	public void answer(MQuestion m){
-		
+		this.studentMarks.add(m);
 	}
 }
