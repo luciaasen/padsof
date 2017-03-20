@@ -11,7 +11,6 @@ import moon.mark.MCourse;
 public class Student extends User {
 	
 	ArrayList<MCourse> marks = new ArrayList<>();
-	ArrayList<Student> students = new ArrayList<>();
 	ArrayList<Application> apps = new ArrayList<>();
 	ArrayList<Course> courses = new ArrayList<>();
 	
@@ -85,9 +84,6 @@ public class Student extends User {
 		return marks;
 	}
 
-	public ArrayList<Student> getStudents() {
-		return students;
-	}
 
 	public ArrayList<Application> getApps() {
 		return apps;
