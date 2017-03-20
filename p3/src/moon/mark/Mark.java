@@ -8,7 +8,7 @@ public abstract class Mark {
 	 * @param mark
 	 */
 	public Mark(){
-		this.mark = 0;
+		this.mark = -1;
 	}
 	
 	/**
