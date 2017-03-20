@@ -26,6 +26,55 @@ public class Course {
 		this.name = name;
 	}
 	
+	public double calcAverage(){
+		double avg=0;
+		for(MCourse mcourse : studentMarks){
+			avg+=mcourse.getMark();
+		}
+		avg/=studentMarks.size();
+		return avg;
+	}
+	
+	public int calcNPasses(){
+		int passes=0;
+		for(MCourse mcourse : studentMarks){
+			if(mcourse.getMark()>=5){
+				passes++;
+			}
+		}
+		return passes;
+	}
+	
+	public int calcNFails(){
+		int fails=0;
+		for(MCourse mcourse : studentMarks){
+			if(mcourse.getMark()<5){
+				fails++;
+			}
+		}
+		return fails;
+	}
+	
+	
+	public double getCourseMark(Student s){
+		double mark=-1;
+			for(MCourse mcourse : studentMarks){
+				if(mcourse.getStudent()==s){
+					mark=mcourse.getMark();
+				}
+			}
+		return mark;
+	}
+	
+	public MCourse getMCourse(Student s){
+			for(MCourse mcourse : studentMarks){
+				if(mcourse.getStudent()==s){
+					return mcourse;
+				}
+			}
+		return null;
+	}
+	
 	public ArrayList<Student> getStudents(){
 		return this.students;
 	}
@@ -34,11 +83,11 @@ public class Course {
 		return students.add(s);
 	}
 	
-	public boolean addExpeltion(Student s){
+	public boolean expelStudent(Student s){
 		return expStudents.add(s);
 	}
 	
-	public boolean removeExpeltion(Student s){
+	public boolean readmitStudent(Student s){
 		return expStudents.remove(s);
 	}
 	

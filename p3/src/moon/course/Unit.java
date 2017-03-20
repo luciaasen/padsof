@@ -1,12 +1,37 @@
 package moon.course;
 
 import java.util.ArrayList;
-import moon.user.*;
 
 class Unit extends CourseElement{
 	private ArrayList<CourseElement> contents;
-	private ArrayList<Student> students;
-	private ArrayList<Student> expStudents;
 	private String name;
+	
+	public Unit(String name){
+		this.name=name;
+		contents=new ArrayList<>();
+	}
+	
+	public boolean addElement(CourseElement element){
+		return contents.add(element);
+	}
+	
+	public boolean removeElement(CourseElement element){
+		return contents.remove(element);
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ArrayList<CourseElement> getContents() {
+		return contents;
+	}
+
+	
+	
 	
 }
