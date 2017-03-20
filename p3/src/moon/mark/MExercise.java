@@ -16,7 +16,7 @@ public class MExercise extends Mark{
 	public MExercise(Exercise exercise){
 		super();
 		this.exercise = exercise;
-		this.mQuestions = new ArrayList();
+		this.mQuestions = new ArrayList<>();
 	}
 	
 	/**
@@ -34,4 +34,14 @@ public class MExercise extends Mark{
 	public void setStudent(Student student){
 		this.student = student;
 	}
+
+	public Exercise getExercise() {
+		return exercise;
+	}
+
+	public ArrayList<MQuestion> getmQuestions() {
+		return mQuestions;
+	}
+	
+	
 }

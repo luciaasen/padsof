@@ -1,5 +1,6 @@
 package moon.user;
 
+
 public class Teacher extends User{
 	
 	public Teacher(String name, String pwd, String email) {
@@ -9,4 +10,6 @@ public class Teacher extends User{
 	public boolean isTeacher(){
 		return true;
 	}
+	
+	
 }
