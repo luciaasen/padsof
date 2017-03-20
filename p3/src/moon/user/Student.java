@@ -6,6 +6,8 @@ import moon.course.Course;
 
 import moon.user.Application;
 
+import moon.mark.MCourse;
+
 public class Student extends User {
 	
 	ArrayList<MCourse> marks = new ArrayList<>();
@@ -23,23 +25,27 @@ public class Student extends User {
 		return app;
 	}
 	
-	public Application addApplication(Application a){
-		apps.add(a);
-		return app;
+	public boolean addApplication(Application a){
+		return apps.add(a);
+		
+	}
+	
+	public boolean removeApplication(Application a){
+		return apps.remove(a);
 	}
 	
 	public double calcAverage(){
-		double avg;
+		double avg=0;
 	
 		for(MCourse mcourse : marks){
 			avg+=mcourse.getMark();
 		}
-		avg/=marks.length();
+		avg/=marks.size();
 		return avg;
 	}
 	
 	public double calcMaximum(){
-		double max;
+		double max=0;
 		for(MCourse mark : marks){
 			max+=mark.getMark();
 		}
@@ -47,7 +53,7 @@ public class Student extends User {
 	}
 	
 	public double calcMinimum(){
-		double min;
+		double min=0;
 		for(MCourse mark : marks){
 			min+=mark.getMark();
 		}
@@ -57,10 +63,11 @@ public class Student extends User {
 	public ArrayList<Course> coursesInButNotExpelled(){
 		ArrayList<Course> notExpelled = new ArrayList<>();
 		for(Course course : courses){
-			if(course.isExpelled(this)==FALSE){
+			if(course.isExpelled(this)==false){
 				notExpelled.add(course);
 			}
 		}
+		return notExpelled;
 	}
 	
 	public boolean isTeacher(){

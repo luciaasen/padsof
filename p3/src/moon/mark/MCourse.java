@@ -18,7 +18,7 @@ public class MCourse extends Mark{
 		super();
 		this.course = course;
 		this.student = student;
-		this.mExes = new ArrayList();
+		this.mExes = new ArrayList<MExercise>();
 	}
 	
 }
