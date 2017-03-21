@@ -1,10 +1,7 @@
 package moon.course;
 
-import java.time.LocalDate;
-
 abstract class CourseElement {
-	private LocalDate visibFrom;
-	private LocalDate visibTo;
+	boolean visible;
 	private Unit unit;
 	private Course course;
 	
@@ -22,5 +19,13 @@ abstract class CourseElement {
 	 */
 	public Unit getUnit(){
 		return this.unit;
+	}
+	
+	public void makeVisible(){
+		visible=true;
+	}
+	
+	public void makeInvisible(){
+		visible=false;
 	}
 }

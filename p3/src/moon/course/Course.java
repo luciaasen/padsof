@@ -1,6 +1,8 @@
 package moon.course;
 
 import java.util.ArrayList;
+
+import es.uam.eps.padsof.emailconnection.*;
 import moon.user.*;
 import moon.mark.*;
 
@@ -83,12 +85,35 @@ public class Course {
 		return students.add(s);
 	}
 	
-	public boolean expelStudent(Student s){
-		return expStudents.add(s);
+	public boolean expelStudent(Student s) throws InvalidEmailAddressException, 
+		FailedInternetConnectionException{
+		
+		boolean ret = expStudents.add(s);
+		
+		if(ret==true){
+			EmailSystem.send(s.getEmail(), 
+					"Expeltion", 
+					"We are sorry to communicate you that you have " +
+					"been expeled from " + 
+					name + "\n\nGood bye.");	
+		}
+		
+		return ret;
 	}
 	
-	public boolean readmitStudent(Student s){
-		return expStudents.remove(s);
+	public boolean readmitStudent(Student s) throws InvalidEmailAddressException, 
+		FailedInternetConnectionException{
+		
+		boolean ret = expStudents.remove(s);
+		
+		if(ret==true){
+			EmailSystem.send(s.getEmail(), 
+					"Readmision", 
+					"Congratulations, you have been reaccepted in " +
+					name + "\n\nBe good and take care.");	
+		}
+		
+		return ret;
 	}
 	
 	
