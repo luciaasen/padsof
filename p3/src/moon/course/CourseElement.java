@@ -14,7 +14,7 @@ abstract class CourseElement {
 	}
 	
 	/**
-	 * Exerciseś unit getter
+	 * Exercise unit getter
 	 * @return unit
 	 */
 	public Unit getUnit(){

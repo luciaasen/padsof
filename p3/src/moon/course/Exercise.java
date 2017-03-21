@@ -25,7 +25,7 @@ public class Exercise extends CourseElement{
 	
 	
 	/**
-	 * Exercise relevance etter
+	 * Exercise relevance getter
 	 * @return relevance
 	 */
 	public double getRelevance() {
@@ -47,7 +47,7 @@ public class Exercise extends CourseElement{
 
 
 	/**
-	 * Gets penalt
+	 * Gets penalty of the exercise
 	 * @return penalty
 	 */
 	public double getPenalty() {
