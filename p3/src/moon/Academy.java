@@ -8,9 +8,12 @@ import moon.course.Course;
 
 import moon.user.Application;
 
+import es.uam.eps.padsof.emailconnection.*;
+
 public class Academy {
 	
 	public static Academy moonApp = new Academy();
+	public static EmailSystem emailSystem = new EmailSystem();
 	
 	public ArrayList<Course> courses = new ArrayList<>();
 	public ArrayList<User> users = new ArrayList<>();
@@ -52,6 +55,10 @@ public class Academy {
 	
 	public boolean removeUser(User u){
 		return users.remove(u);
+	}
+	
+	public static EmailSystem getEmailSystem(){
+		return emailSystem;
 	}
 	
 	public boolean addCourse(Course c){
