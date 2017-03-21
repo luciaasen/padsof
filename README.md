@@ -6,4 +6,4 @@
 
 More information:
   * Requirements: https://github.com/luciaasen/padsof/p1/requisitos.pdf
-  * Class diagrams: https://github.com/luciaasen/padsof/p2/clase
+  * Class diagrams: https://github.com/luciaasen/padsof/p3

@@ -35,13 +35,37 @@ public class MExercise extends Mark{
 		this.student = student;
 	}
 
+	/**
+	 * Exercise getter
+	 * @return Exercise related to the mark
+	 */
 	public Exercise getExercise() {
-		return exercise;
+		return this.exercise;
 	}
 
+	/**
+	 * Question getter
+	 * @return Question related to the mark
+	 */
 	public ArrayList<MQuestion> getmQuestions() {
-		return mQuestions;
+		return this.mQuestions;
 	}
 	
+	/**
+	 * Calculates mark in the course
+	 * @return normalized mark in the Course
+	 */
+	public double getMark(){
+		double mark = 0;
+		double relev = 0;
+		for( MQuestion  mQu: this.getmQuestions()){
+			mark += mQu.getMark();
+			relev += mQu.getQuestion().getRelevance();
+		}
+		if(mark < 0){
+			return 0;
+		}
+		return mark/relev;
+	}
 	
 }

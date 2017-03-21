@@ -44,10 +44,18 @@ public class MCourse extends Mark{
 		return mExes;
 	}
 	
-	
-	
-
-	
-	
-	
+	/**
+	 * Calculates mark in the course
+	 * @return normalized mark in the Course
+	 */
+	public double getMark(){
+		double mark = 0;
+		double relev = 0;
+		for( MExercise mExe: this.getmExes() ){
+			mark += mExe.getMark() * mExe.getExercise().getRelevance();
+			relev += mExe.getExercise().getRelevance();
+		}
+		return mark/relev;
+	}
+		
 }

@@ -23,6 +23,18 @@ abstract public class Question {
 	}
 	
 	/**
+	 * Relevance getter
+	 * @return relevance of the exercise
+	 */
+	public double getRelevance(){
+		return this.relevance;
+	}
+	
+	public Exercise getExercise(){
+		return this.exe;
+	}
+	
+	/**
 	 * Calculate number of students who passed the question
 	 * @return
 	 */
