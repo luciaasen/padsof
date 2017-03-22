@@ -89,7 +89,7 @@ public class Academy {
 	 * @param txt file
 	 * 
 	 */
-	public void loadUsers(String txt){
+	public void loadUsers(String txt) throws IOException{
 		String name, last, pwd, email;
 		int id, index1, index2, index3, index4, index5;
 		// Open the file
