@@ -32,4 +32,12 @@ public abstract class User {
 	public boolean checkPwd(String pwd){
 		return password.equals(pwd);
 	}
+	
+	/**
+	 * @return a string with a user info
+	 */
+	@Override
+	public String toString(){
+		return "User " + this.name + " " + this.lastName + " " + this.email + " " + this.id + " " + this.password;
+	}
 }
