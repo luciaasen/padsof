@@ -15,6 +15,7 @@ public class Academy {
 	public static Academy moonApp = new Academy();
 	public static EmailSystem emailSystem = new EmailSystem();
 	
+	public User teacher;
 	public ArrayList<Course> courses = new ArrayList<>();
 	public ArrayList<User> users = new ArrayList<>();
 	
@@ -47,6 +48,19 @@ public class Academy {
 			apps.addAll(c.getApplications());
 		}
 		return apps;
+	}
+	
+	public boolean setTeacher(User t){
+		if(users.add(t)==true){
+			teacher = t;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public User getTeacher(){
+		return teacher;
 	}
 	
 	public boolean addUser(User u){

@@ -2,6 +2,7 @@ package moon.user;
 
 import java.util.ArrayList;
 
+import moon.Academy;
 import moon.course.Course;
 
 import moon.user.Application;
@@ -19,8 +20,15 @@ public class Student extends User {
 		
 	}
 	
-	public Application apply(Course c){
+	public Application apply(Course c) throws InvalidEmailAddressException, 
+		FailedInternetConnectionException {
 		Application app=new Application(this, c);
+		
+		Academy.getEmailSystem().send(Academy.getMoonApp().getTeacher().getEmail(),
+				"Application", "The student "+ this.getName() + " has applied "+
+				"for the course in " + c.getName());
+		
+	
 		return app;
 	}
 	
