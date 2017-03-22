@@ -101,9 +101,11 @@ public class Academy {
 	 * Substr before first ; is the name, substr between 2º and 3º is surname, substr between 3º and 4º is email, ..., and end with a ; after 5 attributes
 	 * For the email to be readable, it must have 2 '.' and one '@' that has to be between the two '.'
 	 * @param txt file
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	 * 
 	 */
-	public void loadUsers(String txt){
+	public void loadUsers(String txt) throws NumberFormatException, IOException{
 		String name, last, pwd, email;
 		int id, index1, index2, index3, index4, index5;
 		// Open the file
