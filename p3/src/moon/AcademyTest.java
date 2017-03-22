@@ -2,6 +2,8 @@ package moon;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 import org.junit.Before;
@@ -16,9 +18,14 @@ public class AcademyTest {
 		
 	}
 	
+	
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void test() throws IOException{
+		Academy a = Academy.getMoonApp();
+		int users = a.loadUsers("StudentData.txt");
+		System.out.println(users);
+		
 	}
 
 }

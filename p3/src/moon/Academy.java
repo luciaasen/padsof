@@ -106,9 +106,10 @@ public class Academy {
 	 * 
 	 */
 
-	public void loadUsers(String txt) throws NumberFormatException, IOException{
+	public int loadUsers(String txt) throws NumberFormatException, IOException{
 		String name, last, pwd, email;
-		int id, index1, index2, index3, index4, index5;
+		int id, count = 0;
+		int index1, index2, index3, index4, index5;
 		// Open the file
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(txt)));
 
@@ -137,10 +138,11 @@ public class Academy {
 									if(index4 != -1){
 										id = Integer.parseInt(strLine.substring(index3+1, index4));
 										index5 = strLine.indexOf(';', index4 + 1);
-										if(index5 == strLine.charAt(strLine.length())){
+										if(index5 == strLine.length()-1){
 											pwd = strLine.substring(index4+1,  index5);
 											Student s = new Student(name, last, pwd, id, email);
-											this.addUser(s);
+											this.users.add(s);
+											count ++;
 										}
 									}
 								}
@@ -152,7 +154,9 @@ public class Academy {
 		}
 		//Close the input stream
 		br.close();
+		return count;
 	}
+	
 	
 	
 }
