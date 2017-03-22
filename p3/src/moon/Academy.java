@@ -15,6 +15,7 @@ public class Academy {
 	public static Academy moonApp = new Academy();
 	public static EmailSystem emailSystem = new EmailSystem();
 	
+	public User teacher;
 	public ArrayList<Course> courses = new ArrayList<>();
 	public ArrayList<User> users = new ArrayList<>();
 	
@@ -47,6 +48,19 @@ public class Academy {
 			apps.addAll(c.getApplications());
 		}
 		return apps;
+	}
+	
+	public boolean setTeacher(User t){
+		if(users.add(t)==true){
+			teacher = t;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public User getTeacher(){
+		return teacher;
 	}
 	
 	public boolean addUser(User u){
@@ -87,9 +101,12 @@ public class Academy {
 	 * Substr before first ; is the name, substr between 2º and 3º is surname, substr between 3º and 4º is email, ..., and end with a ; after 5 attributes
 	 * For the email to be readable, it must have 2 '.' and one '@' that has to be between the two '.'
 	 * @param txt file
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	 * 
 	 */
-	public void loadUsers(String txt) throws IOException{
+
+	public void loadUsers(String txt) throws NumberFormatException, IOException{
 		String name, last, pwd, email;
 		int id, index1, index2, index3, index4, index5;
 		// Open the file
