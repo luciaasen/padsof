@@ -13,6 +13,11 @@ public class TfAnswer extends MQuestion{
 	public TfAnswer(Question question, boolean answer){
 		super(question);
 		this.answer = answer;
+		if(this.isCorrect()){
+			this.mark = this.getQuestion().getRelevance();			
+		}else{
+			this.mark = this.getQuestion().getExercise().getPenalty();
+		}
 	}
 	
 	/**

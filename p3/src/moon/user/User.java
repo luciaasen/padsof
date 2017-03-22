@@ -7,9 +7,13 @@ public abstract class User {
 	private String name;
 	private String email;
 	private String password;
+	private String lastName;
+	private int id;
 	
-	public User(String name, String pwd, String email){
+	public User(String name, String lastName, String pwd, int id, String email){
 		this.name=name;
+		this.lastName = lastName;
+		this.id = id;
 		password=pwd;
 		this.email=email;
 	}
@@ -21,21 +25,8 @@ public abstract class User {
 	}
 
 
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
 	public String getEmail() {
 		return email;
-	}
-
-
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public boolean checkPwd(String pwd){

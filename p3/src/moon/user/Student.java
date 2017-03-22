@@ -14,8 +14,8 @@ public class Student extends User {
 	ArrayList<Application> apps = new ArrayList<>();
 	ArrayList<Course> courses = new ArrayList<>();
 	
-	public Student(String name, String pwd, String email){
-		super(name, pwd, email);
+	public Student(String name, String lastName, String pwd, int id, String email){
+		super(name, lastName, pwd, id, email);
 		
 	}
 	

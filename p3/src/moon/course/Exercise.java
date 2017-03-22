@@ -10,6 +10,7 @@ public class Exercise extends CourseElement{
 	private ArrayList<Question> questions;
 	private ArrayList<MExercise> studentMarks;
 	private double relevance;
+	/*PENALTY IS < 0*/
 	private double penalty;
 	private String name;
 	private Boolean randord;

@@ -13,6 +13,11 @@ public class ChoiceAnswer extends MQuestion{
 	public ChoiceAnswer(Question question, ArrayList<Option> answers){
 		super(question);
 		this.answers = answers;
+		if(this.isCorrect()){
+			this.mark = this.getQuestion().getRelevance();			
+		}else{
+			this.mark = this.getQuestion().getExercise().getPenalty();
+		}
 	}
 	
 	/**
