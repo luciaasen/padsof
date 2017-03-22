@@ -4,6 +4,7 @@ import moon.course.question.*;
 import moon.mark.*;
 import moon.user.Student;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Exercise extends CourseElement{
@@ -14,6 +15,8 @@ public class Exercise extends CourseElement{
 	private double penalty;
 	private String name;
 	private Boolean randord;
+	LocalDate activeFrom;
+	LocalDate activeTo;
 	
 	/**
 	 * Exercise constructor
@@ -198,5 +201,12 @@ public class Exercise extends CourseElement{
 			}
 		}
 		return null;
+	}
+	
+	public Boolean isActive(){
+		if(LocalDate.now().isAfter(this.activeFrom) && LocalDate.now().isBefore(this.activeTo)){
+			return true;
+		}
+		return false;
 	}
 }
