@@ -2,6 +2,8 @@ package moon.user;
 
 import java.io.Serializable;
 
+import moon.Academy;
+
 public abstract class User implements Serializable{
 
 	private String name;
@@ -16,6 +18,7 @@ public abstract class User implements Serializable{
 		this.id = id;
 		password=pwd;
 		this.email=email;
+		Academy.getMoonApp().addUser(this);
 	}
 	
 	public abstract boolean isTeacher();
