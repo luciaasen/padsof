@@ -42,11 +42,8 @@ public class AcademyTest {
 		assertEquals(a.getTeacher(), t2);
 		
 		int users = a.loadUsers("StudentData.txt");
-		System.out.println(users);
-		HashSet<User>  set = a.getUsers();
-		for(User u: set){
-			System.out.println(u);
-		}	
+		assertEquals(users, 16);
+		HashSet<User>  set = a.getUsers();	
 		
 		assertTrue(a.addCourse(c1));
 		assertTrue(a.addCourse(c2));

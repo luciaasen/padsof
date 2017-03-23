@@ -2,6 +2,8 @@ package moon.course.question;
 
 import java.io.Serializable;
 
+import moon.course.Exercise;
+
 public class OpenQuestion extends Question implements Serializable{
 	
 	private String answer;
@@ -12,8 +14,8 @@ public class OpenQuestion extends Question implements Serializable{
 	 * @param relevance
 	 * @param answer
 	 */
-	public OpenQuestion(String question, double relevance, String answer) {
-		super(question, relevance);
+	public OpenQuestion(String question, double relevance, String answer, Exercise exe) {
+		super(question, relevance, exe);
 		this.answer = answer;
 	}
 

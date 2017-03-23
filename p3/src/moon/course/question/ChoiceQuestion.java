@@ -3,6 +3,8 @@ package moon.course.question;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import moon.course.Exercise;
+
 public class ChoiceQuestion extends Question implements Serializable{
 	 private ArrayList<Option> correct;
 	 private ArrayList<Option> options;
@@ -11,9 +13,10 @@ public class ChoiceQuestion extends Question implements Serializable{
 	  * ChoiceQuestion constructor
 	  * @param question
 	  * @param relevance
+	  * @param exercise
 	  */
-	 public ChoiceQuestion( String question, double relevance){
-		 super(question, relevance);
+	 public ChoiceQuestion( String question, double relevance, Exercise exe){
+		 super(question, relevance, exe);
 		 correct = new ArrayList<Option>();
 		 options = new ArrayList<Option>();
 	 }

@@ -4,7 +4,7 @@
 package moon.course.question.test;
 
 import static org.junit.Assert.*;
-
+import moon.course.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,6 +19,7 @@ public class OpenQuestionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		E
 	}
 
 	/**

@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import moon.course.*;
+import moon.course.question.*;
 
 /**
  * @author lucia
@@ -19,6 +21,9 @@ public class QuestionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		Exercise e1 = new Exercise();
+		//TODO: probamos solo los metodos no abstractos, o los no abstractos basta con probarlos desde los hijos?
+		//Question q1 = new Question("Whats your name?", 5, e1);
 	}
 
 	/**
