@@ -15,11 +15,13 @@ abstract public class Question implements Serializable{
 	/**
 	 * Question constructor
 	 * @param question
+	 * @param exe
 	 * @param relevance
 	 */
-	public Question (String question, double relevance){
+	public Question (String question, double relevance, Exercise exe){
 		this.question= question;
 		this.relevance = relevance;
+		this.exe = exe;
 		studentMarks = new ArrayList<MQuestion>();
 	}
 	
