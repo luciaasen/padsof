@@ -16,6 +16,15 @@ abstract class CourseElement implements Serializable{
 	}
 	
 	/**
+	 * Sets the course of an exercise
+	 * @param course
+	 */
+	public void setCourse(Course c){
+		//TODO necesitamos revisar que el course element no esta ya en el curso: necesitamos un course.getCourseElements?
+		this.course = c;
+	}
+	
+	/**
 	 * Exercise unit getter
 	 * @return unit
 	 */

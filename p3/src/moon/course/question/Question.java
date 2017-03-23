@@ -16,13 +16,16 @@ abstract public class Question implements Serializable{
 	 * Question constructor
 	 * @param question
 	 * @param exe
-	 * @param relevance
+	 * @param relevance > 0
 	 */
 	public Question (String question, double relevance, Exercise exe){
-		this.question= question;
-		this.relevance = relevance;
-		this.exe = exe;
-		studentMarks = new ArrayList<MQuestion>();
+		if(relevance > 0){
+			this.question= question;
+			this.relevance = relevance;
+			this.exe = exe;
+			studentMarks = new ArrayList<MQuestion>();
+		}
+		//TODO How to make constructor return null?
 	}
 	
 	/**

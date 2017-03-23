@@ -5,8 +5,10 @@ package moon.course.question.test;
 
 import static org.junit.Assert.*;
 import moon.course.*;
+import moon.course.question.*;
 import org.junit.Before;
 import org.junit.Test;
+import moon.mark.*;
 
 /**
  * @author lucia
@@ -19,7 +21,14 @@ public class OpenQuestionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		E
+		Exercise e1 = new Exercise();
+		OpenQuestion q1 = new OpenQuestion("Am I silly?", 5, "No", e1);
+		OpenQuestion q2 = new OpenQuestion("Am I?", 10, "Yes", e1);		
+		OpenQuestion q3 = new OpenQuestion("Am I?", -10, "Yes", e1);	
+		OpenAnswer mq1 =  new OpenAnswer(q1, "No");
+		OpenAnswer mq2 = new OpenAnswer(q1, "Yes");
+		OpenAnswer mq3 = new OpenAnswer(q2, "No");
+		
 	}
 
 	/**
@@ -27,7 +36,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testOpenQuestion() {
-		fail("Not yet implemented");
+		assertNotNull(q1);
+		assertNull(q3);
 	}
 
 	/**
@@ -35,15 +45,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testGetAnswer() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link moon.course.question.Question#Question(java.lang.String, double, moon.course.Exercise)}.
-	 */
-	@Test
-	public void testQuestion() {
-		fail("Not yet implemented");
+		assertEquals(q1.getAnswer(), "No");
+		assertEquals(q2.getAnswer(), "Yes");
 	}
 
 	/**
@@ -51,7 +54,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testGetRelevance() {
-		fail("Not yet implemented");
+		assertEquals(q1.getRelevance, 5);
+		assertEquals(q2.getRelevance, 10);
 	}
 
 	/**
@@ -59,7 +63,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testGetExercise() {
-		fail("Not yet implemented");
+		assertEquals(q1.getExercise, e1);
+		assertEquals(q2.getExercise, e1);
 	}
 
 	/**
@@ -67,7 +72,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testCalcNPasses() {
-		fail("Not yet implemented");
+		assertEquals(q1.calcNPasses(), 1);
+		assertEquals(q2.calcNPasses(), 0);
 	}
 
 	/**
@@ -75,7 +81,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testCalcNFails() {
-		fail("Not yet implemented");
+		assertEquals(q1.calcNFails(), 1);
+		assertEquals(q2.calcNFails(), 1);
 	}
 
 	/**
@@ -83,7 +90,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testCalcNAnswered() {
-		fail("Not yet implemented");
+		assertEquals(q1.calcNAnswered(), 2);
+		assertEquals(q2.calcNAnswered, 1);
 	}
 
 	/**
