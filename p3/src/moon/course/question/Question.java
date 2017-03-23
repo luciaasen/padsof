@@ -83,7 +83,13 @@ abstract public class Question implements Serializable{
 		this.studentMarks.add(m);
 	}
 	
-	
+	/** Gets the text of the question
+	 * 
+	 * @return  the string of the question
+	 */
+	public String getQuestion(){
+		return question;
+	}
 	
 	/**
 	 * Equals method for the abstract class

@@ -17,6 +17,7 @@ public abstract class MQuestion extends Mark implements Serializable{
 	public MQuestion(Question question){
 		super();
 		this.question = question;
+		question.answer(this);
 		this.mark = 0;
 		//TODO ask if this works: would execute the child isCorrect?
 	}

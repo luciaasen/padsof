@@ -17,6 +17,7 @@ public class MExercise extends Mark implements Serializable{
 	 */
 	public MExercise(Exercise exercise){
 		super();
+		
 		this.exercise = exercise;
 		this.mQuestions = new ArrayList<>();
 	}

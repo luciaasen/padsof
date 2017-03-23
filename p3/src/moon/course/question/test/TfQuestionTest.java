@@ -8,6 +8,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import moon.course.Exercise;
+import moon.course.question.TfQuestion;
+import moon.mark.TfAnswer;
+
 /**
  * @author lucia
  *
@@ -19,6 +23,17 @@ public class TfQuestionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		Exercise e = new Exercise();
+		TfQuestion a1 = new TfQuestion("Is your answer wrong?", 5, true, e);
+		TfQuestion a2 = new TfQuestion("Is your wrong an answer?", 6, false, e);	
+		
+		TfAnswer tf1right = new TfAnswer(a1, true);
+		TfAnswer tf1wrong = new TfAnswer(a1, false);
+		TfAnswer tf1wrong2 = new TfAnswer(a1, false);
+		TfAnswer tf2right = new TfAnswer(a2, false);
+		TfAnswer tf2right2 = new TfAnswer(a2, false);
+		TfAnswer tf2wrong = new TfAnswer(a2, true);
+		
 	}
 
 	/**
@@ -26,7 +41,7 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testTfQuestion() {
-		fail("Not yet implemented");
+		assertNotNull(a1);
 	}
 
 	/**
@@ -34,15 +49,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testGetAnswer() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link moon.course.question.Question#Question(java.lang.String, double, moon.course.Exercise)}.
-	 */
-	@Test
-	public void testQuestion() {
-		fail("Not yet implemented");
+		assertTrue(a1.getAnswer());
+		assertFalse(a2.getAnswer());
 	}
 
 	/**
@@ -50,7 +58,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testGetRelevance() {
-		fail("Not yet implemented");
+		assertEquals(a1.getRelevance, 5);
+		assertEquals(a2.getRelevance, 6);
 	}
 
 	/**
@@ -58,7 +67,9 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testGetExercise() {
-		fail("Not yet implemented");
+		assertEquals(a1.getExercise(), e);
+		assertEquals(a2.getExercise(), e);
+		
 	}
 
 	/**
@@ -66,7 +77,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testCalcNPasses() {
-		fail("Not yet implemented");
+		assertEquals(a1.calcNPasses(), 1);
+		assertEquals(a2.calcNPasses(), 2);
 	}
 
 	/**
@@ -74,7 +86,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testCalcNFails() {
-		fail("Not yet implemented");
+		assertEquals(a1.calcNFails(), 2);
+		assertEquals(a2.calcNFails(), 1);
 	}
 
 	/**
@@ -82,7 +95,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testCalcNAnswered() {
-		fail("Not yet implemented");
+		assertEquals(a1.calcNAnswered(), 1);
+		assertEquals(a2.calcNAnswered(), 2);
 	}
 
 	/**
@@ -98,14 +112,6 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testAnswer() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link moon.course.question.Question#equals(java.lang.Object)}.
-	 */
-	@Test
-	public void testEqualsObject() {
 		fail("Not yet implemented");
 	}
 

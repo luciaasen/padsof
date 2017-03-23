@@ -2,6 +2,8 @@ package moon.course.question;
 
 import java.io.Serializable;
 
+import moon.course.Exercise;
+
 public class TfQuestion extends Question implements Serializable{
 	private Boolean answer;
 	
@@ -11,8 +13,8 @@ public class TfQuestion extends Question implements Serializable{
 	 * @param relevance
 	 * @param answer
 	 */
-	public TfQuestion(String question, double relevance, boolean answer) {
-		super(question, relevance);
+	public TfQuestion(String question, double relevance, boolean answer, Exercise exe) {
+		super(question, relevance, exe);
 		this.answer = answer;
 	}
 
