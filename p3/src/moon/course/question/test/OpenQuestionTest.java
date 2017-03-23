@@ -19,6 +19,8 @@ public class OpenQuestionTest {
 	private OpenQuestion q1, q2, q3;
 	private OpenAnswer mq1, mq2, mq3;
 	/**
+	 * Set Up creates an exercise and associate to it 3 questions, and add answers to 2 questions.
+	 * Also creates a unit and a course to associate to the questions.
 	 * @throws java.lang.Exception
 	 */
 	@Before
@@ -30,7 +32,10 @@ public class OpenQuestionTest {
 		OpenAnswer mq1 =  new OpenAnswer(q1, "No");
 		OpenAnswer mq2 = new OpenAnswer(q1, "Yes");
 		OpenAnswer mq3 = new OpenAnswer(q2, "No");
-		
+		Unit u1 = new Unit("Unit 1");
+		Course c1 = new Course("Course 1");
+		e1.setUnit(u1);
+		u1.setCourse(c1);
 	}
 
 	/**
@@ -101,6 +106,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testCalcNUnanswered() {
+		
+		
 		Unit u1 = q1.getExercise().getUnit();
 		
 	}

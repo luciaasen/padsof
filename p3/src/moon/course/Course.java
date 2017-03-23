@@ -131,7 +131,10 @@ public class Course implements Serializable{
 	}
 	
 	public boolean addUnit(Unit u){
-		return units.add(u);
+		if(this.units.contains(u) == false){
+			return units.add(u);
+		}
+		return false;
 	}
 	
 	public boolean addMark(MCourse mark){
