@@ -20,7 +20,7 @@ abstract class CourseElement implements Serializable{
 	 * @param course
 	 */
 	public void setCourse(Course c){
-		//TODO necesitamos revisar que el course element no esta ya en el curso: necesitamos un course.getCourseElements?
+		
 		this.course = c;
 	}
 	
@@ -31,6 +31,18 @@ abstract class CourseElement implements Serializable{
 	public Unit getUnit(){
 		return this.unit;
 	}
+	/**
+	 * Sets the unit of a course element, if it not already added
+	 * @param unit the unit to set
+	 */
+	//TODO add this method to the tests
+	public void setUnit(Unit unit) {
+		if(unit.getContents().contains(this) == false){
+			this.unit = unit;
+	
+		}
+	}
+
 	
 	public void makeVisible(){
 		visible=true;

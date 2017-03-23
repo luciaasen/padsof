@@ -9,13 +9,15 @@ import moon.course.question.*;
 import org.junit.Before;
 import org.junit.Test;
 import moon.mark.*;
-
 /**
  * @author lucia
  *
  */
 public class OpenQuestionTest {
 
+	private Exercise e1;
+	private OpenQuestion q1, q2, q3;
+	private OpenAnswer mq1, mq2, mq3;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -37,7 +39,7 @@ public class OpenQuestionTest {
 	@Test
 	public void testOpenQuestion() {
 		assertNotNull(q1);
-		assertNull(q3);
+		assertNotNull(q3);
 	}
 
 	/**
@@ -54,8 +56,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testGetRelevance() {
-		assertEquals(q1.getRelevance, 5);
-		assertEquals(q2.getRelevance, 10);
+		assertTrue(q1.getRelevance() == 5);
+		assertTrue(q3.getRelevance() == 1);
 	}
 
 	/**
@@ -63,8 +65,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testGetExercise() {
-		assertEquals(q1.getExercise, e1);
-		assertEquals(q2.getExercise, e1);
+		assertEquals(q1.getExercise(), e1);
+		assertEquals(q2.getExercise(), e1);
 	}
 
 	/**
@@ -91,7 +93,7 @@ public class OpenQuestionTest {
 	@Test
 	public void testCalcNAnswered() {
 		assertEquals(q1.calcNAnswered(), 2);
-		assertEquals(q2.calcNAnswered, 1);
+		assertEquals(q2.calcNAnswered(), 1);
 	}
 
 	/**
@@ -99,7 +101,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testCalcNUnanswered() {
-		fail("Not yet implemented");
+		Unit u1 = q1.getExercise().getUnit();
+		
 	}
 
 	/**

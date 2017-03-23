@@ -100,5 +100,13 @@ public class UnitTest {
 	public void testMakeInvisible() {
 		fail("Not yet implemented");
 	}
+	
+	/**
+	 * Test method for {@link moon.course.CourseElement#setUnit()}.
+	 */
+	@Test
+	public void testSetUnit() {
+		fail("Not yet implemented");
+	}
 
 }
