@@ -1,8 +1,9 @@
 package moon.course.question;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ChoiceQuestion extends Question{
+public class ChoiceQuestion extends Question implements Serializable{
 	 private ArrayList<Option> correct;
 	 private ArrayList<Option> options;
 	 

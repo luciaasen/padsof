@@ -1,9 +1,10 @@
 package moon.mark;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import moon.course.question.*;
 
-public class ChoiceAnswer extends MQuestion{
+public class ChoiceAnswer extends MQuestion implements Serializable{
 	private ArrayList<Option> answers;
 	
 	/**

@@ -2,9 +2,11 @@ package moon.mark;
 
 import moon.course.*;
 import moon.user.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MExercise extends Mark{
+public class MExercise extends Mark implements Serializable{
 	private Exercise exercise;
 	private ArrayList<MQuestion> mQuestions;
 	private Student student;

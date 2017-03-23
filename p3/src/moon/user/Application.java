@@ -4,10 +4,12 @@ import moon.course.Course;
 
 import moon.*;
 
+import java.io.Serializable;
+
 import es.uam.eps.padsof.emailconnection.*;
 
 
-public class Application {
+public class Application implements Serializable{
 	Student student;
 	Course course;
 	

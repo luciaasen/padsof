@@ -1,6 +1,8 @@
 package moon.course.question;
 
-public class Option {
+import java.io.Serializable;
+
+public class Option implements Serializable{
 	private String option;
 
 	/**

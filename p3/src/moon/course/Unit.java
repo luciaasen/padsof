@@ -1,8 +1,9 @@
 package moon.course;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-class Unit extends CourseElement{
+class Unit extends CourseElement implements Serializable{
 	private ArrayList<CourseElement> contents;
 	private String name;
 	

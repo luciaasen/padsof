@@ -1,7 +1,8 @@
 package moon.course.question;
 
-public class TfQuestion extends Question{
-	
+import java.io.Serializable;
+
+public class TfQuestion extends Question implements Serializable{
 	private Boolean answer;
 	
 	/**

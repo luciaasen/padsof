@@ -1,6 +1,8 @@
 package moon.course;
 
-abstract class CourseElement {
+import java.io.Serializable;
+
+abstract class CourseElement implements Serializable{
 	boolean visible;
 	private Unit unit;
 	private Course course;

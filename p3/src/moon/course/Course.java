@@ -1,12 +1,13 @@
 package moon.course;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import es.uam.eps.padsof.emailconnection.*;
 import moon.user.*;
 import moon.mark.*;
 
-public class Course {
+public class Course implements Serializable{
 	private ArrayList<Unit> units;
 	private ArrayList<Student> students;
 	private ArrayList<Student> expStudents;

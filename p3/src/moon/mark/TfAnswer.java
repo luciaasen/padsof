@@ -1,8 +1,10 @@
 package moon.mark;
 
+import java.io.Serializable;
+
 import moon.course.question.*;
 
-public class TfAnswer extends MQuestion{
+public class TfAnswer extends MQuestion implements Serializable{
 	private Boolean answer;
 	
 	/**

@@ -1,6 +1,8 @@
 package moon.course.question;
 
-public class OpenQuestion extends Question{
+import java.io.Serializable;
+
+public class OpenQuestion extends Question implements Serializable{
 	
 	private String answer;
 	

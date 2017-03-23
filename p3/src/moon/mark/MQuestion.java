@@ -1,9 +1,11 @@
 package moon.mark;
 
+import java.io.Serializable;
+
 import moon.course.question.*;
 
 
-public abstract class MQuestion extends Mark{
+public abstract class MQuestion extends Mark implements Serializable{
 	protected Question question;
 	protected double mark;
 	

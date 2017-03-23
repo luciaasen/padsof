@@ -1,6 +1,8 @@
 package moon.course;
 
-class Note extends CourseElement{
+import java.io.Serializable;
+
+class Note extends CourseElement implements Serializable{
 	private String text;
 
 	/**

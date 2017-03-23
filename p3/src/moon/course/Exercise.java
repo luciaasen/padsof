@@ -4,10 +4,11 @@ import moon.course.question.*;
 import moon.mark.*;
 import moon.user.Student;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Exercise extends CourseElement{
+public class Exercise extends CourseElement implements Serializable{
 	private ArrayList<Question> questions;
 	private ArrayList<MExercise> studentMarks;
 	private double relevance;

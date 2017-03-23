@@ -1,11 +1,12 @@
 package moon.course.question;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import moon.course.*;
 import moon.course.question.*;
 import moon.mark.*;
 
-abstract public class Question {
+abstract public class Question implements Serializable{
 	private String question;
 	private double relevance;
 	private Exercise exe;

@@ -1,7 +1,10 @@
 package moon.user;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
+import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
 import moon.Academy;
 import moon.course.Course;
 
@@ -9,7 +12,7 @@ import moon.user.Application;
 
 import moon.mark.MCourse;
 
-public class Student extends User {
+public class Student extends User implements Serializable{
 	
 	ArrayList<MCourse> marks = new ArrayList<>();
 	ArrayList<Application> apps = new ArrayList<>();

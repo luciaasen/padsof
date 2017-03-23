@@ -1,8 +1,10 @@
 package moon.mark;
 
+import java.io.Serializable;
+
 import moon.course.question.*;
 
-public class OpenAnswer extends MQuestion{
+public class OpenAnswer extends MQuestion implements Serializable{
 	private String answer;
 	
 	/**

@@ -1,7 +1,7 @@
 package moon;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import moon.user.*;
 import moon.course.Course;
@@ -10,14 +10,14 @@ import moon.user.Application;
 
 import es.uam.eps.padsof.emailconnection.*;
 
-public class Academy {
+public class Academy implements Serializable{
 	
 	public static Academy moonApp = new Academy();
 	public static EmailSystem emailSystem = new EmailSystem();
 	
 	public User teacher;
-	public ArrayList<Course> courses = new ArrayList<>();
-	public ArrayList<User> users = new ArrayList<>();
+	public HashSet<Course> courses = new HashSet<Course>();
+	public HashSet<User> users = new HashSet<>();
 	
 	/**Login function
 	 * 
@@ -42,16 +42,28 @@ public class Academy {
 		return null;
 	}
 	
-	public ArrayList<Application> getApplications(){
-		ArrayList<Application> apps = new ArrayList<>();
+	/** Returns the set of all the applications that the students have sent.
+	 *  
+	 * @return the HashSet of all the applications
+	 */
+	public HashSet<Application> getApplications(){
+		HashSet<Application> apps = new HashSet<>();
 		for(Course c : courses){
 			apps.addAll(c.getApplications());
 		}
 		return apps;
 	}
 	
+	/**Sets the user designated as a teacher and adds it to the user list
+	 * 
+	 * @param t
+	 * @return true if everything went well and false if it did not
+	 */
+	
 	public boolean setTeacher(User t){
+		User oldTeacher = teacher;
 		if(users.add(t)==true){
+			users.remove(oldTeacher);
 			teacher = t;
 			return true;
 		} else {
@@ -67,10 +79,6 @@ public class Academy {
 		return users.add(u);
 	}
 	
-	public boolean removeUser(User u){
-		return users.remove(u);
-	}
-	
 	public static EmailSystem getEmailSystem(){
 		return emailSystem;
 	}
@@ -79,19 +87,16 @@ public class Academy {
 		return courses.add(c);
 	}
 	
-	public boolean removeCourse(Course c){
-		return courses.remove(c);
-	}
 
 	public static Academy getMoonApp() {
 		return moonApp;
 	}
 
-	public ArrayList<Course> getCourses() {
+	public HashSet<Course> getCourses() {
 		return courses;
 	}
 
-	public ArrayList<User> getUsers() {
+	public HashSet<User> getUsers() {
 		return users;
 	}
 	
