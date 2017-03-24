@@ -3,6 +3,7 @@ package moon.user;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import es.uam.eps.padsof.emailconnection.EmailSystem;
 import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
 import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
 import moon.Academy;
@@ -54,7 +55,7 @@ public class Student extends User implements Serializable{
 		
 		Application app=new Application(this, c);
 		
-		Academy.getEmailSystem().send(Academy.getMoonApp().getTeacher().getEmail(),
+		EmailSystem.send(Academy.getMoonApp().getTeacher().getEmail(),
 				"Application", "The student "+ this.getName() + " has applied "+
 				"for the course in " + c.getName());
 		
