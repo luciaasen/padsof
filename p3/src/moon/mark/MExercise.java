@@ -54,6 +54,10 @@ public class MExercise extends Mark implements Serializable{
 		return this.mQuestions;
 	}
 	
+	/**
+	 * If not already added, adds the question mark to the MExercise'ś list
+	 * @param mq the MQuestion to add
+	 */
 	public void addMQuestion(MQuestion mq){
 		if(this.mQuestions.contains(mq) == false){
 			this.mQuestions.add(mq);
