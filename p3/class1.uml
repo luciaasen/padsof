@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Mar 24 00:54:59 CET 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Mar 24 01:32:54 CET 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -318,6 +318,21 @@
                     <UML:Class xmi.idref = '127-0-1-1-3d168dad:15af30265c6:-8000:0000000000000F8F'/>
                   </UML:Parameter.type>
                 </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id = '127-0-1-1--18629d09:15afceb5ab9:-8000:00000000000015EA'
+              name = 'addMExe' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '127-0-1-1--18629d09:15afceb5ab9:-8000:00000000000015EB'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:Class xmi.idref = '127-0-1-1--16f66c46:15a7c7761bc:-8000:0000000000000AF1'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = '127-0-1-1--18629d09:15afceb5ab9:-8000:00000000000015EC'
+                  name = 'MExercise' isSpecification = 'false' kind = 'in'/>
               </UML:BehavioralFeature.parameter>
             </UML:Operation>
           </UML:Classifier.feature>
@@ -3275,7 +3290,7 @@
     </group>
   </group>
   <group name="Fig4"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[720, 368, 134, 69]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[720, 368, 183, 85]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000877"
        fill="1"
        fillcolor="white"
@@ -3288,8 +3303,8 @@
     <rectangle name="Fig4.0"
       x="720"
       y="368"
-      width="134"
-      height="69"
+      width="183"
+      height="85"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -3298,7 +3313,7 @@
     <text name="Fig4.1"
       x="721"
       y="369"
-      width="132"
+      width="181"
       height="22"
       fill="0"
       fillcolor="white"
@@ -3337,7 +3352,7 @@
     <rectangle name="Fig4.3"
       x="720"
       y="391"
-      width="134"
+      width="183"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3345,7 +3360,7 @@
       strokecolor="black"
     />
     <group name="Fig4.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[721, 392, 132, 21]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[721, 392, 181, 21]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000877"
          fill="0"
          fillcolor="white"
@@ -3358,7 +3373,7 @@
       <rectangle name="Fig4.4.0"
         x="721"
         y="392"
-        width="132"
+        width="181"
         height="21"
         fill="0"
         fillcolor="white"
@@ -3369,7 +3384,7 @@
     <rectangle name="Fig4.5"
       x="720"
       y="412"
-      width="134"
+      width="183"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3377,7 +3392,7 @@
       strokecolor="black"
     />
     <group name="Fig4.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[721, 413, 132, 24]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[721, 413, 181, 40]"
          href="127-0-1-1--1a474392:15a6c2da1cd:-8000:0000000000000877"
          fill="0"
          fillcolor="white"
@@ -3390,8 +3405,8 @@
       <rectangle name="Fig4.6.0"
         x="721"
         y="413"
-        width="132"
-        height="24"
+        width="181"
+        height="40"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3400,8 +3415,8 @@
       <text name="Fig4.6.1"
         x="721"
         y="413"
-        width="132"
-        height="22"
+        width="181"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3413,6 +3428,22 @@
         textsize="12"
         justification="Left"
       >+getMark() : double</text>
+      <text name="Fig4.6.2"
+        x="721"
+        y="429"
+        width="181"
+        height="22"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >+addMExe(MExercise) : void</text>
     </group>
   </group>
   <group name="Fig5"
