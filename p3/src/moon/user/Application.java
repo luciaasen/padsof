@@ -28,8 +28,8 @@ public class Application implements Serializable{
 	 */
 	public boolean accept() throws InvalidEmailAddressException, 
 		FailedInternetConnectionException{
-		if(student.removeApplication(this) &&
-		course.removeApplication(this) == false){
+		if((student.removeApplication(this) && 
+				course.removeApplication(this))== false){
 			return false;
 		}
 		
@@ -67,6 +67,14 @@ public class Application implements Serializable{
 		
 		return ret;
 		
+	}
+	
+	/**
+	 * Getter for the course
+	 * @return The Course associated with this application.
+	 */
+	public Course getCourse(){
+		return course;
 	}
 	
 }

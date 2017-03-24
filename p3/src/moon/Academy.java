@@ -19,6 +19,17 @@ public class Academy implements Serializable{
 	public HashSet<Course> courses = new HashSet<Course>();
 	public HashSet<User> users = new HashSet<>();
 	
+	/**Private constructor of Academy. It is private because of our
+	 * singleton architecture, this constructor will only be called once.
+	 * 
+	 */
+	
+	private Academy(){
+		teacher = new Teacher("Teacher", "Teacher", "PwdTeacher1357", 1, "t.eacher@edu.es");
+		users.add(teacher);
+	}
+	
+	
 	/**Login function
 	 * 
 	 * @param username
@@ -29,7 +40,7 @@ public class Academy implements Serializable{
 	
 	public User login(String email, String pwd){
 		for(User u : users){
-			if(u.getEmail()==email){
+			if(u.getEmail().equals(email)){
 				if(u.checkPwd(pwd)){
 					return u;
 				} else {
@@ -54,22 +65,7 @@ public class Academy implements Serializable{
 		return apps;
 	}
 	
-	/**Sets the user designated as a teacher and adds it to the user list
-	 * 
-	 * @param t
-	 * @return true if everything went well and false if it did not
-	 */
 	
-	public boolean setTeacher(User t){
-		User oldTeacher = teacher;
-		if(users.add(t)==true){
-			users.remove(oldTeacher);
-			teacher = t;
-			return true;
-		} else {
-			return false;
-		}
-	}
 	
 	public User getTeacher(){
 		return teacher;

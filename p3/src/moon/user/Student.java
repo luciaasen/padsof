@@ -18,13 +18,40 @@ public class Student extends User implements Serializable{
 	ArrayList<Application> apps = new ArrayList<>();
 	ArrayList<Course> courses = new ArrayList<>();
 	
+	/**
+	 * Constructor of the student
+	 * @param name
+	 * @param lastName
+	 * @param pwd
+	 * @param id
+	 * @param email
+	 */
 	public Student(String name, String lastName, String pwd, int id, String email){
 		super(name, lastName, pwd, id, email);
-		
+
 	}
 	
+	/**
+	 * This method is used to apply for a course. It generates an object
+	 * Application that is returned. It returns null if the student has already
+	 * applied for that course.
+	 * @param c, the course we want to apply for
+	 * @return The resulting Application or null
+	 * @throws InvalidEmailAddressException
+	 * @throws FailedInternetConnectionException
+	 */
 	public Application apply(Course c) throws InvalidEmailAddressException, 
 		FailedInternetConnectionException {
+		/* We check that we have not applied to the course */
+		for(Application a : apps){
+			if(a.getCourse().equals(c)){
+				return null;
+			}
+		}
+		if(courses.contains(c)){
+			return null;
+		}
+		
 		Application app=new Application(this, c);
 		
 		Academy.getEmailSystem().send(Academy.getMoonApp().getTeacher().getEmail(),

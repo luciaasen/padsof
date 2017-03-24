@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import es.uam.eps.padsof.emailconnection.*;
 import moon.user.*;
+import moon.Academy;
 import moon.mark.*;
 
 public class Course implements Serializable{
@@ -27,6 +28,7 @@ public class Course implements Serializable{
 		studentMarks=new ArrayList<>();
 		applications=new ArrayList<>();
 		this.name = name;
+		Academy.getMoonApp().addCourse(this);
 	}
 	
 	public double calcAverage(){
