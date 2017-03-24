@@ -1,7 +1,7 @@
 package moon.course.question;
 
 import java.io.Serializable;
-
+import moon.mark.*;
 import moon.course.Exercise;
 
 public class OpenQuestion extends Question implements Serializable{
@@ -25,6 +25,17 @@ public class OpenQuestion extends Question implements Serializable{
 	 */
 	public String getAnswer(){
 		return this.answer;
+	}
+	
+	/**
+	 * Adds a new OpenAnswer to the OpenQuestion student marks with the string "answer"
+	 * @param MExercise the ANswer will be associated to
+	 * @param answer to the OpenQuestion
+	 */
+	@Override
+	public void answer(String answer, MExercise m){
+		OpenAnswer mq = new OpenAnswer(this, answer);
+		this.studentMarks.add(mq);		
 	}
 	
 }

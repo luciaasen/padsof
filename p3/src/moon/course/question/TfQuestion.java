@@ -1,7 +1,7 @@
 package moon.course.question;
 
 import java.io.Serializable;
-
+import moon.mark.*;
 import moon.course.Exercise;
 
 public class TfQuestion extends Question implements Serializable{
@@ -25,5 +25,17 @@ public class TfQuestion extends Question implements Serializable{
 	@Override
 	public Boolean getAnswer(){
 		return this.answer;
+	}
+
+	
+	/**
+	  * Adds b to a TfAnswer which is added to the question studentMarks
+	  * @param b, boolean answer to the question
+	  * @param MExercise the ANswer will be associated to
+	  */
+	@Override
+	public void answer(Boolean b, MExercise m) {
+		TfAnswer a = new TfAnswer(this, b);
+		this.studentMarks.add(a);
 	}
 }

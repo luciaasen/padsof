@@ -10,7 +10,7 @@ abstract public class Question implements Serializable{
 	private String question;
 	private double relevance;
 	private Exercise exe;
-	private ArrayList<MQuestion> studentMarks;
+	protected ArrayList<MQuestion> studentMarks;
 	
 	/**
 	 * Question constructor
@@ -80,13 +80,10 @@ abstract public class Question implements Serializable{
 	
 	/**
 	 * Adds m to the list of answers to the question, only if the question associated to m is this
-	 * @param m
+	 * @param o, object that would be a String, an ArrayList or a Boolean
+	 * @param MExercise the ANswer will be associated to
 	 */
-	public void answer(MQuestion m){
-		if(m.getQuestion().equals(this) == true){
-			this.studentMarks.add(m);
-		}
-	}
+	public abstract void answer(Object o, MExercise m);
 	
 	/** Gets the text of the question
 	 * 

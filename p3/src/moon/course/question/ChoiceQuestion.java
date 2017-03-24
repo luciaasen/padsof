@@ -1,9 +1,11 @@
 package moon.course.question;
 
 import java.io.Serializable;
+import moon.mark.*;
 import java.util.ArrayList;
 
 import moon.course.Exercise;
+import moon.mark.TfAnswer;
 
 public class ChoiceQuestion extends Question implements Serializable{
 	 private ArrayList<Option> correct;
@@ -45,4 +47,13 @@ public class ChoiceQuestion extends Question implements Serializable{
 		 return this.correct;
 	 }
 	
+	 /**
+	  * Adds option to a ChoiceANswer which is added to the question studentMarks
+	  * @param opt answer to the choice question
+	  */
+	 @Override
+		public void answer(ArrayList<Option> opt) {
+			ChoiceAnswer a = new ChoiceAnswer (this, opt);
+			this.studentMarks.add(a);
+		}
 }
