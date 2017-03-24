@@ -79,11 +79,13 @@ abstract public class Question implements Serializable{
 	}
 	
 	/**
-	 * Adds m to the list of answers to the question
+	 * Adds m to the list of answers to the question, only if the question associated to m is this
 	 * @param m
 	 */
 	public void answer(MQuestion m){
-		this.studentMarks.add(m);
+		if(m.getQuestion().equals(this) == true){
+			this.studentMarks.add(m);
+		}
 	}
 	
 	/** Gets the text of the question
