@@ -33,7 +33,6 @@ public class Application implements Serializable{
 			return false;
 		}
 		
-		Academy.getEmailSystem();
 		
 		EmailSystem.send(student.getEmail(), 
 				"Acceptation", 
