@@ -27,10 +27,10 @@ public class OpenQuestionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		Exercise e1 = new Exercise();
-		OpenQuestion q1 = new OpenQuestion("Am I silly?", 5, "No", e1);
-		OpenQuestion q2 = new OpenQuestion("Am I?", 10, "Yes", e1);		
-		OpenQuestion q3 = new OpenQuestion("Am I?", -10, "Yes", e1);	
+		e1 = new Exercise();
+		q1 = new OpenQuestion("Am I silly?", 5, "No", e1);
+		q2 = new OpenQuestion("Am I?", 10, "Yes", e1);		
+		q3 = new OpenQuestion("Am I?", -10, "Yes", e1);	
 		
 		
 		
@@ -44,7 +44,7 @@ public class OpenQuestionTest {
 		
 		c1.addStudent(s1);
 		MCourse mc1 = new MCourse(c1, s1);
-		MExercise me1 = new MExercise(e1);
+		me1 = new MExercise(e1);
 		mc1.addMExe(me1);
 		q1.answer("No", me1);
 		q2.answer("No", me1);
