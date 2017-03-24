@@ -47,6 +47,16 @@ public class MCourse extends Mark implements Serializable{
 	}
 	
 	/**
+	 * Adds, if not already added, an exercise mark to the course mark
+	 * @param me, MExercise to add
+	 */
+	public void addMExe(MExercise me){
+		if(this.mExes.contains(me) == false){
+			this.mExes.add(me);
+			}
+	}
+	
+	/**
 	 * Calculates mark in the course
 	 * @return normalized mark in the Course
 	 */

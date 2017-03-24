@@ -9,6 +9,7 @@ import moon.course.question.*;
 import org.junit.Before;
 import org.junit.Test;
 import moon.mark.*;
+import moon.user.*;
 /**
  * @author lucia
  *
@@ -35,8 +36,25 @@ public class OpenQuestionTest {
 		OpenAnswer mq3 = new OpenAnswer(q2, "No");
 		Unit u1 = new Unit("Unit 1");
 		Course c1 = new Course("Course 1");
+		MCourse mc1;
+		MExercise me1 = new MExercise(e1);
+		Student s1, s2, s3;
+		
+		//Add MExercise the 2 questions of e1, then add e1 to u1 and u1 to c1.
+		//Add 3 students to c1 and 2 of them(the ones which answer) to the MCourse associated to e1 and to c1
+		me1.addMQuestion(mq1);
+		me1.addMQuestion(mq2);
+		//Necesito: curso relacionado con lo 3 estudiantes. MQuestion relacionado con Mexercise relacionado con los 3 estudiantes.
 		e1.setUnit(u1);
 		u1.setCourse(c1);
+		
+		s1 = new Student("Pepe", "Martin", "password", 1, "a.b@c.d");
+		s2 = new Student("Mimi", "Gzlez", "wordpass", 2, "a.c@b.d");
+		s3 = new Student("Marta", "Fdez", "pwwp", 3, "d.c@b.a");
+		c1.addStudent(s1);
+		c1.addStudent(s2);
+		c1.addStudent(s3);
+		
 	}
 
 	/**

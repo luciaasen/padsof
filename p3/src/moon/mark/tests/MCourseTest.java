@@ -77,5 +77,14 @@ public class MCourseTest {
 	public void testGetmExes() {
 		fail("Not yet implemented");
 	}
+	
+	
+	/**
+	 * Test method for {@link moon.mark.MCourse#addMExe()}.
+	 */
+	@Test
+	public void testAddMExes() {
+		fail("Not yet implemented");
+	}
 
 }
