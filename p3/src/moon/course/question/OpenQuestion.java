@@ -35,6 +35,7 @@ public class OpenQuestion extends Question implements Serializable{
 	@Override
 	public void answer(String answer, MExercise m){
 		OpenAnswer mq = new OpenAnswer(this, answer);
+		//TODO comprobar que no hay otra mq en el MExercise para la misma question, y que studentMarks no tiene ya un mq de ese student ¿?
 		m.addMQuestion(mq);
 		this.studentMarks.add(mq);		
 	}

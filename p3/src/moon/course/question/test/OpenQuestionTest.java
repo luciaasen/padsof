@@ -31,33 +31,32 @@ public class OpenQuestionTest {
 		OpenQuestion q1 = new OpenQuestion("Am I silly?", 5, "No", e1);
 		OpenQuestion q2 = new OpenQuestion("Am I?", 10, "Yes", e1);		
 		OpenQuestion q3 = new OpenQuestion("Am I?", -10, "Yes", e1);	
-		OpenAnswer mq1 =  new OpenAnswer(q1, "No");
-		OpenAnswer mq2 = new OpenAnswer(q1, "Yes");
-		OpenAnswer mq3 = new OpenAnswer(q2, "No");
-		Unit u1 = new Unit("Unit 1");
-		Course c1 = new Course("Course 1");
-		MCourse mc1, mc2;
-		MExercise me1 = new MExercise(e1), me2 = new MExercise(e1);
-		Student s1, s2, s3;
 		
-		//Add MExercise the q1 question of e1, then add e1 to u1 and u1 to c1.
-		me1.addMQuestion(mq1);
-		me2.addMQuestion(mq2);
-		//Necesito: curso relacionado con lo 3 estudiantes.
+		
+		
+		//Add 3 students to c1 and simulate 2 of them answer to q1
+		
+		Course c1 = new Course("Course 1");
+		Unit u1 = new Unit("Unit 1");
 		e1.setUnit(u1);
 		u1.setCourse(c1);
+		Student s1 = new Student("Pepe", "Martin", "password", 1, "a.b@c.d"), s2 = new Student("Mimi", "Gzlez", "wordpass", 2, "a.c@b.d"), s3 = new Student("Marta", "Fdez", "pwwp", 3, "d.c@b.a");
 		
-		//Add 3 students to c1 and 2 of them(the ones who answer) to theiir MCourse, associated to the MExercise and to c1
-		s1 = new Student("Pepe", "Martin", "password", 1, "a.b@c.d");
-		s2 = new Student("Mimi", "Gzlez", "wordpass", 2, "a.c@b.d");
-		s3 = new Student("Marta", "Fdez", "pwwp", 3, "d.c@b.a");
 		c1.addStudent(s1);
-		c1.addStudent(s2);
-		c1.addStudent(s3);
-		mc1 = new MCourse(c1, s1);
-		mc2 = new MCourse(c1, s2);
+		MCourse mc1 = new MCourse(c1, s1);
+		MExercise me1 = new MExercise(e1);
 		mc1.addMExe(me1);
+		q1.answer("No", me1);
+		q2.answer("No", me1);
+		
+		
+		c1.addStudent(s2);
+		MCourse mc2 = new MCourse(c1, s2);
+		MExercise me2 = new MExercise(e1);
 		mc2.addMExe(me2);
+		q1.answer("Yes", me2);		
+		
+		c1.addStudent(s3);
 		
 	}
 
@@ -129,8 +128,9 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testCalcNUnanswered() {
-		int total = q1.getExercise().getUnit().getCourse().getStudents().size();
-		assert()
+		assertTrue(q1.calcNUnanswered() == 1);
+		assertTrue(q2.calcNUnanswered() == 2);
+		assertTrue(q3.calcNUnanswered() == 3);
 	}
 
 	/**
