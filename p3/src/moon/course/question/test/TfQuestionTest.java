@@ -4,35 +4,66 @@
 package moon.course.question.test;
 
 import static org.junit.Assert.*;
+import moon.mark.*;
+import moon.user.Student;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import moon.course.Course;
 import moon.course.Exercise;
+import moon.course.Unit;
+import moon.course.question.OpenQuestion;
 import moon.course.question.TfQuestion;
-import moon.mark.TfAnswer;
 
 /**
  * @author lucia
  *
  */
 public class TfQuestionTest {
+	
+	private Exercise e1;
+	private TfQuestion q1, q2, q3;
+	private MExercise me1;
 
 	/**
+	 * Set Up creates an exercise and associate to it 3 questions, and add answers to 2 questions.
+	 * Also creates a unit and a course to associate to the exercise where questions are, and students to associate to the answers.
+	 * Emulates the actions that would be performed if these students answered some of the questions
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		Exercise e = new Exercise();
-		TfQuestion a1 = new TfQuestion("Is your answer wrong?", 5, true, e);
-		TfQuestion a2 = new TfQuestion("Is your wrong an answer?", 6, false, e);	
+		e1 = new Exercise();
+		q1 = new TfQuestion("Am I silly?", 5, false, e1);
+		q2 = new TfQuestion("Am I?", 10, true, e1);		
+		q3 = new TfQuestion("Am I wrong?", -10, true, e1);	
 		
-		TfAnswer tf1right = new TfAnswer(a1, true);
-		TfAnswer tf1wrong = new TfAnswer(a1, false);
-		TfAnswer tf1wrong2 = new TfAnswer(a1, false);
-		TfAnswer tf2right = new TfAnswer(a2, false);
-		TfAnswer tf2right2 = new TfAnswer(a2, false);
-		TfAnswer tf2wrong = new TfAnswer(a2, true);
+		
+		
+		//Add 3 students to c1 and simulate 2 of them answer to q1
+		
+		Course c1 = new Course("Course 1");
+		Unit u1 = new Unit("Unit 1");
+		u1.setCourse(c1);
+		e1.setUnit(u1);
+		Student s1 = new Student("Pepe", "Martin", "password", 1, "a.b@c.d"), s2 = new Student("Mimi", "Gzlez", "wordpass", 2, "a.c@b.d"), s3 = new Student("Marta", "Fdez", "pwwp", 3, "d.c@b.a");
+		
+		c1.addStudent(s1);
+		MCourse mc1 = new MCourse(c1, s1);
+		me1 = new MExercise(e1);
+		mc1.addMExe(me1);
+		q1.answer(false, me1);
+		q2.answer(false, me1);
+		
+		
+		c1.addStudent(s2);
+		MCourse mc2 = new MCourse(c1, s2);
+		MExercise me2 = new MExercise(e1);
+		mc2.addMExe(me2);
+		q1.answer(true, me2);		
+		
+		c1.addStudent(s3);
 		
 	}
 
@@ -41,7 +72,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testTfQuestion() {
-		assertNotNull(a1);
+		assertNotNull(q1);
+		assertNotNull(q3);
 	}
 
 	/**
@@ -49,8 +81,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testGetAnswer() {
-		assertTrue(a1.getAnswer());
-		assertFalse(a2.getAnswer());
+		assertEquals(q1.getAnswer(), false);
+		assertEquals(q2.getAnswer(), true);
 	}
 
 	/**
@@ -58,8 +90,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testGetRelevance() {
-		assertEquals(a1.getRelevance, 5);
-		assertEquals(a2.getRelevance, 6);
+		assertTrue(q1.getRelevance() == 5);
+		assertTrue(q3.getRelevance() == 1);
 	}
 
 	/**
@@ -67,8 +99,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testGetExercise() {
-		assertEquals(a1.getExercise(), e);
-		assertEquals(a2.getExercise(), e);
+		assertEquals(q1.getExercise(), e1);
+		assertEquals(q2.getExercise(), e1);
 		
 	}
 
@@ -77,8 +109,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testCalcNPasses() {
-		assertEquals(a1.calcNPasses(), 1);
-		assertEquals(a2.calcNPasses(), 2);
+		assertEquals(q1.calcNPasses(), 1);
+		assertEquals(q2.calcNPasses(), 0);
 	}
 
 	/**
@@ -86,8 +118,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testCalcNFails() {
-		assertEquals(a1.calcNFails(), 2);
-		assertEquals(a2.calcNFails(), 1);
+		assertEquals(q1.calcNFails(), 1);
+		assertEquals(q2.calcNFails(), 1);
 	}
 
 	/**
@@ -95,8 +127,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testCalcNAnswered() {
-		assertEquals(a1.calcNAnswered(), 1);
-		assertEquals(a2.calcNAnswered(), 2);
+		assertEquals(q1.calcNAnswered(), 2);
+		assertEquals(q2.calcNAnswered(), 1);
 	}
 
 	/**
@@ -104,7 +136,9 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testCalcNUnanswered() {
-		fail("Not yet implemented");
+		assertTrue(q1.calcNUnanswered() == 1);
+		assertTrue(q2.calcNUnanswered() == 2);
+		assertTrue(q3.calcNUnanswered() == 3);
 	}
 
 	/**
@@ -112,7 +146,22 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testAnswer() {
-		fail("Not yet implemented");
+		/*This method has been used in the previous tests. Just in case, we check the method has added the correct number of answers to the correct question */
+		
+		assertTrue(q1.calcNAnswered() == 2);
+		assertTrue(q1.calcNUnanswered() == 1);
+		int numQ1 = 0, numQ2 = 0;
+		for(MExercise me: e1.getStudentMarks()){
+			for(MQuestion mq : me.getmQuestions()){
+				if(mq.getQuestion() == q1){
+					numQ1 ++;
+				}else if(mq.getQuestion() == q2){
+					numQ2 ++;
+				}
+			}
+		}
+		
+		assertTrue(numQ1 == 2 & numQ2 == 1);
 	}
 
 	/**
@@ -120,7 +169,8 @@ public class TfQuestionTest {
 	 */
 	@Test
 	public void testGetAnswer1() {
-		fail("Not yet implemented");
+		assertEquals(q1.getAnswer(), false);
+		assertEquals(q3.getAnswer(), true);
 	}
 
 }

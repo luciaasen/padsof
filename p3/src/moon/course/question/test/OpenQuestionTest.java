@@ -22,7 +22,7 @@ public class OpenQuestionTest {
 	/**
 	 * Set Up creates an exercise and associate to it 3 questions, and add answers to 2 questions.
 	 * Also creates a unit and a course to associate to the exercise where questions are, and students to associate to the answers.
-	 * Creat
+	 * Emulates the actions that would be performed if these students answered some of the questions
 	 * @throws java.lang.Exception
 	 */
 	@Before

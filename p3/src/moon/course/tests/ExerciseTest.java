@@ -190,11 +190,18 @@ public class ExerciseTest {
 	}
 	
 	/**
-	 * Test method for {@link moon.course.CourseElement#getStudentMarks()}.
+	 * Test method for {@link moon.course.Exercise#getStudentMarks()}.
 	 */
 	@Test
 	public void testGetStudentMarks() {
 		fail("Not yet implemented");
 	}
 
+	/**
+	 * Test method for {@link moon.course.Exercise#addMExercise()}.
+	 */
+	@Test
+	public void testAddMExercise() {
+		fail("Not yet implemented");
+	}
 }
