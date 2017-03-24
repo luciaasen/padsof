@@ -54,6 +54,12 @@ public class MExercise extends Mark implements Serializable{
 		return this.mQuestions;
 	}
 	
+	public void addMQuestion(MQuestion mq){
+		if(this.mQuestions.contains(mq) == false){
+			this.mQuestions.add(mq);
+		}
+	}
+	
 	/**
 	 * Calculates mark in the course
 	 * @return normalized mark in the Course

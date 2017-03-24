@@ -68,5 +68,13 @@ public class MExerciseTest {
 	public void testGetmQuestions() {
 		fail("Not yet implemented");
 	}
+	
+	/**
+	 * Test method for {@link moon.mark.MExercise#addMQuestion()}.
+	 */
+	@Test
+	public void testAddMQuestion() {
+		fail("Not yet implemented");
+	}
 
 }

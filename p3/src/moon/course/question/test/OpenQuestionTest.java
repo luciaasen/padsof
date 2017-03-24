@@ -20,7 +20,8 @@ public class OpenQuestionTest {
 	private OpenAnswer mq1, mq2, mq3;
 	/**
 	 * Set Up creates an exercise and associate to it 3 questions, and add answers to 2 questions.
-	 * Also creates a unit and a course to associate to the questions.
+	 * Also creates a unit and a course to associate to the exercise where questions are, and students to associate to the answers.
+	 * Creat
 	 * @throws java.lang.Exception
 	 */
 	@Before
@@ -106,10 +107,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testCalcNUnanswered() {
-		
-		
-		Unit u1 = q1.getExercise().getUnit();
-		
+		int total = q1.getExercise().getUnit().getCourse().getStudents().size();
+		assert()
 	}
 
 	/**
