@@ -83,7 +83,15 @@ abstract public class Question implements Serializable{
 	 * @param o, object that would be a String, an ArrayList or a Boolean
 	 * @param MExercise the ANswer will be associated to
 	 */
-	public abstract void answer(Object o, MExercise m);
+	public boolean answer(Object o, MExercise m){
+		/*Check no other answers to the same question in MExercise*/
+		for(MQuestion mq: m.getmQuestions()){
+			if(mq.getQuestion().equals(this)){
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	/** Gets the text of the question
 	 * 
@@ -91,14 +99,6 @@ abstract public class Question implements Serializable{
 	 */
 	public String getQuestion(){
 		return question;
-	}
-	
-	/**
-	 * Equals method for the abstract class
-	 */
-	@Override
-	public boolean equals(Object obj){
-		return false;
 	}
 		
 	/**

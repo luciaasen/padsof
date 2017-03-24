@@ -53,9 +53,18 @@ public class ChoiceQuestion extends Question implements Serializable{
 	  * @param opt answer to the choice question
 	  */
 	 @Override
-		public void answer(ArrayList<Option> opt, MExercise m) {
-			ChoiceAnswer a = new ChoiceAnswer (this, opt);
+	 public boolean answer(Object opt, MExercise m) {
+	 	if(opt instanceof ArrayList<?>){
+	 		if(super.answer(opt, m) == false){
+	 			return false;
+	 		}
+		 	/*Cannot do instanceof ArratList<type> :( */
+			ChoiceAnswer a = new ChoiceAnswer (this, (ArrayList<Option>)opt);
 			m.addMQuestion(a);
 			this.studentMarks.add(a);
-		}
+			return true;
+	 
+	 	}
+	 	return false;
+	 }
 }
