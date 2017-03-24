@@ -34,9 +34,15 @@ public class TfQuestion extends Question implements Serializable{
 	  * @param MExercise the ANswer will be associated to
 	  */
 	@Override
-	public void answer(Boolean b, MExercise m) {
-		TfAnswer a = new TfAnswer(this, b);
-		m.addMQuestion(a);
-		this.studentMarks.add(a);
+	public boolean answer(Object b, MExercise m) {
+		if(b instanceof Boolean){
+			if(super.answer(answer, m) == false){
+				return false;
+			}
+			TfAnswer a = new TfAnswer(this, (Boolean)b);
+			m.addMQuestion(a);
+			this.studentMarks.add(a);
+		}
+		return false;
 	}
 }

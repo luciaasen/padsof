@@ -33,11 +33,19 @@ public class OpenQuestion extends Question implements Serializable{
 	 * @param answer to the OpenQuestion
 	 */
 	@Override
-	public void answer(String answer, MExercise m){
-		OpenAnswer mq = new OpenAnswer(this, answer);
-		//TODO comprobar que no hay otra mq en el MExercise para la misma question, y que studentMarks no tiene ya un mq de ese student ¿?
-		m.addMQuestion(mq);
-		this.studentMarks.add(mq);		
+	public boolean answer(Object answer, MExercise m){
+		if (answer instanceof String){
+			
+			if(super.answer(answer, m) == false){
+				return false;
+			}			
+			//TODO check que studentMarks no tiene ya un mq de ese student ¿
+			OpenAnswer mq = new OpenAnswer(this, (String)answer);
+			m.addMQuestion(mq);
+			this.studentMarks.add(mq);	
+			return true;
+		}
+		return false;
 	}
 	
 }

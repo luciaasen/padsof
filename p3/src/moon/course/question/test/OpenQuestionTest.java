@@ -18,7 +18,7 @@ public class OpenQuestionTest {
 
 	private Exercise e1;
 	private OpenQuestion q1, q2, q3;
-	private OpenAnswer mq1, mq2, mq3;
+	private MExercise me1;
 	/**
 	 * Set Up creates an exercise and associate to it 3 questions, and add answers to 2 questions.
 	 * Also creates a unit and a course to associate to the exercise where questions are, and students to associate to the answers.
@@ -138,23 +138,29 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testAnswer() {
-		fail("Not yet implemented");
+		/*This method has been used in the previous tests. Just in case, we check the method has added the correct number of answers to the correct question */
+		
+		assertTrue(q1.calcNAnswered() == 2);
+		assertTrue(q1.calcNUnanswered() == 1);
+		int numQ1 = 0, numQ2 = 0;
+		for(MQuestion m : me1.getmQuestions()){
+			if(m.getQuestion() == q1){
+				numQ1 ++;
+			}else if(m.getQuestion() == q2){
+				numQ2 ++;
+			}
+		}
+		assertTrue(numQ1 == 2 & numQ2 == 1);
 	}
 
-	/**
-	 * Test method for {@link moon.course.question.Question#equals(java.lang.Object)}.
-	 */
-	@Test
-	public void testEqualsObject() {
-		fail("Not yet implemented");
-	}
-
+	
 	/**
 	 * Test method for {@link moon.course.question.Question#getAnswer()}.
 	 */
 	@Test
 	public void testGetAnswer1() {
-		fail("Not yet implemented");
+		assertEquals(q1.getAnswer(), "No");
+		assertEquals(q3.getAnswer(), "Yes");
 	}
 
 }
