@@ -5,7 +5,7 @@ import java.io.Serializable;
 abstract class CourseElement implements Serializable{
 	boolean visible;
 	private Unit unit;
-	private Course course;
+	protected Course course;
 	
 	/**
 	 * CourseElement's course getter 
@@ -31,15 +31,18 @@ abstract class CourseElement implements Serializable{
 	public Unit getUnit(){
 		return this.unit;
 	}
+	
 	/**
 	 * Sets the unit of a course element, if it not already added
+	 * IMPORTANT: Additionally, sets the CourseElement's course to the unit's course
+	 * TO BE USED AFTER SETTING HE UNIT. OTHERWISE, THIS.COURSE WILL BE NULL
 	 * @param unit the unit to set
 	 */
 	//TODO add this method to the tests
 	public void setUnit(Unit unit) {
 		if(unit.getContents().contains(this) == false){
 			this.unit = unit;
-	
+			this.course = this.unit.course;
 		}
 	}
 

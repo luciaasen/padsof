@@ -188,5 +188,13 @@ public class ExerciseTest {
 	public void testMakeInvisible() {
 		fail("Not yet implemented");
 	}
+	
+	/**
+	 * Test method for {@link moon.course.CourseElement#getStudentMarks()}.
+	 */
+	@Test
+	public void testGetStudentMarks() {
+		fail("Not yet implemented");
+	}
 
 }

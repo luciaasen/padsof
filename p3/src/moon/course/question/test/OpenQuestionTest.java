@@ -38,8 +38,8 @@ public class OpenQuestionTest {
 		
 		Course c1 = new Course("Course 1");
 		Unit u1 = new Unit("Unit 1");
-		e1.setUnit(u1);
 		u1.setCourse(c1);
+		e1.setUnit(u1);
 		Student s1 = new Student("Pepe", "Martin", "password", 1, "a.b@c.d"), s2 = new Student("Mimi", "Gzlez", "wordpass", 2, "a.c@b.d"), s3 = new Student("Marta", "Fdez", "pwwp", 3, "d.c@b.a");
 		
 		c1.addStudent(s1);
@@ -143,13 +143,16 @@ public class OpenQuestionTest {
 		assertTrue(q1.calcNAnswered() == 2);
 		assertTrue(q1.calcNUnanswered() == 1);
 		int numQ1 = 0, numQ2 = 0;
-		for(MQuestion m : me1.getmQuestions()){
-			if(m.getQuestion() == q1){
-				numQ1 ++;
-			}else if(m.getQuestion() == q2){
-				numQ2 ++;
+		for(MExercise me: e1.getStudentMarks()){
+			for(MQuestion mq : me.getmQuestions()){
+				if(mq.getQuestion() == q1){
+					numQ1 ++;
+				}else if(mq.getQuestion() == q2){
+					numQ2 ++;
+				}
 			}
 		}
+		
 		assertTrue(numQ1 == 2 & numQ2 == 1);
 	}
 

@@ -210,4 +210,22 @@ public class Exercise extends CourseElement implements Serializable{
 		}
 		return false;
 	}
+	
+	/**
+	 * Getter method of the list of student answers to the exercise
+	 * @return list with all the MExercises
+	 */
+	public ArrayList<MExercise> getStudentMarks(){
+		return this.studentMarks;
+	}
+	
+	/**
+	 * Adds me to the Exercise MExercises.
+	 * IMPORTANT: THIS METHOD IS CALLED FROM THE MEXERCISE CONSTRUCTOR--> DONT NEED TO USE IT IF YOU HAVE ALREADY CONSTRUCTED THE ME
+	 * @param me
+	 */
+	public void addMExercise(MExercise me){
+		this.studentMarks.add(me);
+	}
+	
 }

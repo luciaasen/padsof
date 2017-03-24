@@ -59,7 +59,7 @@ abstract public class Question implements Serializable{
 	 * @return
 	 */
 	public int calcNFails(){
-		return this.exe.getCourse().getStudents().size() - this.calcNPasses();
+		return this.studentMarks.size() - this.calcNPasses();
 	}
 	
 	/**

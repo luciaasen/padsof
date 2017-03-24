@@ -13,12 +13,15 @@ public class MExercise extends Mark implements Serializable{
 	
 	/**
 	 * Constructor for MExercise
-	 * @param exercise
+	 * IMPORTANT: this constructor ALSO ADD THE MEXERCISE TO THE EXERCISE MEXERCISES LIST
+	 * @param exercise associated to the MExercise
 	 */
 	public MExercise(Exercise exercise){
 		super();
 		
 		this.exercise = exercise;
+		/*We complete the relation the other way round*/
+		exercise.addMExercise(this);
 		this.mQuestions = new ArrayList<>();
 	}
 	
