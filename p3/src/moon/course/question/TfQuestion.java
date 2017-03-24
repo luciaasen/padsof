@@ -36,6 +36,7 @@ public class TfQuestion extends Question implements Serializable{
 	@Override
 	public void answer(Boolean b, MExercise m) {
 		TfAnswer a = new TfAnswer(this, b);
+		m.addMQuestion(a);
 		this.studentMarks.add(a);
 	}
 }

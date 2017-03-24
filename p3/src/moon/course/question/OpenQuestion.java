@@ -35,6 +35,7 @@ public class OpenQuestion extends Question implements Serializable{
 	@Override
 	public void answer(String answer, MExercise m){
 		OpenAnswer mq = new OpenAnswer(this, answer);
+		m.addMQuestion(mq);
 		this.studentMarks.add(mq);		
 	}
 	

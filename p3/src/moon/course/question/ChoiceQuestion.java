@@ -49,11 +49,13 @@ public class ChoiceQuestion extends Question implements Serializable{
 	
 	 /**
 	  * Adds option to a ChoiceANswer which is added to the question studentMarks
+	  * @param MExercise the ANswer will be associated to
 	  * @param opt answer to the choice question
 	  */
 	 @Override
-		public void answer(ArrayList<Option> opt) {
+		public void answer(ArrayList<Option> opt, MExercise m) {
 			ChoiceAnswer a = new ChoiceAnswer (this, opt);
+			m.addMQuestion(a);
 			this.studentMarks.add(a);
 		}
 }
