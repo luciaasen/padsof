@@ -50,8 +50,8 @@ public class ExerciseTest extends Exercise {
 		
 		q1 = new TfQuestion("Am I silly?", 5, false, e1);
 		q2 = new TfQuestion("Am I?", 10, true, e1);		
-		q3 = new TfQuestion("Am I wrong?", -10, true, e1);
-		q4= new TfQuestion("Are you okay?", 4, true, e1);
+		q3 = new TfQuestion("Am I wrong?", -10, true, e2);
+		q4= new TfQuestion("Are you okay?", 4, true, e2);
 		
 		
 	}

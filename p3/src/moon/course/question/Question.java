@@ -14,6 +14,7 @@ abstract public class Question implements Serializable{
 	
 	/**
 	 * Question constructor
+	 * IMPORTANT: apart from setting this.exercise attribute, adds 'this' to the exercise questions
 	 * @param question
 	 * @param exe
 	 * @param relevance > 0. Else, it will be set up as 1

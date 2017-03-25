@@ -31,8 +31,4 @@ public class Unit extends CourseElement implements Serializable{
 	public ArrayList<CourseElement> getContents() {
 		return contents;
 	}
-
-	
-	
-	
 }

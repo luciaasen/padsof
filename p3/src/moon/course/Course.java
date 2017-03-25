@@ -167,5 +167,21 @@ public class Course implements Serializable{
 		return applications;
 	}
 	
+	/**
+	 * Given a course, returns a list from all exercises related to its different units
+	 * @return list of exercise of a course
+	 */
+	public ArrayList<Exercise> getExercises(){
+		ArrayList<Exercise> exe = new ArrayList<>();
+		for(Unit u: this.units){
+			for(CourseElement e: u.getContents()){
+				if(e instanceof Exercise){
+					exe.add((Exercise)e);
+				}
+			}
+		}
+		return exe;
+	}
+	
 	
 }

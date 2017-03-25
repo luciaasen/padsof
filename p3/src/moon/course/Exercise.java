@@ -137,7 +137,7 @@ public class Exercise extends CourseElement implements Serializable{
 	public int calcNPasses(){
 		int count = 0;
 		for(MExercise m: this.studentMarks){
-			if(m.getMark() >= 5){
+			if(m.getMark() >= 0.5){
 				count ++;
 			}
 		}
