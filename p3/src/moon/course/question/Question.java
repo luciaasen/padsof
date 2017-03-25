@@ -25,6 +25,7 @@ abstract public class Question implements Serializable{
 		this.question= question;
 		this.relevance = relevance;
 		this.exe = exe;
+		exe.addQuestion(this);
 		studentMarks = new ArrayList<MQuestion>();
 	}
 	
