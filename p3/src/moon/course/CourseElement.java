@@ -36,6 +36,10 @@ abstract class CourseElement implements Serializable{
 	 * Sets the unit of a course element, if it not already added
 	 * IMPORTANT: Additionally, sets the CourseElement's course to the unit's course
 	 * TO BE USED AFTER SETTING HE UNIT. OTHERWISE, THIS.COURSE WILL BE NULL
+	 * 
+	 * Another thing is that, if you want to make a realtionship between
+	 * a unit and a courseElement, you should call this method and not 
+	 * Unit.addElement();
 	 * @param unit the unit to set
 	 */
 	//TODO add this method to the tests
@@ -43,6 +47,7 @@ abstract class CourseElement implements Serializable{
 		if(unit.getContents().contains(this) == false){
 			this.unit = unit;
 			this.course = this.unit.course;
+			unit.addElement(this);
 		}
 	}
 
