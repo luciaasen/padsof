@@ -165,7 +165,7 @@ public class StudentTest {
 		 * so let's check that the applications have been added to the list.
 		 */
 		assertTrue(s1.getApps().contains(a11));
-		assertTrue(s2.getApps().contains(a12));
+		assertTrue(s1.getApps().contains(a12));
 	}
 	
 	/**
@@ -252,14 +252,14 @@ public class StudentTest {
 		 * This has already been tested to work.
 		 */
 		assertTrue(s1.removeApplication(a11));
-		assertTrue(s2.removeApplication(a12));
+		assertTrue(s1.removeApplication(a12));
 		/* They can not be removed twice */
 		assertFalse(s1.removeApplication(a11));
-		assertFalse(s2.removeApplication(a12));
+		assertFalse(s1.removeApplication(a12));
 		
 		/* Now they should not be there anymore */
 		assertFalse(s1.getApps().contains(a11));
-		assertFalse(s2.getApps().contains(a12));
+		assertFalse(s1.getApps().contains(a12));
 	}
 
 	/**
@@ -349,7 +349,7 @@ public class StudentTest {
 		
 		
 		
-		
+
 		assertTrue(s1.calcAverage()<6.3);
 		assertTrue(s1.calcAverage()>6);
 		assertTrue(s2.calcAverage()< 1.7);
@@ -574,7 +574,6 @@ public class StudentTest {
 		assertFalse(courses.contains(c2));
 		courses=s2.coursesInButNotExpelled();
 		assertTrue(courses.contains(c1));
-		assertTrue(courses.contains(c2));
 		courses=s3.coursesInButNotExpelled();
 		assertFalse(courses.contains(c1));
 		assertTrue(courses.contains(c2));
@@ -587,7 +586,6 @@ public class StudentTest {
 		assertTrue(courses.contains(c2));
 		courses=s2.getCourses();
 		assertTrue(courses.contains(c1));
-		assertTrue(courses.contains(c2));
 		courses=s3.getCourses();
 		assertTrue(courses.contains(c1));
 		assertTrue(courses.contains(c2));
