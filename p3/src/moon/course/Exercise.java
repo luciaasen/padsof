@@ -67,6 +67,9 @@ public class Exercise extends CourseElement implements Serializable{
 	 */
 	public void setPenalty(double penalty) {
 		if(this.hasBeenDone() == false){
+			if(penalty > 0){
+				penalty = -1;
+			}
 			this.penalty = penalty;
 		}
 	}
