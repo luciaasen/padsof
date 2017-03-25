@@ -1,6 +1,7 @@
 package moon.mark;
 
 import moon.course.*;
+import moon.course.question.Question;
 import moon.user.*;
 
 import java.io.Serializable;
@@ -68,7 +69,12 @@ public class MCourse extends Mark implements Serializable{
 		for( MExercise mExe: this.getmExes() ){
 			mark += mExe.getMark() *
 					mExe.getExercise().getRelevance();
-			relev += mExe.getExercise().getRelevance();
+		}
+		for(Exercise e: this.getCourse().getExercises()){
+			relev += e.getRelevance();
+		}
+		if(mark < 0){
+			return 0;
 		}
 		return mark/relev;
 	}
