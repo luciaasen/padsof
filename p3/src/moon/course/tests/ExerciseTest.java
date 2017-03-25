@@ -20,8 +20,8 @@ import moon.mark.*;
  */
 public class ExerciseTest extends Exercise {
 
-	private Exercise e1;
-	private TfQuestion q1, q2, q3;
+	private Exercise e1, e2;
+	private TfQuestion q1, q2, q3, q4;
 	private MExercise me1;
 	
 	/**
@@ -31,18 +31,28 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		LocalDate from = LocalDate.of(2017, 1, 1);
+		LocalDate to = LocalDate.of(2017, 12, 12);
+		
 		e1 = new Exercise();
-		e1.setRelevance(3);
+		e1.setRelevance(2);
 		e1.setPenalty(-2);
 		e1.setName("Exe One");
 		e1.setRandord(false);
-		LocalDate from = LocalDate.of(2017, 1, 1);
-		LocalDate to = LocalDate.of(2017, 12, 12);
 		e1.setDates(from, to);
+		
+		e2 = new Exercise();
+		e2.setRelevance(1);
+		e2.setPenalty(-4);
+		e2.setName("Exe 2");
+		e2.setRandord(false);
+		e2.setDates(from, to);
 		
 		q1 = new TfQuestion("Am I silly?", 5, false, e1);
 		q2 = new TfQuestion("Am I?", 10, true, e1);		
 		q3 = new TfQuestion("Am I wrong?", -10, true, e1);
+		q4= new TfQuestion("Are you okay?", 4, true, e1);
+		
 		
 	}
 
