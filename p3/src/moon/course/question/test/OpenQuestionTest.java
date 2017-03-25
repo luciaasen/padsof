@@ -20,7 +20,7 @@ public class OpenQuestionTest {
 	private OpenQuestion q1, q2, q3;
 	private MExercise me1;
 	/**
-	 * Set Up creates an exercise and associate to it 3 questions, and add answers to 2 questions.
+	 * Set Up creates an exercise and associate to it 3 questions, and add answers to each.
 	 * Also creates a unit and a course to associate to the exercise where questions are, and students to associate to the answers.
 	 * Emulates the actions that would be performed if these students answered some of the questions
 	 * @throws java.lang.Exception
@@ -156,14 +156,5 @@ public class OpenQuestionTest {
 		assertTrue(numQ1 == 2 & numQ2 == 1);
 	}
 
-	
-	/**
-	 * Test method for {@link moon.course.question.Question#getAnswer()}.
-	 */
-	@Test
-	public void testGetAnswer1() {
-		assertEquals(q1.getAnswer(), "No");
-		assertEquals(q3.getAnswer(), "Yes");
-	}
 
 }

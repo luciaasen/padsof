@@ -164,13 +164,4 @@ public class TfQuestionTest {
 		assertTrue(numQ1 == 2 & numQ2 == 1);
 	}
 
-	/**
-	 * Test method for {@link moon.course.question.Question#getAnswer()}.
-	 */
-	@Test
-	public void testGetAnswer1() {
-		assertEquals(q1.getAnswer(), false);
-		assertEquals(q3.getAnswer(), true);
-	}
-
 }

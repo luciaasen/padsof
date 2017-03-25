@@ -29,7 +29,7 @@ public class OpenQuestion extends Question implements Serializable{
 	
 	/**
 	 * Adds a new OpenAnswer to the OpenQuestion student marks with the string "answer"
-	 * @param MExercise the ANswer will be associated to
+	 * @param String with the answer
 	 * @param answer to the OpenQuestion
 	 */
 	@Override

@@ -45,14 +45,7 @@ public class ChoiceQuestion extends Question implements Serializable{
 	  * Question correct answer/s getter
 	  * @return correct
 	  */
-	 public ArrayList<Option> getCorrect() {
-		 return this.correct;
-	 }
-	
-	 /**
-	  * Returns the correct answers to the Question
-	  * @return ArrayList
-	  */
+	 
 	 @Override
 	 public ArrayList<Option> getAnswer(){
 		 return this.correct;
@@ -60,21 +53,30 @@ public class ChoiceQuestion extends Question implements Serializable{
 	
 	 /**
 	  * Adds option to a ChoiceANswer which is added to the question studentMarks
-	  * @param MExercise the ANswer will be associated to
+	  * @param ArrayList<Option> with the answer the studentMark will be associated to
 	  * @param opt answer to the choice question
 	  */
 	 @Override
 	 public boolean answer(Object opt, MExercise m) {
+		boolean valid = true;
 	 	if(opt instanceof ArrayList<?>){
+	 		for(Object o: (ArrayList<?>)opt){
+	 			if((o instanceof Option) == false){
+	 				valid = false;
+	 			}	 			
+	 		}
+	 		if(valid == false){
+	 			return false;
+	 		}	 		
+	 		/*If it hasnt returned yet, the Object is an ArrayList<Option> so we can crete de ChoiceAnswer */
+	 		
 	 		if(super.answer(opt, m) == false){
 	 			return false;
 	 		}
-		 	/*Cannot do instanceof ArratList<type> :( */
-			ChoiceAnswer a = new ChoiceAnswer (this, (ArrayList<Option>)opt);
+	 		ChoiceAnswer a = new ChoiceAnswer (this, (ArrayList<Option>)opt);
 			m.addMQuestion(a);
 			this.studentMarks.add(a);
-			return true;
-	 
+			return true;	 
 	 	}
 	 	return false;
 	 }
