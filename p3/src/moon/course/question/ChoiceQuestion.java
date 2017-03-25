@@ -16,11 +16,22 @@ public class ChoiceQuestion extends Question implements Serializable{
 	  * @param question
 	  * @param relevance
 	  * @param exercise
+	  * @param options
+	  * @param correct (the correct option/s from the param options)
 	  */
-	 public ChoiceQuestion( String question, double relevance, Exercise exe){
+	 public ChoiceQuestion( String question, double relevance, ArrayList<Option> options, ArrayList<Option> answer, Exercise exe){
 		 super(question, relevance, exe);
-		 correct = new ArrayList<Option>();
-		 options = new ArrayList<Option>();
+		 boolean valid = true;
+		 for(Option op: correct){
+			 if(options.contains(op) == false){
+				 valid = false;
+			 }
+		 }
+		 /*All correct options were in the possible options*/
+		 if(valid == true){
+			 this.options = options;
+			 this.correct = correct;
+		 }
 	 }
 	 
 	 /**
