@@ -19,7 +19,7 @@ public class ChoiceQuestion extends Question implements Serializable{
 	  * @param options
 	  * @param correct (the correct option/s from the param options)
 	  */
-	 public ChoiceQuestion( String question, double relevance, ArrayList<Option> options, ArrayList<Option> answer, Exercise exe){
+	 public ChoiceQuestion( String question, double relevance, ArrayList<Option> options, ArrayList<Option> correct, Exercise exe){
 		 super(question, relevance, exe);
 		 boolean valid = true;
 		 for(Option op: correct){
