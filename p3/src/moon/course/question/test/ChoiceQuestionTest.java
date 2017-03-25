@@ -38,6 +38,7 @@ public class ChoiceQuestionTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		/*Create slist of options*/
 		Option option1 = new Option("Yes");
 		Option option2 = new Option("No");
 		Option opAnswer2 = new Option("Yes");
@@ -55,6 +56,7 @@ public class ChoiceQuestionTest {
 		op2.add(option2);
 		correct2.add(opAnswer2);
 		
+		/*Creates exeercise and questions*/
 		e1 = new Exercise();
 		q1 = new ChoiceQuestion("Am I silly?", 5, op1, correct1, e1);
 		q2 = new ChoiceQuestion("Am I?", 10, op2, correct2, e1);		
@@ -193,5 +195,17 @@ public class ChoiceQuestionTest {
 		assertTrue(numQ1 == 2 & numQ2 == 1);
 	}
 
+	/**
+	 * Test method for {@link moon.course.question.Question#getStudentMarks(moon.mark.MQuestion)}.
+	 */
+	@Test
+	public void testGetStudentMarks() {
+		ArrayList<MQuestion> mq1 = q1.getStudentMarks();
+		ArrayList<MQuestion> mq2 = q2.getStudentMarks();
+		ArrayList<MQuestion> mq3 = q3.getStudentMarks();
+		assertEquals(mq1.size(), 2);
+		assertEquals(mq2.size(), 1);
+		assertEquals(mq3.size(), 0);
+	}
 
 }

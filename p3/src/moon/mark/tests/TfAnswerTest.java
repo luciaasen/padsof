@@ -8,21 +8,31 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import moon.mark.TfAnswer;
+import moon.course.Exercise;
+import moon.course.question.*;
+import moon.mark.*;
 
 /**
  * @author lucia
  *
  */
 public class TfAnswerTest {
-
+	private Exercise e1;
+	private TfQuestion q1;
+	private TfAnswer answer1, answer2;
+	
 	/**
+	 * Creates an exercise, sets its penalty and add a question to it.
+	 * Creates a correct and a wrong answer to the question
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		
-	
+		e1 = new Exercise();
+		e1.setPenalty(-3);
+		q1 = new TfQuestion("Am I silly?", 5, false, e1);
+		answer1 = new TfAnswer(q1, false);
+		answer2 = new TfAnswer(q1, true);		
 	}
 
 	/**
@@ -30,7 +40,7 @@ public class TfAnswerTest {
 	 */
 	@Test
 	public void testIsCorrect() {
-		fail("Not yet implemented");
+		assertTrue(answer1.isCorrect() & (answer2.isCorrect() == false));
 	}
 
 	/**
@@ -38,7 +48,8 @@ public class TfAnswerTest {
 	 */
 	@Test
 	public void testTfAnswer() {
-		fail("Not yet implemented");
+		assertNotNull(answer1);
+		assertNotNull(answer2);
 	}
 
 	/**
@@ -46,7 +57,7 @@ public class TfAnswerTest {
 	 */
 	@Test
 	public void testGetMark() {
-		fail("Not yet implemented");
+		assertTrue((answer1.getMark() == 5) & (answer2.getMark() == -3));
 	}
 
 	/**
@@ -54,7 +65,7 @@ public class TfAnswerTest {
 	 */
 	@Test
 	public void testMQuestion() {
-		fail("Not yet implemented");
+		assertTrue(answer1.getQuestion() == q1 & answer2.getQuestion() == q1);
 	}
 
 	/**
@@ -62,7 +73,7 @@ public class TfAnswerTest {
 	 */
 	@Test
 	public void testGetQuestion() {
-		fail("Not yet implemented");
+		assertTrue(answer1.getQuestion() == q1 & answer2.getQuestion() == q1);
 	}
 
 }

@@ -170,7 +170,7 @@ public class Exercise extends CourseElement implements Serializable{
 	 * @return true if anyone has done it, else false
 	 */
 	public Boolean hasBeenDone(){
-		if(this.studentMarks.size() > 0){
+		if(this.studentMarks.size() < 1){
 			return false;
 		}
 		return true;
@@ -226,6 +226,14 @@ public class Exercise extends CourseElement implements Serializable{
 	 */
 	public void addMExercise(MExercise me){
 		this.studentMarks.add(me);
+	}
+	
+	/**
+	 * Gets questions of an exercise
+	 * @return list of questions
+	 */
+	public ArrayList<Question> getQuestions(){
+		return this.questions;
 	}
 	
 }

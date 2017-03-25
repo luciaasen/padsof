@@ -8,11 +8,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import moon.course.Exercise;
+
 /**
  * @author lucia
  *
  */
-public class ExerciseTest {
+public class ExerciseTest extends Exercise {
 
 	/**
 	 * @throws java.lang.Exception
@@ -158,6 +160,30 @@ public class ExerciseTest {
 	}
 
 	/**
+	 * Test method for {@link moon.course.Exercise#getStudentMarks()}.
+	 */
+	@Test
+	public void testGetStudentMarks() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.Exercise#addMExercise(moon.mark.MExercise)}.
+	 */
+	@Test
+	public void testAddMExercise() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.Exercise#getQuestions()}.
+	 */
+	@Test
+	public void testGetQuestions() {
+		fail("Not yet implemented");
+	}
+
+	/**
 	 * Test method for {@link moon.course.CourseElement#getCourse()}.
 	 */
 	@Test
@@ -166,10 +192,26 @@ public class ExerciseTest {
 	}
 
 	/**
+	 * Test method for {@link moon.course.CourseElement#setCourse(moon.course.Course)}.
+	 */
+	@Test
+	public void testSetCourse() {
+		fail("Not yet implemented");
+	}
+
+	/**
 	 * Test method for {@link moon.course.CourseElement#getUnit()}.
 	 */
 	@Test
 	public void testGetUnit() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.CourseElement#setUnit(moon.course.Unit)}.
+	 */
+	@Test
+	public void testSetUnit() {
 		fail("Not yet implemented");
 	}
 
@@ -188,20 +230,5 @@ public class ExerciseTest {
 	public void testMakeInvisible() {
 		fail("Not yet implemented");
 	}
-	
-	/**
-	 * Test method for {@link moon.course.Exercise#getStudentMarks()}.
-	 */
-	@Test
-	public void testGetStudentMarks() {
-		fail("Not yet implemented");
-	}
 
-	/**
-	 * Test method for {@link moon.course.Exercise#addMExercise()}.
-	 */
-	@Test
-	public void testAddMExercise() {
-		fail("Not yet implemented");
-	}
 }

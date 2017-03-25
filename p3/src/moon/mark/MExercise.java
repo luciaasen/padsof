@@ -1,6 +1,7 @@
 package moon.mark;
 
 import moon.course.*;
+import moon.course.question.Question;
 import moon.user.*;
 
 import java.io.Serializable;
@@ -69,15 +70,17 @@ public class MExercise extends Mark implements Serializable{
 	}
 	
 	/**
-	 * Calculates mark in the course
-	 * @return normalized mark in the Course
+	 * Calculates mark in the exercise
+	 * @return normalized mark in the Exercise
 	 */
 	public double getMark(){
 		double mark = 0;
 		double relev = 0;
 		for( MQuestion  mQu: this.getmQuestions()){
 			mark += mQu.getMark();
-			relev += mQu.getQuestion().getRelevance();
+		}
+		for(Question q: this.exercise.getQuestions()){
+			relev += q.getRelevance();
 		}
 		if(mark < 0){
 			return 0;
@@ -85,4 +88,12 @@ public class MExercise extends Mark implements Serializable{
 		return mark/relev;
 	}
 	
+	/**
+	 * When an exercise is cancelled, we remove the student answers from the correspondant question studentMarks list
+	 */
+	public void cancel(){
+		for(MQuestion mq: this.mQuestions){
+			mq.getQuestion().getStudentMarks().remove(mq);
+		}
+	}
 }

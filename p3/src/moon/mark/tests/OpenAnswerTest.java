@@ -4,9 +4,14 @@
 package moon.mark.tests;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
+import moon.mark.*;
+import moon.course.Course;
+import moon.course.Exercise;
+import moon.course.Unit;
+import moon.course.question.OpenQuestion;
+import moon.user.Student;
 
 /**
  * @author lucia
@@ -14,11 +19,22 @@ import org.junit.Test;
  */
 public class OpenAnswerTest {
 
+	private Exercise e1;
+	private OpenQuestion q1;
+	private OpenAnswer answer1, answer2;
+	
 	/**
+	 * Creates an exercise, sets its penalty and add a question to it.
+	 * Creates a correct and a wrong answer to the question
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		e1 = new Exercise();
+		e1.setPenalty(-3);
+		q1 = new OpenQuestion("Am I silly?", 5, "No", e1);
+		answer1 = new OpenAnswer(q1, "No");
+		answer2 = new OpenAnswer(q1, "Yes");		
 	}
 
 	/**
@@ -26,7 +42,7 @@ public class OpenAnswerTest {
 	 */
 	@Test
 	public void testIsCorrect() {
-		fail("Not yet implemented");
+		assertTrue(answer1.isCorrect() & (answer2.isCorrect() == false));
 	}
 
 	/**
@@ -34,7 +50,8 @@ public class OpenAnswerTest {
 	 */
 	@Test
 	public void testOpenAnswer() {
-		fail("Not yet implemented");
+		assertNotNull(answer1);
+		assertNotNull(answer2);
 	}
 	
 	/**
@@ -42,15 +59,7 @@ public class OpenAnswerTest {
 	 */
 	@Test
 	public void testGetMark() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link moon.mark.MQuestion#MQuestion(moon.course.question.Question)}.
-	 */
-	@Test
-	public void testMQuestion() {
-		fail("Not yet implemented");
+		assertTrue((answer1.getMark() == 5) & (answer2.getMark() == -3));
 	}
 
 	/**
@@ -58,7 +67,7 @@ public class OpenAnswerTest {
 	 */
 	@Test
 	public void testGetQuestion() {
-		fail("Not yet implemented");
+		assertTrue(answer1.getQuestion() == q1 & answer2.getQuestion() == q1);
 	}
 
 }

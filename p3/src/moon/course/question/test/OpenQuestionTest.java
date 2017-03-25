@@ -4,6 +4,9 @@
 package moon.course.question.test;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import moon.course.*;
 import moon.course.question.*;
 import org.junit.Before;
@@ -154,6 +157,19 @@ public class OpenQuestionTest {
 		}
 		
 		assertTrue(numQ1 == 2 & numQ2 == 1);
+	}
+	
+	/**
+	 * Test method for {@link moon.course.question.Question#getStudentMarks(moon.mark.MQuestion)}.
+	 */
+	@Test
+	public void testGetStudentMarks() {
+		ArrayList<MQuestion> mq1 = q1.getStudentMarks();
+		ArrayList<MQuestion> mq2 = q2.getStudentMarks();
+		ArrayList<MQuestion> mq3 = q3.getStudentMarks();
+		assertEquals(mq1.size(), 2);
+		assertEquals(mq2.size(), 1);
+		assertEquals(mq3.size(), 0);
 	}
 
 
