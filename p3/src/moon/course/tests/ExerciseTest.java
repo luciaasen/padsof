@@ -13,6 +13,7 @@ import org.junit.Test;
 import moon.course.*;
 import moon.course.question.*;
 import moon.mark.*;
+import moon.user.Student;
 
 /**
  * @author lucia
@@ -22,7 +23,7 @@ public class ExerciseTest extends Exercise {
 
 	private Exercise e1, e2;
 	private TfQuestion q1, q2, q3, q4;
-	private MExercise me1;
+	private MExercise me1, me2, me3, me4;
 	
 	/**
 	 * Create and set 2 exercises up with different questions, we then emulate
@@ -31,6 +32,8 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		
+		/*Set 2 exercises with its questions, and 2 students*/
 		LocalDate from = LocalDate.of(2017, 1, 1);
 		LocalDate to = LocalDate.of(2017, 12, 12);
 		
@@ -53,7 +56,44 @@ public class ExerciseTest extends Exercise {
 		q3 = new TfQuestion("Am I wrong?", -10, true, e2);
 		q4= new TfQuestion("Are you okay?", 4, true, e2);
 		
+		Student s1 = new Student("Pepe", "Martin", "password", 1, "a.b@c.d"), s2 = new Student("Mimi", "Gzlez", "wordpass", 2, "a.c@b.d");
 		
+		/*Emulate students do exercises*/
+		Course c1 = new Course("Course 1");
+		Unit u1 = new Unit("Unit 1");
+		u1.setCourse(c1);
+		e1.setUnit(u1);
+		e2.setUnit(u1);
+		
+		/*First student answers correctly to all answers in all exercises*/
+		c1.addStudent(s1);
+		MCourse mc1 = new MCourse(c1, s1);
+		
+		me1 = new MExercise(e1);
+		mc1.addMExe(me1);
+		q1.answer(false, me1);
+		q2.answer(true, me1);
+		e1.addMExercise(me1);
+		
+		me2 = new MExercise(e2);
+		mc1.addMExe(me2);
+		q3.answer(true, me2);
+		q4.answer(true, me2);
+		e2.addMExercise(me2);
+		
+		/*Second student answers to one question in each exercise. Wrong answer */
+		c1.addStudent(s2);
+		MCourse mc2 = new MCourse(c1, s2);
+		
+		me3 = new MExercise(e1);
+		mc2.addMExe(me3);
+		q1.answer(true, me3);
+		e1.addMExercise(me3);
+		
+		me4 = new MExercise(e2);
+		mc2.addMExe(me4);
+		q3.answer(false, me4);
+		e2.addMExercise(me4);	
 	}
 
 	/**
@@ -61,7 +101,8 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testExercise() {
-		fail("Not yet implemented");
+		assertNotNull(e1);
+		assertNotNull(e2);
 	}
 
 	/**
@@ -69,7 +110,8 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testGetRelevance() {
-		fail("Not yet implemented");
+		assertTrue(e1.getRelevance() == 2);
+		assertTrue(e2.getRelevance() == 1);
 	}
 
 	/**
@@ -77,7 +119,12 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testSetRelevance() {
-		fail("Not yet implemented");
+		/*Normal set relevance is tested with setup and getRelevance test*/
+		/*In set up, we simulate someone does the exercise and try to set it again*/
+		/*Relevance shouldnt be changed*/
+		e1.setRelevance(100);
+		assertTrue(e1.getRelevance() == 2);
+		
 	}
 
 	/**
