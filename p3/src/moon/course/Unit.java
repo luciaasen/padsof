@@ -35,6 +35,9 @@ public class Unit extends CourseElement implements Serializable{
 	@Override
 	public void setCourse(Course c){
 		super.setCourse(c);
+		if(c.getUnits().contains(this)){
+			return;
+		}
 		c.addUnit(this);
 	}
 }
