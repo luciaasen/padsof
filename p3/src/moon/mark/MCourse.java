@@ -20,6 +20,8 @@ public class MCourse extends Mark implements Serializable{
 		super();
 		this.course = course;
 		this.student = student;
+		course.addMark(this);
+		student.addMark(this);
 		this.mExes = new ArrayList<MExercise>();
 	}
 	

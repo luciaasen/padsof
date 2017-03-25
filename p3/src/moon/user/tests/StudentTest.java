@@ -5,6 +5,8 @@ package moon.user.tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 
 import moon.user.*;
@@ -42,30 +44,31 @@ public class StudentTest {
 		c1 = new Course("Bioquimica aplicada");
 		c2 = new Course("SADFOP");
 		
+		
 		e11 = new Exercise();
 		e11.setPenalty(-33.2);
-		e11.setRelevance(5);
+		e11.setRelevance(4);
 		q111 = new TfQuestion("Is this question boring? HUH?!", 300, false, e11);
 		q112 = new TfQuestion("Am I a paranoid android?", 11, true, e11);		
 		q113 = new TfQuestion("Are we here?", 21, true, e11);
 		
 		e12 = new Exercise();
 		e12.setPenalty(0);
-		e12.setRelevance(5);
+		e12.setRelevance(4);
 		q121 = new TfQuestion("Is this question boring? HUH?!", 10, false, e12);
 		q122 = new TfQuestion("Am I a paranoid android?", 9, true, e12);		
 		q123 = new TfQuestion("Are we here?", 21, true, e12);
 		
 		e21 = new Exercise();
 		e21.setPenalty(-2);
-		e21.setRelevance(5);
+		e21.setRelevance(6);
 		q211 = new TfQuestion("Is this question boring? HUH?!", 10, false, e21);
 		q212 = new TfQuestion("Am I a paranoid android?", 9, true, e21);		
 		q213 = new TfQuestion("Are we here?", 21, true, e21);
 		
 		e22 = new Exercise();
 		e22.setPenalty(0);
-		e22.setRelevance(5);
+		e22.setRelevance(6);
 		q221 = new TfQuestion("Is this question boring? HUH?!", 10, false, e22);
 		q222 = new TfQuestion("Am I a paranoid android?", 9, true, e22);		
 		q223 = new TfQuestion("Are we here?", 21, true, e22);
@@ -95,6 +98,25 @@ public class StudentTest {
 		assertEquals(s1.getEmail(), "juan.perales@uam.es");
 		assertEquals(s2.getEmail(), "emi.asturias@uam.es");
 	}
+	
+	/**
+	 * Test method for {@link moon.user.Student#addMark(moon.mark.MCourse)}.
+	 */
+	@Test
+	public void testAddMark() {
+		MCourse mc11 = new MCourse(c1, s1);
+		MCourse mc21 = new MCourse(c2, s1);
+		MCourse mc12 = new MCourse(c1, s2);
+		
+		assertTrue(s4.getMarks().size()==0);
+		assertTrue(s1.getMarks().contains(mc11));
+		assertTrue(s1.getMarks().contains(mc21));
+		assertTrue(s1.getMarks().size()==2);
+		assertTrue(s2.getMarks().contains(mc12));
+		assertTrue(s2.getMarks().size()==1);
+		
+	}
+	
 	/**
 	 * Test method for {@link moon.user.Student#isTeacher()}.
 	 */
@@ -249,16 +271,22 @@ public class StudentTest {
 	public void testCalcAverage() {
 		Application a;
 		
-		a=s1.apply(c1);
-		a.accept();
-		a=s1.apply(c2);
-		a.accept();
-		a=s2.apply(c1);
-		a.accept();
-		a=s3.apply(c1);
-		a.accept();
-		a=s3.apply(c2);
-		a.accept();
+		try {
+			a=s1.apply(c1);
+			a.accept();
+			a=s1.apply(c2);
+			a.accept();
+			a=s2.apply(c1);
+			a.accept();
+			a=s3.apply(c1);
+			a.accept();
+			a=s3.apply(c2);
+			a.accept();
+			
+		} catch (InvalidEmailAddressException | FailedInternetConnectionException e) {
+			fail("Error with the email system");
+			e.printStackTrace();
+		}
 		
 		MCourse mc11 = new MCourse(c1, s1);
 		MCourse mc21 = new MCourse(c2, s1);
@@ -295,37 +323,39 @@ public class StudentTest {
 		
 		/* MExercise of student 1 course 2 exercise 1 */
 		me121 = new MExercise(e12);
-		mc11.addMExe(me121);
+		mc21.addMExe(me121);
 		q121.answer(true, me121);
 		q122.answer(false, me121);
 		q123.answer(true, me121);
 		
 		/* MExercise of student 1 course 2 course 2 */
 		me122 = new MExercise(e22);
-		mc11.addMExe(me122);
+		mc21.addMExe(me122);
 		q221.answer(false, me122);
 		q222.answer(true, me122);
 		q223.answer(true, me122);
 		
 		/* MExercise of student 2 course 1 exercise 1 */
 		me211 = new MExercise(e11);
-		mc11.addMExe(me211);
+		mc12.addMExe(me211);
 		q111.answer(false, me211);
 		q112.answer(false, me211);
 		
 		/* MExercise of student 2 course 1 exercise 2 */
 		me212 = new MExercise(e21);
-		mc11.addMExe(me212);
-		q121.answer(true, me212);
-		q122.answer(false, me212);
+		mc12.addMExe(me212);
+		q211.answer(true, me212);
+		q212.answer(false, me212);
 		
 		
 		
 		
-		assertEquals(s1.calcAverage());
-		assertEquals(s2.calcAverage());
-		assertEquals(s3.calcAverage(), 0);
-		assertEquals(s4.calcAverage(), 0);
+		assertTrue(s1.calcAverage()<6.3);
+		assertTrue(s1.calcAverage()>6);
+		assertTrue(s2.calcAverage()< 1.7);
+		assertTrue(s2.calcAverage()> 1.5);
+		assertTrue(s3.calcAverage() == 0);
+		assertTrue(s4.calcAverage() == 0);
 	}
 
 	/**
@@ -333,9 +363,92 @@ public class StudentTest {
 	 */
 	@Test
 	public void testCalcMaximum() {
-		assertEquals(s1.calcMaximum());
-		assertEquals(s2.calcMaximum());
-		assertEquals(s3.calcMaximum());
+		
+		Application a;
+		
+		try {
+			a=s1.apply(c1);
+			a.accept();
+			a=s1.apply(c2);
+			a.accept();
+			a=s2.apply(c1);
+			a.accept();
+			a=s3.apply(c1);
+			a.accept();
+			a=s3.apply(c2);
+			a.accept();
+			
+		} catch (InvalidEmailAddressException | FailedInternetConnectionException e) {
+			fail("Error with the email system");
+			e.printStackTrace();
+		}
+		
+		MCourse mc11 = new MCourse(c1, s1);
+		MCourse mc21 = new MCourse(c2, s1);
+		MCourse mc12 = new MCourse(c1, s2);
+		MCourse mc13 = new MCourse(c1, s3);
+		MCourse mc23 = new MCourse(c2, s3);
+		
+		Unit u11 = new Unit("Unit 1 of Course 1");
+		u11.setCourse(c1);
+		e11.setUnit(u11);
+		Unit u21 = new Unit("Unit 2 of Course 1");
+		u21.setCourse(c1);
+		e12.setUnit(u21);
+		Unit u12 = new Unit("Unit 1 of Course 1");
+		u12.setCourse(c1);
+		e21.setUnit(u12);
+		Unit u22 = new Unit("Unit 2 of Course 1");
+		u22.setCourse(c1);
+		e22.setUnit(u22);
+
+		/* MExercise of student 1 course 1 exercise 1 */
+		me111 = new MExercise(e11);
+		mc11.addMExe(me111);
+		q111.answer(false, me111);
+		q112.answer(false, me111);
+		q113.answer(true, me111);
+		
+		/* MExercise of student 1 course 1 exercise 2 */
+		me112 = new MExercise(e21);
+		mc11.addMExe(me211);
+		q211.answer(true, me112);
+		q212.answer(true, me112);
+		q213.answer(false, me112);
+		
+		/* MExercise of student 1 course 2 exercise 1 */
+		me121 = new MExercise(e12);
+		mc21.addMExe(me121);
+		q121.answer(true, me121);
+		q122.answer(false, me121);
+		q123.answer(true, me121);
+		
+		/* MExercise of student 1 course 2 course 2 */
+		me122 = new MExercise(e22);
+		mc21.addMExe(me122);
+		q221.answer(false, me122);
+		q222.answer(true, me122);
+		q223.answer(true, me122);
+		
+		/* MExercise of student 2 course 1 exercise 1 */
+		me211 = new MExercise(e11);
+		mc12.addMExe(me211);
+		q111.answer(false, me211);
+		q112.answer(false, me211);
+		
+		/* MExercise of student 2 course 1 exercise 2 */
+		me212 = new MExercise(e21);
+		mc12.addMExe(me212);
+		q211.answer(true, me212);
+		q212.answer(false, me212);
+		
+		
+		assertTrue(s1.calcMaximum()<8.2);
+		assertTrue(s1.calcMaximum()>8);
+		assertTrue(s2.calcMaximum()<3.3);
+		assertTrue(s2.calcMaximum()>3.1);
+		assertTrue(s3.calcMaximum()==0);
+		assertTrue(s4.calcMaximum()==0);
 	}
 
 	/**
@@ -343,9 +456,91 @@ public class StudentTest {
 	 */
 	@Test
 	public void testCalcMinimum() {
-		assertEquals(s1.calcMinimum());
-		assertEquals(s2.calcMinimum());
-		assertEquals(s3.calcMinimum());
+		
+		Application a;
+		
+		try {
+			a=s1.apply(c1);
+			a.accept();
+			a=s1.apply(c2);
+			a.accept();
+			a=s2.apply(c1);
+			a.accept();
+			a=s3.apply(c1);
+			a.accept();
+			a=s3.apply(c2);
+			a.accept();
+			
+		} catch (InvalidEmailAddressException | FailedInternetConnectionException e) {
+			fail("Error with the email system");
+			e.printStackTrace();
+		}
+		
+		MCourse mc11 = new MCourse(c1, s1);
+		MCourse mc21 = new MCourse(c2, s1);
+		MCourse mc12 = new MCourse(c1, s2);
+		MCourse mc13 = new MCourse(c1, s3);
+		MCourse mc23 = new MCourse(c2, s3);
+		
+		Unit u11 = new Unit("Unit 1 of Course 1");
+		u11.setCourse(c1);
+		e11.setUnit(u11);
+		Unit u21 = new Unit("Unit 2 of Course 1");
+		u21.setCourse(c1);
+		e12.setUnit(u21);
+		Unit u12 = new Unit("Unit 1 of Course 1");
+		u12.setCourse(c1);
+		e21.setUnit(u12);
+		Unit u22 = new Unit("Unit 2 of Course 1");
+		u22.setCourse(c1);
+		e22.setUnit(u22);
+
+		/* MExercise of student 1 course 1 exercise 1 */
+		me111 = new MExercise(e11);
+		mc11.addMExe(me111);
+		q111.answer(false, me111);
+		q112.answer(false, me111);
+		q113.answer(true, me111);
+		
+		/* MExercise of student 1 course 1 exercise 2 */
+		me112 = new MExercise(e21);
+		mc11.addMExe(me211);
+		q211.answer(true, me112);
+		q212.answer(true, me112);
+		q213.answer(false, me112);
+		
+		/* MExercise of student 1 course 2 exercise 1 */
+		me121 = new MExercise(e12);
+		mc21.addMExe(me121);
+		q121.answer(true, me121);
+		q122.answer(false, me121);
+		q123.answer(true, me121);
+		
+		/* MExercise of student 1 course 2 course 2 */
+		me122 = new MExercise(e22);
+		mc21.addMExe(me122);
+		q221.answer(false, me122);
+		q222.answer(true, me122);
+		q223.answer(true, me122);
+		
+		/* MExercise of student 2 course 1 exercise 1 */
+		me211 = new MExercise(e11);
+		mc12.addMExe(me211);
+		q111.answer(false, me211);
+		q112.answer(false, me211);
+		
+		/* MExercise of student 2 course 1 exercise 2 */
+		me212 = new MExercise(e21);
+		mc12.addMExe(me212);
+		q211.answer(true, me212);
+		q212.answer(false, me212);
+		
+		
+		assertTrue(s1.calcMinimum()<4.3);
+		assertTrue(s1.calcMinimum()>4.2);
+		assertTrue(s2.calcMinimum()==0);
+		assertTrue(s3.calcMinimum()==0);
+		assertTrue(s4.calcMinimum()==0);
 	}
 
 	/**
@@ -353,17 +548,48 @@ public class StudentTest {
 	 */
 	@Test
 	public void testCoursesInButNotExpelled() {
-		fail("Not yet implemented");
+		Application a;
+		ArrayList<Course> courses;
+		try {
+			a=s1.apply(c1);
+			a.accept();
+			a=s1.apply(c2);
+			a.accept();
+			a=s2.apply(c1);
+			a.accept();
+			a=s3.apply(c1);
+			a.accept();
+			a=s3.apply(c2);
+			a.accept();
+			c1.expelStudent(s1);
+			c2.expelStudent(s1);
+			c1.expelStudent(s3);
+		} catch (InvalidEmailAddressException | FailedInternetConnectionException e) {
+			fail("Error with the email system");
+			e.printStackTrace();
+		}
+		
+		courses=s1.coursesInButNotExpelled();
+		assertFalse(courses.contains(c1));
+		assertFalse(courses.contains(c2));
+		courses=s2.coursesInButNotExpelled();
+		assertTrue(courses.contains(c1));
+		assertTrue(courses.contains(c2));
+		courses=s3.coursesInButNotExpelled();
+		assertFalse(courses.contains(c1));
+		assertTrue(courses.contains(c2));
+		
+		/* Let's make sure that they have been expeled but they are 
+		 * stll in the course.
+		 */
+		courses=s1.getCourses();
+		assertTrue(courses.contains(c1));
+		assertTrue(courses.contains(c2));
+		courses=s2.getCourses();
+		assertTrue(courses.contains(c1));
+		assertTrue(courses.contains(c2));
+		courses=s3.getCourses();
+		assertTrue(courses.contains(c1));
+		assertTrue(courses.contains(c2));
 	}
-
-	/**
-	 * Test method for {@link moon.user.Student#addMark(moon.mark.MCourse)}.
-	 */
-	@Test
-	public void testAddMark() {
-		fail("Not yet implemented");
-	}
-
-
-
 }
