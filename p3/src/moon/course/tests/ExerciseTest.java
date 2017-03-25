@@ -46,7 +46,7 @@ public class ExerciseTest extends Exercise {
 		
 		e2 = new Exercise();
 		e2.setRelevance(1);
-		e2.setPenalty(-4);
+		e2.setPenalty(4);
 		e2.setName("Exe 2");
 		e2.setRandord(false);
 		e2.setDates(from, to);
@@ -132,7 +132,8 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testGetPenalty() {
-		fail("Not yet implemented");
+		assertTrue(e1.getPenalty() == -2);
+		assertTrue(e2.getPenalty() == -1);
 	}
 
 	/**
@@ -140,7 +141,11 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testSetPenalty() {
-		fail("Not yet implemented");
+		/*Normal set penalty is tested with setup and getPenalty test*/
+		/*In set up, we simulate someone does the exercise and try to set it again*/
+		/*Penalty shouldnt be changed*/
+		e1.setPenalty(-100);
+		assertTrue(e1.getPenalty() == -2);
 	}
 
 	/**
@@ -148,7 +153,7 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertEquals(this.getName(), "Exe One");
 	}
 	
 	/**
@@ -156,7 +161,11 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented");
+		/*Normal set name is tested with setup and getName test*/
+		/*In set up, we simulate someone does the exercise and try to set it again*/
+		/*Name shouldnt be changed*/
+		e1.setName("Hola Pepito");
+		assertTrue(e1.getName().equals("Exe One"));
 	}
 
 	/**
@@ -164,7 +173,7 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testGetRandord() {
-		fail("Not yet implemented");
+		assert
 	}
 
 	/**

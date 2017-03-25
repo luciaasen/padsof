@@ -31,4 +31,10 @@ public class Unit extends CourseElement implements Serializable{
 	public ArrayList<CourseElement> getContents() {
 		return contents;
 	}
+	
+	@Override
+	public void setCourse(Course c){
+		super.setCourse(c);
+		c.addUnit(this);
+	}
 }

@@ -19,9 +19,9 @@ abstract class CourseElement implements Serializable{
 	 * Sets the course of an exercise
 	 * @param course
 	 */
-	public void setCourse(Course c){
-		
+	public void setCourse(Course c){		
 		this.course = c;
+		
 	}
 	
 	/**

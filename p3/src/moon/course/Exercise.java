@@ -92,6 +92,9 @@ public class Exercise extends CourseElement implements Serializable{
 	 * @param name
 	 */
 	public void setName(String name){
+		if(this.hasBeenDone() == true){
+			return;
+		}
 		this.name = name;
 	}
 
