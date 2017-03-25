@@ -32,6 +32,10 @@ public class Unit extends CourseElement implements Serializable{
 		return contents;
 	}
 	
+	/**
+	 * IMPORTANT sets the unit course but ALSO add the unit to the course list
+	 * @param c course to be added
+	 */
 	@Override
 	public void setCourse(Course c){
 		super.setCourse(c);
