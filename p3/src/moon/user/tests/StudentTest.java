@@ -44,7 +44,12 @@ public class StudentTest {
 		c1 = new Course("Bioquimica aplicada");
 		c2 = new Course("SADFOP");
 		
-		
+		/* For the next variables:
+		 * 		- e12 is the exercise 1 of course c2
+		 * 		- q123 is the question 3 of exercise 1 of course c2
+		 * 		- mc12 is the MCourse associated with the course c1 
+		 * 			and the student s1
+		 */
 		e11 = new Exercise();
 		e11.setPenalty(-33.2);
 		e11.setRelevance(4);
@@ -316,7 +321,7 @@ public class StudentTest {
 		
 		/* MExercise of student 1 course 1 exercise 2 */
 		me112 = new MExercise(e21);
-		mc11.addMExe(me211);
+		mc11.addMExe(me112);
 		q211.answer(true, me112);
 		q212.answer(true, me112);
 		q213.answer(false, me112);
@@ -350,10 +355,10 @@ public class StudentTest {
 		
 		
 
-		assertTrue(s1.calcAverage()<6.3);
-		assertTrue(s1.calcAverage()>6);
-		assertTrue(s2.calcAverage()< 1.7);
-		assertTrue(s2.calcAverage()> 1.5);
+		assertTrue(s1.calcAverage()<0.617);
+		assertTrue(s1.calcAverage()>0.615);
+		assertTrue(s2.calcAverage()< 0.17);
+		assertTrue(s2.calcAverage()> 0.15);
 		assertTrue(s3.calcAverage() == 0);
 		assertTrue(s4.calcAverage() == 0);
 	}
