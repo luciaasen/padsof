@@ -12,6 +12,12 @@ public class Unit extends CourseElement implements Serializable{
 		contents=new ArrayList<>();
 	}
 	
+	/**
+	 * You should never call this method, because it's only purpose is to be 
+	 * called by element.setUnit()
+	 * @param element
+	 * @return boolean result of the operation of adding the element to contents.
+	 */
 	public boolean addElement(CourseElement element){
 		return contents.add(element);
 	}
