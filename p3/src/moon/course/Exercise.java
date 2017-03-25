@@ -45,6 +45,9 @@ public class Exercise extends CourseElement implements Serializable{
 	 */
 	public void setRelevance(double relevance) {
 		if(this.hasBeenDone() == false){
+			if(relevance <= 0){
+				relevance = 1;
+			}
 			this.relevance = relevance;
 		}
 	}
@@ -84,7 +87,13 @@ public class Exercise extends CourseElement implements Serializable{
 		return name;
 	}
 
-
+	/**
+	 * Sets the name of an exercise
+	 * @param name
+	 */
+	public void setName(String name){
+		this.name = name;
+	}
 
 	/**
 	 * Returns true if the orderr is random
@@ -239,4 +248,13 @@ public class Exercise extends CourseElement implements Serializable{
 		return this.questions;
 	}
 	
+	/**
+	 * Sets activity dates of an exercise
+	 * @param from, date from which exercise will be active
+	 * @param to, date until which exercise will be activa
+	 */
+	public void setDates(LocalDate from, LocalDate to){
+		this.activeFrom = from;
+		this.activeTo = to;
+	}
 }

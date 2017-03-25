@@ -5,10 +5,14 @@ package moon.course.tests;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalDate;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import moon.course.Exercise;
+import moon.course.*;
+import moon.course.question.*;
+import moon.mark.*;
 
 /**
  * @author lucia
@@ -16,11 +20,30 @@ import moon.course.Exercise;
  */
 public class ExerciseTest extends Exercise {
 
+	private Exercise e1;
+	private TfQuestion q1, q2, q3;
+	private MExercise me1;
+	
 	/**
+	 * Create and set 2 exercises up with different questions, we then emulate
+	 * 2 students doing them
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		e1 = new Exercise();
+		e1.setRelevance(3);
+		e1.setPenalty(-2);
+		e1.setName("Exe One");
+		e1.setRandord(false);
+		LocalDate from = LocalDate.of(2017, 1, 1);
+		LocalDate to = LocalDate.of(2017, 12, 12);
+		e1.setDates(from, to);
+		
+		q1 = new TfQuestion("Am I silly?", 5, false, e1);
+		q2 = new TfQuestion("Am I?", 10, true, e1);		
+		q3 = new TfQuestion("Am I wrong?", -10, true, e1);
+		
 	}
 
 	/**
@@ -68,6 +91,14 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testGetName() {
+		fail("Not yet implemented");
+	}
+	
+	/**
+	 * Test method for {@link moon.course.Exercise#setName()}.
+	 */
+	@Test
+	public void testSetName() {
 		fail("Not yet implemented");
 	}
 
@@ -183,6 +214,14 @@ public class ExerciseTest extends Exercise {
 		fail("Not yet implemented");
 	}
 
+	/**
+	 * Test method for {@link moon.course.Exercise#setDates(java.time.LocalDate, java.time.LocalDate)}.
+	 */
+	@Test
+	public void testSetDates() {
+		fail("Not yet implemented");
+	}
+	
 	/**
 	 * Test method for {@link moon.course.CourseElement#getCourse()}.
 	 */
