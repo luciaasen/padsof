@@ -308,6 +308,8 @@ public class StudentTest {
 			a.accept();
 			a=s2.apply(c1);
 			a.accept();
+			a=s2.apply(c2);
+			a.reject();
 			a=s3.apply(c1);
 			a.accept();
 			a=s3.apply(c2);
@@ -430,6 +432,8 @@ public class StudentTest {
 			a.accept();
 			a=s2.apply(c1);
 			a.accept();
+			a=s2.apply(c2);
+			a.reject();
 			a=s3.apply(c1);
 			a.accept();
 			a=s3.apply(c2);
@@ -551,6 +555,8 @@ public class StudentTest {
 			a.accept();
 			a=s2.apply(c1);
 			a.accept();
+			a=s2.apply(c2);
+			a.reject();
 			a=s3.apply(c1);
 			a.accept();
 			a=s3.apply(c2);

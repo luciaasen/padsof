@@ -8,12 +8,16 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
+import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Unit;
 import moon.course.question.*;
 import moon.mark.MCourse;
 import moon.mark.MExercise;
+import moon.user.Application;
+import moon.user.Student;
 
 /**
  * @author lucia
@@ -24,14 +28,19 @@ public class MExerciseTest {
 	Exercise e1, e2;
 	Question q1, q2, q3, q4;
 	MExercise me1, me2, me3, me4;
-	MCourse mc1, mc2;
+	MCourse mc1, mc2, mc3, mc4;
 	Course c1, c2;
 	Unit u1, u2;
+	Student s1, s2;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		Application a;
+		s1=new Student("Juan", "Pepitez", "passwrd", 6, "Juan.pepitez@uam.es");
+		s2=new Student("Lucia", "Strepsils", "passwrd", 7, "Lucia.strepsils@uam.es");
 		c1 = new Course("Padsof");
 		c2 = new Course("Mathematics");
 		e1 = new Exercise();
@@ -49,8 +58,25 @@ public class MExerciseTest {
 		u1.addElement(e1);
 		u2.addElement(e2);
 		
-		mc1 = new MCourse(c1, null);
-		mc2 = new MCourse(c2, null);
+		try {
+			a=s1.apply(c1);
+			a.accept();
+			a=s1.apply(c2);
+			a.accept();
+			a=s2.apply(c1);
+			a.accept();
+			a=s2.apply(c2);
+			a.accept();
+			
+		} catch (InvalidEmailAddressException | FailedInternetConnectionException e) {
+			fail("Error with the email system");
+			e.printStackTrace();
+		}
+		
+		mc1 = new MCourse(c1, s1);
+		mc2 = new MCourse(c2, s1);
+		mc3 = new MCourse(c1, s2);
+		mc4 = new MCourse(c2, s2);
 		q1 = new TfQuestion("This is a sample question 1", 4, false, e1);
 		q2 = new TfQuestion("This is a sample question 2", 6, true, e1);
 		q3 = new TfQuestion("This is a sample question 3", 7, true, e2);
@@ -66,8 +92,36 @@ public class MExerciseTest {
 		q3.answer(true, me2);
 		q4.answer(true, me2);
 		
+		me3 = new MExercise(e1);
+		mc3.addMExe(me3);
+		q2.answer(true, me3);
+		
+		me4 = new MExercise(e2);
+		mc4.addMExe(me4);
+		
 	}
 
+	/**
+	 * Test method for {@link moon.mark.MExercise#MExercise(moon.course.Exercise)}.
+	 */
+	@Test
+	public void testMExercise() {
+		/* Lets first check that the objects have been created */
+		assertNotNull(me1);
+		assertNotNull(me2);
+		assertNotNull(me3);
+		assertNotNull(me4);
+		
+		/* Now let's check that the list of mexercises in the exercises
+		 * have been properly updated
+		 */
+		assertTrue(e1.getStudentMarks().contains(me1));
+		assertTrue(e1.getStudentMarks().contains(me3));
+		assertTrue(e2.getStudentMarks().contains(me2));
+		assertTrue(e2.getStudentMarks().contains(me4));
+		
+	}
+	
 	/**
 	 * Test method for {@link moon.mark.MExercise#getMark()}.
 	 */
@@ -78,35 +132,40 @@ public class MExerciseTest {
 		 * but marks can not go below 0, so the result should be 0
 		 */
 		assertTrue(me1.getMark()==0);
+		
 		/*
 		 * Normal answer, with one wrong and one right answer, normalized 
 		 * over to 1.
 		 */
 		assertTrue(me2.getMark()==0.2);
+
+		/*
+		 * Answer where the student left one question unanswered.
+		 */
+		assertTrue(me3.getMark()==0.6);
+
+		/*
+		 * Answer where the student left all questions unanswered.
+		 */
+		assertTrue(me4.getMark()==0);
 	}
 
-	/**
-	 * Test method for {@link moon.mark.MExercise#MExercise(moon.course.Exercise)}.
-	 */
-	@Test
-	public void testMExercise() {
-		fail("Not yet implemented");
-	}
+	
 
 	/**
 	 * Test method for {@link moon.mark.MExercise#getStudent()}.
 	 */
 	@Test
-	public void testGetStudent() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link moon.mark.MExercise#setStudent(moon.user.Student)}.
-	 */
-	@Test
-	public void testSetStudent() {
-		fail("Not yet implemented");
+	public void testSetAndGetStudent() {
+		me1.setStudent(s1);
+		me2.setStudent(s1);
+		me3.setStudent(s2);
+		me4.setStudent(s2);
+		
+		assertEquals(me1.getStudent(), s1);
+		assertEquals(me2.getStudent(), s1);
+		assertEquals(me3.getStudent(), s2);
+		assertEquals(me4.getStudent(), s2);
 	}
 
 	/**
@@ -114,7 +173,10 @@ public class MExerciseTest {
 	 */
 	@Test
 	public void testGetExercise() {
-		fail("Not yet implemented");
+		assertEquals(me1.getExercise(), e1);
+		assertEquals(me2.getExercise(), e2);
+		assertEquals(me3.getExercise(), e1);
+		assertEquals(me4.getExercise(), e2);
 	}
 
 	/**
