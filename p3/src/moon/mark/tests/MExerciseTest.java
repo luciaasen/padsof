@@ -14,13 +14,12 @@ import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Unit;
 import moon.course.question.*;
-import moon.mark.MCourse;
-import moon.mark.MExercise;
+import moon.mark.*;
 import moon.user.Application;
 import moon.user.Student;
 
 /**
- * @author lucia
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class MExerciseTest {
@@ -120,6 +119,14 @@ public class MExerciseTest {
 		assertTrue(e2.getStudentMarks().contains(me2));
 		assertTrue(e2.getStudentMarks().contains(me4));
 		
+		/* Now let's check that the values have been properly initialized */
+		assertEquals(me1.getExercise(), e1);
+		assertEquals(me2.getExercise(), e2);
+		assertEquals(me3.getExercise(), e1);
+		assertEquals(me4.getExercise(), e2);
+		
+		
+		
 	}
 	
 	/**
@@ -183,16 +190,38 @@ public class MExerciseTest {
 	 * Test method for {@link moon.mark.MExercise#getmQuestions()}.
 	 */
 	@Test
-	public void testGetmQuestions() {
-		fail("Not yet implemented");
+	public void testAddAndGetmQuestions() {
+		MQuestion mq1, mq2;
+		MExercise me5 = new MExercise(e1);
+		mq1=new TfAnswer(q1, false);
+		mq2=new OpenAnswer(q2, "Respuesta");
+		me5.addMQuestion(mq1);
+		me5.addMQuestion(mq2);
+		assertTrue(me5.getmQuestions().contains(mq1));
+		assertTrue(me5.getmQuestions().contains(mq2));
+		assertEquals(me5.getmQuestions().size(), 2);
+		
 	}
 	
 	/**
-	 * Test method for {@link moon.mark.MExercise#addMQuestion()}.
+	 * Test method for {@link moon.mark.MExercise#cancel()}
 	 */
+	
 	@Test
-	public void testAddMQuestion() {
-		fail("Not yet implemented");
+	public void testCancel() {
+		me1.cancel(); 
+		me2.cancel(); 
+		me3.cancel();
+		me4.cancel();
+		
+		/* We have canceled all the exercises, so no answers should 
+		 * have been saved in the questions.
+		 */
+		
+		assertEquals(q1.getStudentMarks().size(), 0);
+		assertEquals(q2.getStudentMarks().size(), 0);
+		assertEquals(q3.getStudentMarks().size(), 0);
+		assertEquals(q4.getStudentMarks().size(), 0);
 	}
 
 }
