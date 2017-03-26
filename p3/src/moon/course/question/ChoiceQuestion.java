@@ -52,7 +52,7 @@ public class ChoiceQuestion extends Question implements Serializable{
 	 }
 	
 	 /**
-	  * Adds option to a ChoiceANswer which is added to the question studentMarks
+	  * Adds option to a ChoiceANswer which is added to the question studentMarks AND to the MExercise
 	  * @param ArrayList<Option> with the answer the studentMark will be associated to
 	  * @param opt answer to the choice question
 	  */

@@ -51,12 +51,14 @@ public class MCourse extends Mark implements Serializable{
 	
 	/**
 	 * Adds, if not already added, an exercise mark to the course mark
+	 * IMPORTANT Also sets the MExercise student to the MCourse student
 	 * @param me, MExercise to add
 	 */
 	public void addMExe(MExercise me){
 		if(this.mExes.contains(me) == false){
 			this.mExes.add(me);
 			}
+		me.setStudent(this.student);
 	}
 	
 	/**

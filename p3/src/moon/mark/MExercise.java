@@ -94,11 +94,13 @@ public class MExercise extends Mark implements Serializable{
 	
 	/**
 	 * When an exercise is cancelled, we remove the student answers from the correspondant question studentMarks list
+	 * Also removes the MExercise from the Exercise marks (its added there in the MExer constructor) 
 	 */
 	//TODO add to class diagram
 	public void cancel(){
 		for(MQuestion mq: this.mQuestions){
 			mq.getQuestion().getStudentMarks().remove(mq);
 		}
+		this.getExercise().removeMExe(this);
 	}
 }

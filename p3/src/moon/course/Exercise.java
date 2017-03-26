@@ -148,7 +148,7 @@ public class Exercise extends CourseElement implements Serializable{
 	}
 	
 	/**
-	 * Returns number of students who did and failed
+	 * Returns number of students 	WHO DID and failed
 	 * @return int
 	 */
 	public int calcNFails(){
@@ -253,11 +253,52 @@ public class Exercise extends CourseElement implements Serializable{
 	
 	/**
 	 * Sets activity dates of an exercise
+	 * If 'from' is after 'to', they're swapped
 	 * @param from, date from which exercise will be active
 	 * @param to, date until which exercise will be activa
 	 */
 	public void setDates(LocalDate from, LocalDate to){
-		this.activeFrom = from;
-		this.activeTo = to;
+			if(this.hasBeenDone() == false){
+			if(to.isBefore(from)){
+				this.activeFrom = to;
+				this.activeTo = from;
+			}
+			else{
+				this.activeFrom = from;
+				this.activeTo = to;
+			}
+		}
+	}
+	
+	/**
+	 * Removes exercise mark from the exercise list
+	 * This MExe is added in the MExe constructor
+	 * @param me, the MExercise to remove
+	 */
+	public void removeMExe(MExercise me){
+		if(this.studentMarks.contains(me)){
+			this.studentMarks.remove(me);
+		}
+	}
+	
+	@Override
+	/**
+	 * Sets the course of an exercise
+	 * @param course
+	 */
+	public void setCourse(Course c){
+		if(this.hasBeenDone() == false){
+			super.setCourse(c);
+		}		
+	}
+	/**
+	 * If noone has done the exercise, sets the unit of it
+	 * @param unit, the unit to set in the exercise
+	 */
+	@Override
+	public void setUnit(Unit unit) {
+		if(this.hasBeenDone() == false){
+			super.setUnit(unit);
+		}
 	}
 }

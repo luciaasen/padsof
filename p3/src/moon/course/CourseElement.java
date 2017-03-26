@@ -3,7 +3,7 @@ package moon.course;
 import java.io.Serializable;
 
 abstract class CourseElement implements Serializable{
-	boolean visible;
+	boolean visible = false;
 	private Unit unit;
 	protected Course course;
 	
@@ -16,7 +16,7 @@ abstract class CourseElement implements Serializable{
 	}
 	
 	/**
-	 * Sets the course of an exercise
+	 * Sets the course of a course element
 	 * @param course
 	 */
 	public void setCourse(Course c){		
@@ -35,11 +35,11 @@ abstract class CourseElement implements Serializable{
 	/**
 	 * Sets the unit of a course element, if it not already added
 	 * IMPORTANT: Additionally, sets the CourseElement's course to the unit's course
-	 * TO BE USED AFTER SETTING HE UNIT. OTHERWISE, THIS.COURSE WILL BE NULL
+	 * TO BE USED AFTER SETTING THE UNIT. OTHERWISE, THIS.COURSE WILL BE NULL
 	 * 
 	 * Another thing is that, if you want to make a realtionship between
 	 * a unit and a courseElement, you should call this method and not 
-	 * Unit.addElement();
+	 * Unit.addElement() because this method do the referrencing in both ways
 	 * @param unit the unit to set
 	 */
 	//TODO add this method to the tests
@@ -58,5 +58,13 @@ abstract class CourseElement implements Serializable{
 	
 	public void makeInvisible(){
 		visible=false;
+	}
+	
+	/**
+	 * Gets the visibility of the element
+	 * @return true if visibility is set to true, else false
+	 */
+	public boolean getVisibility(){
+		return this.visible;
 	}
 }
