@@ -213,7 +213,8 @@ public class MCourseTest {
 	 */
 	@Test
 	public void testAddMExes() {
-		fail("Not yet implemented");
+		me111 = new MExercise(e1);
+		me111.get
 	}
 
 }
