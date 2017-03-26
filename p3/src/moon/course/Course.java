@@ -33,9 +33,10 @@ public class Course implements Serializable{
 	}
 	
 	public double calcAverage(){
-		double avg=0;
+		double avg=0, mc;
 		for(MCourse mcourse : studentMarks){
-			avg+=mcourse.getMark();
+			mc =mcourse.getMark();
+			avg += mc;
 		}
 		avg/=studentMarks.size();
 		return avg;
@@ -44,7 +45,7 @@ public class Course implements Serializable{
 	public int calcNPasses(){
 		int passes=0;
 		for(MCourse mcourse : studentMarks){
-			if(mcourse.getMark()>=5){
+			if(mcourse.getMark() >= 0.5){
 				passes++;
 			}
 		}
@@ -53,8 +54,10 @@ public class Course implements Serializable{
 	
 	public int calcNFails(){
 		int fails=0;
+		double mc;
 		for(MCourse mcourse : studentMarks){
-			if(mcourse.getMark()<5){
+			mc = mcourse.getMark();
+			if(mc < 0.5){
 				fails++;
 			}
 		}

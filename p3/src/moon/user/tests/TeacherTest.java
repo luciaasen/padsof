@@ -20,7 +20,7 @@ public class TeacherTest {
 	@Before
 	public void setUp() {
 		t1=new Teacher("Juan", "Gonzalez", "pajword", 3, "pedrito.email@uam.es");
-		t1=new Teacher("Jun", "Gonzlez", "pasguord", 3, "pedritu.email@uam.es");
+		t2=new Teacher("Jun", "Gonzlez", "pasguord", 3, "pedritu.email@uam.es");
 	}
 	/**
 	 * Test method for {@link moon.user.Teacher#isTeacher()}.
