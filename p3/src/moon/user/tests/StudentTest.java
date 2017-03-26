@@ -143,12 +143,12 @@ public class StudentTest {
 		/* It is important to note that this method will never be called
 		 * in a case where the course has already been added, since it will 
 		 * be called always by the method Application.accept(), and that
-		 * application will be constructed by Student.apply(Course c) that
+		 * Application will be constructed by Student.apply(Course c) that
 		 * makes sure that the student is not in the course when he applies 
 		 * for it, and that there is no other application between the same
 		 * student and the same course as the one you are trying to create.
 		 * 
-		 * The method apply is tested below.
+		 * The method apply() is tested below.
 		 */
 		
 		/*Lets now make sure that the lists have been updated */
@@ -269,9 +269,34 @@ public class StudentTest {
 
 	/**
 	 * Test method for {@link moon.user.Student#calcAverage()}.
-	 * This test is very long, because we had to build a hole structure
+	 * 
+	 * 		This test is very long, because we had to build a hole structure
 	 * of students that have answered questions, in units, in courses.
+	 * 
+	 *     This test is very long, because we had to build a hole structure
+	 * of students that have answered questions, in units, in courses.
+	 * 
+	 * 		The student s1 will be a student that applies and is accepted to the 
+	 * courses c1 and c2. These courses will have 2 exercises each and s1
+	 * will answer to the four of them, in some exercises he will get the 
+	 * highest mark and will get more average marks in the others.
+	 * 
+	 * 		The student s2 will apply for courses c1 and c2, but will only
+	 * be accepted in c1. He will leave questions unanswered and get the 
+	 * lowest possible mark (meaning that he will have a negative mark 
+	 * because of the penalty, resulting in a 0 in the exercise mark
+	 * because no negative marks are allowed)
+	 * 
+	 * 		The student s3 will apply for course c1 and c2, and will be accepted
+	 * in both, but will not do any exercise.
+	 * 
+	 * 		The student s4 will not apply to any course.
+	 * 
+	 * 		The averages of each student have been approximated. That is why
+	 * we won't usually be comparing them with "==", but with a upper bound 
+	 * and a lower bound to our approximations, using the operators "<" and ">".
 	 */
+	
 	@Test
 	public void testCalcAverage() {
 		Application a;
@@ -304,12 +329,12 @@ public class StudentTest {
 		e11.setUnit(u11);
 		Unit u21 = new Unit("Unit 2 of Course 1");
 		u21.setCourse(c1);
-		e12.setUnit(u21);
-		Unit u12 = new Unit("Unit 1 of Course 1");
-		u12.setCourse(c1);
-		e21.setUnit(u12);
-		Unit u22 = new Unit("Unit 2 of Course 1");
-		u22.setCourse(c1);
+		e21.setUnit(u21);
+		Unit u12 = new Unit("Unit 1 of Course 2");
+		u12.setCourse(c2);
+		e12.setUnit(u12);
+		Unit u22 = new Unit("Unit 2 of Course 2");
+		u22.setCourse(c2);
 		e22.setUnit(u22);
 
 		/* MExercise of student 1 course 1 exercise 1 */
@@ -357,18 +382,45 @@ public class StudentTest {
 
 		assertTrue(s1.calcAverage()<0.617);
 		assertTrue(s1.calcAverage()>0.615);
-		assertTrue(s2.calcAverage()< 0.17);
-		assertTrue(s2.calcAverage()> 0.15);
+		assertTrue(s2.calcAverage()< 0.322);
+		assertTrue(s2.calcAverage()> 0.321);
 		assertTrue(s3.calcAverage() == 0);
 		assertTrue(s4.calcAverage() == 0);
 	}
 
 	/**
 	 * Test method for {@link moon.user.Student#calcMaximum()}.
+	 * 
+	 * 		This test is very long, because we had to build a hole structure
+	 * of students that have answered questions, in units, in courses.
+	 * 
+	 *     This test is very long, because we had to build a hole structure
+	 * of students that have answered questions, in units, in courses.
+	 * 
+	 * 		The student s1 will be a student that applies and is accepted to the 
+	 * courses c1 and c2. These courses will have 2 exercises each and s1
+	 * will answer to the four of them, in some exercises he will get the 
+	 * highest mark and will get more average marks in the others.
+	 * 
+	 * 		The student s2 will apply for courses c1 and c2, but will only
+	 * be accepted in c1. He will leave questions unanswered and get the 
+	 * lowest possible mark (meaning that he will have a negative mark 
+	 * because of the penalty, resulting in a 0 in the exercise mark
+	 * because no negative marks are allowed)
+	 * 
+	 * 		The student s3 will apply for course c1 and c2, and will be accepted
+	 * in both, but will not do any exercise.
+	 * 
+	 * 		The student s4 will not apply to any course.
+	 * 
+	 * 		The maximums of each student have been approximated. That is why
+	 * we won't be comparing them with "==" unless they are 0, 
+	 * but with an upper bound and a lower bound to our approximations, 
+	 * using the operators "<" and ">".
 	 */
+	 
 	@Test
 	public void testCalcMaximum() {
-		
 		Application a;
 		
 		try {
@@ -399,12 +451,12 @@ public class StudentTest {
 		e11.setUnit(u11);
 		Unit u21 = new Unit("Unit 2 of Course 1");
 		u21.setCourse(c1);
-		e12.setUnit(u21);
-		Unit u12 = new Unit("Unit 1 of Course 1");
-		u12.setCourse(c1);
-		e21.setUnit(u12);
-		Unit u22 = new Unit("Unit 2 of Course 1");
-		u22.setCourse(c1);
+		e21.setUnit(u21);
+		Unit u12 = new Unit("Unit 1 of Course 2");
+		u12.setCourse(c2);
+		e12.setUnit(u12);
+		Unit u22 = new Unit("Unit 2 of Course 2");
+		u22.setCourse(c2);
 		e22.setUnit(u22);
 
 		/* MExercise of student 1 course 1 exercise 1 */
@@ -416,7 +468,7 @@ public class StudentTest {
 		
 		/* MExercise of student 1 course 1 exercise 2 */
 		me112 = new MExercise(e21);
-		mc11.addMExe(me211);
+		mc11.addMExe(me112);
 		q211.answer(true, me112);
 		q212.answer(true, me112);
 		q213.answer(false, me112);
@@ -448,20 +500,48 @@ public class StudentTest {
 		q212.answer(false, me212);
 		
 		
-		assertTrue(s1.calcMaximum()<8.2);
-		assertTrue(s1.calcMaximum()>8);
-		assertTrue(s2.calcMaximum()<3.3);
-		assertTrue(s2.calcMaximum()>3.1);
+		
+		assertTrue(s1.calcMaximum()<0.82);
+		assertTrue(s1.calcMaximum()>0.8);
+		assertTrue(s2.calcMaximum()<0.33);
+		assertTrue(s2.calcMaximum()>0.31);
 		assertTrue(s3.calcMaximum()==0);
 		assertTrue(s4.calcMaximum()==0);
 	}
 
 	/**
 	 * Test method for {@link moon.user.Student#calcMinimum()}.
+	 * 
+	 * 		This test is very long, because we had to build a hole structure
+	 * of students that have answered questions, in units, in courses.
+	 * 
+	 *     This test is very long, because we had to build a hole structure
+	 * of students that have answered questions, in units, in courses.
+	 * 
+	 * 		The student s1 will be a student that applies and is accepted to the 
+	 * courses c1 and c2. These courses will have 2 exercises each and s1
+	 * will answer to the four of them, in some exercises he will get the 
+	 * highest mark and will get more average marks in the others.
+	 * 
+	 * 		The student s2 will apply for courses c1 and c2, but will only
+	 * be accepted in c1. He will leave questions unanswered and get the 
+	 * lowest possible mark (meaning that he will have a negative mark 
+	 * because of the penalty, resulting in a 0 in the exercise mark
+	 * because no negative marks are allowed)
+	 * 
+	 * 		The student s3 will apply for course c1 and c2, and will be accepted
+	 * in both, but will not do any exercise.
+	 * 
+	 * 		The student s4 will not apply to any course.
+	 * 
+	 * 		The averages of each student have been approximated. That is why
+	 * we won't be comparing them with "==" unless they are 0, but with an 
+	 * upper bound and a lower bound to our approximations, using the operators 
+	 * "<" and ">".
 	 */
+	
 	@Test
 	public void testCalcMinimum() {
-		
 		Application a;
 		
 		try {
@@ -492,12 +572,12 @@ public class StudentTest {
 		e11.setUnit(u11);
 		Unit u21 = new Unit("Unit 2 of Course 1");
 		u21.setCourse(c1);
-		e12.setUnit(u21);
-		Unit u12 = new Unit("Unit 1 of Course 1");
-		u12.setCourse(c1);
-		e21.setUnit(u12);
-		Unit u22 = new Unit("Unit 2 of Course 1");
-		u22.setCourse(c1);
+		e21.setUnit(u21);
+		Unit u12 = new Unit("Unit 1 of Course 2");
+		u12.setCourse(c2);
+		e12.setUnit(u12);
+		Unit u22 = new Unit("Unit 2 of Course 2");
+		u22.setCourse(c2);
 		e22.setUnit(u22);
 
 		/* MExercise of student 1 course 1 exercise 1 */
@@ -509,7 +589,7 @@ public class StudentTest {
 		
 		/* MExercise of student 1 course 1 exercise 2 */
 		me112 = new MExercise(e21);
-		mc11.addMExe(me211);
+		mc11.addMExe(me112);
 		q211.answer(true, me112);
 		q212.answer(true, me112);
 		q213.answer(false, me112);
@@ -541,9 +621,10 @@ public class StudentTest {
 		q212.answer(false, me212);
 		
 		
-		assertTrue(s1.calcMinimum()<4.3);
-		assertTrue(s1.calcMinimum()>4.2);
-		assertTrue(s2.calcMinimum()==0);
+		assertTrue(s1.calcMinimum()<0.43);
+		assertTrue(s1.calcMinimum()>0.42);
+		assertTrue(s2.calcMinimum()<0.33);
+		assertTrue(s2.calcMinimum()>0.31);
 		assertTrue(s3.calcMinimum()==0);
 		assertTrue(s4.calcMinimum()==0);
 	}
@@ -595,4 +676,6 @@ public class StudentTest {
 		assertTrue(courses.contains(c1));
 		assertTrue(courses.contains(c2));
 	}
+	
+	
 }

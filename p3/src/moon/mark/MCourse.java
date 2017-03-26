@@ -66,11 +66,14 @@ public class MCourse extends Mark implements Serializable{
 	public double getMark(){
 		double mark = 0;
 		double relev = 0;
-		for( MExercise mExe: this.getmExes() ){
+		if(mExes.size()==0){
+			return 0;
+		}
+		for( MExercise mExe: mExes ){
 			mark += mExe.getMark() *
 					mExe.getExercise().getRelevance();
 		}
-		for(Exercise e: this.getCourse().getExercises()){
+		for(Exercise e: course.getExercises()){
 			relev += e.getRelevance();
 		}
 		if(mark < 0){

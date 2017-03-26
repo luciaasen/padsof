@@ -76,7 +76,10 @@ public class MExercise extends Mark implements Serializable{
 	public double getMark(){
 		double mark = 0;
 		double relev = 0;
-		for( MQuestion  mQu: this.getmQuestions()){
+		if(mQuestions.size()==0){
+			return 0;
+		}
+		for( MQuestion  mQu: mQuestions){
 			mark += mQu.getMark();
 		}
 		for(Question q: this.exercise.getQuestions()){

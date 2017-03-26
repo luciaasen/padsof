@@ -74,26 +74,44 @@ public class Student extends User implements Serializable{
 	
 	public double calcAverage(){
 		double avg=0;
-	
+		if(courses.size()==0){
+			return 0;
+		}
 		for(MCourse mcourse : marks){
 			avg+=mcourse.getMark();
 		}
-		avg/=marks.size();
+		avg/=courses.size();
 		return avg;
 	}
 	
 	public double calcMaximum(){
 		double max=0;
+		double auxMark=0;
+		if(marks.size()==0){
+			return 0;
+		}
 		for(MCourse mark : marks){
-			max+=mark.getMark();
+			auxMark=mark.getMark();
+			if(max<auxMark){
+				max=auxMark;
+			}
+			
 		}
 		return max;
 	}
 	
 	public double calcMinimum(){
-		double min=0;
+		double min=1;
+		double auxMark=0;
+		if(marks.size()==0){
+			return 0;
+		}
 		for(MCourse mark : marks){
-			min+=mark.getMark();
+			auxMark=mark.getMark();
+			if(min>auxMark){
+				min=auxMark;
+			}
+			
 		}
 		return min;
 	}
