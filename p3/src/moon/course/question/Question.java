@@ -7,6 +7,7 @@ import moon.course.question.*;
 import moon.mark.*;
 
 abstract public class Question implements Serializable{
+
 	private String question;
 	private double relevance;
 	private Exercise exe;

@@ -9,6 +9,7 @@ import moon.Academy;
 import moon.mark.*;
 
 public class Course implements Serializable{
+	
 	private ArrayList<Unit> units;
 	private ArrayList<Student> students;
 	private ArrayList<Student> expStudents;

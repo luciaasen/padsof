@@ -14,7 +14,8 @@ public class MExercise extends Mark implements Serializable{
 	
 	/**
 	 * Constructor for MExercise
-	 * IMPORTANT: this constructor ALSO ADD THE MEXERCISE TO THE EXERCISE MEXERCISES LIST
+	 * IMPORTANT: this constructor ALSO ADDS THE MEXERCISE TO THE 
+	 * 		EXERCISE MEXERCISES LIST
 	 * @param exercise associated to the MExercise
 	 */
 	public MExercise(Exercise exercise){
