@@ -16,6 +16,7 @@ import moon.course.Unit;
 import moon.course.question.TfQuestion;
 import moon.mark.MCourse;
 import moon.mark.MExercise;
+import moon.user.Application;
 import moon.user.Student;
 import es.uam.eps.padsof.emailconnection.*;
 
@@ -31,6 +32,7 @@ public class CourseTest {
 	private Course c1, c2;
 	private Unit u1, u2, u3;
 	private MCourse mc1, mc2, mc3, mc4, mc5, mc6;
+	private Application a1;
 
 	/**
 	 * 1st course with a unit with 2 exes, each one with 2 questions
@@ -101,15 +103,32 @@ public class CourseTest {
 		e4.setUnit(u2);
 		
 		
+		/*Students apply and are accepted*/
+		try{
+			a1 = s1.apply(c1);
+			a1.accept();
+			a1 = s1.apply(c2);
+			a1.accept();
+			a1 = s2.apply(c1);
+			a1.accept();
+			a1 = s2.apply(c2);
+			a1.accept();
+			a1 = s3.apply(c1);
+			a1.accept();
+			a1 = s3.apply(c2);
+			a1.accept();
+			
+		}catch(InvalidEmailAddressException | FailedInternetConnectionException e){
+			fail("Error with email system");
+		}
+		
 		/*Emulate students do exercises*/
 		
 		/*First student is in 2 courses.
 		 * 		In c1: answers correctly to everything
 		 * 		In c2: answers wrongly to e3, e4
 		 */
-		c1.addStudent(s1);
 		mc1 = new MCourse(c1, s1);
-		c2.addStudent(s1);
 		mc3 = new MCourse(c2, s1);
 		
 		me1 = new MExercise(e1);
@@ -134,9 +153,7 @@ public class CourseTest {
 		 * 		In c1: correctly answers 1 question in each exe
 		 * 		In c2: correctly does one exercise 
 		 */
-		c1.addStudent(s2);
 		mc2 = new MCourse(c1, s2);
-		c2.addStudent(s2);
 		mc4 = new MCourse(c2, s2);
 		
 		me5 = new MExercise(e1);
@@ -156,9 +173,7 @@ public class CourseTest {
 		 * 		In c1: answers correctly to one exercise
 		 * 		In c2: does nothing
 		 */
-		c1.addStudent(s3);
 		mc5 = new MCourse(c1, s3);
-		c2.addStudent(s3);
 		mc6 = new MCourse(c2, s3);
 		
 		me8 = new MExercise(e1);
@@ -270,7 +285,11 @@ public class CourseTest {
 	 */
 	@Test
 	public void testAddApplication() {
-		fail("Not yet implemented");
+		/*This method is tested with the "s1.apply(c1)", etc, so we check they are in the course*/
+		assertTrue(c1.getStudents().size() == 3);
+		assertTrue(c1.getStudents().contains(s1));
+		assertTrue(c1.getStudents().contains(s2));
+		assertTrue(c1.getStudents().contains(s3));
 	}
 
 	/**
@@ -278,7 +297,8 @@ public class CourseTest {
 	 */
 	@Test
 	public void testRemoveApplication() {
-		fail("Not yet implemented");
+		/*This is used when applications are accepted, so whe check a1 is not in the apps*/
+		assertFalse(c1.getApplications().contains(a1));
 	}
 
 	/**
@@ -369,7 +389,16 @@ public class CourseTest {
 	 */
 	@Test
 	public void testGetApplications() {
-		fail("Not yet implemented");
+		assertTrue(c1.getApplications().size() == 0);
+		assertTrue(c2.getApplications().size() == 0);
+		Course c3 = new Course("Course 3");
+		assertTrue(c3.getApplications().size() == 0);
+		try{
+			s1.apply(c3);
+		}catch(InvalidEmailAddressException | FailedInternetConnectionException e){
+			fail("Error with email system");
+		}
+		assertTrue(c3.getApplications().size() == 1);
 	}
 
 	/**
