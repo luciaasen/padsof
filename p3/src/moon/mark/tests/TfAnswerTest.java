@@ -13,7 +13,8 @@ import moon.course.question.*;
 import moon.mark.*;
 
 /**
- * @author lucia
+ * Test class for the TfAnswer class.
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class TfAnswerTest {

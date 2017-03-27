@@ -11,6 +11,7 @@ import org.junit.Test;
 import moon.course.*;
 
 /**
+ * Test Class for the class Note..
  * @author Lucia Asencio and Juan Riera
  *
  */

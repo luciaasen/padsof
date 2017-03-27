@@ -15,7 +15,9 @@ import moon.Academy;
 import moon.course.*;
 
 /**
- * @author juan
+ * Class in which we test the applications that students can send to courses
+ * if they are interested in them.
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class ApplicationTest {
@@ -25,6 +27,10 @@ public class ApplicationTest {
 	Application a11, a12, a22, a21;
 	
 	
+	/**
+	 * In this setup we create and intialize 2 students (s1 and s2)
+	 * that apply to 2 courses (c1 and c2)
+	 */
 	@Before
 	public void setUp() {
 		s1  = new Student("Pepito", "Gonzalez", "PepGon", 0, "pepito@uam.es");

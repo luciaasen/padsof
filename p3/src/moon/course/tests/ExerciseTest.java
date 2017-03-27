@@ -16,7 +16,8 @@ import moon.mark.*;
 import moon.user.Student;
 
 /**
- * @author lucia
+ * This is a tester for the class Exercise.
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class ExerciseTest extends Exercise {

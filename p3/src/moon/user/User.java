@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import moon.Academy;
 
+/**
+ * Class that stores all the information of a user.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public abstract class User implements Serializable{
 
 	private String name;

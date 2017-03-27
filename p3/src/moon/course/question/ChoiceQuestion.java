@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import moon.course.Exercise;
 import moon.mark.TfAnswer;
 
+/**
+ * This class is a type of question, the one in which you have to choose
+ * between some options.
+ * @author Juan Riera and Lucia Asencio
+ */
 public class ChoiceQuestion extends Question implements Serializable{
 	 private ArrayList<Option> correct;
 	 private ArrayList<Option> options;

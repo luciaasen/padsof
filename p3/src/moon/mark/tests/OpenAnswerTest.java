@@ -14,7 +14,8 @@ import moon.course.question.OpenQuestion;
 import moon.user.Student;
 
 /**
- * @author lucia
+ * Test class for the class OpenAnswer.
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class OpenAnswerTest {

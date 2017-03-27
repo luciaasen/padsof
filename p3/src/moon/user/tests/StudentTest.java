@@ -23,6 +23,7 @@ import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
 import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
 
 /**
+ * Test for the class Student.
  * @author Juan Riera and Lucia Asencio
  *
  */
@@ -35,6 +36,10 @@ public class StudentTest {
 	Question q111, q112, q113, q121, q122, q123, q211, q212, q213, q221, q222, q223;
 	MExercise me111, me112, me121, me122, me211, me212, me221, me222;
 	
+	/**
+	 * In this setup we create 4 students (s1, s2, s3 and s4), 2 courses (c1 and c2)
+	 * and a bunch of exercises with their questions.
+	 */
 	@Before
 	public void setUp(){
 		s1 = new Student("Juanito", "Perales", "password", 2, "juan.perales@uam.es");

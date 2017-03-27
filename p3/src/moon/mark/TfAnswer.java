@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import moon.course.question.*;
 
+/**
+ * Answer of a student to a true/false question.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class TfAnswer extends MQuestion implements Serializable{
 	private Boolean answer;
 	

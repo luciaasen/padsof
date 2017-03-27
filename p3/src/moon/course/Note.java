@@ -2,6 +2,12 @@ package moon.course;
 
 import java.io.Serializable;
 
+/**
+ * This class stores all the information of a note, that is plain text
+ * introduced by the techer when created.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class Note extends CourseElement implements Serializable{
 	private String text;
 

@@ -12,7 +12,8 @@ import org.junit.Test;
 
 
 /**
- * @author lucia
+ * Test class for the class Option.
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class OptionTest {

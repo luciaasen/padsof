@@ -8,6 +8,15 @@ import moon.user.*;
 import moon.Academy;
 import moon.mark.*;
 
+/**
+ * Class to store the information of a course. 
+ * It contains all the units that compose the course, all the students
+ * that have been accepted, all the students that have been expeled, 
+ * all the MCourses (marks of the students), and all the applications
+ * that students have made to the course.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class Course implements Serializable{
 	
 	private ArrayList<Unit> units;
@@ -32,6 +41,11 @@ public class Course implements Serializable{
 		Academy.getMoonApp().addCourse(this);
 	}
 	
+	/**
+	 * Method used to calculate the average mark of the students in the
+	 * Course.
+	 * @return the average (double type)
+	 */
 	public double calcAverage(){
 		double avg=0, mc;
 		for(MCourse mcourse : studentMarks){
@@ -42,6 +56,11 @@ public class Course implements Serializable{
 		return avg;
 	}
 	
+	/**
+	 * This method calculates the number of students that have passed the
+	 * course up to that point.
+	 * @return integer of the number of passes.
+	 */
 	public int calcNPasses(){
 		int passes=0;
 		for(MCourse mcourse : studentMarks){
@@ -52,6 +71,11 @@ public class Course implements Serializable{
 		return passes;
 	}
 	
+	/**
+	 * This method calculates the number of students that have failed
+	 * up to that point.
+	 * @return integer with the number of fails.
+	 */
 	public int calcNFails(){
 		int fails=0;
 		double mc;
@@ -64,7 +88,11 @@ public class Course implements Serializable{
 		return fails;
 	}
 	
-	
+	/**
+	 * Method that calculates the course mark of a student up to that point.
+	 * @param a student
+	 * @return a double value with the mark
+	 */
 	public double getCourseMark(Student s){
 		double mark=-1;
 			for(MCourse mcourse : studentMarks){
@@ -75,6 +103,11 @@ public class Course implements Serializable{
 		return mark;
 	}
 	
+	/**
+	 * Method that gets the mark structure associated with this course.
+	 * @param a student
+	 * @return the associted MCourse
+	 */
 	public MCourse getMCourse(Student s){
 			for(MCourse mcourse : studentMarks){
 				if(mcourse.getStudent()==s){
@@ -84,14 +117,30 @@ public class Course implements Serializable{
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @return the list of accepted students
+	 */
 	public ArrayList<Student> getStudents(){
 		return this.students;
 	}
 	
+	/**
+	 * Adds a student to the accepted student list.
+	 * @param student
+	 * @return true if everything went well and false if it didn't
+	 */
 	public boolean addStudent(Student s){
 		return students.add(s);
 	}
 	
+	/**
+	 * Adds a student to the expelled list. It also notifies the student.
+	 * @param student
+	 * @return true if everything went well and false if it didn't
+	 * @throws InvalidEmailAddressException
+	 * @throws FailedInternetConnectionException
+	 */
 	public boolean expelStudent(Student s) throws InvalidEmailAddressException, 
 		FailedInternetConnectionException{
 		
@@ -108,6 +157,13 @@ public class Course implements Serializable{
 		return ret;
 	}
 	
+	/**
+	 * Removes a student from the expelled list.
+	 * @param student
+	 * @return true if everything went well and false if something failed
+	 * @throws InvalidEmailAddressException
+	 * @throws FailedInternetConnectionException
+	 */
 	public boolean readmitStudent(Student s) throws InvalidEmailAddressException, 
 		FailedInternetConnectionException{
 		
@@ -123,19 +179,40 @@ public class Course implements Serializable{
 		return ret;
 	}
 	
-	
+	/**
+	 * Adds an application to the applications list (applications from
+	 * student to courses)
+	 * @param application
+	 * @return true if everything went well and false if something failed
+	 */
 	public boolean addApplication(Application p){
 		return applications.add(p);
 	}
 	
+	/**
+	 * Removes an application from the applications list (applications from
+	 * student to courses)
+	 * @param application
+	 * @return true if everything went well and false if something failed
+	 */
 	public boolean removeApplication(Application p){
 		return applications.remove(p);
 	}
 	
+	/**
+	 * Checks if a student has been expelled.
+	 * @param student
+	 * @return true if it was expeled and false if it didn't
+	 */
 	public boolean isExpelled(Student s){
 		return expStudents.contains(s);
 	}
 	
+	/**
+	 * Adds a unit to the unit list
+	 * @param unit
+	 * @return true if it was properly added and false if it wasn't
+	 */
 	public boolean addUnit(Unit u){
 		if(this.units.contains(u) == false){
 			return units.add(u);
@@ -143,30 +220,57 @@ public class Course implements Serializable{
 		return false;
 	}
 	
+	/**
+	 * Adds an MCourse to the studentsMarks list.
+	 * @param mark
+	 * @return true if it was properly added and false if it wasn't.
+	 */
 	public boolean addMark(MCourse mark){
 		return studentMarks.add(mark);
 	}
-
+	
+	/**
+	 * 
+	 * @return the name of the course (String)
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the name of the course.
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	/**
+	 * 
+	 * @return the ArrayList of units of the course.
+	 */
 	public ArrayList<Unit> getUnits() {
 		return units;
 	}
-
+	
+	/**
+	 * 
+	 * @return the ArrayList of expelled students.
+	 */
 	public ArrayList<Student> getExpStudents() {
 		return expStudents;
 	}
 
+	/** 
+	 * @return The ArrayList of MCourses (the mark structure of the students)..
+	 */
 	public ArrayList<MCourse> getStudentMarks() {
 		return studentMarks;
 	}
-
+	
+	/**
+	 * @return The ArrayList of the applications.
+	 */
 	public ArrayList<Application> getApplications() {
 		return applications;
 	}

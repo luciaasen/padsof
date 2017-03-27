@@ -20,7 +20,8 @@ import moon.course.question.OpenQuestion;
 import moon.course.question.TfQuestion;
 
 /**
- * @author lucia
+ * Test class for the class TfQuestion.
+ * @author Lucia Asencio and Juan RIera
  *
  */
 public class TfQuestionTest {

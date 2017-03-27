@@ -4,6 +4,11 @@ import java.io.Serializable;
 import moon.mark.*;
 import moon.course.Exercise;
 
+/**
+ * This class is a type of Question that can recieve an open text answer.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class OpenQuestion extends Question implements Serializable{
 	
 	private String answer;

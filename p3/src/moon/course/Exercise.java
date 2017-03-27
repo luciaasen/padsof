@@ -8,6 +8,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * This is a class that stores all the information of an exercise.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class Exercise extends CourseElement implements Serializable{
 	private ArrayList<Question> questions;
 	private ArrayList<MExercise> studentMarks;

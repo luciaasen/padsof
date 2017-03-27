@@ -2,6 +2,13 @@ package moon.course;
 
 import java.io.Serializable;
 
+/**
+ * This is an abstract class that is inherited by the course elements.
+ * It stores a boolean value to mark if it is visible, the unit it belongs to
+ * and the course it belongs to.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 abstract class CourseElement implements Serializable{
 	boolean visible = false;
 	private Unit unit;

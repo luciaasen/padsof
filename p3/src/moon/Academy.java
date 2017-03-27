@@ -10,6 +10,17 @@ import moon.user.Application;
 
 import es.uam.eps.padsof.emailconnection.*;
 
+/**
+ * Class that stores all the information of the academy. It also contains a 
+ * static variable, moonApp, that is the singleton of our architecture.
+ * 
+ * It also has defined teacher credentials:
+ * 		Email: tea.cher@edu.es
+ * 		Password: IsALotOfWork13579
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
+
 public class Academy implements Serializable{
 	
 	public static Academy moonApp = new Academy();
@@ -68,31 +79,60 @@ public class Academy implements Serializable{
 	
 	
 	
+	/**
+	 * 
+	 * @return the teacher of the academy.
+	 */
 	public User getTeacher(){
 		return teacher;
 	}
 	
+	/**
+	 * Adds a user to the user list.
+	 * @param u
+	 * @return
+	 */
 	public boolean addUser(User u){
 		return users.add(u);
 	}
 	
+	/**
+	 * 
+	 * @return gets the email system of the academy.
+	 */
 	public static EmailSystem getEmailSystem(){
 		return emailSystem;
 	}
 	
+	/**
+	 * Adds a course to the course list.
+	 * @param c
+	 * @return
+	 */
 	public boolean addCourse(Course c){
 		return courses.add(c);
 	}
 	
-
+	/**
+	 * 
+	 * @return the singleton moonApp
+	 */
 	public static Academy getMoonApp() {
 		return moonApp;
 	}
 
+	/**
+	 * 
+	 * @return HashSet with all the courses.
+	 */
 	public HashSet<Course> getCourses() {
 		return courses;
 	}
 
+	/**
+	 * 
+	 * @return HashSet with all the users.
+	 */
 	public HashSet<User> getUsers() {
 		return users;
 	}

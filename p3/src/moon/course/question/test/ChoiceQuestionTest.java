@@ -17,6 +17,7 @@ import moon.course.question.*;
 import java.util.*;
 
 /**
+ * Test class for the class ChoiceQuestion.
  * @author Lucia Asencio and Juan Riera
  *
  */

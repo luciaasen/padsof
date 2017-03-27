@@ -8,7 +8,13 @@ import java.io.Serializable;
 
 import es.uam.eps.padsof.emailconnection.*;
 
-
+/**
+ * Class that stores the applications that the students can send to courses if
+ * they are interested in them.
+ * 
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class Application implements Serializable{
 	Student student;
 	Course course;
@@ -23,7 +29,8 @@ public class Application implements Serializable{
 	/** This method is used to accept a student that has applied 
 	 * to a course. It also creates the MCourse associated with
 	 * the student and course, so  you should never call the 
-	 * constructor of MCourse in normal circumstances.
+	 * constructor of MCourse in normal circumstances, and notifies
+	 * the student.
 	 * @return false if everything went well and false if it did not
 	 * @throws InvalidEmailAddressException
 	 * @throws FailedInternetConnectionException
@@ -54,7 +61,7 @@ public class Application implements Serializable{
 	}
 	
 	/** This method is used to reject a student that has applied 
-	 * to a course.
+	 * to a course. It also notifies the student.
 	 * @return false if everything went well and false if it did not
 	 * @throws InvalidEmailAddressException
 	 * @throws FailedInternetConnectionException

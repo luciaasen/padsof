@@ -45,24 +45,35 @@ public class ChoiceAnswerTest {
 		answer1 = new ChoiceAnswer(q1, correct1);
 		answer2 = new ChoiceAnswer(q1, op1);
 	}
+	/**
+	 * Test method for {@link moon.mark.ChoiceAnswer#isCorrect()}.
+	 */
 
 	@Test
 	public void testIsCorrect() {
 		assertTrue(answer1.isCorrect() & (answer2.isCorrect() == false));
 	}
 
+	/**
+	 * Test method for {@link moon.mark.ChoiceAnswer#ChoiceAnswer(Question, ArrayList<Option>)}
+	 */
 	@Test
 	public void testChoiceAnswer() {
 		assertNotNull(answer1);
 		assertNotNull(answer2);
 	}
 
+	/**
+	 * Test method for {@link moon.mark#getMark()}
+	 */
 	@Test
 	public void testGetMark() {
 		assertTrue((answer1.getMark() == 5) & (answer2.getMark() == -3));
 	}
 
-	
+	/**
+	 * Test method for {@link moon.mark#getQuestion()}
+	 */
 	@Test
 	public void testGetQuestion() {
 		assertTrue(answer1.getQuestion() == q1 & answer2.getQuestion() == q1);

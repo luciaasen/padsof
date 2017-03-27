@@ -11,6 +11,7 @@ import org.junit.Test;
 import moon.user.Teacher;
 
 /**
+ * Test for the class Teacher.
  * @author Juan Riera and Lucia Asencio
  *
  */

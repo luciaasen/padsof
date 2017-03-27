@@ -3,10 +3,19 @@ package moon.course;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * This class stores all the information of a Unit
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class Unit extends CourseElement implements Serializable{
 	private ArrayList<CourseElement> contents;
 	private String name;
 	
+	/**
+	 * Constructor method.
+	 * @param name
+	 */
 	public Unit(String name){
 		this.name=name;
 		contents=new ArrayList<>();
@@ -24,19 +33,35 @@ public class Unit extends CourseElement implements Serializable{
 		}
 		return contents.add(element);
 	}
-	
+	 /**
+	  * Removes an element from the element list
+	  * @param element
+	  * @return true if it was properly removed and false if it wasn't.
+	  */
 	public boolean removeElement(CourseElement element){
 		return contents.remove(element);
 	}
 	
+	/**
+	 * 
+	 * @return the name of the unit.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the name of the unit.
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * 
+	 * @return ArrayList of the contents (Course elements) in the unit.
+	 */
 	public ArrayList<CourseElement> getContents() {
 		return contents;
 	}

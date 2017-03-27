@@ -21,7 +21,8 @@ import moon.user.Student;
 import es.uam.eps.padsof.emailconnection.*;
 
 /**
- * @author lucia
+ * This is a tester for the class Course.
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class CourseTest {

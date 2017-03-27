@@ -19,6 +19,7 @@ import moon.user.Application;
 import moon.user.Student;
 
 /**
+ * Testmethod for MExercise.
  * @author Lucia Asencio and Juan Riera
  *
  */
