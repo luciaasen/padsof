@@ -17,6 +17,7 @@ import moon.course.question.TfQuestion;
 import moon.mark.MCourse;
 import moon.mark.MExercise;
 import moon.user.Student;
+import es.uam.eps.padsof.emailconnection.*;
 
 /**
  * @author lucia
@@ -230,7 +231,7 @@ public class CourseTest {
 	 */
 	@Test
 	public void testGetStudents() {
-		fail("Not yet implemented");
+		assertTrue(c1.getStudents().size() == 3);
 	}
 
 	/**
@@ -238,23 +239,30 @@ public class CourseTest {
 	 */
 	@Test
 	public void testAddStudent() {
-		fail("Not yet implemented");
+		/*As this method was used for the application, we check students are in the course*/
+		assertTrue(c1.getStudents().contains(s1));
+		assertTrue(c1.getStudents().contains(s2));
+		assertTrue(c1.getStudents().contains(s3));
 	}
 
 	/**
 	 * Test method for {@link moon.course.Course#expelStudent(moon.user.Student)}.
 	 */
 	@Test
-	public void testExpelStudent() {
-		fail("Not yet implemented");
+	public void testExpelStudent() throws InvalidEmailAddressException, FailedInternetConnectionException{
+		c1.expelStudent(s1);
+		assertTrue(c1.isExpelled(s1));
 	}
 
 	/**
 	 * Test method for {@link moon.course.Course#readmitStudent(moon.user.Student)}.
 	 */
 	@Test
-	public void testReadmitStudent() {
-		fail("Not yet implemented");
+	public void testReadmitStudent() throws InvalidEmailAddressException, FailedInternetConnectionException{
+		c1.expelStudent(s1);
+		c1.readmitStudent(s1);
+		assertFalse(c1.isExpelled(s1));
+		
 	}
 
 	/**
@@ -277,8 +285,11 @@ public class CourseTest {
 	 * Test method for {@link moon.course.Course#isExpelled(moon.user.Student)}.
 	 */
 	@Test
-	public void testIsExpelled() {
-		fail("Not yet implemented");
+	public void testIsExpelled() throws InvalidEmailAddressException, FailedInternetConnectionException{
+		c1.expelStudent(s1);
+		assertTrue(c1.isExpelled(s1));
+		c1.readmitStudent(s1);
+		assertFalse(c1.isExpelled(s1));
 	}
 
 	/**
@@ -286,7 +297,9 @@ public class CourseTest {
 	 */
 	@Test
 	public void testAddUnit() {
-		fail("Not yet implemented");
+		assertTrue(c1.getUnits().contains(u1));
+		assertTrue(c2.getUnits().contains(u2));
+		assertFalse(c1.getUnits().contains(u2));
 	}
 
 	/**
@@ -294,7 +307,10 @@ public class CourseTest {
 	 */
 	@Test
 	public void testAddMark() {
-		fail("Not yet implemented");
+		assertTrue(c1.getStudentMarks().contains(mc1));
+		assertTrue(c1.getStudentMarks().contains(mc2));
+		assertTrue(c1.getStudentMarks().contains(mc5));
+		assertTrue(c1.getStudentMarks().size() == 3);
 	}
 
 	/**
@@ -302,7 +318,8 @@ public class CourseTest {
 	 */
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertTrue(c1.getName().equals("Course 1"));
+		assertTrue(c2.getName().equals("Course 2"));
 	}
 
 	/**
@@ -310,7 +327,8 @@ public class CourseTest {
 	 */
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented");
+		c1.setName("VivaLaDoble");
+		assertTrue(c1.getName().equals("VivaLaDoble"));
 	}
 
 	/**
@@ -318,15 +336,21 @@ public class CourseTest {
 	 */
 	@Test
 	public void testGetUnits() {
-		fail("Not yet implemented");
+		assertTrue(c1.getUnits().size() == 1);
+		assertTrue(c2.getUnits().size() == 1);
+
+		assertTrue(c1.getUnits().contains(u1));
+		assertTrue(c2.getUnits().contains(u2));
 	}
 
 	/**
 	 * Test method for {@link moon.course.Course#getExpStudents()}.
 	 */
 	@Test
-	public void testGetExpStudents() {
-		fail("Not yet implemented");
+	public void testGetExpStudents() throws InvalidEmailAddressException, FailedInternetConnectionException{
+		c1.expelStudent(s1);
+		assertTrue(c1.getExpStudents().size() == 1);
+		assertTrue(c1.getExpStudents().contains(s1));
 	}
 
 	/**
@@ -334,7 +358,10 @@ public class CourseTest {
 	 */
 	@Test
 	public void testGetStudentMarks() {
-		fail("Not yet implemented");
+		assertTrue(c1.getStudentMarks().size() == 3);
+		assertTrue(c1.getStudentMarks().contains(mc1));
+		assertTrue(c1.getStudentMarks().contains(mc2));
+		assertTrue(c1.getStudentMarks().contains(mc5));
 	}
 
 	/**
@@ -350,7 +377,10 @@ public class CourseTest {
 	 */
 	@Test
 	public void testGetExercises() {
-		fail("Not yet implemented");
+		assertTrue(c1.getExercises().size() == 2);
+		assertTrue(c2.getExercises().size() == 2);
+		assertTrue(c1.getExercises().contains(e1));
+		assertTrue(c1.getExercises().contains(e2));
 	}
 
 }
