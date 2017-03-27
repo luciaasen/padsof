@@ -76,6 +76,15 @@ public class ApplicationTest {
 	 */
 	@Test
 	public void testAccept() {
+		
+		/* Let's make sure that there are no MCourses and that they are 
+		 * created by the method apply(). We'll re-check this later.
+		 */
+		assertNull(c1.getMCourse(s1));
+		assertNull(c1.getMCourse(s2));
+		assertNull(c2.getMCourse(s1));
+		assertNull(c2.getMCourse(s2));
+		
 		try {
 			assertTrue(a11.accept());
 			assertTrue(a22.accept());
@@ -101,6 +110,13 @@ public class ApplicationTest {
 		assertTrue(Academy.getMoonApp().getApplications().contains(a21));
 		assertFalse(Academy.getMoonApp().getApplications().contains(a12));
 		assertFalse(Academy.getMoonApp().getApplications().contains(a22));
+		
+		/* The accepted applications should have created the correspondent
+		 * MCourses */
+		assertNotNull(c1.getMCourse(s1));
+		assertNull(c1.getMCourse(s2));
+		assertNotNull(c2.getMCourse(s1));
+		assertNotNull(c2.getMCourse(s2));
 	}
 
 	/**

@@ -15,7 +15,7 @@ import moon.*;
  *
  */
 public class Demonstrator {
-	public static void main(){
+	public static void main(String args[]){
 		Academy moon = Academy.getMoonApp();
 		try { moon.loadUsers("StudentData.txt"); }
 		catch (NumberFormatException | IOException e){

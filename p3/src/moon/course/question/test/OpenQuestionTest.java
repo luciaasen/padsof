@@ -14,7 +14,7 @@ import org.junit.Test;
 import moon.mark.*;
 import moon.user.*;
 /**
- * @author lucia
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class OpenQuestionTest {

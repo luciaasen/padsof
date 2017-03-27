@@ -159,10 +159,12 @@ public class UnitTest {
 		assertEquals(u3.getCourse(), c2);
 		assertEquals(u4.getCourse(), c2);
 		
+		u2.setCourse(c2);
 		e1.setUnit(u1);
 		e2.setUnit(u2);
 		u3.setUnit(u1);
 		u4.setUnit(u2);
+		
 		
 		assertEquals(u1.getCourse(), c1);
 		assertEquals(u3.getCourse(), c1);

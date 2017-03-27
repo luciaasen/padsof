@@ -109,9 +109,25 @@ public class StudentTest {
 	 */
 	@Test
 	public void testAddMark() {
-		MCourse mc11 = new MCourse(c1, s1);
-		MCourse mc21 = new MCourse(c2, s1);
-		MCourse mc12 = new MCourse(c1, s2);
+		Application a;
+		try {
+			a=s1.apply(c1);
+			a.accept();
+			a=s1.apply(c2);
+			a.accept();
+			a=s2.apply(c1);
+			a.accept();
+			a=s2.apply(c2);
+			a.reject();
+			
+		} catch (InvalidEmailAddressException | FailedInternetConnectionException e) {
+			fail("Error with the email system");
+			e.printStackTrace();
+		}
+		
+		MCourse mc11 = c1.getMCourse(s1);
+		MCourse mc21 = c2.getMCourse(s1);
+		MCourse mc12 = c1.getMCourse(s2);
 		
 		assertTrue(s4.getMarks().size()==0);
 		assertTrue(s1.getMarks().contains(mc11));
@@ -320,11 +336,9 @@ public class StudentTest {
 			e.printStackTrace();
 		}
 		
-		MCourse mc11 = new MCourse(c1, s1);
-		MCourse mc21 = new MCourse(c2, s1);
-		MCourse mc12 = new MCourse(c1, s2);
-		MCourse mc13 = new MCourse(c1, s3);
-		MCourse mc23 = new MCourse(c2, s3);
+		MCourse mc11 = c1.getMCourse(s1);
+		MCourse mc21 = c2.getMCourse(s1);
+		MCourse mc12 = c1.getMCourse(s2);
 		
 		Unit u11 = new Unit("Unit 1 of Course 1");
 		u11.setCourse(c1);
@@ -444,11 +458,9 @@ public class StudentTest {
 			e.printStackTrace();
 		}
 		
-		MCourse mc11 = new MCourse(c1, s1);
-		MCourse mc21 = new MCourse(c2, s1);
-		MCourse mc12 = new MCourse(c1, s2);
-		MCourse mc13 = new MCourse(c1, s3);
-		MCourse mc23 = new MCourse(c2, s3);
+		MCourse mc11 = c1.getMCourse(s1);
+		MCourse mc21 = c2.getMCourse(s1);
+		MCourse mc12 = c1.getMCourse(s2);
 		
 		Unit u11 = new Unit("Unit 1 of Course 1");
 		u11.setCourse(c1);
@@ -567,11 +579,9 @@ public class StudentTest {
 			e.printStackTrace();
 		}
 		
-		MCourse mc11 = new MCourse(c1, s1);
-		MCourse mc21 = new MCourse(c2, s1);
-		MCourse mc12 = new MCourse(c1, s2);
-		MCourse mc13 = new MCourse(c1, s3);
-		MCourse mc23 = new MCourse(c2, s3);
+		MCourse mc11 = c1.getMCourse(s1);
+		MCourse mc21 = c2.getMCourse(s1);
+		MCourse mc12 = c1.getMCourse(s2);
 		
 		Unit u11 = new Unit("Unit 1 of Course 1");
 		u11.setCourse(c1);
