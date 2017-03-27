@@ -258,7 +258,7 @@ public class Exercise extends CourseElement implements Serializable{
 	 * @param to, date until which exercise will be activa
 	 */
 	public void setDates(LocalDate from, LocalDate to){
-			if(this.hasBeenDone() == false){
+		if(this.hasBeenDone() == false){
 			if(to.isBefore(from)){
 				this.activeFrom = to;
 				this.activeTo = from;

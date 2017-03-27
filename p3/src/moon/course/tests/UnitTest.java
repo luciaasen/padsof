@@ -34,6 +34,8 @@ public class UnitTest {
 		u3 = new Unit("Unit 1 course 2");
 		u4 = new Unit("Unit 2 course 2");
 		
+		c1 = new Course("Course in applied methematics");
+		c2 = new Course("Course in understanding");
 		u1.setCourse(c1);
 		u2.setCourse(c1);
 		u3.setCourse(c2);
@@ -105,7 +107,6 @@ public class UnitTest {
 		assertTrue(u1.addElement(e3));
 		assertTrue(u2.addElement(e4));
 		assertFalse(u1.addElement(e1));
-		assertFalse(u2.addElement(e3));
 		
 		assertTrue(u1.getContents().size()==3);
 		assertTrue(u1.getContents().contains(e1));
@@ -153,7 +154,22 @@ public class UnitTest {
 	 */
 	@Test
 	public void testSetAndGetUnitAndGetCourse() {
-		fail("");
+		assertEquals(u1.getCourse(), c1);
+		assertEquals(u2.getCourse(), c1);
+		assertEquals(u3.getCourse(), c2);
+		assertEquals(u4.getCourse(), c2);
+		
+		e1.setUnit(u1);
+		e2.setUnit(u2);
+		u3.setUnit(u1);
+		u4.setUnit(u2);
+		
+		assertEquals(u1.getCourse(), c1);
+		assertEquals(u3.getCourse(), c1);
+		assertEquals(u2.getCourse(), c2);
+		assertEquals(u4.getCourse(), c2);
+		
+		
 	}
 
 }

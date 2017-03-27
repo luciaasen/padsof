@@ -19,13 +19,14 @@ public class Academy implements Serializable{
 	public HashSet<Course> courses = new HashSet<Course>();
 	public HashSet<User> users = new HashSet<>();
 	
-	/**Private constructor of Academy. It is private because of our
-	 * singleton architecture, this constructor will only be called once.
-	 * 
-	 */
 	
-	private Academy(){
-		teacher = new Teacher("Teacher", "Teacher", "PwdTeacher1357", 1, "t.eacher@edu.es");
+	/**
+	 * Constructor for the Academy. Even though we are using a singleton
+	 * architecture, the constructor is public because in our design we will
+	 * be likely to call it somewhere in the Interface.
+	 */
+	public Academy(){
+		teacher = new Teacher("Tea", "cher", "IsALotOfWork13579", 1, "tea.cher@edu.es");
 		users.add(teacher);
 	}
 	
@@ -158,6 +159,15 @@ public class Academy implements Serializable{
 		return count;
 	}
 	
-	
+	/**
+	 * Method to change the moonApp,
+	 * so that when it is deserialized
+	 * it can be restored.
+	 * @param newMoon
+	 * @return 
+	 */
+	public static void setMoon(Academy newMoon){
+		Academy.moonApp = newMoon;
+	}
 	
 }

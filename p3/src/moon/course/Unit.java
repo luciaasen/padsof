@@ -19,6 +19,9 @@ public class Unit extends CourseElement implements Serializable{
 	 * @return boolean result of the operation of adding the element to contents.
 	 */
 	public boolean addElement(CourseElement element){
+		if(contents.contains(element)==true){
+			return false;
+		}
 		return contents.add(element);
 	}
 	

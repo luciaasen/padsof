@@ -68,9 +68,10 @@ public class AcademyTest {
 	@Test
 	public void testGetTeacher() {
 		Teacher t = new Teacher("Teacher", "Teacher", "PwdTeacher1357", 1, 
-				"t.eacher@edu.es");
+				"tea.cher@edu.es");
 		
 		assertNotNull(t1);
+		/* They are equals because they have the same email */
 		assertTrue(t1.equals(t));
 	}
 	
@@ -82,7 +83,7 @@ public class AcademyTest {
 		
 		/*Logging in as a teacher*/
 		assertNotEquals(a.login("t.eacher@edu.es", "PwdTeacher1358"), t1);
-		assertEquals(a.login("t.eacher@edu.es", "PwdTeacher1357"), t1);
+		assertEquals(a.login("tea.cher@edu.es", "IsALotOfWork13579"), t1);
 		
 		/*Logging in as a student*/
 		assertNull(a.login("Jorge.Alcazar@esdu.es", "joa"));
@@ -139,6 +140,22 @@ public class AcademyTest {
 		
 	}
 	
+	/**
+	 * Test method for {@link moon.Academy#Academy()}
+	 * and {@link moon.Academy#setMoon(Academy)}
+	 */
+	@Test
+	public void testAcademyAndSetMoon(){
+		Academy a1 = new Academy();
+		
+		assertNotNull(a1);
+		assertNotNull(a1.getTeacher());
+		assertEquals(a1.getTeacher(), a1.login("tea.cher@edu.es", "IsALotOfWork13579"));
+		
+		Academy.setMoon(a1);
+		assertEquals(Academy.getMoonApp(), a1);
+	}
+	
 	/** Auxiliar function for testGetUsers. It recieves a HashSet of users
 	 * and a user, and checks if any of the users in the set is equal to the user
 	 * passed as an argument. This means that it works in the same way as the
@@ -157,5 +174,6 @@ public class AcademyTest {
 		return false;
 	}
 	
+
 
 }
