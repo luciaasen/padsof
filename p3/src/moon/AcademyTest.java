@@ -39,8 +39,8 @@ public class AcademyTest {
 		c2 = new Course("Mathematics");
 		t1 = Academy.getMoonApp().getTeacher();
 		users = a.loadUsers("StudentData.txt");
-		s1=new Student("Luis", "Gallego", "s.ll", 1264, "Luis.Gallego=esdu.es");
-		s2=new Student("Jorge", "Alcazar","JoA", 1289, "Jorge.Alcazar@esdu.es");
+		s1 = new Student("Luis", "Gallego", "s.ll", 1264, "Luis.Gallego=esdu.es");
+		s2 = new Student("Jorge", "Alcazar","JoA", 1289, "Jorge.Alcazar@esdu.es");
 		s3 = new Student("Manuel", "Blanco", "anuel.Bl", 1258, "Manuel.Blanco@esdu.es");
 		
 	}
@@ -105,7 +105,7 @@ public class AcademyTest {
 			p4 = ((Student)s2).apply(c2);
 		} catch (InvalidEmailAddressException | FailedInternetConnectionException e) {
 			e.printStackTrace();
-			fail("Error con el email System");
+			fail("Error with the email System");
 			
 		}
 		
@@ -113,7 +113,8 @@ public class AcademyTest {
 		list.addAll(a.getApplications());
 		
 		assertTrue(a.getApplications().contains(p1));
-		assertTrue(a.getApplications().contains(p2));
+		/* A student can not apply twice to the same course */
+		assertFalse(a.getApplications().contains(p2));
 		assertTrue(a.getApplications().contains(p3));
 		assertTrue(a.getApplications().contains(p4));
 	}

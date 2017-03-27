@@ -199,22 +199,23 @@ public class MCourseTest {
 		assertEquals(mc11.getStudent(),s2);
 	}
 
-	/**
-	 * Test method for {@link moon.mark.MCourse#getmExes()}.
-	 */
-	@Test
-	public void testGetmExes() {
-		fail("Not yet implemented");
-	}
-	
 	
 	/**
 	 * Test method for {@link moon.mark.MCourse#addMExe()}.
 	 */
 	@Test
-	public void testAddMExes() {
+	public void testGetAndAddMExes() {
 		me111 = new MExercise(e1);
-		me111.get
+		me112 = new MExercise(e1);
+		
+		mc11 = new MCourse(c1, s1);
+		assertEquals(mc11.getmExes().size(), 0);
+		
+		mc11.addMExe(me111);
+		mc11.addMExe(me112);
+		assertEquals(mc11.getmExes().size(), 2);
+		assertTrue(mc11.getmExes().contains(me111));
+		assertTrue(mc11.getmExes().contains(me112));
 	}
 
 }

@@ -2,9 +2,12 @@ package moon.course;
 
 import java.io.Serializable;
 
-class Note extends CourseElement implements Serializable{
+public class Note extends CourseElement implements Serializable{
 	private String text;
 
+	public Note(String text){
+		this.text=text;
+	}
 	/**
 	 * @return the text
 	 */
