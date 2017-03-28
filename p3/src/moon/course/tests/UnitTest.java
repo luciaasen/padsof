@@ -11,6 +11,7 @@ import org.junit.Test;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Unit;
+import moon.mark.MExercise;
 
 /**
  * This is a test class for Unit.
@@ -197,4 +198,56 @@ public class UnitTest {
 		
 	}
 
+	/**
+	 * Test for the method {@link moon.course.Unit#makeInvisible()}
+	 * and {@link moon.course.Unit#makeVisible()}
+	 */
+	@Test
+	public void testMakeInvisibleAndVisible(){
+		u2.setCourse(c2);
+		e1.setUnit(u1);
+		u3.setUnit(u1);
+		u4.setUnit(u2);
+		
+		u1.makeVisible();
+		u2.makeVisible();
+		u3.makeVisible();
+		u4.makeVisible();
+		
+		/* A student answers to e1 */
+		MExercise me1 = new MExercise(e1);
+		e1.addMExercise(me1);
+		
+		assertTrue(u1.getVisibility());
+		assertTrue(u2.getVisibility());
+		assertTrue(u3.getVisibility());
+		assertTrue(u4.getVisibility());
+		
+		/* If we try to make u1 invisible, it should not work, 
+		 * because a student has answered an exercise in it */
+		u1.makeInvisible();
+		assertTrue(u1.getVisibility());
+		
+		
+		/* But it should work fine with u3, u2 and u4. 
+		 * However, changing the visibility of u2, should
+		 * not affect u4.
+		 * We should also be able to restore that 
+		 * visibility */
+		
+		
+		u4.makeInvisible();
+		assertTrue(u2.getVisibility());
+		assertFalse(u4.getVisibility());
+		u4.makeVisible();
+		assertTrue(u4.getVisibility());
+		
+		u2.makeInvisible();
+		assertFalse(u2.getVisibility());
+		assertTrue(u4.getVisibility());
+		u2.makeVisible();
+		assertTrue(u2.getVisibility());
+		assertTrue(u4.getVisibility());
+		
+	}
 }

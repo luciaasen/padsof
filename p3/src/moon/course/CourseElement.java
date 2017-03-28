@@ -58,11 +58,16 @@ abstract class CourseElement implements Serializable{
 		}
 	}
 
-	
+	/** 
+	 * Makes an element visible.
+	 */
 	public void makeVisible(){
 		visible=true;
 	}
 	
+	/** 
+	 * Makes an element invisible.
+	 */
 	public void makeInvisible(){
 		visible=false;
 	}

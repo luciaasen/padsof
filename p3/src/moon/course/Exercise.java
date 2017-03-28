@@ -297,7 +297,7 @@ public class Exercise extends CourseElement implements Serializable{
 		}		
 	}
 	/**
-	 * If noone has done the exercise, sets the unit of it
+	 * If no one has done the exercise, sets the unit of it
 	 * @param unit, the unit to set in the exercise
 	 */
 	@Override
@@ -305,5 +305,13 @@ public class Exercise extends CourseElement implements Serializable{
 		if(this.hasBeenDone() == false){
 			super.setUnit(unit);
 		}
+	}
+	
+	@Override 
+	public void makeInvisible(){
+		if(studentMarks.size()!=0){
+			return;
+		}
+		this.visible=false;
 	}
 }

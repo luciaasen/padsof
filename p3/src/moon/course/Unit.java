@@ -78,4 +78,27 @@ public class Unit extends CourseElement implements Serializable{
 		}
 		c.addUnit(this);
 	}
+	
+	
+	/**
+	 * Makes a Unit invisible. The unit will check if it has subunits and 
+	 * try to make them invisible. If this unit has a child exercise that
+	 * has already been answered by a student, this unit will not be made
+	 * invisible.
+	 */
+	@Override
+	public void makeInvisible(){
+
+		for(CourseElement e : this.contents){
+			if(e instanceof Exercise){
+				if(((Exercise)e).getStudentMarks().size()!=0){
+					return;
+				}
+			}
+		}
+		visible=false;
+	}
 }
+
+
+
