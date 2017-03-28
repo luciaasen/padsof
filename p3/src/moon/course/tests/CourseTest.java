@@ -129,44 +129,43 @@ public class CourseTest {
 		 * 		In c1: answers correctly to everything
 		 * 		In c2: answers wrongly to e3, e4
 		 */
-		mc1 = new MCourse(c1, s1);
-		mc3 = new MCourse(c2, s1);
+		mc1 = c1.getMCourse(s1);
+		mc2 = c1.getMCourse(s2);
+		mc6 = c2.getMCourse(s3);
 		
 		me1 = new MExercise(e1);
-		mc1.addMExe(me1);
+		c1.getMCourse(s1).addMExe(me1);
 		q1.answer(false, me1);
 		q2.answer(true, me1);
 		
 		me2 = new MExercise(e2);
-		mc1.addMExe(me2);
+		c1.getMCourse(s1).addMExe(me2);
 		q3.answer(true, me2);
 		q4.answer(true, me2);
 		
 		me3 = new MExercise(e3);
-		mc3.addMExe(me3);
+		c2.getMCourse(s1).addMExe(me3);
 		q5.answer(true, me3);
 		
 		me4 = new MExercise(e4);
-		mc3.addMExe(me4);
+		c2.getMCourse(s1).addMExe(me4);
 		q6.answer(false, me4);
 		
 		/*Second student in 2 courses.
 		 * 		In c1: correctly answers 1 question in each exe
 		 * 		In c2: correctly does one exercise 
 		 */
-		mc2 = new MCourse(c1, s2);
-		mc4 = new MCourse(c2, s2);
 		
 		me5 = new MExercise(e1);
-		mc2.addMExe(me5);
+		c1.getMCourse(s2).addMExe(me5);
 		q1.answer(false, me5);
 		
 		me6 = new MExercise(e2);
-		mc2.addMExe(me6);
+		c1.getMCourse(s2).addMExe(me6);
 		q3.answer(true, me6);
 		
 		me7 = new MExercise(e3);
-		mc4.addMExe(me7);
+		c2.getMCourse(s2).addMExe(me7);
 		q5.answer(false, me7);
 		
 		
@@ -174,11 +173,9 @@ public class CourseTest {
 		 * 		In c1: answers correctly to one exercise
 		 * 		In c2: does nothing
 		 */
-		mc5 = new MCourse(c1, s3);
-		mc6 = new MCourse(c2, s3);
 		
 		me8 = new MExercise(e1);
-		mc5.addMExe(me8);
+		c1.getMCourse(s3).addMExe(me8);
 		q1.answer(false, me8);
 		q2.answer(true, me8);
 		
@@ -328,9 +325,9 @@ public class CourseTest {
 	 */
 	@Test
 	public void testAddMark() {
-		assertTrue(c1.getStudentMarks().contains(mc1));
-		assertTrue(c1.getStudentMarks().contains(mc2));
-		assertTrue(c1.getStudentMarks().contains(mc5));
+		assertTrue(c1.getStudentMarks().contains(c1.getMCourse(s1)));
+		assertTrue(c1.getStudentMarks().contains(c1.getMCourse(s2)));
+		assertTrue(c1.getStudentMarks().contains(c1.getMCourse(s3)));
 		assertTrue(c1.getStudentMarks().size() == 3);
 	}
 
@@ -380,9 +377,9 @@ public class CourseTest {
 	@Test
 	public void testGetStudentMarks() {
 		assertTrue(c1.getStudentMarks().size() == 3);
-		assertTrue(c1.getStudentMarks().contains(mc1));
-		assertTrue(c1.getStudentMarks().contains(mc2));
-		assertTrue(c1.getStudentMarks().contains(mc5));
+		assertTrue(c1.getStudentMarks().contains(c1.getMCourse(s1)));
+		assertTrue(c1.getStudentMarks().contains(c1.getMCourse(s2)));
+		assertTrue(c1.getStudentMarks().contains(c1.getMCourse(s3)));
 	}
 
 	/**
