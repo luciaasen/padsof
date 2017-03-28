@@ -4,6 +4,9 @@
 package moon.mark.tests;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 import moon.mark.*;
@@ -11,6 +14,7 @@ import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Unit;
 import moon.course.question.OpenQuestion;
+import moon.course.question.Option;
 import moon.user.Student;
 
 /**
@@ -23,6 +27,8 @@ public class OpenAnswerTest {
 	private Exercise e1;
 	private OpenQuestion q1;
 	private OpenAnswer answer1, answer2;
+	private Option op1, op2;
+	private ArrayList<Option> opt1 = new ArrayList<Option>();
 	
 	/**
 	 * Creates an exercise, sets its penalty and add a question to it.
@@ -33,9 +39,13 @@ public class OpenAnswerTest {
 	public void setUp() throws Exception {
 		e1 = new Exercise();
 		e1.setPenalty(-3);
-		q1 = new OpenQuestion("Am I silly?", 5, "No", e1);
-		answer1 = new OpenAnswer(q1, "No");
-		answer2 = new OpenAnswer(q1, "Yes");		
+		op1 = new Option("No");
+		op2 = new Option("Yes");
+		opt1.add(op1);
+		
+		q1 = new OpenQuestion("Am I silly?", 5, opt1, e1);
+		answer1 = new OpenAnswer(q1, op1);
+		answer2 = new OpenAnswer(q1, op2);		
 	}
 
 	/**

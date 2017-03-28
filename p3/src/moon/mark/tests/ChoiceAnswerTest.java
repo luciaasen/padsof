@@ -41,7 +41,7 @@ public class ChoiceAnswerTest {
 		/*Creates exercise, question and answers*/
 		e1 = new Exercise();
 		e1.setPenalty(-3);
-		q1 = new ChoiceQuestion("Am I silly?", 5, op1, correct1, e1);
+		q1 = new OneChoiceQuestion("Am I silly?", 5, op1, correct1, e1);
 		answer1 = new ChoiceAnswer(q1, correct1);
 		answer2 = new ChoiceAnswer(q1, op1);
 	}
