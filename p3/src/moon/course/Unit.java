@@ -110,6 +110,19 @@ public class Unit extends CourseElement implements Serializable{
 		}
 		visible=false;
 	}
+	
+	public ArrayList<Exercise> getExercises(){
+		ArrayList<Exercise> exes = new ArrayList<>();
+		for (CourseElement e: this.getContents()){
+			if(e instanceof Exercise){
+				exes.add((Exercise)e);
+			}
+			else if(e instanceof Unit){
+				exes.addAll(((Unit) e).getExercises());
+			}
+		}
+		return exes;
+	}
 }
 
 
