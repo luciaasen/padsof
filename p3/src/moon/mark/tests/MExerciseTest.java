@@ -197,8 +197,7 @@ public class MExerciseTest {
 		MQuestion mq1, mq2;
 		MExercise me5 = new MExercise(e1);
 		mq1=new TfAnswer(q1, false);
-		Option op = new Option("Respuesta");
-		mq2=new OpenAnswer(q2, op);
+		mq2=new TfAnswer(q2, true);
 		me5.addMQuestion(mq1);
 		me5.addMQuestion(mq2);
 		assertTrue(me5.getmQuestions().contains(mq1));
