@@ -13,7 +13,7 @@ import moon.course.Exercise;
  */
 public class OpenQuestion extends Question implements Serializable{
 	
-	private ArrayList<Option> answer;
+	private ArrayList<Option> correct;
 	
 	/**
 	 * OpenQuestion constructor
@@ -23,7 +23,7 @@ public class OpenQuestion extends Question implements Serializable{
 	 */
 	public OpenQuestion(String question, double relevance, ArrayList<Option> answer, Exercise exe) {
 		super(question, relevance, exe);
-		this.answer = answer;
+		this.correct = answer;
 	}
 
 	/**
@@ -31,7 +31,7 @@ public class OpenQuestion extends Question implements Serializable{
 	 * @return
 	 */
 	public ArrayList<Option> getAnswer(){
-		return this.answer;
+		return this.correct;
 	}
 	
 	/**
@@ -41,13 +41,13 @@ public class OpenQuestion extends Question implements Serializable{
 	 */
 	@Override
 	public boolean answer(Object answer, MExercise m){
-		if (answer instanceof String){
+		if (answer instanceof Option){
 			
 			if(super.answer(answer, m) == false){
 				return false;
 			}			
 			//TODO check que studentMarks no tiene ya un mq de ese student ¿
-			OpenAnswer mq = new OpenAnswer(this, (String)answer);
+			OpenAnswer mq = new OpenAnswer(this, (Option)answer);
 			m.addMQuestion(mq);
 			this.studentMarks.add(mq);	
 			return true;

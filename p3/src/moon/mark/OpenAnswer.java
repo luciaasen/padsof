@@ -3,21 +3,21 @@ package moon.mark;
 import java.io.Serializable;
 
 import moon.course.question.*;
-
+import java.util.*;
 /**
  * Answer of a student to an open answer question.
  * @author Juan Riera and Lucia Asencio
  *
  */
 public class OpenAnswer extends MQuestion implements Serializable{
-	private String answer;
+	private Option answer;
 	
 	/**
 	 * OpenAnswer constructor
 	 * @param question
 	 * @param answer
 	 */
-	public OpenAnswer(Question question, String answer){
+	public OpenAnswer(Question question, Option answer){
 		super(question);
 		this.answer = answer;
 		if(this.isCorrect()){
@@ -33,9 +33,10 @@ public class OpenAnswer extends MQuestion implements Serializable{
 	 */ 
 	@Override
 	public Boolean isCorrect(){
-		
-		if(this.answer.equals(super.question.getAnswer())){
-			return true;
+		for(Option o: (ArrayList<Option>)(super.question.getAnswer())){
+			if(this.answer.equals(o)){
+				return true;
+			}
 		}
 		return false;
 	}
