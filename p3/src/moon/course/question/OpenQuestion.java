@@ -13,7 +13,7 @@ import moon.course.Exercise;
  */
 public class OpenQuestion extends Question implements Serializable{
 	
-	private ArrayList<Option> correct;
+	protected ArrayList<Option> correct;
 	
 	/**
 	 * OpenQuestion constructor

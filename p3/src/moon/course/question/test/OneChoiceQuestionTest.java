@@ -4,8 +4,8 @@
 package moon.course.question.test;
 
 import static org.junit.Assert.*;
-import moon.mark.*;
-import moon.user.Student;
+
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,17 +14,19 @@ import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Unit;
 import moon.course.question.*;
-import java.util.*;
+import moon.course.question.Option;
+import moon.mark.MCourse;
+import moon.mark.MExercise;
+import moon.mark.MQuestion;
+import moon.user.Student;
 
 /**
- * Test class for the class ChoiceQuestion.
- * @author Lucia Asencio and Juan Riera
+ * @author lucia
  *
  */
-public class ChoiceQuestionTest {
-	
+public class OneChoiceQuestionTest {
 	private Exercise e1;
-	private ChoiceQuestion q1, q2, q3;
+	private OneChoiceQuestion q1, q2, q3;
 	private MExercise me1;
 	private ArrayList<Option> op1;
 	private ArrayList<Option> correct1;
@@ -59,9 +61,9 @@ public class ChoiceQuestionTest {
 		
 		/*Creates exeercise and questions*/
 		e1 = new Exercise();
-		q1 = new ChoiceQuestion("Am I silly?", 5, op1, correct1, e1);
-		q2 = new ChoiceQuestion("Am I?", 10, op2, correct2, e1);		
-		q3 = new ChoiceQuestion("Am I?", -10, op1, correct1, e1);	
+		q1 = new OneChoiceQuestion("Am I silly?", 5, op1, correct1, e1);
+		q2 = new OneChoiceQuestion("Am I?", 10, op2, correct2, e1);		
+		q3 = new OneChoiceQuestion("Am I?", -10, op1, correct1, e1);	
 		
 		//Add 3 students to c1 and simulate 2 of them answer to q1
 		
@@ -90,14 +92,35 @@ public class ChoiceQuestionTest {
 		q1.answer(s2Answer, me2);		
 		
 		c1.addStudent(s3);
-
 	}
 
 	/**
-	 * Test method for {@link moon.course.question.ChoiceQuestion#ChoiceQuestion(java.lang.String, double)}.
+	 * Test method for {@link moon.course.question.OneChoiceQuestion#answer(java.lang.Object, moon.mark.MExercise)}.
 	 */
 	@Test
-	public void testChoiceQuestion() {
+	public void testAnswer() {
+		/*This method has been used in the previous tests. Just in case, we check the method has added the correct number of answers to the correct question */
+		assertTrue(q1.calcNAnswered() == 2);
+		assertTrue(q1.calcNUnanswered() == 1);
+		int numQ1 = 0, numQ2 = 0;
+		for(MExercise me: e1.getStudentMarks()){
+			for(MQuestion mq : me.getmQuestions()){
+				if(mq.getQuestion() == q1){
+					numQ1 ++;
+				}else if(mq.getQuestion() == q2){
+					numQ2 ++;
+				}
+			}
+		}
+		
+		assertTrue(numQ1 == 2 & numQ2 == 1);
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.OneChoiceQuestion#OneChoiceQuestion(java.lang.String, double, java.util.ArrayList, java.util.ArrayList, moon.course.Exercise)}.
+	 */
+	@Test
+	public void testOneChoiceQuestion() {
 		assertNotNull(q1);
 		assertNotNull(q3);
 	}
@@ -108,10 +131,11 @@ public class ChoiceQuestionTest {
 	@Test
 	public void testGetOptions() {
 		assertEquals(q1.getOptions(), op2);
-		assertEquals(q2.getOptions(), op1);	}
+		assertEquals(q2.getOptions(), op1);	
+	}
 
 	/**
-	 * Test method for {@link moon.course.question.ChoiceQuestion#getAnswer()}.
+	 * Test method for {@link moon.course.question.OpenQuestion#getAnswer()}.
 	 */
 	@Test
 	public void testGetAnswer() {
@@ -175,29 +199,16 @@ public class ChoiceQuestionTest {
 	}
 
 	/**
-	 * Test method for {@link moon.course.question.Question#answer(moon.mark.MQuestion)}.
+	 * Test method for {@link moon.course.question.Question#getQuestion()}.
 	 */
 	@Test
-	public void testAnswer() {
-		/*This method has been used in the previous tests. Just in case, we check the method has added the correct number of answers to the correct question */
-		assertTrue(q1.calcNAnswered() == 2);
-		assertTrue(q1.calcNUnanswered() == 1);
-		int numQ1 = 0, numQ2 = 0;
-		for(MExercise me: e1.getStudentMarks()){
-			for(MQuestion mq : me.getmQuestions()){
-				if(mq.getQuestion() == q1){
-					numQ1 ++;
-				}else if(mq.getQuestion() == q2){
-					numQ2 ++;
-				}
-			}
-		}
-		
-		assertTrue(numQ1 == 2 & numQ2 == 1);
+	public void testGetQuestion() {
+		assertEquals(q1.getQuestion(), "Am I silly?");
+		assertEquals(q2.getQuestion(), "Am I?");
 	}
 
 	/**
-	 * Test method for {@link moon.course.question.Question#getStudentMarks(moon.mark.MQuestion)}.
+	 * Test method for {@link moon.course.question.Question#getStudentMarks()}.
 	 */
 	@Test
 	public void testGetStudentMarks() {

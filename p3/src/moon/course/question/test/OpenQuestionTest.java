@@ -23,6 +23,9 @@ public class OpenQuestionTest {
 	private Exercise e1;
 	private OpenQuestion q1, q2, q3;
 	private MExercise me1;
+	private Option o1, o2, o3;
+	private ArrayList<Option> correct1 = new ArrayList<>(), correct2 = new ArrayList<>();
+	
 	/**
 	 * Set Up creates an exercise and associate to it 3 questions, and add answers to each.
 	 * Also creates a unit and a course to associate to the exercise where questions are, and students to associate to the answers.
@@ -32,9 +35,15 @@ public class OpenQuestionTest {
 	@Before
 	public void setUp() throws Exception {
 		e1 = new Exercise();
-		q1 = new OpenQuestion("Am I silly?", 5, "No", e1);
-		q2 = new OpenQuestion("Am I?", 10, "Yes", e1);		
-		q3 = new OpenQuestion("Am I?", -10, "Yes", e1);	
+		o1 = new Option("No");
+		o2 = new Option("Yes");
+		o3 = new Option("Maybe");
+		correct1.add(o1);
+		correct2.add(o2);
+		correct2.add(o3);
+		q1 = new OpenQuestion("Am I silly?", 5, correct1, e1);
+		q2 = new OpenQuestion("Am I?", 10, correct2, e1);		
+		q3 = new OpenQuestion("Am I?", -10, correct2, e1);	
 		
 		
 		
@@ -50,15 +59,15 @@ public class OpenQuestionTest {
 		MCourse mc1 = new MCourse(c1, s1);
 		me1 = new MExercise(e1);
 		mc1.addMExe(me1);
-		q1.answer("No", me1);
-		q2.answer("No", me1);
+		q1.answer(o1, me1);
+		q2.answer(o1, me1);
 		
 		
 		c1.addStudent(s2);
 		MCourse mc2 = new MCourse(c1, s2);
 		MExercise me2 = new MExercise(e1);
 		mc2.addMExe(me2);
-		q1.answer("Yes", me2);		
+		q1.answer(o2, me2);		
 		
 		c1.addStudent(s3);
 		
@@ -78,8 +87,8 @@ public class OpenQuestionTest {
 	 */
 	@Test
 	public void testGetAnswer() {
-		assertEquals(q1.getAnswer(), "No");
-		assertEquals(q2.getAnswer(), "Yes");
+		assertEquals(q1.getAnswer(), correct1);
+		assertEquals(q2.getAnswer(), correct2);
 	}
 
 	/**
