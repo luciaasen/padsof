@@ -22,7 +22,7 @@ import moon.user.Student;
  */
 public class ExerciseTest extends Exercise {
 
-	private Exercise e1, e2, e3;
+	private Exercise e1, e2, e3, e4;
 	private TfQuestion q1, q2, q3, q4, q5;
 	private MExercise me1, me2, me3, me4;
 	private Student s1, s2, s3;
@@ -41,6 +41,7 @@ public class ExerciseTest extends Exercise {
 		LocalDate from = LocalDate.of(2017, 1, 1);
 		LocalDate to = LocalDate.of(2017, 12, 12);
 		
+		
 		e1 = new Exercise();
 		e1.setRelevance(2);
 		e1.setPenalty(-2);
@@ -56,6 +57,8 @@ public class ExerciseTest extends Exercise {
 		e2.setRandord(false);
 		e2.setDates(to,from);
 		e2.makeVisible();
+		
+		e4=new Exercise();
 		
 		e3 = new Exercise();
 		e3.setDates(LocalDate.of(2018, 1, 1), LocalDate.of(2018, 12, 1));
@@ -400,10 +403,10 @@ public class ExerciseTest extends Exercise {
 	 */
 	@Test
 	public void testMakeVisible() {
-		e1.makeInvisible();
-		assertFalse(e1.getVisibility());
-		e1.makeVisible();
-		assertTrue(e1.getVisibility());
+		e4.makeInvisible();
+		assertFalse(e4.getVisibility());
+		e4.makeVisible();
+		assertTrue(e4.getVisibility());
 	}
 
 	/**
@@ -413,8 +416,14 @@ public class ExerciseTest extends Exercise {
 	public void testMakeInvisible() {
 		e1.makeVisible();
 		assertTrue(e1.getVisibility());
+		/* e1  has been answered so it should be still visible */
 		e1.makeInvisible();
-		assertFalse(e1.getVisibility());
+		assertTrue(e1.getVisibility());
+		
+		e4.makeVisible();
+		assertTrue(e4.getVisibility());
+		e4.makeInvisible();
+		assertFalse(e4.getVisibility());
 	}
 	
 	/**
