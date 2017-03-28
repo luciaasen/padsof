@@ -100,7 +100,23 @@ public class Unit extends CourseElement implements Serializable{
 	 */
 	@Override
 	public void makeInvisible(){
-
+		/* We start trying to make every subunit invisible */
+		for(CourseElement e : this.contents){
+			if(e instanceof Unit){
+				((Unit)e).makeInvisible();
+			}
+		}
+		
+		/* Now we check if some subunit could not be made invisible */
+		for(CourseElement e : this.contents){
+			if(e instanceof Unit){
+				/* If that is the case, we exit */
+				if(((Unit)e).getVisibility()==true){
+					return;
+				}
+			}
+		}
+		
 		for(CourseElement e : this.contents){
 			if(e instanceof Exercise){
 				if(((Exercise)e).getStudentMarks().size()!=0){

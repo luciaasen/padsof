@@ -116,7 +116,7 @@ public class UnitTest {
 		assertTrue(u3.getContents().size()==0);
 		assertTrue(u4.getContents().size()==0);
 		
-		/* No we'll add some elements to the units */
+		/* Now we'll add some elements to the units */
 		assertTrue(u1.addElement(e1));
 		assertTrue(u1.addElement(e2));
 		assertTrue(u1.addElement(e3));
@@ -139,7 +139,7 @@ public class UnitTest {
 		assertFalse(u1.removeElement(e4));
 		assertTrue(u2.removeElement(e4));
 		
-		/* Last re-check */
+		/* Re-check */
 		assertTrue(u1.getContents().size()==2);
 		assertFalse(u1.getContents().contains(e1));
 		assertTrue(u1.getContents().contains(e2));
@@ -148,6 +148,7 @@ public class UnitTest {
 		assertTrue(u3.getContents().size()==0);
 		assertTrue(u4.getContents().size()==0);
 		
+
 	}
 
 	/**
