@@ -3,6 +3,8 @@ package moon.course;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import moon.mark.MExercise;
+
 /**
  * This class stores all the information of a Unit
  * @author Juan Riera and Lucia Asencio
@@ -39,7 +41,17 @@ public class Unit extends CourseElement implements Serializable{
 	  * @return true if it was properly removed and false if it wasn't.
 	  */
 	public boolean removeElement(CourseElement element){
-		return contents.remove(element);
+		if(element instanceof Exercise){
+			if(((Exercise)element).hasBeenDone()==false){
+				return contents.remove(element);
+			} else {
+				return false;
+			}
+		} else if(element instanceof Note){
+			return contents.remove(element);
+		} else {
+			return false;
+		}
 	}
 	
 	/**
@@ -88,7 +100,23 @@ public class Unit extends CourseElement implements Serializable{
 	 */
 	@Override
 	public void makeInvisible(){
-
+		/* We start trying to make every subunit invisible */
+		for(CourseElement e : this.contents){
+			if(e instanceof Unit){
+				((Unit)e).makeInvisible();
+			}
+		}
+		
+		/* Now we check if some subunit could not be made invisible */
+		for(CourseElement e : this.contents){
+			if(e instanceof Unit){
+				/* If that is the case, we exit */
+				if(((Unit)e).getVisibility()==true){
+					return;
+				}
+			}
+		}
+		
 		for(CourseElement e : this.contents){
 			if(e instanceof Exercise){
 				if(((Exercise)e).getStudentMarks().size()!=0){
