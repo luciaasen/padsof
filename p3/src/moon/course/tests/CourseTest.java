@@ -30,7 +30,7 @@ public class CourseTest {
 	private MExercise me1, me2, me3, me4, me5, me6, me7, me8;
 	private Student s1, s2, s3;
 	private Course c1, c2;
-	private Unit u1, u2, u3;
+	private Unit u1, u2;
 	private MCourse mc1, mc2, mc3, mc4, mc5, mc6;
 	private Application a1;
 
