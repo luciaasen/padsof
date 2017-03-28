@@ -1,6 +1,7 @@
 package moon;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import moon.user.*;
@@ -27,7 +28,7 @@ public class Academy implements Serializable{
 	public static EmailSystem emailSystem = new EmailSystem();
 	
 	public User teacher;
-	public HashSet<Course> courses = new HashSet<Course>();
+	public ArrayList<Course> courses = new ArrayList<Course>();
 	public HashSet<User> users = new HashSet<>();
 	
 	
@@ -67,10 +68,10 @@ public class Academy implements Serializable{
 	
 	/** Returns the set of all the applications that the students have sent.
 	 *  
-	 * @return the HashSet of all the applications
+	 * @return the ArrayList of all the applications
 	 */
-	public HashSet<Application> getApplications(){
-		HashSet<Application> apps = new HashSet<>();
+	public ArrayList<Application> getApplications(){
+		ArrayList<Application> apps = new ArrayList<>();
 		for(Course c : courses){
 			apps.addAll(c.getApplications());
 		}
@@ -123,9 +124,9 @@ public class Academy implements Serializable{
 
 	/**
 	 * 
-	 * @return HashSet with all the courses.
+	 * @return ArrayList with all the courses.
 	 */
-	public HashSet<Course> getCourses() {
+	public ArrayList<Course> getCourses() {
 		return courses;
 	}
 

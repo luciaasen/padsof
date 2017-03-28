@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Juan Riera and Lucia Asencio
  *
  */
-abstract class CourseElement implements Serializable{
+public abstract class CourseElement implements Serializable{
 	boolean visible = false;
 	private Unit unit;
 	protected Course course;

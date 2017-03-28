@@ -19,8 +19,8 @@ import moon.*;
 import moon.user.*;
 import moon.course.*;
 import moon.course.question.*;
-
-
+import moon.mark.MExercise;
+import moon.mark.MQuestion;
 import moon.*;
 
 
@@ -34,6 +34,7 @@ public class Demonstrator {
 	 * This main will load some users, make a teacher login and create some courses with units and exercises, and then students will sequentally apply, log in and do the exercises
 	 */
 	public static void main(String args[]){
+
 		
 		/*Load users and close app*/
 		Academy moon = Academy.getMoonApp();
@@ -44,10 +45,15 @@ public class Demonstrator {
 		serialize(moon);
 		System.out.println("Users loaded from file and serialized app");
 		
-		/*Emulates teacher doing the courses initialization, and the students application and acceptation stuff*/
-		ArrayList<Student> s = Demonstrator.setUpStudents(moon);
+		/*Emulates teacher doing the courses initialization, the students 
+		 * application to courses process and acceptation/rejection.
+		 * It also creates the courses and the exercise structure
+		 * with units etc */
+		Demonstrator.setUpStudents(moon);
+		
+		
+		serialize(moon);
 		moon = deserialize();
-			
 		Academy.setMoon(moon);
 		
 	}
@@ -160,7 +166,6 @@ public class Demonstrator {
 	 */
 	public static ArrayList<Course> setUpCourses(Academy moon){
 		/*Logs in as a teacher*/
-		moon = deserialize();
 		User t = moon.login("tea.cher@edu.es", "IsALotOfWork13579");
 		if(t.isTeacher()) System.out.println("Teacher successfuly logged in...");
 		
@@ -207,7 +212,6 @@ public class Demonstrator {
 		c.add(c2);
 		
 		if(c != null) System.out.println("And created 2 courses with contents: units, subunits, exercises and notes");
-		serialize(moon);
 		return c;
 	}
 	
@@ -217,27 +221,36 @@ public class Demonstrator {
 	 * @param moon
 	 * @return ArrayList of the students added
 	 */
-	public static ArrayList<Student> setUpStudents(Academy moon){
+	public static void setUpStudents(Academy moon){
 		Application a1;
 		ArrayList<Course> c = Demonstrator.setUpCourses(moon);
 		ArrayList<Student> s = new ArrayList<>();
 		User s1, s2, s3, t;
+		/* We could have used just one user, the user that is using the
+		 * application in that moment, but we thought it was more visual
+		 * this way. Each serialization and deserialization emulates
+		 * the action of closing and opening the app.
+		 */
 		try{
 			moon = deserialize();
 			s1 = moon.login("Manuel.Blanco@esdu.es", "anuel.Bl");
-			a1  = ((Student)s1).apply(c.get(0));
-			a1  = ((Student)s1).apply(c.get(1));
+			((Student)s1).apply(c.get(0));
+			((Student)s1).apply(c.get(1));
 			serialize(moon);
 			moon = deserialize();
 			s2 = moon.login("Jorge.Alcazar@esdu.es", "JoA");
-			a1  = ((Student)s2).apply(c.get(0));
-			a1  = ((Student)s2).apply(c.get(1));
+			((Student)s2).apply(c.get(0));
+			((Student)s2).apply(c.get(1));
 			serialize(moon);
 			moon = deserialize();
 			s3 = moon.login("Ana.Cordero@esdu.es", "Coero");
-			a1  = ((Student)s3).apply(c.get(0));
-			a1  = ((Student)s3).apply(c.get(1));
+			((Student)s3).apply(c.get(0));
+			((Student)s3).apply(c.get(1));
 			serialize(moon);
+			
+			/* We now login as a teacher and accept some applications
+			 * and reject others.
+			 */
 			moon = deserialize();
 			t = moon.login("tea.cher@edu.es", "IsALotOfWork13579");
 			c.get(0).getApplications().get(0).accept();
@@ -261,16 +274,49 @@ public class Demonstrator {
 			fail("Error with email system");
 		}		
 		serialize(moon);
-		return s;
+		return;
 	}
 	
-	public static void doExercises(Academy moon){
-		HashSet<Course> c = moon.getCourses();
-		ArrayList<ArrayList<Student>> s = new ArrayList<ArrayList<Student>>();
-		for (Iterator<Course> it = c.iterator(); it.hasNext(); ){
-			s.add(it.next().getStudents());
+	public static void doExercises(Academy moon1){
+		User u;
+		Student s;
+		Course c;
+		Unit unit;
+		Exercise e;
+		Question q;
+		ArrayList<Course> courseList;
+		ArrayList<Exercise> exerciseList;
+		ArrayList<CourseElement> courseElements;
+		ArrayList<Question> questionList;
+		MExercise me;
+		MQuestion mq;
+		int i = 0;
+		
+		u = moon1.login("Manuel.Blanco@esdu.es", "anuel.Bl");
+		/* We know it is actually a student but we could try
+		 * u.isTeacher() if we didn't. */
+		s = (Student)u;
+		courseList = s.getCourses();
+		
+		/* The student has been accepted so we should be able to enter in
+		 * the first one */
+		
+		c = courseList.get(0);
+		System.out.println("The student "+ u.getName() + 
+				" succesfully logged in \n and accessed the course "+
+				c.getName());
+		unit = c.getUnits().get(0);
+		courseElements = unit.getContents();
+		/* We look between the contents for an exercise */
+		while(!(courseElements.get(i) instanceof Exercise)&&
+				i<courseElements.size()){
+			i++;
 		}
-		/*Ahora s tiene dos listas de estudiantes: una corresponde a c1, y otra a c2...¿cual es cual?*/
+		e = (Exercise)courseElements.get(i);
+		 /* We now access one exercise and answer it */
+		/* We create an answer */
+		me = new MExercise(e);
+		questionList = e.getQuestions();
 		
 	}
 
