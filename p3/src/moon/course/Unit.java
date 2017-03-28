@@ -3,6 +3,8 @@ package moon.course;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import moon.mark.MExercise;
+
 /**
  * This class stores all the information of a Unit
  * @author Juan Riera and Lucia Asencio
@@ -39,7 +41,17 @@ public class Unit extends CourseElement implements Serializable{
 	  * @return true if it was properly removed and false if it wasn't.
 	  */
 	public boolean removeElement(CourseElement element){
-		return contents.remove(element);
+		if(element instanceof Exercise){
+			if(((Exercise)element).hasBeenDone()==false){
+				return contents.remove(element);
+			} else {
+				return false;
+			}
+		} else if(element instanceof Note){
+			return contents.remove(element);
+		} else {
+			return false;
+		}
 	}
 	
 	/**
