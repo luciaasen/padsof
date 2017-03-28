@@ -282,14 +282,8 @@ public class Course implements Serializable{
 	public ArrayList<Exercise> getExercises(){
 		ArrayList<Exercise> exe = new ArrayList<>();
 		for(Unit u: this.units){
-			for(CourseElement e: u.getContents()){
-				if(e instanceof Exercise){
-					exe.add((Exercise)e);
-				}
-			}
+			exe.addAll(u.getExercises());
 		}
 		return exe;
-	}
-	
-	
+	}		
 }

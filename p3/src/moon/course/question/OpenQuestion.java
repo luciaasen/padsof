@@ -1,6 +1,8 @@
 package moon.course.question;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
 import moon.mark.*;
 import moon.course.Exercise;
 
@@ -11,7 +13,7 @@ import moon.course.Exercise;
  */
 public class OpenQuestion extends Question implements Serializable{
 	
-	private String answer;
+	private ArrayList<Option> answer;
 	
 	/**
 	 * OpenQuestion constructor
@@ -19,7 +21,7 @@ public class OpenQuestion extends Question implements Serializable{
 	 * @param relevance
 	 * @param answer
 	 */
-	public OpenQuestion(String question, double relevance, String answer, Exercise exe) {
+	public OpenQuestion(String question, double relevance, ArrayList<Option> answer, Exercise exe) {
 		super(question, relevance, exe);
 		this.answer = answer;
 	}
@@ -28,7 +30,7 @@ public class OpenQuestion extends Question implements Serializable{
 	 * Correct question answer getter
 	 * @return
 	 */
-	public String getAnswer(){
+	public ArrayList<Option> getAnswer(){
 		return this.answer;
 	}
 	
