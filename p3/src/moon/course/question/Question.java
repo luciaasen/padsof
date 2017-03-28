@@ -6,6 +6,14 @@ import moon.course.*;
 import moon.course.question.*;
 import moon.mark.*;
 
+/**
+ * This abstract class is inherited by all the different question types.
+ * In this class we store the text of the question, the relevance, the 
+ * reference to the exercise it belongs to and the answers of the students
+ * (studentMarks)
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 abstract public class Question implements Serializable{
 
 	private String question;

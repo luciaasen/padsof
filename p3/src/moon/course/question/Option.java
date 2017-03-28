@@ -1,7 +1,11 @@
 package moon.course.question;
 
 import java.io.Serializable;
-
+/**
+ * This class stores the different answer options in the ChoiceQuestion class.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class Option implements Serializable{
 	private String option;
 

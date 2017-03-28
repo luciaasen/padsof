@@ -4,6 +4,11 @@ import java.io.Serializable;
 import moon.mark.*;
 import moon.course.Exercise;
 
+/**
+ * This class is a type of question. It is used for the true/false questions.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class TfQuestion extends Question implements Serializable{
 	private Boolean answer;
 	

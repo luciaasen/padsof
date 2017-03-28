@@ -7,6 +7,11 @@ import moon.user.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * This class stores the mark structure of a student in a course.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class MCourse extends Mark implements Serializable{
 	private Course course;
 	private Student student;
@@ -27,24 +32,43 @@ public class MCourse extends Mark implements Serializable{
 	}
 	
 	
-	/*Getters and setters*/
+	/**
+	 * 
+	 * @return the course associated with this MCourse
+	 */
 	
 	public Course getCourse() {
 		return course;
 	}
 
+	/**
+	 * Sets the course this MCourse belongs to.
+	 * @param course
+	 */
 	public void setCourse(Course course) {
 		this.course = course;
 	}
 
+	/**
+	 * 
+	 * @return the student associated with the course.
+	 */
 	public Student getStudent() {
 		return student;
 	}
 
+	/**
+	 * Associates this MCourse with a student.
+	 * @param student
+	 */
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-
+	/**
+	 * 
+	 * @return All the MExercises that this MCourse contains (all
+	 * the exercises this student has done)
+	 */
 	public ArrayList<MExercise> getmExes() {
 		return mExes;
 	}

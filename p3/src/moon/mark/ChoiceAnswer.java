@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import moon.course.question.*;
 
+/**
+ * Class in which the answer to a question of multiple choices 
+ * of a student is stored. It extends MQuestion.
+ * @author Juan Riera and Lucia Asencio.
+ *
+ */
 public class ChoiceAnswer extends MQuestion implements Serializable{
 	private ArrayList<Option> answers;
 	

@@ -14,7 +14,8 @@ import org.junit.Test;
 import moon.mark.*;
 import moon.user.*;
 /**
- * @author lucia
+ * Test class for the class OpenQuestion.
+ * @author Lucia Asencio and Juan Riera
  *
  */
 public class OpenQuestionTest {

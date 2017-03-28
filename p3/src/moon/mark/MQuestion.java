@@ -3,8 +3,11 @@ package moon.mark;
 import java.io.Serializable;
 
 import moon.course.question.*;
-
-
+/**
+ * Class in which the answer of a student is stored
+ * @author Juan Riera and Lucia Asencio.
+ *
+ */
 public abstract class MQuestion extends Mark implements Serializable{
 	protected Question question;
 	protected double mark;
@@ -37,5 +40,10 @@ public abstract class MQuestion extends Mark implements Serializable{
 		return this.mark;
 	}
 	
+	/**
+	 * Abstract declaration of isCorrect, that will check if the answer
+	 * given by the student is correct or not.
+	 * @return true if it is correct and false if it is not.
+	 */
 	public abstract Boolean isCorrect();
 }

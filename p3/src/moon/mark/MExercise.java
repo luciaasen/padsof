@@ -7,6 +7,11 @@ import moon.user.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * This class stores the answers of a student (MQuestions) to an exercise.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class MExercise extends Mark implements Serializable{
 	private Exercise exercise;
 	private ArrayList<MQuestion> mQuestions;

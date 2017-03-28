@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import moon.course.question.*;
 
+/**
+ * Answer of a student to an open answer question.
+ * @author Juan Riera and Lucia Asencio
+ *
+ */
 public class OpenAnswer extends MQuestion implements Serializable{
 	private String answer;
 	

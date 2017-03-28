@@ -21,7 +21,8 @@ import moon.user.Teacher;
 import moon.user.User;
 
 /**
- * @author juan
+ * Tester for the class Academy.
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class AcademyTest {

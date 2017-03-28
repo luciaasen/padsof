@@ -46,7 +46,7 @@ public class Demonstrator {
 		
 		/*Emulates teacher doing the courses initialization, and the students application and acceptation stuff*/
 		ArrayList<Student> s = Demonstrator.setUpStudents(moon);
-		deserialize(moon);
+		moon = deserialize();
 			
 		Academy.setMoon(moon);
 		

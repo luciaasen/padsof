@@ -21,6 +21,7 @@ import moon.user.Application;
 import moon.user.Student;
 
 /**
+ * Test class for MCourse.
  * @author Lucia Asencio and Juan Riera
  *
  */
