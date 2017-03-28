@@ -135,7 +135,7 @@ public class AcademyTest {
 		/* Now lets make sure that they are really in, and that that was the reason
 		 * why they were not added on our last try.
 		 */
-		HashSet<Course> set = a.getCourses();
+		ArrayList<Course> set = a.getCourses();
 		assertTrue(set.contains(c1));
 		assertTrue(set.contains(c2));
 		
