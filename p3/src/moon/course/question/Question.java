@@ -86,16 +86,18 @@ abstract public class Question implements Serializable{
 	 * @return
 	 */
 	public int calcNUnanswered(){
-		return this.exe.getCourse().getStudents().size() - this.studentMarks.size();
+		return this.exe.getCourse().getStudents().size() - 
+				this.studentMarks.size();
 	}
 	
 	/**
-	 * Adds m to the list of answers to the question, only if the question associated to m is this
+	 * Adds m to the list of answers to the question, only if the question 
+	 * associated to m is this
 	 * @param o, object that would be a String, an ArrayList or a Boolean
 	 * @param MExercise the ANswer will be associated to
 	 */
 	public boolean answer(Object o, MExercise m){
-		/*Check no other answers to the same question in MExercise*/
+		/* Check no other answers to the same question in MExercise */
 		for(MQuestion mq: m.getmQuestions()){
 			if(mq.getQuestion().equals(this)){
 				return false;

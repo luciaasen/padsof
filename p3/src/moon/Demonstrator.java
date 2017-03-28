@@ -51,11 +51,14 @@ public class Demonstrator {
 		 * with units etc */
 		Demonstrator.setUpStudents(moon);
 		
-		
+		/* The next theree lines emulate a close and an open of the
+		 * application.
+		 */
 		serialize(moon);
 		moon = deserialize();
 		Academy.setMoon(moon);
 		
+		doExercises(moon);
 	}
 	/**
 	 * Auxiliar method to serialize moon.
@@ -184,14 +187,19 @@ public class Demonstrator {
 		u1.setCourse(c1);
 		exe.get(0).setUnit(u1);
 		exe.get(1).setUnit(u1);
+		u1.addElement(exe.get(0));
+		u1.addElement(exe.get(1));
 		n1 = new Note("This is not a long, long note");
 		n1.setUnit(u1);
+		
 		/*2º unit*/
 		u2 = new Unit("Unit 2");
 		u2.setCourse(c1);
-		exe.get(2).setUnit(u1);
+		exe.get(2).setUnit(u2);
+		u2.addElement(exe.get(2));
 		u21 = new Unit("Subunit 1");
 		u21.setUnit(u2);
+		u2.addElement(u21);
 		
 		/*Adds 2 units to c2:
 		 * U3: 1 exe
@@ -201,17 +209,20 @@ public class Demonstrator {
 		u3 = new Unit("Viva la doble");
 		u3.setCourse(c2);
 		exe.get(3).setUnit(u2);
+		u2.addElement(exe.get(3));
+		
 		/*2º unit*/
 		u4 = new Unit("Second unit in second course, 2*2 = 2^2 :D");
 		u4.setCourse(c2);
 		n2 = new Note("This is either a long or a short note, but not both at the same time");
 		n2.setUnit(u4);
 		
+		
 		ArrayList<Course> c= new ArrayList<>();
 		c.add(c1);
 		c.add(c2);
 		
-		if(c != null) System.out.println("And created 2 courses with contents: units, subunits, exercises and notes");
+		System.out.println("And created 2 courses with contents: units, subunits, exercises and notes");
 		return c;
 	}
 	
@@ -232,17 +243,18 @@ public class Demonstrator {
 		 * the action of closing and opening the app.
 		 */
 		try{
-			moon = deserialize();
 			s1 = moon.login("Manuel.Blanco@esdu.es", "anuel.Bl");
 			((Student)s1).apply(c.get(0));
 			((Student)s1).apply(c.get(1));
 			serialize(moon);
 			moon = deserialize();
+			Academy.setMoon(moon);
 			s2 = moon.login("Jorge.Alcazar@esdu.es", "JoA");
 			((Student)s2).apply(c.get(0));
 			((Student)s2).apply(c.get(1));
 			serialize(moon);
 			moon = deserialize();
+			Academy.setMoon(moon);
 			s3 = moon.login("Ana.Cordero@esdu.es", "Coero");
 			((Student)s3).apply(c.get(0));
 			((Student)s3).apply(c.get(1));
@@ -252,6 +264,7 @@ public class Demonstrator {
 			 * and reject others.
 			 */
 			moon = deserialize();
+			Academy.setMoon(moon);
 			t = moon.login("tea.cher@edu.es", "IsALotOfWork13579");
 			c.get(0).getApplications().get(0).accept();
 			c.get(0).getApplications().get(0).accept();
@@ -259,13 +272,6 @@ public class Demonstrator {
 			c.get(1).getApplications().get(0).accept();
 			c.get(1).getApplications().get(0).accept();
 			c.get(1).getApplications().get(0).reject();
-			serialize(moon);
-			
-			if((s1.isTeacher() || s2.isTeacher() || s3.isTeacher()) == false){
-				s.add((Student) s1);
-				s.add((Student) s2);
-				s.add((Student) s3);
-			}
 			
 			if(c.get(0).getStudents().size() == 3 & c.get(1).getStudents().size() == 2 )
 				System.out.println("3 students logged in and applied for both courses, 5 applications were accepted and 1 was rejected by the teacher");
@@ -273,7 +279,6 @@ public class Demonstrator {
 		}catch(InvalidEmailAddressException | FailedInternetConnectionException e){
 			fail("Error with email system");
 		}		
-		serialize(moon);
 		return;
 	}
 	
@@ -292,7 +297,7 @@ public class Demonstrator {
 		MQuestion mq;
 		int i = 0;
 		
-		u = moon1.login("Manuel.Blanco@esdu.es", "anuel.Bl");
+		u = moon1.login("Jorge.Alcazar@esdu.es", "JoA");
 		/* We know it is actually a student but we could try
 		 * u.isTeacher() if we didn't. */
 		s = (Student)u;
@@ -317,7 +322,7 @@ public class Demonstrator {
 		/* We create an answer */
 		me = new MExercise(e);
 		questionList = e.getQuestions();
-		
+		i=1;
 	}
 
 }
