@@ -21,7 +21,7 @@ public class OneChoiceQuestion extends ChoiceQuestion implements Serializable{
 	  * @param relevance
 	  * @param exercise
 	  * @param options, the posible options
-	  * @param correct (the correct option/s from the param options)
+	  * @param correct (a list with the only correct option from the param options)
 	  */
 	public OneChoiceQuestion( String question, double relevance, ArrayList<Option> options, ArrayList<Option> correct, Exercise exe){
 		super(question, relevance, options, correct, exe);

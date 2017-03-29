@@ -17,14 +17,6 @@ import java.util.ArrayList;
 public abstract class ChoiceQuestion extends OpenQuestion implements Serializable{
 	protected ArrayList<Option> options;
 	
-	/*
-	public ChoiceQuestion(String question, double relevance,ArrayList<Option> options, ArrayList<Option> correct, Exercise exe){
-		super(question, relevance, correct, exe);
-		this.options = options;
-	}
-	*/
-	
-	
 	/**
 	  * ChoiceQuestion constructor
 	  * If any of the correct options are not in the possible options, they are added to the possible
@@ -52,6 +44,13 @@ public abstract class ChoiceQuestion extends OpenQuestion implements Serializabl
 		 return this.options;
 	 }
 	 
+	 
+	 /**
+	  * This method checks that no other mquestions related to the same question have been answered in the same mexercise
+	  * @param Object o, the answer that will be used by the subclasses
+	  * @param m the MExercise to check
+	  * @return true if no equivalent mquestions were found, else false
+	  */
 	 public boolean answer(Object o, MExercise m){
 			/* Check no other answers to the same question in MExercise */
 			for(MQuestion mq: m.getmQuestions()){
