@@ -68,7 +68,7 @@ public class MExercise extends Mark implements Serializable{
 	 * If not already added, adds the question mark to the MExercise'ś list
 	 * @param mq the MQuestion to add
 	 */
-	//TODO DISCUTIR CON JUAN: All our methods assume each MQuestion that is 
+	//TODO JUAN: All our methods assume each MQuestion that is 
 	//created will be associated to the MExercise at the same time: if not, 
 	//we wont know the MExe as.sociated
 	public void addMQuestion(MQuestion mq){
@@ -105,7 +105,6 @@ public class MExercise extends Mark implements Serializable{
 	 * Also removes the MExercise from the Exercise marks 
 	 * (its added there in the MExer constructor) 
 	 */
-	//TODO add to class diagram
 	public void cancel(){
 		for(MQuestion mq: this.mQuestions){
 			mq.getQuestion().getStudentMarks().remove(mq);

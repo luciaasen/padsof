@@ -19,7 +19,8 @@ public class OpenQuestion extends Question implements Serializable{
 	 * OpenQuestion constructor
 	 * @param question
 	 * @param relevance
-	 * @param answer
+	 * @param exe
+	 * @param answer, an ArrayList<Option> with the correct answers
 	 */
 	public OpenQuestion(String question, double relevance, ArrayList<Option> answer, Exercise exe) {
 		super(question, relevance, exe);

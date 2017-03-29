@@ -111,7 +111,10 @@ public class Academy implements Serializable{
 	 * @return
 	 */
 	public boolean addCourse(Course c){
-		return courses.add(c);
+		if(courses.contains(c) == false){
+			return courses.add(c);
+		}
+		return false;
 	}
 	
 	/**

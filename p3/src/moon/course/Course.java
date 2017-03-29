@@ -32,13 +32,17 @@ public class Course implements Serializable{
 	 */
 	
 	public Course(String name){
+		Academy moon = Academy.getMoonApp();
+		this.name = name;
 		units=new ArrayList<>();
 		students=new ArrayList<>();
 		expStudents=new ArrayList<>();
 		studentMarks=new ArrayList<>();
 		applications=new ArrayList<>();
-		this.name = name;
-		Academy.getMoonApp().addCourse(this);
+
+		if(moon.getCourses().contains(this) == false){
+			moon.addCourse(this);
+		}
 	}
 	
 	/**
@@ -285,5 +289,28 @@ public class Course implements Serializable{
 			exe.addAll(u.getExercises());
 		}
 		return exe;
+	}
+
+	
+	/**
+	 * Equals method that consider equal two courses if they have the same name
+	 * @param obj, the object to compare to
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Course other = (Course) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}		
+	
 }
