@@ -42,6 +42,8 @@ public class StudentTest {
 	 */
 	@Before
 	public void setUp(){
+		Academy moon = new Academy();
+		Academy.setMoon(moon);
 		s1 = new Student("Juanito", "Perales", "password", 2, "juan.perales@uam.es");
 		s2 = new Student("Emilio", "Cuesta", "password", 3, "emi.asturias@uam.es");
 		s3 = new Student("Pepito", "Aviador", "pesswerd", 4, "pepito.aviador@uam.es");

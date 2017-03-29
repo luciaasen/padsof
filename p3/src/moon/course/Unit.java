@@ -3,8 +3,6 @@ package moon.course;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import moon.mark.MExercise;
-
 /**
  * This class stores all the information of a Unit
  * @author Juan Riera and Lucia Asencio
@@ -128,7 +126,8 @@ public class Unit extends CourseElement implements Serializable{
 	}
 	
 	/**
-	 * This method will make visible a unit and also al of the elements below that had become invisible
+	 * This method will make visible a unit and also al of the elements 
+	 * below that had become invisible.
 	 */
 	@Override
 	public void makeVisible(){

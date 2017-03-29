@@ -409,5 +409,19 @@ public class CourseTest {
 		assertTrue(c1.getExercises().contains(e1));
 		assertTrue(c1.getExercises().contains(e2));
 	}
-
+	
+	/**
+	 * Test method for {@link moon.course.Course#equals(Object)}
+	 */
+	@Test
+	public void testEquals(){
+		/* The special thing about this equals is that
+		 * two courses will be equals if they have the same name.
+		 */
+		Course course1 = new Course("c1");
+		Course course11 = new Course("c1");
+		Course course2 = new Course("c2");
+		assertTrue(course1.equals(course11));
+		assertFalse(course1.equals(course2));
+	}
 }

@@ -33,6 +33,8 @@ public class ApplicationTest {
 	 */
 	@Before
 	public void setUp() {
+		Academy moon = new Academy();
+		Academy.setMoon(moon);
 		s1  = new Student("Pepito", "Gonzalez", "PepGon", 0, "pepito@uam.es");
 		s2  = new Student("Juan", "Rodriguez", "JuRo", 1, "juan.rodriguez@uam.es");
 		c1 = new Course("Math");
@@ -91,6 +93,7 @@ public class ApplicationTest {
 		assertNull(c2.getMCourse(s1));
 		assertNull(c2.getMCourse(s2));
 		
+		c1.setName("Math2");
 		try {
 			assertTrue(a11.accept());
 			assertTrue(a22.accept());

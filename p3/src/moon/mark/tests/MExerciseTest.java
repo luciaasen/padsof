@@ -204,6 +204,11 @@ public class MExerciseTest {
 		assertTrue(me5.getmQuestions().contains(mq2));
 		assertEquals(me5.getmQuestions().size(), 2);
 		
+		/* Let's now remove one of them */
+		me5.removeMQuestion(mq1);
+		assertFalse(me5.getmQuestions().contains(mq1));
+		assertTrue(me5.getmQuestions().contains(mq2));
+		assertEquals(me5.getmQuestions().size(), 1);
 	}
 	
 	/**

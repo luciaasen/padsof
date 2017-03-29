@@ -49,7 +49,6 @@ public abstract class CourseElement implements Serializable{
 	 * Unit.addElement() because this method do the referrencing in both ways
 	 * @param unit the unit to set
 	 */
-	//TODO add this method to the tests
 	public void setUnit(Unit unit) {
 		if(unit.getContents().contains(this) == false){
 			this.unit = unit;
