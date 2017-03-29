@@ -124,7 +124,6 @@ abstract public class Question implements Serializable{
 	 * Gets student marks of the question
 	 * @return list of queston marks
 	 */
-	//TODO add this to at least one of the three Question tests
 	public ArrayList<MQuestion> getStudentMarks(){
 		return this.studentMarks;
 	}
