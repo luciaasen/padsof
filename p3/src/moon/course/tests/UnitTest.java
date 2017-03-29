@@ -245,7 +245,7 @@ public class UnitTest {
 		
 		u2.makeInvisible();
 		assertFalse(u2.getVisibility());
-		assertTrue(u4.getVisibility());
+		assertFalse(u4.getVisibility());
 		u2.makeVisible();
 		assertTrue(u2.getVisibility());
 		assertTrue(u4.getVisibility());

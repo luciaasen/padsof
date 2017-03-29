@@ -127,6 +127,17 @@ public class Unit extends CourseElement implements Serializable{
 		visible=false;
 	}
 	
+	/**
+	 * This method will make visible a unit and also al of the elements below that had become invisible
+	 */
+	@Override
+	public void makeVisible(){
+		for(CourseElement e: this.contents){
+			e.makeVisible();
+		}
+		this.visible = true;
+	}
+	
 	public ArrayList<Exercise> getExercises(){
 		ArrayList<Exercise> exes = new ArrayList<>();
 		for (CourseElement e: this.getContents()){
