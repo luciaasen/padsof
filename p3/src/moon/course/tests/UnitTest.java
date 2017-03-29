@@ -231,10 +231,10 @@ public class UnitTest {
 		
 		
 		/* But it should work fine with u3, u2 and u4. 
-		 * However, changing the visibility of u2, should
-		 * not affect u4.
+		 * Also, changing the visibility of u2, should
+		 * affect the visibility of u4.
 		 * We should also be able to restore that 
-		 * visibility */
+		 * visibility. */
 		
 		
 		u4.makeInvisible();
@@ -249,6 +249,25 @@ public class UnitTest {
 		u2.makeVisible();
 		assertTrue(u2.getVisibility());
 		assertTrue(u4.getVisibility());
+
 		
+	}
+	
+	/**
+	 * Test method for {@link moon.course.Unit#getExercises()}
+	 */
+	
+	@Test
+	public void testGetExercises(){
+		u2.setCourse(c2);
+		e1.setUnit(u1);
+		e2.setUnit(u3);
+		u3.setUnit(u1);
+		u4.setUnit(u2);
+		
+		assertEquals(u1.getExercises().size(),2);
+		assertTrue(u1.getExercises().contains(e1));
+		assertTrue(u1.getExercises().contains(e2));
+		assertTrue(u2.getExercises().size()==0);
 	}
 }
