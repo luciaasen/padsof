@@ -51,7 +51,7 @@ public class Demonstrator2 {
 		ArrayList<Option> options1, options2;
 		
 		int i =0;
-		System.out.println("Application started.");
+		System.out.println("Moon started.");
 		/*Load users and close app*/
 		System.out.println("Loading users...");
 		Academy moon = Academy.getMoonApp();
@@ -94,40 +94,40 @@ public class Demonstrator2 {
 		System.out.println("Adding Single Choice question.");
 		options1 = new ArrayList<>();
 		options2 = new ArrayList<>();
-		o = new moon.course.question.Option("Answer 1");
+		o = new Option("Answer 1");
 		options1.add(o);
-		o = new moon.course.question.Option("Answer 2");
+		o = new Option("Answer 2");
 		options1.add(o);
 		options2.add(o);
-		o = new moon.course.question.Option("Answer 3");
+		o = new Option("Answer 3");
 		options1.add(o);
-		o = new moon.course.question.Option("Answer 4");
+		o = new Option("Answer 4");
 		options1.add(o);
 		
-		q = new ChoiceQuestion("This is a sample question 2", 4, 
+		q = new OneChoiceQuestion("This is a sample question 2", 4, 
 				options1, options2, e);
 		
 		/* Multiple choice */
 		System.out.println("Adding Multiple Choice question.");
 		options1 = new ArrayList<>();
 		options2 = new ArrayList<>();
-		o = new moon.course.question.Option("Answer 1");
+		o = new Option("Answer 1");
 		options1.add(o);
-		o = new moon.course.question.Option("Answer 2");
-		options1.add(o);
-		options2.add(o);
-		o = new moon.course.question.Option("Answer 3");
+		o = new Option("Answer 2");
 		options1.add(o);
 		options2.add(o);
-		o = new moon.course.question.Option("Answer 4");
+		o = new Option("Answer 3");
+		options1.add(o);
+		options2.add(o);
+		o = new Option("Answer 4");
 		options1.add(o);
 		
-		q = new ChoiceQuestion("This is a sample question 3", 5, 
+		q = new MultiChoiceQuestion("This is a sample question 3", 5, 
 				options1, options2, e);
 		
 		/* Open answer */
 		System.out.println("Adding Open Answer question.");
-		o = new Option("This is a sample question 1");
+		o = new Option("This is a sample answer 1");
 		options1 = new ArrayList<>();
 		options1.add(o);
 		q = new OpenQuestion("This is a sample question 4", 6, 
@@ -139,7 +139,7 @@ public class Demonstrator2 {
 		/* With one unit */
 		unit = new Unit("Unit 1 of course 2");
 		unit.setCourse(c);
-		System.out.println("Added a new unit "+ u.getName());
+		System.out.println("Added a new unit "+ unit.getName());
 		
 		
 		/* The next three lines emulate a close and an open of the
@@ -228,22 +228,20 @@ public class Demonstrator2 {
 		
 		/* Single choice */
 		options1 = new ArrayList<>();
-		options2 = ((ChoiceQuestion)questionList.get(1)).getOptions();
+		options2 = ((OneChoiceQuestion)questionList.get(1)).getOptions();
 		options1.add(options2.get(1));
 		questionList.get(1).answer(options1, me);
 		
 		/* Multiple Choice */
 		options1 = new ArrayList<>();
-		options2 = ((ChoiceQuestion)questionList.get(1)).getOptions();
+		options2 = ((MultiChoiceQuestion)questionList.get(2)).getOptions();
 		options1.add(options2.get(1));
 		options1.add(options2.get(2));
 		questionList.get(2).answer(options1, me);
 		
 		/* Open answer question */
-		options1 = new ArrayList<>();
 		o = new Option("This is a sample answer 1");
-		options1.add(o);
-		questionList.get(3).answer(options1, me);
+		questionList.get(3).answer(o, me);
 		
 		
 		/* We finally save the exercise */

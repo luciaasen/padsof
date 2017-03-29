@@ -231,10 +231,10 @@ public class UnitTest {
 		
 		
 		/* But it should work fine with u3, u2 and u4. 
-		 * However, changing the visibility of u2, should
-		 * not affect u4.
+		 * Also, changing the visibility of u2, should
+		 * affect the visibility of u4.
 		 * We should also be able to restore that 
-		 * visibility */
+		 * visibility manually. */
 		
 		
 		u4.makeInvisible();
@@ -245,10 +245,13 @@ public class UnitTest {
 		
 		u2.makeInvisible();
 		assertFalse(u2.getVisibility());
-		assertTrue(u4.getVisibility());
+		assertFalse(u4.getVisibility());
 		u2.makeVisible();
 		assertTrue(u2.getVisibility());
+		assertFalse(u4.getVisibility());
+		u4.makeVisible();
 		assertTrue(u4.getVisibility());
+		
 		
 	}
 }
