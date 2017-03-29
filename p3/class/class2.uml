@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Wed Mar 29 04:12:08 CEST 2017'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Wed Mar 29 16:46:50 CEST 2017'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -4996,7 +4996,7 @@
     </path>
   </group>
   <group name="Fig17"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1560, 560, 231, 88]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1536, 568, 231, 88]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009E3"
        fill="1"
        fillcolor="white"
@@ -5007,8 +5007,8 @@
     </private>
     
     <rectangle name="Fig17.0"
-      x="1560"
-      y="560"
+      x="1536"
+      y="568"
       width="231"
       height="88"
       fill="1"
@@ -5017,8 +5017,8 @@
       strokecolor="black"
     />
     <text name="Fig17.1"
-      x="1561"
-      y="561"
+      x="1537"
+      y="569"
       width="229"
       height="22"
       fill="0"
@@ -5033,7 +5033,7 @@
       justification="Center"
     >+ OpenQuestion</text>
     <group name="Fig17.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1561, 561, 229, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1537, 569, 229, 0]"
          href="127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009E3"
          fill="0"
          fillcolor="white"
@@ -5045,8 +5045,8 @@
       </private>
       
       <rectangle name="Fig17.2.0"
-        x="1561"
-        y="561"
+        x="1537"
+        y="569"
         width="229"
         height="0"
         fill="0"
@@ -5056,8 +5056,8 @@
       />
     </group>
     <rectangle name="Fig17.3"
-      x="1560"
-      y="583"
+      x="1536"
+      y="591"
       width="231"
       height="1"
       fill="1"
@@ -5066,7 +5066,7 @@
       strokecolor="black"
     />
     <group name="Fig17.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1561, 584, 229, 21]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1537, 592, 229, 21]"
          href="127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009E3"
          fill="0"
          fillcolor="white"
@@ -5077,8 +5077,8 @@
       </private>
       
       <rectangle name="Fig17.4.0"
-        x="1561"
-        y="584"
+        x="1537"
+        y="592"
         width="229"
         height="21"
         fill="0"
@@ -5088,8 +5088,8 @@
       />
     </group>
     <rectangle name="Fig17.5"
-      x="1560"
-      y="605"
+      x="1536"
+      y="613"
       width="231"
       height="1"
       fill="1"
@@ -5098,7 +5098,7 @@
       strokecolor="black"
     />
     <group name="Fig17.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1561, 606, 229, 40]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1537, 614, 229, 40]"
          href="127-0-1-1-5a60577f:15a79de2794:-8000:00000000000009E3"
          fill="0"
          fillcolor="white"
@@ -5109,8 +5109,8 @@
       </private>
       
       <rectangle name="Fig17.6.0"
-        x="1561"
-        y="606"
+        x="1537"
+        y="614"
         width="229"
         height="40"
         fill="0"
@@ -5119,8 +5119,8 @@
         strokecolor="black"
       />
       <text name="Fig17.6.1"
-        x="1561"
-        y="606"
+        x="1537"
+        y="614"
         width="229"
         height="16"
         fill="0"
@@ -5135,8 +5135,8 @@
         justification="Left"
       >+getAnswer() : String</text>
       <text name="Fig17.6.2"
-        x="1561"
-        y="622"
+        x="1537"
+        y="630"
         width="229"
         height="22"
         fill="0"
@@ -5177,7 +5177,7 @@
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="1560"
+      <moveto x="1536"
               y="616" />
       <lineto x="1520"
               y="616" />
@@ -6075,7 +6075,7 @@
       strokecolor="black"
     >
       <moveto x="1640"
-              y="560" />
+              y="568" />
       <lineto x="1640"
               y="488" />
       <lineto x="1712"
@@ -6356,10 +6356,10 @@ the answer attribute length</text>
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="1784"
+      <moveto x="1768"
               y="696" />
-      <lineto x="1784"
-              y="647" />
+      <lineto x="1766"
+              y="655" />
     </path>
   </group>
   <group name="Fig35"
