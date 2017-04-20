@@ -1,6 +1,8 @@
 package icfs;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -18,6 +20,7 @@ public class LoginWindow extends JPanel {
 		JPanel buttons = buttons();
 		JPanel text = text();
 		
+		
 		this.setSize(400, 400);
 		this.setVisible(true);
 		this.setLayout(new BorderLayout());
@@ -34,6 +37,14 @@ public class LoginWindow extends JPanel {
 		buttons.add(c4nc3lB);
 		buttons.setVisible(true);
 		
+		c4nc3lB.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("HOLACARACOLA");
+			}
+			
+		});
+		
 		buttons.setBackground(Color.cyan);
 		
 		return buttons;
@@ -42,30 +53,31 @@ public class LoginWindow extends JPanel {
 	public JPanel text(){
 		SpringLayout layout = new SpringLayout();
 		JPanel text = new JPanel();
-		JTextField emilioText = new JTextField(10);
+		JTextField email = new JTextField(10);
 		JPasswordField password = new JPasswordField(10);
 		JLabel emailLabel = new JLabel("emailLabel");
 		JLabel passwordLabel = new JLabel("passwordLabel");
 		text.setLayout(layout);
-		emilioText.setSize(100, 100);
+		email.setSize(100, 100);
 		
-		/* Email label constraints */
-		layout.putConstraint(SpringLayout.WEST, emailLabel, 5, SpringLayout.WEST, text);
-		layout.putConstraint(SpringLayout.NORTH, emailLabel, 5, SpringLayout.NORTH, text);
-		layout.putConstraint(SpringLayout.EAST, emailLabel, 5, SpringLayout.WEST, emilioText);
+		layout.putConstraint(SpringLayout.WEST, emailLabel, 23, SpringLayout.WEST, text);
+		layout.putConstraint(SpringLayout.NORTH, emailLabel, 20, SpringLayout.NORTH, text);
+		layout.putConstraint(SpringLayout.WEST, email, 0, SpringLayout.WEST, password);
+		layout.putConstraint(SpringLayout.NORTH, email, 20, SpringLayout.NORTH, text);
 		
-		/* Email text constraints */
-		layout.putConstraint(SpringLayout.NORTH, emailLabel, 0, SpringLayout.NORTH, emilioText);
-		layout.putConstraint(SpringLayout.EAST, emilioText, 5, SpringLayout.EAST, text);
+		layout.putConstraint(SpringLayout.WEST, passwordLabel, 20, SpringLayout.WEST, text);
+		layout.putConstraint(SpringLayout.NORTH, passwordLabel, 20, SpringLayout.SOUTH, emailLabel);
 		
-		/* Password label constraints */
-		layout.putConstraint(SpringLayout.WEST, passwordLabel, 0, SpringLayout.WEST, emailLabel);
-		layout.putConstraint(SpringLayout.NORTH, passwordLabel, 5, SpringLayout.SOUTH, emailLabel);
-		layout.putConstraint(SpringLayout.EAST, passwordLabel, 5, SpringLayout.WEST, password);
+		layout.putConstraint(SpringLayout.WEST, password, 20, SpringLayout.EAST, passwordLabel);
+		
+		layout.putConstraint(SpringLayout.NORTH, password, 20, SpringLayout.SOUTH, email);
 		
 		
-		text.add(emilioText);
+		text.add(emailLabel);
+		text.add(passwordLabel);
+		text.add(email);
 		text.add(password);
+		
 		text.setVisible(true);
 		
 		text.setBackground(Color.RED);
