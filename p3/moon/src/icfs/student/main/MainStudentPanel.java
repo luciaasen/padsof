@@ -6,6 +6,7 @@ package icfs.student.main;
 import java.awt.*;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import moon.course.Course;
 
@@ -17,6 +18,7 @@ import moon.course.Course;
 public class MainStudentPanel extends JPanel {
 	
 	public MainStudentPanel(){
+		this.setLayout(new GridLayout(1, 2, 20, 20));
 		this.add(leftPanel());
 		this.add(rightPanel());
 	}
@@ -31,6 +33,10 @@ public class MainStudentPanel extends JPanel {
 		courses.setSize(300, 900);
 		JScrollPane s = new JScrollPane(courses);
 		
+		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		options.setBackground(Color.pink);
+		leftPanel.setBorder(border1);
+		courses.setBorder(border1);
 		leftPanel.add(options, BorderLayout.NORTH);
 		leftPanel.add(courses, BorderLayout.CENTER);
 		leftPanel.setBackground(Color.black);
@@ -43,6 +49,7 @@ public class MainStudentPanel extends JPanel {
 	private JPanel rightPanel(){
 		/* This right panel will have two panels inside of it: an upper and a lower one */
 		JPanel rightPanel = new JPanel();
+		rightPanel.setLayout(new GridLayout(2,1,10,10));
 		JPanel upperPanel = new JPanel();
 		JPanel lowerPanel = new JPanel();
 		SpringLayout upperLayout = new SpringLayout();
@@ -51,6 +58,10 @@ public class MainStudentPanel extends JPanel {
 		upperLayout.putConstraint(SpringLayout.NORTH, average, 10, SpringLayout.NORTH, upperPanel);
 		upperLayout.putConstraint(SpringLayout.WEST, average, 10, SpringLayout.WEST, upperPanel);
 		
+		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		rightPanel.setBorder(border1);
+		upperPanel.setBorder(border1);
+		lowerPanel.setBorder(border1);
 		upperPanel.setSize(50, 50);
 		upperPanel.setBackground(Color.pink);
 		rightPanel.setSize(51, 51);
