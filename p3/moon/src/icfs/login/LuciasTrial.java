@@ -16,13 +16,7 @@ public class LuciasTrial{
 	
 	 
 	public LuciasTrial(){
-		/*JFrame loginWindow = new JFrame("moon");
-		Container panel = loginWindow.getContentPane();
-		SpringLayout lay = new SpringLayout();
-		panel.setLayout(lay);
-		panel.setBackground(Color.getHSBColor(60,50, 55));
-		panel.setPreferredSize(new Dimension(725,50));
-		*/
+		
 		/*Add image*/
 		//Image i = new ImageIcon("~/pr/padsof/p3/moon/logo1.png").getImage();
 	/*	Image i = Toolkit.getDefaultToolkit().createImage("logo1.png");
@@ -35,59 +29,39 @@ public class LuciasTrial{
 		panel.add(img);
 		*/
 		
-		/*Add welcome to the moon*/
-		/*JLabel label2 = new JLabel("Welcome to the moonkk:");
-		JPanel p2 = new JPanel();
-		p2.setBackground(Color.getHSBColor(60, 50, 30));
-		p2.add(label2);
-		p2.setPreferredSize(new Dimension(320,30));
-		lay.putConstraint(SpringLayout.NORTH, p2, 20, SpringLayout.NORTH, panel);
-		lay.putConstraint(SpringLayout.WEST, p2,  40, SpringLayout.WEST, panel);
-		panel.add(p2);
-		*/
-		/*Add the whole login thing*/
-		/*JPanel login = login();
-		lay.putConstraint(SpringLayout.NORTH, login,  20, SpringLayout.SOUTH, p2);
-		lay.putConstraint(SpringLayout.WEST, login,  40, SpringLayout.WEST, panel);
-		panel.add(login);		
-		
-		
-		
-		loginWindow.setVisible(true);
-		loginWindow.setBackground(Color.GREEN);
-		loginWindow.setSize(new Dimension(800,800));*/
+	
+				
 	}
 	public static void main(String []args){
 		JFrame loginWindow = new JFrame("moon");
-		Container cont = loginWindow.getContentPane();
+		Container panel = loginWindow.getContentPane();
 		SpringLayout lay = new SpringLayout();
-		cont.setLayout(new BorderLayout());
-		
-		JPanel panel = new JPanel();
-		cont.add(panel, BorderLayout.CENTER);
 		panel.setLayout(lay);
 		panel.setBackground(Color.getHSBColor(60,50, 55));
 		panel.setPreferredSize(new Dimension(725,50));
 		
-		
+		Image i = Toolkit.getDefaultToolkit().createImage("logo1.png");
+		ImgPanel img = new ImgPanel(i);
+		img.setVisible(true);
+		img.setPreferredSize(new Dimension(500,500));
+		lay.putConstraint(SpringLayout.NORTH, img, 400, SpringLayout.NORTH, panel);
+		lay.putConstraint(SpringLayout.WEST, img, 400, SpringLayout.WEST, panel);
+		panel.add(img);
 		
 		JLabel label2 = new JLabel("Welcome to the moon:");
 		JPanel p2 = new JPanel();
 		p2.setBackground(Color.getHSBColor(60, 50, 30));
 		p2.add(label2);
 		p2.setPreferredSize(new Dimension(320,30));
-		//p2.setVisible(true);
 		lay.putConstraint(SpringLayout.NORTH, p2, 20, SpringLayout.NORTH, panel);
 		lay.putConstraint(SpringLayout.WEST, p2,  40, SpringLayout.WEST, panel);
 		panel.add(p2);
 		
 		
 		JPanel login = login();
-		//login.setVisible(true);
 		lay.putConstraint(SpringLayout.NORTH, login,  20, SpringLayout.SOUTH, p2);
 		lay.putConstraint(SpringLayout.WEST, login,  40, SpringLayout.WEST, panel);
 		panel.add(login);		
-	    //panel.setVisible(true);
 		
 		loginWindow.setVisible(true);
 		loginWindow.setBackground(Color.GREEN);
@@ -167,7 +141,7 @@ class ImgPanel  extends JPanel{
 	
 	public ImgPanel(Image img){
 		this.img = img;
-		 Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
+		Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
 	    setPreferredSize(size);
 	    setMinimumSize(size);
 	    setMaximumSize(size);
