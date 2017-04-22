@@ -66,6 +66,7 @@ public class MainStudentLeftPanel extends JPanel {
 	public void optionAllCourses(){
 		this.remove(actual);
 		this.add(allCourses, BorderLayout.CENTER);
+		this.repaint();
 		actual = allCourses;
 	}
 	
@@ -75,6 +76,7 @@ public class MainStudentLeftPanel extends JPanel {
 	public void optionMyCourses() {
 		this.remove(actual);
 		this.add(myCourses, BorderLayout.CENTER);
+		this.repaint();
 		actual = myCourses;
 	}
 }
