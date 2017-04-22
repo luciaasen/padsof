@@ -15,7 +15,9 @@ import moon.course.Course;
  *
  */
 public class mainPruebas {
-	public static void main(String args[]){
+	private int kk;
+	//public static void main(){
+	public static void main(String[] args){
 		
 		new Course("Math");
 		new Course("Padsof");
