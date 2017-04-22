@@ -10,5 +10,9 @@ import javax.swing.*;
  *
  */
 public class StudentCourseView extends JPanel{
-
+	StudentCourseController controller;
+	JLabel asd = new JLabel("");
+	public void main(){
+		
+	}
 }
