@@ -52,33 +52,25 @@ public class LoginWindow extends JPanel {
 	
 	public JPanel text(){
 		SpringLayout layout = new SpringLayout();
-		LayoutManager superLayout = new GridBagLayout();
 		JPanel text = new JPanel();
 		JPanel superText = new JPanel();
-		JPanel centralizer = new JPanel();
+		JPanel aux = new JPanel();
 		JTextField email = new JTextField(10);
 		JPasswordField password = new JPasswordField(10);
-		JLabel emailLabel = new JLabel("emailLabel");
-		JLabel passwordLabel = new JLabel("passwordLabel");
+		JLabel emailLabel = new JLabel("Email:  ");
+		JLabel passwordLabel = new JLabel("Password:  ");
 		text.setLayout(layout);
-		superText.setLayout(superLayout);
-		centralizer.setLayout(new FlowLayout());
+		superText.setLayout(new GridLayout(3,1));
 		
-		layout.putConstraint(SpringLayout.WEST, emailLabel, 0, SpringLayout.WEST, text);
-		layout.putConstraint(SpringLayout.NORTH, emailLabel, 20, SpringLayout.NORTH, text);
+		layout.putConstraint(SpringLayout.WEST, emailLabel, 100, SpringLayout.WEST, text);
+		layout.putConstraint(SpringLayout.NORTH, emailLabel, 50, SpringLayout.NORTH, text);
 		layout.putConstraint(SpringLayout.WEST, email, 0, SpringLayout.WEST, password);
-		layout.putConstraint(SpringLayout.NORTH, email, 20, SpringLayout.NORTH, text);
-		
-		layout.putConstraint(SpringLayout.WEST, passwordLabel, 0, SpringLayout.WEST, text);
+		layout.putConstraint(SpringLayout.NORTH, email, 50, SpringLayout.NORTH, text);
+		layout.putConstraint(SpringLayout.WEST, passwordLabel, 100, SpringLayout.WEST, text);
 		layout.putConstraint(SpringLayout.NORTH, passwordLabel, 20, SpringLayout.SOUTH, emailLabel);
-		
 		layout.putConstraint(SpringLayout.WEST, password, 20, SpringLayout.EAST, passwordLabel);
-		
 		layout.putConstraint(SpringLayout.NORTH, password, 20, SpringLayout.SOUTH, email);
 		
-		GridBagConstraints c = new GridBagConstraints();
-		c.gridx=0;
-		c.gridy=0;
 		
 		
 		text.add(emailLabel);
@@ -86,18 +78,17 @@ public class LoginWindow extends JPanel {
 		text.add(email);
 		text.add(password);
 		
+		superText.add(aux);
+		superText.add(text);
+		
 		text.setSize(50,50);
-		centralizer.setSize(51,100);
-		superText.setSize(101,101);
-		centralizer.add(text);
-		superText.add(text, c);
+		
+		text.setOpaque(false);
 		
 		text.setVisible(true);
-		centralizer.setVisible(true);
 		superText.setVisible(true);
-		text.setBackground(Color.RED);
 		
-		return centralizer;
+		return superText;
 	}
 	
 }

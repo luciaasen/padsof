@@ -9,12 +9,11 @@ import moon.Academy;
 import moon.course.Course;
 
 /**
- * @author juan
+ * @author Juan Riera Gomez and Lucia Asencio
  *
  */
 public class MainStudentController {
 	public static ArrayList<Course> getAllCourses(){
-		
 		return Academy.getMoonApp().getCourses();
 	}
 }
