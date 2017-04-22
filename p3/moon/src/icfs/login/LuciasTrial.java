@@ -1,7 +1,7 @@
 /**
  * 
  */
-package icfs;
+package icfs.login;
 
 import java.awt.*;
 import javax.swing.*;

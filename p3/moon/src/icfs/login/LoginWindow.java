@@ -1,4 +1,4 @@
-package icfs;
+package icfs.login;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -52,37 +52,44 @@ public class LoginWindow extends JPanel {
 	
 	public JPanel text(){
 		SpringLayout layout = new SpringLayout();
+		SpringLayout superLayout = new SpringLayout();
 		JPanel text = new JPanel();
+		JPanel superText = new JPanel();
 		JTextField email = new JTextField(10);
 		JPasswordField password = new JPasswordField(10);
 		JLabel emailLabel = new JLabel("emailLabel");
 		JLabel passwordLabel = new JLabel("passwordLabel");
 		text.setLayout(layout);
-		email.setSize(100, 100);
+		superText.setLayout(superLayout);
 		
-		layout.putConstraint(SpringLayout.WEST, emailLabel, 23, SpringLayout.WEST, text);
+		layout.putConstraint(SpringLayout.WEST, emailLabel, 0, SpringLayout.WEST, text);
 		layout.putConstraint(SpringLayout.NORTH, emailLabel, 20, SpringLayout.NORTH, text);
 		layout.putConstraint(SpringLayout.WEST, email, 0, SpringLayout.WEST, password);
 		layout.putConstraint(SpringLayout.NORTH, email, 20, SpringLayout.NORTH, text);
 		
-		layout.putConstraint(SpringLayout.WEST, passwordLabel, 20, SpringLayout.WEST, text);
+		layout.putConstraint(SpringLayout.WEST, passwordLabel, 0, SpringLayout.WEST, text);
 		layout.putConstraint(SpringLayout.NORTH, passwordLabel, 20, SpringLayout.SOUTH, emailLabel);
 		
 		layout.putConstraint(SpringLayout.WEST, password, 20, SpringLayout.EAST, passwordLabel);
 		
 		layout.putConstraint(SpringLayout.NORTH, password, 20, SpringLayout.SOUTH, email);
 		
+		superLayout.putConstraint(SpringLayout.HORIZONTAL_CENTER, text, 0, SpringLayout.HORIZONTAL_CENTER, superText);
+		superLayout.putConstraint(SpringLayout.VERTICAL_CENTER, text, 0, SpringLayout.VERTICAL_CENTER, superText);
 		
 		text.add(emailLabel);
 		text.add(passwordLabel);
 		text.add(email);
 		text.add(password);
 		
-		text.setVisible(true);
+		text.setSize(100, 100);
+		superText.add(text);
 		
+		text.setVisible(true);
+		superText.setVisible(true);
 		text.setBackground(Color.RED);
 		
-		return text;
+		return superText;
 	}
 	
 }

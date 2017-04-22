@@ -6,6 +6,8 @@ package icfs;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import icfs.login.LoginWindow;
+
 /**
  * @author juan
  *
@@ -19,6 +21,6 @@ public class mainPruebas {
 		window.getContentPane().add(aux);
 		aux.setVisible(true);
 		window.setVisible(true);
-		window.setSize(500, 500);
+		window.setSize(1000, 600);
 	}
 }
