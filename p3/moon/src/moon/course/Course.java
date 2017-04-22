@@ -311,6 +311,13 @@ public class Course implements Serializable{
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}		
+	}	
+	
+	/**
+	 * toString Method
+	 */
+	public String toString(){
+		return this.getName();
+	}
 	
 }

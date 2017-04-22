@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import icfs.login.LoginWindow;
+import icfs.student.main.MainStudentPanel;
+import moon.course.Course;
 
 /**
  * @author juan
@@ -15,7 +17,9 @@ import icfs.login.LoginWindow;
 public class mainPruebas {
 	public static void main(String args[]){
 		
-		JPanel aux = new LoginWindow();
+		new Course("Math");
+		new Course("Padsof");
+		JPanel aux = new MainStudentPanel();
 		JFrame window = new JFrame();
 		
 		window.getContentPane().add(aux);

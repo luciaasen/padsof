@@ -52,15 +52,17 @@ public class LoginWindow extends JPanel {
 	
 	public JPanel text(){
 		SpringLayout layout = new SpringLayout();
-		SpringLayout superLayout = new SpringLayout();
+		LayoutManager superLayout = new GridBagLayout();
 		JPanel text = new JPanel();
 		JPanel superText = new JPanel();
+		JPanel centralizer = new JPanel();
 		JTextField email = new JTextField(10);
 		JPasswordField password = new JPasswordField(10);
 		JLabel emailLabel = new JLabel("emailLabel");
 		JLabel passwordLabel = new JLabel("passwordLabel");
 		text.setLayout(layout);
 		superText.setLayout(superLayout);
+		centralizer.setLayout(new FlowLayout());
 		
 		layout.putConstraint(SpringLayout.WEST, emailLabel, 0, SpringLayout.WEST, text);
 		layout.putConstraint(SpringLayout.NORTH, emailLabel, 20, SpringLayout.NORTH, text);
@@ -74,22 +76,28 @@ public class LoginWindow extends JPanel {
 		
 		layout.putConstraint(SpringLayout.NORTH, password, 20, SpringLayout.SOUTH, email);
 		
-		superLayout.putConstraint(SpringLayout.HORIZONTAL_CENTER, text, 0, SpringLayout.HORIZONTAL_CENTER, superText);
-		superLayout.putConstraint(SpringLayout.VERTICAL_CENTER, text, 0, SpringLayout.VERTICAL_CENTER, superText);
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx=0;
+		c.gridy=0;
+		
 		
 		text.add(emailLabel);
 		text.add(passwordLabel);
 		text.add(email);
 		text.add(password);
 		
-		text.setSize(100, 100);
-		superText.add(text);
+		text.setSize(50,50);
+		centralizer.setSize(51,100);
+		superText.setSize(101,101);
+		centralizer.add(text);
+		superText.add(text, c);
 		
 		text.setVisible(true);
+		centralizer.setVisible(true);
 		superText.setVisible(true);
 		text.setBackground(Color.RED);
 		
-		return superText;
+		return centralizer;
 	}
 	
 }
