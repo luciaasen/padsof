@@ -48,6 +48,7 @@ public class MainStudentLeftPanel extends JPanel {
 		this.setVisible(true);
 		this.setSize(100, 200);
 		
+		actual = allCourses;
 		allCourses.addMouseListener(new MainStudentJListController(s, parent));
 		
 		options.addItemListener(new ItemListener() {
