@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 import javax.swing.border.Border;
 
+import moon.user.Student;
+
 /**
  * @author juan
  *
@@ -27,7 +29,7 @@ public class MainStudentRightPanel extends JPanel{
 	/**
 	 * Constructor of the class with package security.
 	 */
-	MainStudentRightPanel(){
+	MainStudentRightPanel(Student s){
 		
 		this.setLayout(new GridLayout(2,1,10,10));
 		upperPanel.setLayout(upperLayout);
