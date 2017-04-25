@@ -9,13 +9,19 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * @author lusilu
- *
+ * This class constructs de login window
+ * @author Lucia Asencio y Juan Riera, este ultimo responsable de todos los males del codigo y del mundo
  */
-public class LuciasTrial extends JFrame{
-	
+public class LoginWindowView extends JFrame{
 	 
-	public LuciasTrial(){
+	private JTextField user;
+	private JPasswordField password;
+
+	/**
+	 * login window constructor
+	 * @return a window with de login panel, the image panel and the welcome panel in it
+	 */
+	public LoginWindowView(){
 		super("moon");
 		JFrame loginWindow = this;
 		Container panel = loginWindow.getContentPane();
@@ -29,7 +35,7 @@ public class LuciasTrial extends JFrame{
 		ImgPanel img = new ImgPanel(i);
 		img.setVisible(true);
 		lay.putConstraint(SpringLayout.NORTH, img, 250, SpringLayout.NORTH, panel);
-		lay.putConstraint(SpringLayout.WEST, img, 300, SpringLayout.WEST, panel);
+		lay.putConstraint(SpringLayout.HORIZONTAL_CENTER, img, 0, SpringLayout.HORIZONTAL_CENTER, panel);
 		panel.add(img);
 		
 		/*Welcome thing*/
@@ -40,13 +46,13 @@ public class LuciasTrial extends JFrame{
 		p2.add(label2);
 		p2.setPreferredSize(new Dimension(320,30));
 		lay.putConstraint(SpringLayout.NORTH, p2, 20, SpringLayout.NORTH, panel);
-		lay.putConstraint(SpringLayout.WEST, p2,  40, SpringLayout.WEST, panel);
+		lay.putConstraint(SpringLayout.HORIZONTAL_CENTER, p2,  0, SpringLayout.HORIZONTAL_CENTER, panel);
 		panel.add(p2);
 		
 		/*Login thing*/
 		JPanel login = login();
 		lay.putConstraint(SpringLayout.NORTH, login,  10, SpringLayout.SOUTH, p2);
-		lay.putConstraint(SpringLayout.WEST, login,  40, SpringLayout.WEST, panel);
+		lay.putConstraint(SpringLayout.HORIZONTAL_CENTER, login,  0, SpringLayout.HORIZONTAL_CENTER, panel);
 		panel.add(login);		
 		
 		loginWindow.setVisible(true);
@@ -54,11 +60,12 @@ public class LuciasTrial extends JFrame{
 		loginWindow.setSize(1000,600);
 				
 	}
-	public static void main(String []args){
-		LuciasTrial prueba = new LuciasTrial();
-	}
 	
-	private static JPanel login(){
+	/**
+	 * login panel maker
+	 * @return a panel with the user and pswd panels, as well as the log in button
+	 */
+	private JPanel login(){
 		JPanel login = new JPanel();		
 		
 		SpringLayout lay1 = new SpringLayout();
@@ -85,7 +92,11 @@ public class LuciasTrial extends JFrame{
 		return login;
 	}
 	
-	private static JPanel user(){
+	/**
+	 * user panel maker
+	 * @return a panel with de username label and the Jtextfield for it
+	 */
+	private JPanel user(){
 		JPanel user = new JPanel();
 		user.setPreferredSize(new Dimension(300,40));
 		user.setBackground(new Color(205, 227, 224));
@@ -94,6 +105,7 @@ public class LuciasTrial extends JFrame{
 		user.setLayout(lay2);
 		JLabel userText = new JLabel("Username:");
 		JTextField userName = new JTextField(); 
+		this.user = userName;
 		userName.setPreferredSize(new Dimension(200, 30));
 		
 		lay2.putConstraint(SpringLayout.NORTH, userText, 10, SpringLayout.NORTH, user);
@@ -107,7 +119,11 @@ public class LuciasTrial extends JFrame{
 		return user;
 	}
 	
-	private static JPanel pswd(){
+	/**
+	 * password panel maker
+	 * @return a panel with de password label and the jpasswordfield for it
+	 */
+	private JPanel pswd(){
 		JPanel pswd = new JPanel();
 		pswd.setBackground(new Color(205, 227, 224));
 		pswd.setPreferredSize(new Dimension(300,40));
@@ -116,6 +132,7 @@ public class LuciasTrial extends JFrame{
 		pswd.setLayout(lay3);
 		JLabel pswdText = new JLabel("Password:");
 		final JPasswordField pass = new JPasswordField();
+		this.password = pass;
 		pass.setPreferredSize(new Dimension(200,30));
 		lay3.putConstraint(SpringLayout.NORTH, pswdText, 10, SpringLayout.NORTH, pswd);
 		lay3.putConstraint(SpringLayout.WEST, pswdText, 5, SpringLayout.WEST, pswd);
@@ -129,22 +146,46 @@ public class LuciasTrial extends JFrame{
 		return pswd;
 	}
 	
+	/**
+	 * Gets the JPasswordField of the login window
+	 * @return JPasswordField
+	 */
+	public JPasswordField getPassword(){
+		return this.password;
+	}
 	
-	
+	/**
+	 * Gets the JTextField of the login window
+	 * @return JTextField
+	 */
+	public JTextField getUser(){
+		return this.user;
+	}	
 }
 
+/**
+ * This class is needed to create a pannel that shows and image each time its drawn
+ * It extends JPanel and overrides the painting method
+ * @author lucia
+ *
+ */
 class ImgPanel  extends JPanel{
 	private Image img;	
 	
+	/**
+	 * ImgPanel constructor
+	 * @param img the imag to be shown
+	 */
 	public ImgPanel(Image img){
 		this.img = img;
-		Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
+		Dimension size = new Dimension(img.getWidth(null)/2, img.getHeight(null)/2);
 	    setPreferredSize(size);
 	    setMinimumSize(size);
 	    setMaximumSize(size);
 	    setSize(size);
 	    setLayout(null);
 	    setPreferredSize(size);
+	    System.out.println(size + " " + img.getWidth(null)/2 + " " +img.getHeight(null)/2) ;
 	}
 	
 	@Override	

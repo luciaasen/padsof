@@ -6,7 +6,7 @@ package icfs;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import icfs.login.LoginWindow;
+import icfs.login.*;
 import icfs.student.main.MainStudentPanel;
 import moon.course.Course;
 
@@ -15,18 +15,18 @@ import moon.course.Course;
  *
  */
 public class mainPruebas {
-	private int kk;
 	//public static void main(){
 	public static void main(String[] args){
+		LoginWindowView prueba = new LoginWindowView();
+		
 		
 		new Course("Math");
 		new Course("Padsof");
 		JPanel aux = new MainStudentPanel();
-		JFrame window = new JFrame();
 		
-		window.getContentPane().add(aux);
+		/*window.getContentPane().add(aux);
 		aux.setVisible(true);
 		window.setVisible(true);
-		window.setSize(1000, 600);
+		window.setSize(1000, 600);*/
 	}
 }

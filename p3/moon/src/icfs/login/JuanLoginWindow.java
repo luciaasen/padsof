@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 
-public class LoginWindow extends JPanel {
+public class JuanLoginWindow extends JPanel {
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -15,7 +15,7 @@ public class LoginWindow extends JPanel {
 	/*public static void main(String args[]){
 		login();
 	}*/
-	public LoginWindow() {
+	public JuanLoginWindow() {
 		
 		JPanel buttons = buttons();
 		JPanel text = text();
