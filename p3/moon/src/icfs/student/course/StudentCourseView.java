@@ -19,8 +19,7 @@ import moon.user.Student;
  */
 public class StudentCourseView extends JPanel{
 	
-	StudentCourseViewController controller;
-	JPanel back;
+	StudentCourseViewController controller = new StudentCourseViewController();
 	JButton backButton = new JButton("Back");
 	/**
 	 * @param s
@@ -28,7 +27,6 @@ public class StudentCourseView extends JPanel{
 	 * @param view
 	 */
 	public StudentCourseView() {
-		this.back=back;
 		this.setVisible(true);
 		backButton.setVisible(true);
 		this.add(backButton);
@@ -36,11 +34,15 @@ public class StudentCourseView extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mainMoon.window.setContentPane(back);
+				mainMoon.backCard();
 				
 			}
 			
 		});
+	}
+	
+	public void setEverything(Student s, Course c){
+		controller.setEverything(s, c);
 	}
 
 	

@@ -19,18 +19,19 @@ import moon.user.Student;
 public class StudentCourseViewController implements ActionListener {
 	private Student s;
 	private Course c;
-	private JPanel oldPanel;
 	private StudentCourseView view;
 	
-	StudentCourseViewController(Student s, Course c, JPanel oldPanel){
-		this.s=s;
-		this.c=c;
-		this.oldPanel=oldPanel;
-	}
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void setEverything(Student s, Course c){
+		this.s=s;
+		this.c=c;
 	}
 	
 }

@@ -25,18 +25,14 @@ import moon.user.Student;
  */
 public class MainStudentLeftPanel extends JPanel {
 	
-	String[] whatToShow = {"All Courses", "My Courses"};
-	JList<Course> allCourses;
-	JList<Course> myCourses;
+	private String[] whatToShow = {"All Courses", "My Courses"};
 	JList<Course> coursesL;
-	JList<Course> actual = allCourses;
-	JComboBox<String> options = new JComboBox<>(whatToShow);
-	JScrollPane s = new JScrollPane(allCourses);
-	DefaultListModel<Course> coursesM = new DefaultListModel<Course>();
+	private JComboBox<String> options = new JComboBox<>(whatToShow);
+	private JScrollPane scrollP = new JScrollPane(coursesL);
+	private DefaultListModel<Course> coursesM = new DefaultListModel<Course>();
 	
 	MainStudentLeftPanel(MainStudentPanel parent){
 		this.setLayout(new BorderLayout(10,10));
-		Course[] a = new Course[0];
 		coursesL = new JList<Course>(coursesM);
 		coursesL.setSize(300, 300);
 		
@@ -51,8 +47,8 @@ public class MainStudentLeftPanel extends JPanel {
 		this.setVisible(true);
 		this.setSize(100, 200);
 		
-		actual = allCourses;
-		allCourses.addMouseListener(new MainStudentJListController(s, parent));
+		scrollP.setVisible(true);
+		coursesL.addMouseListener(new MainStudentJListController(parent));
 		
 		options.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
@@ -69,25 +65,25 @@ public class MainStudentLeftPanel extends JPanel {
 	}
 	
 	public void setEverything(Student s){
-		
+		MainStudentController.setEverything(s);
 	}
 	/**
 	 * This method will remove the actual list from the panel and add the "all courses" one.
 	 */
 	public void optionAllCourses(){
-		this.remove(actual);
-		this.add(allCourses, BorderLayout.CENTER);
-		this.repaint();
-		actual = allCourses;
+		coursesM.removeAllElements();
+		for(Course c : MainStudentController.getAllCourses()){
+			coursesM.addElement(c);
+		}
 	}
 	
 	/**
 	 * This method will remove the actual list from the panel and add the "my courses" one.
 	 */
 	public void optionMyCourses() {
-		this.remove(actual);
-		this.add(myCourses, BorderLayout.CENTER);
-		this.repaint();
-		actual = myCourses;
+		coursesM.removeAllElements();
+		for(Course c : MainStudentController.getStudentCourses()){
+			coursesM.addElement(c);
+		}
 	}
 }

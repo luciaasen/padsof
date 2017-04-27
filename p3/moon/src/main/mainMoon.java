@@ -22,8 +22,8 @@ public class mainMoon {
 	public static JFrame window;
 	private static JPanel superPanel;
 	private static CardLayout superLayout;
-	private static JPanel mainPanel;
-	private static JPanel coursePanel;
+	private static MainStudentPanel mainStudentPanel;
+	private static StudentCourseView coursePanel;
 	
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
@@ -31,7 +31,7 @@ public class mainMoon {
 	public static void main(String[] args){
 		
 		
-		;
+		
 	}
 	
 	public static void studentMode(User u){
@@ -43,7 +43,7 @@ public class mainMoon {
 		window.setSize(1000, 600);
 		
 		superPanel = new JPanel();
-		mainPanel = new MainStudentPanel();
+		mainStudentPanel = new MainStudentPanel();
 		coursePanel = new StudentCourseView();
 		
 		superLayout = new CardLayout();
@@ -51,7 +51,7 @@ public class mainMoon {
 		window.getContentPane().add(superPanel);
 		superPanel.setVisible(true);
 		
-		superPanel.add(mainPanel, "mainPanel");
+		superPanel.add(mainStudentPanel, "mainPanel");
 		superPanel.add(coursePanel, "coursePanel");
 	}
 	
@@ -65,6 +65,14 @@ public class mainMoon {
 	
 	public static void teacherMode(User u){
 		
+	}
+	
+	public static void courseSetEverything(Student s, Course c){
+		coursePanel.setEverything(s,c);
+	}
+	
+	public static void mainSetEverything(Student s){
+		mainStudentPanel.setEverything(s);
 	}
 	
 }
