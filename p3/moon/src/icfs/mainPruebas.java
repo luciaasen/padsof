@@ -30,6 +30,10 @@ public class mainPruebas {
 		
 	}
 	
+	/**
+	 * Class designed to destroy your eyes.
+	 * @throws Exception
+	 */
 	public static void epilepsiaFotosensible() throws Exception {
 		Course math = new Course("Math");
 		new Course("Padsof");
