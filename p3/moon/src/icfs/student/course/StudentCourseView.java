@@ -27,7 +27,7 @@ public class StudentCourseView extends JPanel{
 	 * @param selected
 	 * @param view
 	 */
-	public StudentCourseView(Student s, Course selected, JPanel back) {
+	public StudentCourseView() {
 		this.back=back;
 		this.setVisible(true);
 		backButton.setVisible(true);
