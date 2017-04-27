@@ -150,16 +150,16 @@ public class LoginWindowView extends JFrame{
 	 * Gets the JPasswordField of the login window
 	 * @return JPasswordField
 	 */
-	public JPasswordField getPassword(){
-		return this.password;
+	public String getPassword(){
+		return this.password.getText();
 	}
 	
 	/**
 	 * Gets the JTextField of the login window
 	 * @return JTextField
 	 */
-	public JTextField getUser(){
-		return this.user;
+	public String getUser(){
+		return this.user.getText();
 	}	
 }
 
