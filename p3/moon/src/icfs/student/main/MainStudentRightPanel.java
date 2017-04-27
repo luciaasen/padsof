@@ -29,7 +29,7 @@ public class MainStudentRightPanel extends JPanel{
 	/**
 	 * Constructor of the class with package security.
 	 */
-	MainStudentRightPanel(Student s){
+	MainStudentRightPanel(){
 		
 		this.setLayout(new GridLayout(2,1,10,10));
 		upperPanel.setLayout(upperLayout);
@@ -48,5 +48,9 @@ public class MainStudentRightPanel extends JPanel{
 		this.add(upperPanel);
 		upperPanel.setVisible(true);
 		this.setVisible(true);
+	}
+	
+	public void setEverything(Student s){
+		
 	}
 }

@@ -9,6 +9,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -27,22 +28,24 @@ public class MainStudentLeftPanel extends JPanel {
 	String[] whatToShow = {"All Courses", "My Courses"};
 	JList<Course> allCourses;
 	JList<Course> myCourses;
+	JList<Course> coursesL;
 	JList<Course> actual = allCourses;
 	JComboBox<String> options = new JComboBox<>(whatToShow);
 	JScrollPane s = new JScrollPane(allCourses);
+	DefaultListModel<Course> coursesM = new DefaultListModel<Course>();
 	
-	MainStudentLeftPanel(Student s, MainStudentPanel parent){
+	MainStudentLeftPanel(MainStudentPanel parent){
 		this.setLayout(new BorderLayout(10,10));
 		Course[] a = new Course[0];
-		myCourses = new JList<Course>(MainStudentController.getStudentCourses(s).toArray(a));
-		allCourses = new JList<Course>(MainStudentController.getAllCourses().toArray(a));
-		allCourses.setSize(300, 900);
+		coursesL = new JList<Course>(coursesM);
+		coursesL.setSize(300, 300);
+		
 		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		
 		this.setBorder(border1);
-		allCourses.setBorder(border1);
+		coursesL.setBorder(border1);
 		this.add(options, BorderLayout.NORTH);
-		this.add(allCourses, BorderLayout.CENTER);
+		this.add(coursesL, BorderLayout.CENTER);
 
 		this.setBackground(Color.black);
 		this.setVisible(true);
@@ -65,6 +68,9 @@ public class MainStudentLeftPanel extends JPanel {
 		
 	}
 	
+	public void setEverything(Student s){
+		
+	}
 	/**
 	 * This method will remove the actual list from the panel and add the "all courses" one.
 	 */

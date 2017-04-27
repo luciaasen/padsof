@@ -10,6 +10,7 @@ import moon.course.Course;
 import moon.user.Application;
 
 import es.uam.eps.padsof.emailconnection.*;
+import exception.InvalidUserException;
 
 /**
  * Class that stores all the information of the academy. It also contains a 
@@ -42,7 +43,7 @@ public class Academy implements Serializable{
 		users.add(teacher);
 	}
 	
-	
+
 	/**Login function
 	 * 
 	 * @param username
@@ -51,19 +52,19 @@ public class Academy implements Serializable{
 	 * @return null if the email or the password were incorrect
 	 */
 	
-	public User login(String email, String pwd){
+	public User login(String email, String pwd) throws InvalidUserException{
 		for(User u : users){
 			if(u.getEmail().equals(email)){
 				if(u.checkPwd(pwd)){
 					return u;
 				} else {
-					return null;
+					throw new InvalidUserException();
 				}
 				
 			}
 		}
 		
-		return null;
+		throw new InvalidUserException();
 	}
 	
 	/** Returns the set of all the applications that the students have sent.
