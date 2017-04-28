@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
 import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
+import exception.InvalidUserException;
 import moon.course.Course;
 import moon.user.Application;
 import moon.user.Student;
@@ -79,9 +80,10 @@ public class AcademyTest {
 	
 	/**
 	 * Test method for {@link moon.Academy#login(java.lang.String, java.lang.String)}.
+	 * @throws InvalidUserException 
 	 */
 	@Test
-	public void testLogin() {
+	public void testLogin() throws InvalidUserException {
 		
 		/*Logging in as a teacher*/
 		assertNotEquals(a.login("t.eacher@edu.es", "PwdTeacher1358"), t1);
@@ -145,9 +147,10 @@ public class AcademyTest {
 	/**
 	 * Test method for {@link moon.Academy#Academy()}
 	 * and {@link moon.Academy#setMoon(Academy)}
+	 * @throws InvalidUserException 
 	 */
 	@Test
-	public void testAcademyAndSetMoon(){
+	public void testAcademyAndSetMoon() throws InvalidUserException{
 		Academy a1 = new Academy();
 		
 		assertNotNull(a1);

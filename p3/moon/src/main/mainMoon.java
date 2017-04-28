@@ -53,6 +53,8 @@ public class mainMoon {
 		
 		superPanel.add(mainStudentPanel, "mainPanel");
 		superPanel.add(coursePanel, "coursePanel");
+		if(!(u instanceof Student)){ throw new IllegalArgumentException(); }
+		mainStudentPanel.setEverything((Student)u);
 	}
 	
 	public static void changeCard(String newCard){

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
 import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
+import exception.InvalidUserException;
 import moon.course.Course;
 import moon.course.CourseElement;
 import moon.course.Exercise;
@@ -32,8 +33,9 @@ public class Demonstrator {
 	 * This main will load some users, make a teacher login and 
 	 * create some courses with units and exercises, and then students 
 	 * will sequentally apply, log in and do the exercises.
+	 * @throws InvalidUserException 
 	 */
-	public static void main(String args[]){
+	public static void main(String args[]) throws InvalidUserException{
 		User u;
 		Student s;
 		Course c;

@@ -14,6 +14,7 @@ import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
 import icfs.login.*;
 import icfs.student.course.StudentCourseView;
 import icfs.student.main.MainStudentPanel;
+import main.mainMoon;
 import moon.course.Course;
 import moon.user.Student;
 
@@ -26,8 +27,8 @@ public class mainPruebas {
 	public static void main(String[] args) throws Exception {
 		//LoginWindowView prueba = new LoginWindowView();
 		
-		epilepsiaFotosensible();
-		
+		//epilepsiaFotosensible();
+		studentModeTest();
 	}
 	
 	/**
@@ -64,5 +65,17 @@ public class mainPruebas {
 			layout.next(superPanel);
 			TimeUnit.MILLISECONDS.sleep(50);
 		}
+		
+		
+	}
+	
+	private static void studentModeTest() throws Exception{
+		Course math = new Course("Math");
+		new Course("Padsof");
+		
+		
+		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");
+		s.apply(math).accept();
+		mainMoon.studentMode(s);
 	}
 }
