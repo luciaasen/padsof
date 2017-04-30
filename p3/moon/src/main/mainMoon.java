@@ -4,15 +4,17 @@
 package main;
 
 import java.awt.*;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import icfs.student.course.StudentCourseView;
 import icfs.student.main.MainStudentPanel;
+import moon.Academy;
 import moon.course.Course;
-import moon.user.Student;
-import moon.user.User;
+import moon.user.*;
+import icfs.login.LoginWindowView;
 
 /**
  * @author e336799
@@ -29,19 +31,29 @@ public class mainMoon {
 	public final static String COURSE = "coursePanel";
 	
 	public static void main(String[] args){
-		
-		
+		Academy a = new Academy();
+		Academy.setMoon(a);
+		try{
+			a.loadUsers("StudentData.txt");
+		}catch(NumberFormatException | IOException e){
+			System.out.println("Error en la lectura de usuarios");
+		}
+
+		LoginWindowView l = new LoginWindowView();
 		
 	}
 	
-	public static void studentMode(User u){
-		if(!(u instanceof Student)){
-			return;
-		}
+	public static void userMode(User u, Academy a){
 		window = new JFrame();
 		window.setVisible(true);
 		window.setSize(1000, 600);
-		
+		if(u.isTeacher()){
+			teacherMode((Teacher) u);
+		}else{
+			studentMode((Student) u);
+		}
+	}
+	public static void studentMode(Student u){
 		superPanel = new JPanel();
 		mainStudentPanel = new MainStudentPanel();
 		coursePanel = new StudentCourseView();
@@ -53,7 +65,7 @@ public class mainMoon {
 		
 		superPanel.add(mainStudentPanel, "mainPanel");
 		superPanel.add(coursePanel, "coursePanel");
-		if(!(u instanceof Student)){ throw new IllegalArgumentException(); }
+		//if(!(u instanceof Student)){ throw new IllegalArgumentException(); }
 		mainStudentPanel.setEverything((Student)u);
 	}
 	
@@ -65,7 +77,7 @@ public class mainMoon {
 		superLayout.previous(superPanel);
 	}
 	
-	public static void teacherMode(User u){
+	public static void teacherMode(Teacher u){
 		
 	}
 	

@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  */
 public class InvalidUserException extends Exception{
-	public InvalidUserException(){
-		
+	public String toString(){
+		return "Error in your username/password. You may want to type them again";
 	}
 }

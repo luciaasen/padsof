@@ -28,7 +28,7 @@ public class LoginWindowView extends JFrame{
 		SpringLayout lay = new SpringLayout();
 		panel.setLayout(lay);
 		panel.setBackground(new Color(254, 206, 158));
-		//panel.setPreferredSize(new Dimension(1000,600));
+		
 		
 		/*Image thing*/
 		Image i = new ImageIcon("logo1.png").getImage();
@@ -75,6 +75,7 @@ public class LoginWindowView extends JFrame{
 		
 		JPanel user = user(), pswd = pswd();
 		JButton button = new JButton("Log in");
+		button.addActionListener(new LoginWindowController(this));
 		button.setBackground(new Color(105, 100, 104));
 		button.setForeground(Color.WHITE);
 		
@@ -185,8 +186,7 @@ class ImgPanel  extends JPanel{
 	    setSize(size);
 	    setLayout(null);
 	    setPreferredSize(size);
-	    System.out.println(size + " " + img.getWidth(null)/2 + " " +img.getHeight(null)/2) ;
-	}
+	    	}
 	
 	@Override	
 	protected void paintComponent(Graphics g) {
