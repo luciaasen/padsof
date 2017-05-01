@@ -3,10 +3,11 @@
  */
 package icfs.login;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
+import com.sun.prism.paint.Color;
 
 import exception.InvalidUserException;
 import moon.Academy;
@@ -33,6 +34,10 @@ public class LoginWindowController implements ActionListener{
 			mainMoon.userMode(u, Academy.getMoonApp());
 			view.setVisible(false);
 		}catch(InvalidUserException ex){
+			UIManager UI=new UIManager();
+			UI.put("OptionPane.background", Academy.DARK_GREEN);
+			UI.put("OptionPane.messageForeground", Academy.LIGHT_GREEN);
+			//UI.put("Panel.background", Academy.DARK_GREEN);
 			JOptionPane.showMessageDialog(view, ex.toString(), "Invalid User", JOptionPane.ERROR_MESSAGE);
 		}
 	}

@@ -1,5 +1,7 @@
 package moon;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -24,6 +26,10 @@ import exception.InvalidUserException;
  */
 
 public class Academy implements Serializable{
+	public static final Color ORANGE= new Color(254, 206, 158);
+	public static final Dimension DIMENSION = new Dimension(1000,600);
+	public static final Color DARK_GREEN = new Color(6, 114, 92);
+	public static final Color LIGHT_GREEN = new Color(205, 227, 224);
 	
 	public static Academy moonApp = new Academy();
 	public static EmailSystem emailSystem = new EmailSystem();

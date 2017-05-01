@@ -4,6 +4,7 @@
 package icfs;
 
 import java.awt.CardLayout;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ import icfs.login.*;
 import icfs.student.course.StudentCourseView;
 import icfs.student.main.MainStudentPanel;
 import main.mainMoon;
+import moon.Academy;
 import moon.course.Course;
 import moon.user.Student;
 
@@ -23,12 +25,23 @@ import moon.user.Student;
  *
  */
 public class mainPruebas {
-	//public static void main(){
 	public static void main(String[] args) throws Exception {
-		//LoginWindowView prueba = new LoginWindowView();
+		/*PARA SETTEAR MOON, ANIADE STUDENTS*/
+		setMoon();
 		
+		LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
-		studentModeTest();
+		//studentModeTest();
+	}
+	
+	public static void setMoon(){
+		Academy a = new Academy();
+		Academy.setMoon(a);
+		try{
+			a.loadUsers("StudentData.txt");
+		}catch(NumberFormatException | IOException e){
+			System.out.println("Error en la lectura de usuarios");
+		}
 	}
 	
 	/**

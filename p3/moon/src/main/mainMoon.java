@@ -31,22 +31,22 @@ public class mainMoon {
 	public final static String COURSE = "coursePanel";
 	
 	public static void main(String[] args){
-		Academy a = new Academy();
-		Academy.setMoon(a);
-		try{
-			a.loadUsers("StudentData.txt");
-		}catch(NumberFormatException | IOException e){
-			System.out.println("Error en la lectura de usuarios");
-		}
-
-		LoginWindowView l = new LoginWindowView();
 		
 	}
 	
 	public static void userMode(User u, Academy a){
 		window = new JFrame();
+		//TODO discute con juan si esto no deberia de estar despues del if (caso de re log in)
 		window.setVisible(true);
-		window.setSize(1000, 600);
+		window.setSize(Academy.DIMENSION);
+	
+		superPanel = new JPanel();
+		
+		superLayout = new CardLayout();
+		superPanel.setLayout(superLayout);
+		window.getContentPane().add(superPanel);
+		superPanel.setVisible(true);
+		
 		if(u.isTeacher()){
 			teacherMode((Teacher) u);
 		}else{
@@ -54,19 +54,13 @@ public class mainMoon {
 		}
 	}
 	public static void studentMode(Student u){
-		superPanel = new JPanel();
 		mainStudentPanel = new MainStudentPanel();
 		coursePanel = new StudentCourseView();
-		
-		superLayout = new CardLayout();
-		superPanel.setLayout(superLayout);
-		window.getContentPane().add(superPanel);
-		superPanel.setVisible(true);
-		
+	
 		superPanel.add(mainStudentPanel, "mainPanel");
 		superPanel.add(coursePanel, "coursePanel");
 		//if(!(u instanceof Student)){ throw new IllegalArgumentException(); }
-		mainStudentPanel.setEverything((Student)u);
+		mainStudentPanel.setEverything(u);
 	}
 	
 	public static void changeCard(String newCard){

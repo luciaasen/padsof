@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+import icfs.ImgPanel;
+import moon.Academy;
 
 /**
  * This class constructs de login window
@@ -24,15 +26,16 @@ public class LoginWindowView extends JFrame{
 	public LoginWindowView(){
 		super("moon");
 		JFrame loginWindow = this;
+		loginWindow.setSize(Academy.DIMENSION);
 		Container panel = loginWindow.getContentPane();
 		SpringLayout lay = new SpringLayout();
 		panel.setLayout(lay);
-		panel.setBackground(new Color(254, 206, 158));
+		panel.setBackground(Academy.ORANGE);
 		
 		
 		/*Image thing*/
 		Image i = new ImageIcon("logo1.png").getImage();
-		ImgPanel img = new ImgPanel(i);
+		ImgPanel img = new ImgPanel(i, 2);
 		img.setVisible(true);
 		lay.putConstraint(SpringLayout.NORTH, img, 250, SpringLayout.NORTH, panel);
 		lay.putConstraint(SpringLayout.HORIZONTAL_CENTER, img, 0, SpringLayout.HORIZONTAL_CENTER, panel);
@@ -42,7 +45,7 @@ public class LoginWindowView extends JFrame{
 		JLabel label2 = new JLabel("Welcome to the moon :D");
 		label2.setForeground(Color.WHITE);
 		JPanel p2 = new JPanel();
-		p2.setBackground(new Color(6, 114, 92));
+		p2.setBackground(Academy.DARK_GREEN);
 		p2.add(label2);
 		p2.setPreferredSize(new Dimension(320,30));
 		lay.putConstraint(SpringLayout.NORTH, p2, 20, SpringLayout.NORTH, panel);
@@ -70,7 +73,7 @@ public class LoginWindowView extends JFrame{
 		
 		SpringLayout lay1 = new SpringLayout();
 		login.setLayout(lay1);
-		login.setBackground(new Color(6, 114, 92));
+		login.setBackground(Academy.DARK_GREEN);
 		login.setPreferredSize(new Dimension(320, 135));
 		
 		JPanel user = user(), pswd = pswd();
@@ -100,7 +103,7 @@ public class LoginWindowView extends JFrame{
 	private JPanel user(){
 		JPanel user = new JPanel();
 		user.setPreferredSize(new Dimension(300,40));
-		user.setBackground(new Color(205, 227, 224));
+		user.setBackground(Academy.LIGHT_GREEN);
 		
 		SpringLayout lay2 = new SpringLayout();
 		user.setLayout(lay2);
@@ -126,7 +129,7 @@ public class LoginWindowView extends JFrame{
 	 */
 	private JPanel pswd(){
 		JPanel pswd = new JPanel();
-		pswd.setBackground(new Color(205, 227, 224));
+		pswd.setBackground(Academy.LIGHT_GREEN);
 		pswd.setPreferredSize(new Dimension(300,40));
 		
 		SpringLayout lay3 = new SpringLayout();
@@ -162,34 +165,4 @@ public class LoginWindowView extends JFrame{
 	public String getUser(){
 		return this.user.getText();
 	}	
-}
-
-/**
- * This class is needed to create a pannel that shows and image each time its drawn
- * It extends JPanel and overrides the painting method
- * @author lucia
- *
- */
-class ImgPanel  extends JPanel{
-	private Image img;	
-	
-	/**
-	 * ImgPanel constructor
-	 * @param img the imag to be shown
-	 */
-	public ImgPanel(Image img){
-		this.img = img;
-		Dimension size = new Dimension(img.getWidth(null)/2, img.getHeight(null)/2);
-	    setPreferredSize(size);
-	    setMinimumSize(size);
-	    setMaximumSize(size);
-	    setSize(size);
-	    setLayout(null);
-	    setPreferredSize(size);
-	    	}
-	
-	@Override	
-	protected void paintComponent(Graphics g) {
-		g.drawImage(img, 0, 0, img.getWidth(null)/2, img.getHeight(null)/2, null);
-	} 
 }
