@@ -86,7 +86,7 @@ public abstract class User implements Serializable{
 	 */
 	@Override
 	public String toString(){
-		return "User " + this.name + " " + this.lastName + " " + this.email + " " + this.id + " " + this.password;
+		return this.name + " " + this.lastName ;
 	}
 	
 	/**

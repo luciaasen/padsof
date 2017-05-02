@@ -5,6 +5,7 @@ package icfs;
 
 import java.awt.Dimension;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import moon.Academy;
@@ -17,9 +18,11 @@ import moon.Academy;
  */
 public class LowerPanel extends JPanel{
 	public static final int HEIGHT = (int) (Academy.DIMENSION.getHeight() - UpperPanel.HEIGHT);
+	public static final int WIDTH = Academy.DIMENSION.width;
 	public LowerPanel(){
-		this.setPreferredSize(new Dimension(Academy.DIMENSION.width, HEIGHT));
+		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.setBackground(Academy.ORANGE);
 		this.setVisible(true);
+		//this.add(new JButton("Hola"));
 	}
 }

@@ -20,8 +20,10 @@ import moon.Academy;
  */
 public class UpperPanel extends JPanel{
 	public static final int HEIGHT = 45;
+	public static int SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 	public UpperPanel(){
-		this.setPreferredSize(new Dimension(Academy.DIMENSION.width, HEIGHT));
+		this.setPreferredSize(new Dimension(SCREEN_WIDTH, HEIGHT));
+		//this.setSize(new Dimension(Academy.DIMENSION.width, HEIGHT));
 		this.setLayout(new BorderLayout());
 		this.setBackground(Color.WHITE);
 		this.setVisible(true);
