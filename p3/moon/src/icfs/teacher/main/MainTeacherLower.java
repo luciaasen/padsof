@@ -25,23 +25,29 @@ public class MainTeacherLower extends LowerPanel{
 	public MainTeacherLower(){
 		super();
 		SpringLayout layout = new SpringLayout();
-		//this.setLayout(layout);
-		this.setLayout(new BorderLayout());
+		this.setLayout(layout);
+		//this.setLayout(new BorderLayout());
 
 		Dimension d = new Dimension(this.WIDTH/2, this.HEIGHT);
 		JPanel right = right(d);
 		JPanel left = left(d);
-		/*layout.putConstraint(SpringLayout.NORTH, right, 0,SpringLayout.NORTH, this);
+		
+		layout.putConstraint(SpringLayout.NORTH, right, 0,SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.NORTH, left, 0,SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, right, 0,SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, left, 0,SpringLayout.SOUTH, this);
 		layout.putConstraint(SpringLayout.EAST, right, 0,SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.WEST, left, 0,SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.WEST, right, 0,SpringLayout.HORIZONTAL_CENTER, this);
+		layout.putConstraint(SpringLayout.EAST, left, 0,SpringLayout.HORIZONTAL_CENTER, this);
+		
 		
 		this.add(left);
 		this.add(right);
-		*/
-		this.add(left, BorderLayout.WEST);
+		
+		/*this.add(left, BorderLayout.WEST);
 		this.add(right, BorderLayout.EAST);
-		this.setVisible(true);
+		*/this.setVisible(true);
 
 	}
 	
@@ -65,8 +71,11 @@ public class MainTeacherLower extends LowerPanel{
 		/*Set constraints and add panels*/
 		layout.putConstraint(SpringLayout.NORTH, courses, this.separation, SpringLayout.NORTH, left);
 		layout.putConstraint(SpringLayout.NORTH, students, 2*this.separation, SpringLayout.SOUTH, courses);
-		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, courses, 0, SpringLayout.HORIZONTAL_CENTER, left);
-		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, students, 0, SpringLayout.HORIZONTAL_CENTER, left);
+		layout.putConstraint(SpringLayout.EAST, courses, 0, SpringLayout.EAST, left);
+		layout.putConstraint(SpringLayout.EAST, students, 0, SpringLayout.EAST, left);
+		layout.putConstraint(SpringLayout.WEST, courses, 0, SpringLayout.WEST, left);
+		layout.putConstraint(SpringLayout.WEST, students, 0, SpringLayout.WEST, left);
+		
 		left.add(students);
 		left.add(courses);
 		

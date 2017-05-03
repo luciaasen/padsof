@@ -55,10 +55,13 @@ public class MainTeacherPanel extends JPanel{
 
 		//this.lower = new LowerPanel();
 		
-		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, lower, 0, SpringLayout.HORIZONTAL_CENTER, this);
+		layout.putConstraint(SpringLayout.EAST, lower, 0, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.WEST, lower, 0, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.NORTH, lower, 0, SpringLayout.SOUTH, upper);
-		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, upper, 0, SpringLayout.HORIZONTAL_CENTER, this);
 		layout.putConstraint(SpringLayout.NORTH, upper, 0, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.SOUTH, lower, 0, SpringLayout.SOUTH, this);
+		layout.putConstraint(SpringLayout.EAST, upper, 0, SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.WEST, upper, 0, SpringLayout.WEST, this);
 		
 		this.add(upper);
 		this.add(lower);
