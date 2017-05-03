@@ -149,6 +149,11 @@ public class Unit extends CourseElement implements Serializable{
 		}
 		return exes;
 	}
+
+	@Override
+	public String toString(){
+		return name;
+	}
 }
 
 

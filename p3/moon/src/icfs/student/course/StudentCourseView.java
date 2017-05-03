@@ -23,12 +23,13 @@ import moon.user.Student;
  */
 public class StudentCourseView extends JPanel{
 	
-	StudentCourseViewController controller = new StudentCourseViewController();
+	StudentCourseViewController controller = new StudentCourseViewController(this);
 	JButton backButton = new JButton("Back");
 	JTree tree;
 	JPanel southPanel = new JPanel();
 	JPanel centerPanel = new JPanel();
 	DefaultMutableTreeNode root;
+	
 	/**
 	 * @param s
 	 * @param selected
@@ -41,7 +42,7 @@ public class StudentCourseView extends JPanel{
 		root = new DefaultMutableTreeNode("Holas");
 		
 		tree = new JTree(root);
-		tree.setRootVisible(false);
+		tree.setRootVisible(true);
 		backButton.setVisible(true);
 		southPanel.add(backButton, FlowLayout.LEFT);
 		this.add(southPanel, BorderLayout.SOUTH);
@@ -52,7 +53,7 @@ public class StudentCourseView extends JPanel{
 		centerPanel.setLayout(new BorderLayout());
 		centerPanel.add(tree, BorderLayout.CENTER);
 		this.add(centerPanel, BorderLayout.CENTER);
-		
+		tree.addTreeSelectionListener(controller);
 		/* Let's configure the tree */
 		tree.getSelectionModel()
 		.setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
@@ -63,14 +64,9 @@ public class StudentCourseView extends JPanel{
 	public void setEverything(Student s, Course c){
 		controller.setEverything(s, c);
 		root.removeAllChildren();
-		root
-		DefaultMutableTreeNode root1 = root;
-		DefaultMutableTreeNode node;
+		
 		for(Unit u : c.getUnits()){
-			node = new DefaultMutableTreeNode();
-			node.setUserObject(u);
-			root.add(node);
-			setNodes(node, u);
+			setNodes(root, u);
 		}
 	}
 	

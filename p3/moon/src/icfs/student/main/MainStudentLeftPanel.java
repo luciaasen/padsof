@@ -66,6 +66,8 @@ public class MainStudentLeftPanel extends JPanel {
 	
 	public void setEverything(Student s){
 		MainStudentController.setEverything(s);
+		options.setSelectedIndex(0);
+		optionAllCourses();
 	}
 	/**
 	 * This method will remove the actual list from the panel and add the "all courses" one.

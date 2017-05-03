@@ -90,8 +90,12 @@ public class mainPruebas {
 		new Course("Padsof");
 		Unit u1 = new Unit("Unit 123");
 		math.addUnit(u1);
-		u1.addElement(new Exercise());
-		u1.addElement(new Exercise());
+		Exercise e = new Exercise();
+		e.setName("Exercise 1");
+		u1.addElement(e);
+		e = new Exercise();
+		e.setName("Exercise 2");
+		u1.addElement(e);
 		u1.addElement(new Unit("Holitas"));
 		
 		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");

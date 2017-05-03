@@ -313,11 +313,9 @@ public class Course implements Serializable{
 		return true;
 	}	
 	
-	/**
-	 * toString Method
-	 */
+	@Override
 	public String toString(){
-		return this.getName();
+		return name;
 	}
 	
 }
