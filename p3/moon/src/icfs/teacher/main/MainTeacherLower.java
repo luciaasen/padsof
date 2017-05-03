@@ -3,15 +3,20 @@
  */
 package icfs.teacher.main;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Properties;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.SpringLayout;
+import javax.swing.*;
+
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 
 import icfs.LowerPanel;
+import icfs.calendar.MonthPanel;
 import moon.Academy;
 import moon.course.Course;
 import moon.user.Student;
@@ -22,6 +27,9 @@ import moon.user.Student;
  */
 public class MainTeacherLower extends LowerPanel{
 	private int separation = 70;
+	private JComboBox<String> action;
+	private JComboBox<String> element;
+	
 	public MainTeacherLower(){
 		super();
 		SpringLayout layout = new SpringLayout();
@@ -104,17 +112,87 @@ public class MainTeacherLower extends LowerPanel{
 	 */
 	private JPanel right(Dimension d){
 		JPanel right = new JPanel();
-		right.setBackground(Academy.LIGHT_GREEN);
+		right.setBackground(Academy.ORANGE);
 		right.setPreferredSize(d);
-		//right.add(new JButton("qtal"));
-		
+		SpringLayout layout = new SpringLayout();
+		right.setLayout(layout);
 		
 		String[] opt1 =  {"Add", "Edit"};
 		JComboBox<String> combo1= new JComboBox<String>(opt1);
+		this.action = combo1;
 		String[] opt2 =  {"Course", "Unit", "Note", "Exercise"};
 		JComboBox<String> combo2 = new JComboBox<String>(opt2);
+		JButton go = new JButton("Go");
+		this.element = combo2;
+		
+		/*JPanel grid = new JPanel();
+		grid.setLayout(new GridLayout(1,2));
+		grid.add(combo1);
+		grid.add(combo2);
+		
+		
+		layout.putConstraint(SpringLayout.NORTH, grid, this.separation, SpringLayout.NORTH, right);
+		layout.putConstraint(SpringLayout.WEST, grid, this.separation, SpringLayout.WEST, right);
+		layout.putConstraint(SpringLayout.NORTH, go, this.separation, SpringLayout.NORTH, right);
+		layout.putConstraint(SpringLayout.WEST, go, this.separation, SpringLayout.EAST, grid);
+		right.add(grid);
+		right.add(go);*/
+		JPanel combos = combos();
+		layout.putConstraint(SpringLayout.NORTH, combos, this.separation, SpringLayout.NORTH, right);
+		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, combos, 0, SpringLayout.HORIZONTAL_CENTER, right);
+		right.add(combos);
+		
+		
+		MonthPanel calendar = new MonthPanel(LocalDate.now().getMonth().getValue()-1, LocalDate.now().getYear());
+
+		layout.putConstraint(SpringLayout.NORTH, calendar, this.separation, SpringLayout.SOUTH, combos);
+		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, calendar, 0, SpringLayout.HORIZONTAL_CENTER, right);
+		right.add(calendar);
 		
 		return right;
 	}
+	
 
+	public JPanel combos(){
+		
+		String[] opt1 =  {"Add", "Edit"};
+		JComboBox<String> combo1= new JComboBox<String>(opt1);
+		this.action = combo1;
+		String[] opt2 =  {"Course", "Unit", "Note", "Exercise"};
+		JComboBox<String> combo2 = new JComboBox<String>(opt2);
+		this.element = combo2;
+		
+		JButton go = new JButton("Go");
+		
+		JPanel grid = new JPanel();
+		grid.setLayout(new GridLayout(1,2));
+		grid.add(combo1);
+		grid.add(combo2);
+		
+		JPanel combos = new JPanel();
+		SpringLayout layout = new SpringLayout();
+		combos.setLayout(layout);
+		
+		layout.putConstraint(SpringLayout.NORTH, grid, 0, SpringLayout.NORTH, combos);
+		layout.putConstraint(SpringLayout.WEST, grid, 0, SpringLayout.WEST, combos);
+		layout.putConstraint(SpringLayout.NORTH, go, 0, SpringLayout.NORTH, combos);
+		layout.putConstraint(SpringLayout.WEST, go, this.separation, SpringLayout.EAST, grid);
+		
+		combos.add(grid);
+		combos.add(go);
+		
+		combos.setBackground(Academy.ORANGE);
+		
+		combos.setPreferredSize(new Dimension(Academy.DIMENSION.width/2 - 2*this.separation, 25));
+		
+		return combos;
+	
+	}
+	public String getAction(){
+		return this.action.getSelectedItem().toString();
+	}
+	
+	public String getElement(){
+		return this.action.getSelectedItem().toString();
+	}
 }
