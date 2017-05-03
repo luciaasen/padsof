@@ -15,17 +15,17 @@ import moon.user.Student;
  */
 public class MainStudentController {
 	
-	private static Student s;
+	private Student s;
 	
-	public static ArrayList<Course> getAllCourses(){
+	public ArrayList<Course> getAllCourses(){
 		return Academy.getMoonApp().getCourses();
 	}
 	
-	public static ArrayList<Course> getStudentCourses(){
+	public ArrayList<Course> getStudentCourses(){
 		return s.getCourses();
 	}
 	
-	public static void setEverything(Student student){
+	public void setEverything(Student student){
 		s=student;
 	}
 }

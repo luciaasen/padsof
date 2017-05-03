@@ -53,13 +53,13 @@ public class mainMoon {
 			studentMode((Student) u);
 		}
 	}
+	
 	public static void studentMode(Student u){
 		mainStudentPanel = new MainStudentPanel();
 		coursePanel = new StudentCourseView();
 	
-		superPanel.add(mainStudentPanel, "mainPanel");
-		superPanel.add(coursePanel, "coursePanel");
-		//if(!(u instanceof Student)){ throw new IllegalArgumentException(); }
+		superPanel.add(mainStudentPanel, MAIN);
+		superPanel.add(coursePanel, COURSE);
 		mainStudentPanel.setEverything(u);
 	}
 	
