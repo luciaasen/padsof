@@ -13,9 +13,8 @@ import javax.swing.border.Border;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
-import icfs.student.main.MainStudentPanel;
 import main.mainMoon;
-import moon.course.Course;
+import moon.course.*;
 import moon.user.Student;
 
 /**
@@ -29,7 +28,7 @@ public class StudentCourseView extends JPanel{
 	JTree tree;
 	JPanel southPanel = new JPanel();
 	JPanel centerPanel = new JPanel();
-	DefaultMutableTreeNode root2;
+	DefaultMutableTreeNode root;
 	/**
 	 * @param s
 	 * @param selected
@@ -39,9 +38,10 @@ public class StudentCourseView extends JPanel{
 		this.setLayout(new BorderLayout(20,20));
 		this.setVisible(true);
 
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Holas");
-		root2 = new DefaultMutableTreeNode("HAS PULSADO EL BOTON");
+		root = new DefaultMutableTreeNode("Holas");
+		
 		tree = new JTree(root);
+		tree.setRootVisible(false);
 		backButton.setVisible(true);
 		southPanel.add(backButton, FlowLayout.LEFT);
 		this.add(southPanel, BorderLayout.SOUTH);
@@ -62,6 +62,31 @@ public class StudentCourseView extends JPanel{
 	
 	public void setEverything(Student s, Course c){
 		controller.setEverything(s, c);
+		root.removeAllChildren();
+		root
+		DefaultMutableTreeNode root1 = root;
+		DefaultMutableTreeNode node;
+		for(Unit u : c.getUnits()){
+			node = new DefaultMutableTreeNode();
+			node.setUserObject(u);
+			root.add(node);
+			setNodes(node, u);
+		}
+	}
+	
+	public void setNodes(DefaultMutableTreeNode fatherNode, CourseElement element){
+		DefaultMutableTreeNode node = new DefaultMutableTreeNode();
+		if(element instanceof Unit){
+			Unit unit = (Unit) element;
+			node.setUserObject(element);
+			for(CourseElement elem : unit.getContents()){
+				setNodes(node, elem);
+			}
+			fatherNode.add(node);
+		} else {
+			node.setUserObject(element);
+			fatherNode.add(node);
+		}
 	}
 
 	

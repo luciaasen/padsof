@@ -43,7 +43,7 @@ public class MainStudentJListController implements MouseListener {
 			return;
 		}*/
 		
-		//mainMoon.courseSetEverything(s, selected);
+		mainMoon.courseSetEverything(s, selected);
 		mainMoon.changeCard(mainMoon.COURSE);
 		
 	}

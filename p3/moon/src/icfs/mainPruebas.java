@@ -18,6 +18,8 @@ import icfs.student.main.MainStudentPanel;
 import main.mainMoon;
 import moon.Academy;
 import moon.course.Course;
+import moon.course.Exercise;
+import moon.course.Unit;
 import moon.user.Student;
 
 /**
@@ -27,11 +29,11 @@ import moon.user.Student;
 public class mainPruebas {
 	public static void main(String[] args) throws Exception {
 		/*PARA SETTEAR MOON, ANIADE STUDENTS*/
-		setMoon();
+		//setMoon();
 		
-		LoginWindowView l = new LoginWindowView();
+		//LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
-		//studentModeTest();
+		studentModeTest();
 	}
 	
 	public static void setMoon(){
@@ -83,12 +85,18 @@ public class mainPruebas {
 	}
 	
 	private static void studentModeTest() throws Exception{
+		Academy.setMoon(new Academy());
 		Course math = new Course("Math");
 		new Course("Padsof");
-		
+		Unit u1 = new Unit("Unit 123");
+		math.addUnit(u1);
+		u1.addElement(new Exercise());
+		u1.addElement(new Exercise());
+		u1.addElement(new Unit("Holitas"));
 		
 		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");
 		s.apply(math).accept();
-		mainMoon.studentMode(s);
+		
+		mainMoon.userMode(s, Academy.getMoonApp());
 	}
 }
