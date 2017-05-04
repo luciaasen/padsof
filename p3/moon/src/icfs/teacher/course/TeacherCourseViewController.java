@@ -1,13 +1,13 @@
 /**
  * 
  */
-package icfs.Teacher.course;
+package icfs.teacher.course;
 
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import icfs.general.course.GeneralCourseViewController;
-import icfs.Teacher.course.TeacherCourseView;
+import icfs.teacher.course.TeacherCourseView;
 import moon.course.Exercise;
 
 /**

@@ -1,10 +1,10 @@
 /**
  * 
  */
-package icfs.Teacher.course;
+package icfs.teacher.course;
 
 import icfs.general.course.GeneralCourseView;
-import icfs.Teacher.course.TeacherCourseViewController;
+import icfs.teacher.course.TeacherCourseViewController;
 
 /**
  * @author juan
