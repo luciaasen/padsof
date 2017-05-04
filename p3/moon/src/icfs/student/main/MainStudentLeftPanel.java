@@ -67,11 +67,8 @@ public class MainStudentLeftPanel extends JPanel {
 	}
 	
 	public void setEverything(Student s){
-		System.out.println("Cos1");
 		controller.setEverything(s);
-		System.out.println("Cos2");
 		listController.setEverything(s);
-		System.out.println("Cos3");
 		options.setSelectedIndex(0);
 		optionAllCourses();
 	}

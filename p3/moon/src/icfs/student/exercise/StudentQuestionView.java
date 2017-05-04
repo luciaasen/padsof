@@ -31,7 +31,7 @@ public class StudentQuestionView extends LowerPanel{
 	CardLayout layout = new CardLayout();
 	ArrayList<CenterStudentQuestionPanel> cards = new ArrayList<>();
 	JComboBox<String> questionNumber = new JComboBox<>();
-	int actualQuestion = 0;
+	int actualQuestion = 1;
 	
 	public StudentQuestionView(){
 		this.setLayout(new BorderLayout(10, 10));
@@ -62,18 +62,21 @@ public class StudentQuestionView extends LowerPanel{
 		
 		previous.addActionListener(e -> {layout.previous(center);
 			actualQuestion--;
-			if(actualQuestion==0){
+			if(actualQuestion==1){
 				previous.setEnabled(false);
+			} 
+			if (actualQuestion == controller.getQuestionsOrder().size()-1){
+				next.setEnabled(true);
 			}
-			
 		});
 		
 		next.addActionListener(e -> {layout.next(center); 
 			actualQuestion++;
 			if(actualQuestion==controller.getQuestionsOrder().size()){
 				next.setEnabled(false);
-			} else if(actualQuestion == 1){
-				
+			} 
+			if(actualQuestion == 2){
+				previous.setEnabled(true);
 			}
 		});
 		
