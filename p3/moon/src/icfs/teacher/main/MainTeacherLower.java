@@ -185,6 +185,7 @@ public class MainTeacherLower extends LowerPanel{
 		
 		combos.setPreferredSize(new Dimension(Academy.DIMENSION.width/2 - 2*this.separation, 25));
 		
+		this.setPreferredSize(new Dimension(300, 300));
 		return combos;
 	
 	}
