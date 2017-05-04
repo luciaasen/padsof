@@ -10,6 +10,7 @@ import java.awt.Container;
 import javax.swing.*;
 
 import icfs.*;
+import icfs.teacher.create.AddCourseView;
 import moon.Academy;
 import moon.course.Course;
 
@@ -53,7 +54,7 @@ public class MainTeacherPanel extends JPanel{
 		this.upper = new UpperPanel();
 		this.lower = new MainTeacherLower();
 
-		//this.lower = new LowerPanel();
+		//this.lower = new AddCourseView();
 		
 		layout.putConstraint(SpringLayout.EAST, lower, 0, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.WEST, lower, 0, SpringLayout.WEST, this);
