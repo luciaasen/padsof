@@ -1,23 +1,23 @@
 /**
  * 
  */
-package icfs.student.course;
-
+package icfs.teacher.course;
 
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import icfs.general.course.GeneralCourseViewController;
+import icfs.teacher.course.TeacherCourseView;
 import moon.course.Exercise;
 
 /**
  * @author Juan Riera and Lucia Asencio
  *
  */
-public class StudentCourseViewController extends GeneralCourseViewController {
+public class TeacherCourseViewController extends GeneralCourseViewController {
 	
-	StudentCourseView view;
-	public StudentCourseViewController(StudentCourseView view){
+	TeacherCourseView view;
+	public TeacherCourseViewController(TeacherCourseView view){
 		super();
 		this.view=view;
 		
@@ -33,4 +33,5 @@ public class StudentCourseViewController extends GeneralCourseViewController {
 		}
 		
 	}
+	
 }

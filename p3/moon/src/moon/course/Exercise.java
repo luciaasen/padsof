@@ -314,4 +314,9 @@ public class Exercise extends CourseElement implements Serializable{
 		}
 		this.visible=false;
 	}
+	
+	@Override
+	public String toString(){
+		return name;
+	}
 }

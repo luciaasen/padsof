@@ -27,13 +27,15 @@ import moon.user.Student;
  *
  */
 public class mainPruebas {
+	
 	public static void main(String[] args) throws Exception {
 		/*PARA SETTEAR MOON, ANIADE STUDENTS*/
 		//setMoon();
 		
 		//LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
-		studentModeTest();
+		System.out.println("Poco a poco");
+		//studentModeTest();
 	}
 	
 	public static void setMoon(){
@@ -90,12 +92,17 @@ public class mainPruebas {
 		new Course("Padsof");
 		Unit u1 = new Unit("Unit 123");
 		math.addUnit(u1);
-		u1.addElement(new Exercise());
-		u1.addElement(new Exercise());
-		u1.addElement(new Unit("Holitas"));
+		Exercise e = new Exercise();
+		e.setName("Exercise 1");
+		u1.addElement(e);
+		e = new Exercise();
+		e.setName("Exercise 2");
+		u1.addElement(e);
+		u1.addElement(new Unit("Unit 1.1"));
 		
 		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");
 		s.apply(math).accept();
+
 		
 		mainMoon.userMode(s, Academy.getMoonApp());
 	}

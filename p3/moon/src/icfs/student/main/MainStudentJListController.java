@@ -38,11 +38,10 @@ public class MainStudentJListController implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Course selected = view.left.coursesL.getSelectedValue();
-		/*if(!(s.getCourses().contains(selected))){
-			//TODO ask the user if he wants to send an application
+		if(!(s.getCourses().contains(selected))){
+			//TODO apply
 			return;
-		}*/
-		
+		} 
 		mainMoon.courseSetEverything(s, selected);
 		mainMoon.changeCard(mainMoon.COURSE);
 		
@@ -73,6 +72,7 @@ public class MainStudentJListController implements MouseListener {
 	}
 	
 	public void setEverything(Student s){
+		
 		this.s=s;
 	}
 	
