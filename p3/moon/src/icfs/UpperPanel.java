@@ -51,7 +51,7 @@ public class UpperPanel extends JPanel{
 								public void actionPerformed(ActionEvent e) {
 									new LoginWindowView();
 									//TODO why exceptions?
-									//mainMoon.window.dispose();
+									mainMoon.window.dispose();
 									
 								}
 							});		
