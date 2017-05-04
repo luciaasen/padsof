@@ -35,7 +35,7 @@ public class mainPruebas {
 		//LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
 		System.out.println("Poco a poco");
-		studentModeTest();
+		//studentModeTest();
 	}
 	
 	public static void setMoon(){

@@ -30,4 +30,8 @@ public class StudentQuestionViewController {
 		actual = questionsOrder.get(0);
 		
 	}
+	
+	ArrayList<Question> getQuestionsOrder(){
+		return this.questionsOrder;
+	}
 }
