@@ -17,7 +17,7 @@ import moon.course.question.*;
  *
  */
 public abstract class CenterStudentQuestionPanel extends JPanel {
-	JLabel question = new JLabel();
+	JLabel question = new JLabel(" ");
 	JPanel north = new JPanel();
 	JPanel center = new JPanel();
 	

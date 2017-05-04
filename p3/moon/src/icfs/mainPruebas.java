@@ -20,6 +20,8 @@ import moon.Academy;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Unit;
+import moon.course.question.Question;
+import moon.course.question.TfQuestion;
 import moon.user.Student;
 
 /**
@@ -34,8 +36,8 @@ public class mainPruebas {
 		
 		//LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
-		System.out.println("Poco a poco");
-		//studentModeTest();
+		//System.out.println("Poco a poco");
+		studentModeTest();
 	}
 	
 	public static void setMoon(){
@@ -93,17 +95,26 @@ public class mainPruebas {
 		Unit u1 = new Unit("Unit 123");
 		math.addUnit(u1);
 		Exercise e = new Exercise();
+
+		e.makeVisible();
 		e.setName("Exercise 1");
+
+		e.setRandord(false);
 		u1.addElement(e);
 		e = new Exercise();
+
+		e.makeVisible();
 		e.setName("Exercise 2");
+		e.setRandord(false);
+		Question q = new TfQuestion("Mola maso moon?", 10, true, e);
+		q = new TfQuestion("Por supuesto que mola maso tu ere tonto?", 10, true, e);
 		u1.addElement(e);
 		u1.addElement(new Unit("Unit 1.1"));
 		
 		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");
 		s.apply(math).accept();
 
-		
+		u1.makeVisible();
 		mainMoon.userMode(s, Academy.getMoonApp());
 	}
 }
