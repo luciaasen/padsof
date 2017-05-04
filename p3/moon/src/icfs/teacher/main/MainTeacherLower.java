@@ -11,9 +11,6 @@ import java.util.Properties;
 
 import javax.swing.*;
 
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
 
 import icfs.LowerPanel;
 import icfs.calendar.MonthPanel;

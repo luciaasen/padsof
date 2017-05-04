@@ -10,9 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import icfs.student.course.StudentCourseView;
+import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.MainStudentPanel;
 import moon.Academy;
 import moon.course.Course;
+import moon.course.Exercise;
 import moon.user.*;
 import icfs.login.LoginWindowView;
 
@@ -26,9 +28,11 @@ public class mainMoon {
 	private static CardLayout superLayout;
 	private static MainStudentPanel mainStudentPanel;
 	private static StudentCourseView coursePanel;
+	private static StudentQuestionView questionPanel;
 	
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
+	public final static String QUESTION = "questionPanel";
 	
 	public static void main(String[] args){
 		
@@ -57,9 +61,11 @@ public class mainMoon {
 	public static void studentMode(Student u){
 		mainStudentPanel = new MainStudentPanel();
 		coursePanel = new StudentCourseView();
-	
+		questionPanel = new StudentQuestionView();
+		
 		superPanel.add(mainStudentPanel, MAIN);
 		superPanel.add(coursePanel, COURSE);
+		superPanel.add(questionPanel, QUESTION);
 		mainStudentPanel.setEverything(u);
 	}
 	
@@ -81,6 +87,10 @@ public class mainMoon {
 	
 	public static void mainSetEverything(Student s){
 		mainStudentPanel.setEverything(s);
+	}
+	
+	public static void questionSetEverything(Student s, Course c, Exercise e){
+		questionPanel.setEverything(s, c, e);
 	}
 	
 }

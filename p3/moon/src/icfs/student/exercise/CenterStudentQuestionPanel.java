@@ -17,13 +17,13 @@ import moon.course.question.*;
  *
  */
 public abstract class CenterStudentQuestionPanel extends JPanel {
-	JLabel question = new JLabel();
+	JLabel question = new JLabel(" ");
 	JPanel north = new JPanel();
 	JPanel center = new JPanel();
 	
 	public CenterStudentQuestionPanel(Question quest){
 		this.setLayout(new BorderLayout(10, 10));
-		north.add(question, FlowLayout.CENTER);
+		north.add(question);
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);
 		question.setText(quest.getQuestion());

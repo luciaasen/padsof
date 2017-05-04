@@ -24,7 +24,7 @@ import moon.user.User;
  * @author Juan Riera and Lucia Asencio
  *
  */
-public class GeneralCourseView extends JPanel {
+public abstract class GeneralCourseView extends JPanel {
 	
 	protected GeneralCourseViewController controller;
 	protected JButton backButton = new JButton("Back");
@@ -47,7 +47,6 @@ public class GeneralCourseView extends JPanel {
 		southPanel.add(backButton, FlowLayout.LEFT);
 		this.add(southPanel, BorderLayout.SOUTH);
 		backButton.addActionListener((e) -> mainMoon.backCard());
-		//backButton.addActionListener((e) -> tree.);
 		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		centerPanel.setBorder(border1);
 		centerPanel.setLayout(new BorderLayout());

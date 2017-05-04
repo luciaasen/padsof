@@ -8,7 +8,9 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import icfs.general.course.GeneralCourseViewController;
+import main.mainMoon;
 import moon.course.Exercise;
+import moon.user.Student;
 
 /**
  * @author Juan Riera and Lucia Asencio
@@ -29,7 +31,8 @@ public class StudentCourseViewController extends GeneralCourseViewController {
 		if(node==null){
 			return;
 		} else if (node.getUserObject() instanceof Exercise) {
-			System.out.println("VAMOBIEN");
+			mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
+			mainMoon.changeCard(mainMoon.QUESTION);
 		}
 		
 	}
