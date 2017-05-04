@@ -5,6 +5,8 @@ package icfs;
 
 import java.awt.CardLayout;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
@@ -20,8 +22,7 @@ import moon.Academy;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Unit;
-import moon.course.question.Question;
-import moon.course.question.TfQuestion;
+import moon.course.question.*;
 import moon.user.Student;
 
 /**
@@ -108,6 +109,8 @@ public class mainPruebas {
 		e.setRandord(false);
 		Question q = new TfQuestion("Mola maso moon?", 10, true, e);
 		q = new TfQuestion("Por supuesto que mola maso tu ere tonto?", 10, true, e);
+		Option o = new Option("Opcion correcta.");
+		q = new OpenQuestion("Padsof padsof padsof padsof", 10, new ArrayList<Option>(Arrays.asList(o)), e);
 		u1.addElement(e);
 		u1.addElement(new Unit("Unit 1.1"));
 		

@@ -5,11 +5,15 @@ package icfs.student.exercise;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
@@ -31,6 +35,8 @@ public class StudentQuestionView extends LowerPanel{
 	CardLayout layout = new CardLayout();
 	ArrayList<CenterStudentQuestionPanel> cards = new ArrayList<>();
 	JComboBox<String> questionNumber = new JComboBox<>();
+	ArrayList<JLabel> questionNumbers= new ArrayList<>();
+	private final static int NCOLS = 15;
 	int actualQuestion = 1;
 	
 	public StudentQuestionView(){
@@ -49,6 +55,7 @@ public class StudentQuestionView extends LowerPanel{
 	private JPanel questionNumbers(){
 		JPanel questionNumbers = new JPanel();
 		questionNumbers.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+		
 		return questionNumbers;
 	}
 	
@@ -68,6 +75,11 @@ public class StudentQuestionView extends LowerPanel{
 			if (actualQuestion == controller.getQuestionsOrder().size()-1){
 				next.setEnabled(true);
 			}
+			questionNumbers.get(actualQuestion).setBorder(BorderFactory
+					.createEmptyBorder());
+
+			questionNumbers.get(actualQuestion-1).setBorder(BorderFactory
+					.createLineBorder(Color.black, 1, true));
 		});
 		
 		next.addActionListener(e -> {layout.next(center); 
@@ -78,6 +90,11 @@ public class StudentQuestionView extends LowerPanel{
 			if(actualQuestion == 2){
 				previous.setEnabled(true);
 			}
+			questionNumbers.get(actualQuestion-2).setBorder(BorderFactory
+					.createEmptyBorder());
+
+			questionNumbers.get(actualQuestion-1).setBorder(BorderFactory
+					.createLineBorder(Color.black, 1, true));
 		});
 		
 		save.addActionListener(e -> { });
@@ -107,9 +124,13 @@ public class StudentQuestionView extends LowerPanel{
 		center.removeAll();
 		controller.setEverything(s, c, e);
 		questionNumber.removeAll();
+		north.removeAll();
+		questionNumbers.removeAll(questionNumbers);
 		
+		JLabel northLabel;
 		CenterStudentQuestionPanel aux;
 		Integer i = 1;
+		north.setLayout(new GridLayout(controller.getQuestionsOrder().size()/NCOLS + 1,NCOLS));
 		for(Question quest : controller.getQuestionsOrder()){
 			if(quest instanceof TfQuestion){
 				aux = new TrueFalseCenterPanel(quest);
@@ -123,8 +144,14 @@ public class StudentQuestionView extends LowerPanel{
 			cards.add(aux);
 			center.add(aux, i.toString());
 			questionNumber.addItem(i.toString());
+			northLabel = new JLabel(i.toString(), JLabel.CENTER);
+			northLabel.setPreferredSize(new Dimension(10, 30));;
+			north.add(northLabel);
+			questionNumbers.add(northLabel);
 			i++;
 		}
+		actualQuestion = 1;
+		questionNumbers.get(0).setBorder(BorderFactory.createLineBorder(Color.black, 1, true));
 	}
 
 }
