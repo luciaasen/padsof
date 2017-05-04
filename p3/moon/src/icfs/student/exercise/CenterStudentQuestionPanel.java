@@ -23,7 +23,7 @@ public abstract class CenterStudentQuestionPanel extends JPanel {
 	
 	public CenterStudentQuestionPanel(Question quest){
 		this.setLayout(new BorderLayout(10, 10));
-		north.add(question, FlowLayout.CENTER);
+		north.add(question);
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);
 		question.setText(quest.getQuestion());

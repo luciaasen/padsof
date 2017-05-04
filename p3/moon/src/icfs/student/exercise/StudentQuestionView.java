@@ -41,11 +41,14 @@ public class StudentQuestionView extends LowerPanel{
 		south = questionButtons();
 		center = new JPanel();
 		center.setLayout(layout);
+		this.add(north, BorderLayout.NORTH);
+		this.add(center, BorderLayout.CENTER);
+		this.add(south, BorderLayout.SOUTH);
 	}
 	
 	private JPanel questionNumbers(){
 		JPanel questionNumbers = new JPanel();
-		
+		questionNumbers.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 		return questionNumbers;
 	}
 	
@@ -69,6 +72,8 @@ public class StudentQuestionView extends LowerPanel{
 			actualQuestion++;
 			if(actualQuestion==controller.getQuestionsOrder().size()){
 				next.setEnabled(false);
+			} else if(actualQuestion == 1){
+				
 			}
 		});
 		
@@ -90,6 +95,8 @@ public class StudentQuestionView extends LowerPanel{
 		buttons.add(next);
 		buttons.add(save);
 		buttons.add(exit);
+		
+		
 		return buttons;
 	}
 	
