@@ -31,8 +31,11 @@ public class StudentCourseViewController extends GeneralCourseViewController {
 		if(node==null){
 			return;
 		} else if (node.getUserObject() instanceof Exercise) {
-			mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
-			mainMoon.changeCard(mainMoon.QUESTION);
+			Exercise e = (Exercise)node.getUserObject();
+			if(e.getExercise((Student)u)==null && e.isActive()){
+				mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
+				mainMoon.changeCard(mainMoon.QUESTION);
+			}
 		}
 		
 	}

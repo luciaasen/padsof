@@ -38,7 +38,9 @@ public class LoginWindowController implements ActionListener{
 			UI.put("OptionPane.background", Academy.DARK_GREEN);
 			UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
 			//UI.put("Panel.background", Academy.DARK_GREEN);
-			JOptionPane.showMessageDialog(view, ex.toString(), "Invalid User", JOptionPane.ERROR_MESSAGE);
+			//JOptionPane.showMessageDialog(view, ex.toString(), "Invalid User", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showOptionDialog(null, ex.toString(), "Invalid User", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 		}
 	}
 

@@ -31,13 +31,13 @@ public class MainStudentLeftPanel extends JPanel {
 	private JScrollPane scrollP = new JScrollPane(coursesL);
 	private DefaultListModel<Course> coursesM = new DefaultListModel<Course>();
 	private MainStudentJListController listController;
-	private MainStudentController controller = new MainStudentController();
+	MainStudentPanel parent;
 	
 	MainStudentLeftPanel(MainStudentPanel parent){
 		this.setLayout(new BorderLayout(10,10));
 		coursesL = new JList<Course>(coursesM);
 		coursesL.setSize(300, 300);
-		
+		this.parent=parent;
 		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		
 		this.setBorder(border1);
@@ -67,7 +67,6 @@ public class MainStudentLeftPanel extends JPanel {
 	}
 	
 	public void setEverything(Student s){
-		controller.setEverything(s);
 		listController.setEverything(s);
 		options.setSelectedIndex(0);
 		optionAllCourses();
@@ -77,7 +76,7 @@ public class MainStudentLeftPanel extends JPanel {
 	 */
 	public void optionAllCourses(){
 		coursesM.removeAllElements();
-		for(Course c : controller.getAllCourses()){
+		for(Course c : parent.controller.getAllCourses()){
 			coursesM.addElement(c);
 		}
 	}
@@ -87,7 +86,7 @@ public class MainStudentLeftPanel extends JPanel {
 	 */
 	public void optionMyCourses() {
 		coursesM.removeAllElements();
-		for(Course c : controller.getStudentCourses()){
+		for(Course c : parent.controller.getStudentCourses()){
 			coursesM.addElement(c);
 		}
 	}

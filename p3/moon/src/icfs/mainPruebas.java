@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
@@ -38,6 +40,9 @@ public class mainPruebas {
 		//LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
 		studentModeTest();
+		//JOptionPane.showOptionDialog(null, "message", "title", JOptionPane.YES_OPTION, 
+		//		JOptionPane.INFORMATION_MESSAGE, null, new String[]{"Ok"}, null);
+		
 	}
 	
 	public static void setMoon(){

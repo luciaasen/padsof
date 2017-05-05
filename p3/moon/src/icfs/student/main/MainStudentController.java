@@ -25,6 +25,10 @@ public class MainStudentController {
 		return s.getCourses();
 	}
 	
+	public double[] getStats(){
+		return new double[]{s.calcAverage(), s.calcMaximum(), s.calcMaximum()};
+	}
+	
 	public void setEverything(Student student){
 		s=student;
 	}

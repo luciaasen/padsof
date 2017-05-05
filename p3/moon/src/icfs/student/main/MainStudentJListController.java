@@ -8,8 +8,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
+import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
 import icfs.student.course.StudentCourseView;
 import main.mainMoon;
 import moon.course.Course;
@@ -39,7 +42,17 @@ public class MainStudentJListController implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		Course selected = view.left.coursesL.getSelectedValue();
 		if(!(s.getCourses().contains(selected))){
-			//TODO apply
+			int choice = JOptionPane.showOptionDialog(null, "Do you want to apply for this course?", " ", JOptionPane.YES_NO_OPTION, 
+					JOptionPane.QUESTION_MESSAGE, null, new String[]{"Yes", "No"}, null);
+			if(choice==0){
+				try {
+					s.apply(selected);
+				} catch (InvalidEmailAddressException except){
+					JOptionPane.showMessageDialog(null, "Error: invalid email.", "Ok", JOptionPane.ERROR_MESSAGE);
+				} catch (FailedInternetConnectionException except){
+					
+				}
+			}
 			return;
 		} 
 		mainMoon.courseSetEverything(s, selected);
