@@ -97,9 +97,14 @@ public class StudentQuestionView extends LowerPanel{
 					.createLineBorder(Color.black, 1, true));
 		});
 		
-		save.addActionListener(e -> { });
+		save.addActionListener(e -> { 
+			for(CenterStudentQuestionPanel card : cards){
+				card.save();
+			}
+			mainMoon.backCard();
+		});
 		exit.addActionListener(e -> { 
-			//TODO cancel exercise.
+			controller.cancel();
 			mainMoon.backCard();});
 		
 		this.questionNumber.addActionListener(e -> {
@@ -134,12 +139,12 @@ public class StudentQuestionView extends LowerPanel{
 		for(Question quest : controller.getQuestionsOrder()){
 			if(quest instanceof TfQuestion){
 				aux = new TrueFalseCenterPanel(quest);
-			} else if (quest instanceof OpenQuestion){
-				aux = new OpenTextCenterPanel(quest);
 			} else if (quest instanceof MultiChoiceQuestion){
 				aux = new MultipleChoiceCenterPanel(quest);
 			} else if (quest instanceof OneChoiceQuestion){
 				aux = new SingleChoiceCenterPanel(quest);
+			}  else if (quest instanceof OpenQuestion){
+				aux = new OpenTextCenterPanel(quest); 
 			} else { return; }
 			cards.add(aux);
 			center.add(aux, i.toString());

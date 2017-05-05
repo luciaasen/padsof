@@ -27,6 +27,14 @@ public class OpenTextCenterPanel extends CenterStudentQuestionPanel {
 		center.setLayout(new GridLayout(1,1));
 		center.add(text);
 	}
+	/* (non-Javadoc)
+	 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
+	 */
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

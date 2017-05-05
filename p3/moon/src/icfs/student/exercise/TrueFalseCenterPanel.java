@@ -28,4 +28,13 @@ public class TrueFalseCenterPanel extends CenterStudentQuestionPanel {
 		center.add(flse);
 		
 	}
+
+	/* (non-Javadoc)
+	 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
+	 */
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
 }

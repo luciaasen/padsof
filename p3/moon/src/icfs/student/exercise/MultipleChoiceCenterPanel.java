@@ -3,8 +3,15 @@
  */
 package icfs.student.exercise;
 
-import javax.swing.JPanel;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+
+import moon.course.question.MultiChoiceQuestion;
+import moon.course.question.Option;
 import moon.course.question.Question;
 
 /**
@@ -13,11 +20,33 @@ import moon.course.question.Question;
  */
 public class MultipleChoiceCenterPanel extends CenterStudentQuestionPanel {
 
-	/**
-	 * @param quest
-	 */
-	public MultipleChoiceCenterPanel(Question quest) {
-		super(quest);
-	}
+	//private JScrollPane answers = new JScrollPane(center);
+		private List<Option> options;
+		private ArrayList<JCheckBox> buttons = new ArrayList<>();
+		/**
+		 * @param quest
+		 */
+		
+		public MultipleChoiceCenterPanel(Question quest) {
+			super(quest);
+			options = ((MultiChoiceQuestion)quest).getOptions();
+			
+			center.setLayout(new GridLayout(options.size(), 1));
+			
+			JCheckBox button;
+			for(Option o : options){
+				button = new JCheckBox(o.getOption());
+				button.setVisible(true);
+				center.add(button);
+			}
+		}
+		/* (non-Javadoc)
+		 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
+		 */
+		@Override
+		public void save() {
+			
+			
+		}
 
 }

@@ -4,9 +4,17 @@
 package icfs.student.exercise;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+
+
 
 import moon.course.question.*;
 
@@ -16,15 +24,37 @@ import moon.course.question.*;
  */
 public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
 	
-	private JScrollPane answers = new JScrollPane(center);
-	private Option options;
+	//private JScrollPane answers = new JScrollPane(center);
+	private List<Option> options;
+	private ArrayList<JRadioButton> buttons = new ArrayList<>();
+	ButtonGroup group = new ButtonGroup();
 	/**
 	 * @param quest
 	 */
+	
 	public SingleChoiceCenterPanel(Question quest) {
 		super(quest);
-		((MultiChoiceQuestion)quest).getOptions();
-		options = center.setLayout(new GridLayout());
+		options = ((OneChoiceQuestion)quest).getOptions();
+		
+		center.setLayout(new GridLayout(options.size(), 1));
+		
+		JRadioButton button;
+		for(Option o : options){
+			button = new JRadioButton(o.getOption());
+			button.setVisible(true);
+			center.add(button);
+			group.add(button);
+		}
 	}
-
+	/* (non-Javadoc)
+	 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
+	 */
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
+		
 }
+
+

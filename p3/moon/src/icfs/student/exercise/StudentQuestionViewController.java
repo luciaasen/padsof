@@ -9,6 +9,7 @@ import java.util.Collections;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.question.Question;
+import moon.mark.MExercise;
 import moon.user.Student;
 
 /**
@@ -21,6 +22,7 @@ public class StudentQuestionViewController {
 	Course c;
 	Question actual;
 	StudentQuestionView view;
+	MExercise me;
 	
 	public void setEverything(Student s, Course c, Exercise e){
 		questionsOrder = e.getQuestions();
@@ -28,7 +30,11 @@ public class StudentQuestionViewController {
 			Collections.shuffle(questionsOrder);
 		}
 		actual = questionsOrder.get(0);
-		
+		me = new MExercise(e);
+	}
+	
+	protected void cancel(){
+		me.cancel();
 	}
 	
 	ArrayList<Question> getQuestionsOrder(){
