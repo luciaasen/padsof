@@ -20,6 +20,7 @@ import moon.Academy;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.user.*;
+import icfs.UpperPanel;
 import icfs.general.course.GeneralCourseView;
 import icfs.login.LoginWindowView;
 
@@ -29,8 +30,10 @@ import icfs.login.LoginWindowView;
  */
 public class mainMoon {
 	public static JFrame window;
+	private static JPanel lowerPanel;
+	private static JPanel upperPanel;
 	private static JPanel superPanel;
-	private static CardLayout superLayout;
+	private static CardLayout lowerLayout;
 	
 	private static MainStudentPanel mainStudentPanel;
 	private static GeneralCourseView coursePanel;
@@ -58,12 +61,18 @@ public class mainMoon {
 		window.setVisible(true);
 		window.setSize(Academy.DIMENSION);
 	
+		lowerPanel = new JPanel();
 		superPanel = new JPanel();
+		upperPanel = new UpperPanel();
 		
-		superLayout = new CardLayout();
-		superPanel.setLayout(superLayout);
+		lowerLayout = new CardLayout();
+		lowerPanel.setLayout(lowerLayout);
+		superPanel.setLayout(new BorderLayout());
+		superPanel.add(lowerPanel, BorderLayout.CENTER);
+		superPanel.add(upperPanel, BorderLayout.NORTH);
+		
 		window.getContentPane().add(superPanel);
-		superPanel.setVisible(true);
+		lowerPanel.setVisible(true);
 		
 		if(u.isTeacher()){
 			teacherMode((Teacher) u);
@@ -77,19 +86,19 @@ public class mainMoon {
 		coursePanel = new StudentCourseView();
 		questionPanel = new StudentQuestionView();
 		
-		superPanel.add(mainStudentPanel, MAIN);
-		superPanel.add(coursePanel, COURSE);
-		superPanel.add(questionPanel, QUESTION);
+		lowerPanel.add(mainStudentPanel, MAIN);
+		lowerPanel.add(coursePanel, COURSE);
+		lowerPanel.add(questionPanel, QUESTION);
 		mainStudentPanel.setEverything(u);
 	}
 	
 	public static void changeCard(String newCard){
-		superLayout.show(superPanel, newCard);
+		lowerLayout.show(lowerPanel, newCard);
 	}
 	
 	public static void backCard(){
-		superLayout.previous(superPanel);
-		superPanel.add(mainTeacherPanel, MAIN);
+		lowerLayout.previous(lowerPanel);
+		lowerPanel.add(mainTeacherPanel, MAIN);
 		
 	}
 	
@@ -99,9 +108,9 @@ public class mainMoon {
 		addCourseView = new AddCourseView();
 		coursePanel = new TeacherCourseView();
 		
-		superPanel.add(mainTeacherPanel, MAIN);
-		superPanel.add(addCourseView, ADD_COURSE);
-		superPanel.add(coursePanel, COURSE);
+		lowerPanel.add(mainTeacherPanel, MAIN);
+		lowerPanel.add(addCourseView, ADD_COURSE);
+		lowerPanel.add(coursePanel, COURSE);
 	}
 	
 	public static void mainSetEverything(){
