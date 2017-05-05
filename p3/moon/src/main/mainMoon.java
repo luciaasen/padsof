@@ -12,6 +12,9 @@ import javax.swing.JPanel;
 import icfs.student.course.StudentCourseView;
 import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.MainStudentPanel;
+import icfs.teacher.create.AddCourseView;
+import icfs.teacher.main.MainTeacherLower;
+import icfs.teacher.main.MainTeacherPanel;
 import moon.Academy;
 import moon.course.Course;
 import moon.course.Exercise;
@@ -26,6 +29,7 @@ public class mainMoon {
 	public static JFrame window;
 	private static JPanel superPanel;
 	private static CardLayout superLayout;
+	
 	private static MainStudentPanel mainStudentPanel;
 	private static StudentCourseView coursePanel;
 	private static StudentQuestionView questionPanel;
@@ -33,6 +37,12 @@ public class mainMoon {
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
 	public final static String QUESTION = "questionPanel";
+	
+	/*teacher*/
+	private static MainTeacherLower mainTeacherPanel;
+	private static AddCourseView addCourseView;
+	public final static String ADD_COURSE = "addCourse";
+	public final static String ADD_UNIT = "addUnit";
 	
 	public static void main(String[] args){
 		
@@ -75,10 +85,22 @@ public class mainMoon {
 	
 	public static void backCard(){
 		superLayout.previous(superPanel);
+		superPanel.add(mainTeacherPanel, MAIN);
+		
 	}
 	
 	public static void teacherMode(Teacher u){
+		//TODO habla con juan el quitar todas las cards actuales, ¿cambio de window Exc?
+		mainTeacherPanel = new MainTeacherLower();
+		addCourseView = new AddCourseView();
 		
+		superPanel.add(mainTeacherPanel, MAIN);
+		superPanel.add(addCourseView, ADD_COURSE);
+		
+	}
+	
+	public static void mainSetEverything(){
+		mainTeacherPanel.setEverything();
 	}
 	
 	public static void courseSetEverything(Student s, Course c){

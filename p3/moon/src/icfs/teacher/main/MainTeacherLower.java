@@ -26,6 +26,8 @@ public class MainTeacherLower extends LowerPanel{
 	private int separation = 70;
 	private JComboBox<String> action;
 	private JComboBox<String> element;
+	private FilteredList<Student> students;
+	private FilteredList<Course> courses;
 	
 	public MainTeacherLower(){
 		super();
@@ -71,7 +73,9 @@ public class MainTeacherLower extends LowerPanel{
 		/*Get the 2 panels with lists that should be inside*/
 		Dimension listDimension = new Dimension(listWidth(), listHeight());
 		FilteredList<Course> courses = new FilteredList(listDimension, Academy.getMoonApp().getCourses());
-		FilteredList<Student> students = new FilteredList(listDimension, Academy.getMoonApp().getUsers());
+		FilteredList<Student> students = new FilteredList<Student>(listDimension, Academy.getMoonApp().getStudents());
+		this.students = students;
+		this.courses = courses;
 		
 		/*Set constraints and add panels*/
 		layout.putConstraint(SpringLayout.NORTH, courses, this.separation, SpringLayout.NORTH, left);
@@ -92,7 +96,7 @@ public class MainTeacherLower extends LowerPanel{
 	 * @return separation 
 	 */
 	private int listWidth(){
-		return this.WIDTH/2 - 2*separation;
+		return WIDTH/2 - 2*separation;
 	}
 	
 	/**
@@ -100,7 +104,7 @@ public class MainTeacherLower extends LowerPanel{
 	 * @return height 
 	 */
 	private int listHeight(){
-		return this.HEIGHT/2 - 2*separation;
+		return HEIGHT/2 - 2*separation;
 	}
 	
 	/**
@@ -122,18 +126,6 @@ public class MainTeacherLower extends LowerPanel{
 		JButton go = new JButton("Go");
 		this.element = combo2;
 		
-		/*JPanel grid = new JPanel();
-		grid.setLayout(new GridLayout(1,2));
-		grid.add(combo1);
-		grid.add(combo2);
-		
-		
-		layout.putConstraint(SpringLayout.NORTH, grid, this.separation, SpringLayout.NORTH, right);
-		layout.putConstraint(SpringLayout.WEST, grid, this.separation, SpringLayout.WEST, right);
-		layout.putConstraint(SpringLayout.NORTH, go, this.separation, SpringLayout.NORTH, right);
-		layout.putConstraint(SpringLayout.WEST, go, this.separation, SpringLayout.EAST, grid);
-		right.add(grid);
-		right.add(go);*/
 		JPanel combos = combos();
 		layout.putConstraint(SpringLayout.NORTH, combos, this.separation, SpringLayout.NORTH, right);
 		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, combos, 0, SpringLayout.HORIZONTAL_CENTER, right);
@@ -160,6 +152,7 @@ public class MainTeacherLower extends LowerPanel{
 		this.element = combo2;
 		
 		JButton go = new JButton("Go");
+		go.addActionListener(new MainTeacherController(this));
 		
 		JPanel grid = new JPanel();
 		grid.setLayout(new GridLayout(1,2));
@@ -187,10 +180,18 @@ public class MainTeacherLower extends LowerPanel{
 	
 	}
 	public String getAction(){
-		return this.action.getSelectedItem().toString();
+		String s = this.action.getSelectedItem().toString();
+		return s;
 	}
 	
 	public String getElement(){
-		return this.action.getSelectedItem().toString();
+		String s = this.element.getSelectedItem().toString();
+		System.out.println(s);
+		return s;
+	}
+	
+	public void setEverything(){
+		this.students.setModel(Academy.getMoonApp().getStudents());
+		this.courses.setModel(Academy.getMoonApp().getCourses());
 	}
 }

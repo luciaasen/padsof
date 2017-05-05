@@ -15,14 +15,17 @@ import main.mainMoon;
 public class MainTeacherController implements ActionListener{
 	private MainTeacherLower view;
 
+	public MainTeacherController(MainTeacherLower view){
+		this.view = view;
+	}
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(view.getAction().equals("Create")){
+		if(view.getAction().equals("Add")){
 			if(view.getElement().equals("Course")){
-				mainMoon.changeCard("CreateCourse");
+				mainMoon.changeCard(mainMoon.ADD_COURSE);
 			}
 		}
 		

@@ -10,13 +10,19 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.UIManager;
 
+import exception.EmptyTextFieldException;
 import icfs.DatePanel;
 import icfs.LowerPanel;
+import icfs.login.LoginWindowView;
+import main.mainMoon;
 import moon.Academy;
+import moon.course.Course;
 
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -30,7 +36,7 @@ import java.time.LocalDate;;
 public class AddCourseView extends LowerPanel{
 	private int separation = 70;
 	private JTextField name;
-	private DatePanel date;
+	//private DatePanel date;
 	
 	public static void main(String[] args){
 		JFrame window = new JFrame();
@@ -65,6 +71,40 @@ public class AddCourseView extends LowerPanel{
 		JButton add = new JButton ("Save and add unit");
 		JButton save = new JButton("Save and exit");
 		JButton exit = new JButton("Back to main page");
+		
+		
+		save.addActionListener(e-> {
+									String nameT;
+									try{
+										nameT = getCourseName();
+										new Course(nameT);
+									}catch(EmptyTextFieldException ex2){
+										UIManager UI=new UIManager();
+										UI.put("OptionPane.background", Academy.DARK_GREEN);
+										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
+										JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+									}
+									mainMoon.mainSetEverything();
+									mainMoon.changeCard(mainMoon.MAIN);
+								});
+		add.addActionListener(e -> {
+									String nameT;
+									try{
+										nameT = getCourseName();
+										new Course(nameT);
+									}catch(EmptyTextFieldException ex2){
+										UIManager UI=new UIManager();
+										UI.put("OptionPane.background", Academy.DARK_GREEN);
+										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
+										JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+									}
+									mainMoon.mainSetEverything();
+									mainMoon.changeCard(mainMoon.ADD_UNIT);
+								});
+		exit.addActionListener(e->{
+			mainMoon.mainSetEverything();
+			mainMoon.changeCard(mainMoon.MAIN);
+		});
 		
 		layout.putConstraint(SpringLayout.SOUTH, add, 3*separation/2, SpringLayout.SOUTH, down);
 		layout.putConstraint(SpringLayout.SOUTH, save, 3*separation/2, SpringLayout.SOUTH, down);	
@@ -103,11 +143,12 @@ public class AddCourseView extends LowerPanel{
 		JTextField nameT = new JTextField(10);
 		this.name = nameT;
 		
-		layout.putConstraint(SpringLayout.SOUTH, name, -2*separation, SpringLayout.VERTICAL_CENTER, down);
-		layout.putConstraint(SpringLayout.SOUTH, nameT, -2*separation, SpringLayout.VERTICAL_CENTER, down);
+		layout.putConstraint(SpringLayout.VERTICAL_CENTER, name, 0, SpringLayout.VERTICAL_CENTER, down);
+		layout.putConstraint(SpringLayout.VERTICAL_CENTER, nameT, 0, SpringLayout.VERTICAL_CENTER, down);
 		layout.putConstraint(SpringLayout.EAST, name, -separation/2, SpringLayout.HORIZONTAL_CENTER, down);
 		layout.putConstraint(SpringLayout.WEST, nameT, separation/2, SpringLayout.HORIZONTAL_CENTER, down);
 				
+		/*
 		DatePanel date = new DatePanel("Visibility starting day");
 		this.date = date;	
 		
@@ -115,18 +156,21 @@ public class AddCourseView extends LowerPanel{
 		layout.putConstraint(SpringLayout.WEST, date, separation, SpringLayout.WEST, down);
 		layout.putConstraint(SpringLayout.EAST, date, separation, SpringLayout.EAST, down);
 		
+		down.add(date);
+		*/
 		down.add(name);
 		down.add(nameT);
-		down.add(date);
 		
 		return down;
 	}
 	
-	public String getName(){
+	public String getCourseName() throws EmptyTextFieldException{
+		if(this.name.getText().equals("")) throw new EmptyTextFieldException();
 		return this.name.getText();
 	}
 	
+	/*
 	public LocalDate getDate() throws NumberFormatException{
 		return this.date.getDate();
-	}
+	}*/
 }

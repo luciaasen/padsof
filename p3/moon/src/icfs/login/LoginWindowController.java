@@ -36,7 +36,7 @@ public class LoginWindowController implements ActionListener{
 		}catch(InvalidUserException ex){
 			UIManager UI=new UIManager();
 			UI.put("OptionPane.background", Academy.DARK_GREEN);
-			UI.put("OptionPane.messageForeground", Academy.LIGHT_GREEN);
+			UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
 			//UI.put("Panel.background", Academy.DARK_GREEN);
 			JOptionPane.showMessageDialog(view, ex.toString(), "Invalid User", JOptionPane.ERROR_MESSAGE);
 		}
