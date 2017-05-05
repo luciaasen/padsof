@@ -225,5 +225,4 @@ public class Academy implements Serializable{
 	public static void setMoon(Academy newMoon){
 		Academy.moonApp = newMoon;
 	}
-	
 }

@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import icfs.student.course.StudentCourseView;
 import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.MainStudentPanel;
+import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.AddCourseView;
 import icfs.teacher.main.MainTeacherLower;
 import icfs.teacher.main.MainTeacherPanel;
@@ -41,6 +42,9 @@ public class mainMoon {
 	/*teacher*/
 	private static MainTeacherLower mainTeacherPanel;
 	private static AddCourseView addCourseView;
+	//TODO ask juan si generalizar esto
+	private static TeacherCourseView teacherCoursePanel;
+	
 	public final static String ADD_COURSE = "addCourse";
 	public final static String ADD_UNIT = "addUnit";
 	
@@ -93,10 +97,11 @@ public class mainMoon {
 		//TODO habla con juan el quitar todas las cards actuales, ¿cambio de window Exc?
 		mainTeacherPanel = new MainTeacherLower();
 		addCourseView = new AddCourseView();
+		teacherCoursePanel = new TeacherCourseView();
 		
 		superPanel.add(mainTeacherPanel, MAIN);
 		superPanel.add(addCourseView, ADD_COURSE);
-		
+		superPanel.add(teacherCoursePanel, COURSE);
 	}
 	
 	public static void mainSetEverything(){
@@ -104,6 +109,10 @@ public class mainMoon {
 	}
 	
 	public static void courseSetEverything(Student s, Course c){
+		coursePanel.setEverything(s,c);
+	}
+	
+	public static void courseSetEverything(Teacher s, Course c){
 		coursePanel.setEverything(s,c);
 	}
 	
