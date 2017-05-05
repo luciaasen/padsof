@@ -8,9 +8,6 @@ import java.util.HashSet;
 
 import moon.user.*;
 import moon.course.Course;
-
-import moon.user.Application;
-
 import es.uam.eps.padsof.emailconnection.*;
 import exception.InvalidUserException;
 
@@ -148,6 +145,14 @@ public class Academy implements Serializable{
 		return users;
 	}
 	
+	public HashSet<Student> getStudents(){
+		HashSet<Student> students= new HashSet<Student>();
+		for (User s: users){
+			if(!s.isTeacher()) students.add((Student) s);
+		}
+		return students;
+	}
+	
 	/**
 	 * This function reads a file with users and add them to the app
 	 * Format: name;surname;e.m@i.l;id;pwd;
@@ -220,5 +225,4 @@ public class Academy implements Serializable{
 	public static void setMoon(Academy newMoon){
 		Academy.moonApp = newMoon;
 	}
-	
 }

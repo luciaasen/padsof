@@ -5,18 +5,21 @@ package icfs.teacher.main;
 
 import java.awt.*;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.swing.*;
 import javax.swing.event.*;
 
 import moon.Academy;
 import moon.course.Course;
+import moon.user.User;
 
 /**
  * @author lucia
  *
  */
 public class FilteredList<V> extends JPanel {
+	private JList<V> list;
 	private DefaultListModel<V> model = new DefaultListModel<V>() ;
 	private Collection<V> defaultCollection;
 	private int separation = 0;
@@ -41,6 +44,8 @@ public class FilteredList<V> extends JPanel {
 		JScrollPane scroll = new JScrollPane(list);
 		scroll.setPreferredSize(new Dimension(d.width, d.height - separation - text.getHeight()));
 		
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.list = list;
 		this.add(scroll, BorderLayout.SOUTH);
 		
 		this.setVisible(true);
@@ -70,5 +75,13 @@ public class FilteredList<V> extends JPanel {
 				this.model.removeElement(element);
 			}
 		}
+	}
+	
+	public JList<V> getList(){
+		return this.list;
+	}
+	public void setModel(Collection<V> newModel){
+		this.model.removeAllElements();
+		for (V element: newModel) this.model.addElement(element);		
 	}
 }

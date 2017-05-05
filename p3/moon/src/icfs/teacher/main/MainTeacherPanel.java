@@ -19,7 +19,6 @@ import moon.course.Course;
  *
  */
 public class MainTeacherPanel extends JPanel{
-	private UpperPanel upper;
 	private LowerPanel lower;
 	
 	public static void main(String[] args){
@@ -51,20 +50,19 @@ public class MainTeacherPanel extends JPanel{
 		this.setPreferredSize(Academy.DIMENSION);
 		this.setVisible(true);
 		this.setBackground(Academy.ORANGE);
-		this.upper = new UpperPanel();
 		this.lower = new MainTeacherLower();
 
 		//this.lower = new AddCourseView();
 		
 		layout.putConstraint(SpringLayout.EAST, lower, 0, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.WEST, lower, 0, SpringLayout.WEST, this);
-		layout.putConstraint(SpringLayout.NORTH, lower, 0, SpringLayout.SOUTH, upper);
-		layout.putConstraint(SpringLayout.NORTH, upper, 0, SpringLayout.NORTH, this);
+		//layout.putConstraint(SpringLayout.NORTH, lower, 0, SpringLayout.SOUTH, upper);
+		//layout.putConstraint(SpringLayout.NORTH, upper, 0, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.SOUTH, lower, 0, SpringLayout.SOUTH, this);
-		layout.putConstraint(SpringLayout.EAST, upper, 0, SpringLayout.EAST, this);
-		layout.putConstraint(SpringLayout.WEST, upper, 0, SpringLayout.WEST, this);
+		//layout.putConstraint(SpringLayout.EAST, upper, 0, SpringLayout.EAST, this);
+		//layout.putConstraint(SpringLayout.WEST, upper, 0, SpringLayout.WEST, this);
 		
-		this.add(upper);
+		//this.add(upper);
 		this.add(lower);
 	}
 	
