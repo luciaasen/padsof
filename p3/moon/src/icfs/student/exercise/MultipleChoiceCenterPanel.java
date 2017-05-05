@@ -13,6 +13,7 @@ import javax.swing.JCheckBox;
 import moon.course.question.MultiChoiceQuestion;
 import moon.course.question.Option;
 import moon.course.question.Question;
+import moon.mark.MExercise;
 
 /**
  * @author e336799
@@ -40,13 +41,14 @@ public class MultipleChoiceCenterPanel extends CenterStudentQuestionPanel {
 				center.add(button);
 			}
 		}
+		
+		
 		/* (non-Javadoc)
-		 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
+		 * @see icfs.student.exercise.CenterStudentQuestionPanel#generateMQuestion(moon.mark.MExercise)
 		 */
 		@Override
-		public void save() {
-			
-			
+		public void generateMQuestion(MExercise me) {
+			//q.answer(, me);
 		}
 
 }

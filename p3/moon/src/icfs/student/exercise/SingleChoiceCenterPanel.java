@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 
 
 import moon.course.question.*;
+import moon.mark.MExercise;
 
 /**
  * @author e336799
@@ -46,15 +47,13 @@ public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
 			group.add(button);
 		}
 	}
-	/* (non-Javadoc)
-	 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
-	 */
+	
 	@Override
-	public void save() {
-		// TODO Auto-generated method stub
+	public void generateMQuestion(MExercise me) {
+		group.getSelection();
+		q.answer(true, me);
 		
 	}
-		
 }
 
 

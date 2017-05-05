@@ -40,4 +40,14 @@ public class StudentQuestionViewController {
 	ArrayList<Question> getQuestionsOrder(){
 		return this.questionsOrder;
 	}
+
+	/**
+	 * @param cards
+	 */
+	public void save(ArrayList<CenterStudentQuestionPanel> cards) {
+		for(CenterStudentQuestionPanel card : cards){
+			card.generateMQuestion(me);
+		}
+		
+	}
 }

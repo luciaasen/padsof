@@ -20,6 +20,7 @@ import moon.Academy;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.user.*;
+import icfs.general.course.GeneralCourseView;
 import icfs.login.LoginWindowView;
 
 /**
@@ -32,7 +33,7 @@ public class mainMoon {
 	private static CardLayout superLayout;
 	
 	private static MainStudentPanel mainStudentPanel;
-	private static StudentCourseView coursePanel;
+	private static GeneralCourseView coursePanel;
 	private static StudentQuestionView questionPanel;
 	
 	public final static String MAIN = "mainPanel";
@@ -42,7 +43,6 @@ public class mainMoon {
 	/*teacher*/
 	private static MainTeacherLower mainTeacherPanel;
 	private static AddCourseView addCourseView;
-	//TODO ask juan si generalizar esto
 	private static TeacherCourseView teacherCoursePanel;
 	
 	public final static String ADD_COURSE = "addCourse";
@@ -97,11 +97,11 @@ public class mainMoon {
 		//TODO habla con juan el quitar todas las cards actuales, ¿cambio de window Exc?
 		mainTeacherPanel = new MainTeacherLower();
 		addCourseView = new AddCourseView();
-		teacherCoursePanel = new TeacherCourseView();
+		coursePanel = new TeacherCourseView();
 		
 		superPanel.add(mainTeacherPanel, MAIN);
 		superPanel.add(addCourseView, ADD_COURSE);
-		superPanel.add(teacherCoursePanel, COURSE);
+		superPanel.add(coursePanel, COURSE);
 	}
 	
 	public static void mainSetEverything(){

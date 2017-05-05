@@ -9,6 +9,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 import moon.course.question.Question;
+import moon.mark.MExercise;
 
 /**
  * @author e336799
@@ -29,12 +30,13 @@ public class TrueFalseCenterPanel extends CenterStudentQuestionPanel {
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
-	 */
+	
 	@Override
-	public void save() {
-		// TODO Auto-generated method stub
-		
+	public void generateMQuestion(MExercise me) {
+		if(tre.isSelected()){
+			q.answer(true, me);
+		} else if (flse.isSelected()) {
+			q.answer(false, me);
+		}
 	}
 }

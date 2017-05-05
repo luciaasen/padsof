@@ -98,9 +98,8 @@ public class StudentQuestionView extends LowerPanel{
 		});
 		
 		save.addActionListener(e -> { 
-			for(CenterStudentQuestionPanel card : cards){
-				card.save();
-			}
+			
+			controller.save(cards);
 			mainMoon.backCard();
 		});
 		exit.addActionListener(e -> { 

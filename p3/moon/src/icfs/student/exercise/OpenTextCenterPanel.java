@@ -10,7 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import moon.course.question.Option;
 import moon.course.question.Question;
+import moon.mark.MExercise;
 
 /**
  * @author e336799
@@ -27,15 +29,11 @@ public class OpenTextCenterPanel extends CenterStudentQuestionPanel {
 		center.setLayout(new GridLayout(1,1));
 		center.add(text);
 	}
-	/* (non-Javadoc)
-	 * @see icfs.student.exercise.CenterStudentQuestionPanel#save()
-	 */
-	@Override
-	public void save() {
-		// TODO Auto-generated method stub
-		
-	}
 	
+	@Override
+	public void generateMQuestion(MExercise me) {
+		q.answer(new Option(text.getText()), me);	
+	}
 	
 
 }
