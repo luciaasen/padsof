@@ -44,6 +44,7 @@ public class mainMoon {
 	private static StudentQuestionView questionPanel;
 	private static StudentNotePanel notePanel;
 	private static StudentSelectCourseStatsPanel selectCourseStatsPanel;
+	private static StudentCourseStats studentCourseStatsPanel;
 	private static StudentExerciseStats exerciseStatsPanel;
 	
 	public final static String MAIN = "mainPanel";
@@ -103,12 +104,14 @@ public class mainMoon {
 		questionPanel = new StudentQuestionView();
 		notePanel = new StudentNotePanel();
 		selectCourseStatsPanel = new StudentSelectCourseStatsPanel();
+		studentCourseStatsPanel = new StudentCourseStats();
 		
 		lowerPanel.add(mainStudentPanel, MAIN);
 		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(questionPanel, QUESTION);
 		lowerPanel.add(notePanel, NOTE);
 		lowerPanel.add(selectCourseStatsPanel, SELECT_COURSE);
+		lowerPanel.add(studentCourseStatsPanel, COURSE_STATS);
 		mainSetEverything(u);
 	}
 	
@@ -204,6 +207,14 @@ public class mainMoon {
 	public static void studentExerciseStatsSetEverything(Student s, Course c, Exercise e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	/**
+	 * @param s
+	 * @param selected
+	 */
+	public static void studentCourseStatsSetEverything(Student s, Course c) {
+		studentCourseStatsPanel.setEverything(s, c);
 	}
 	
 	
