@@ -33,13 +33,13 @@ import moon.user.User;
  */
 public class StudentCourseStats extends LowerPanel{
 	JPanel north = new JPanel();
-	JPanel central = new JPanel();
+	JPanel central;
 	JPanel south = new JPanel();
 	JLabel courseName = new JLabel("Name");
 	JLabel courseMark = new JLabel("Mark");
 	StudentCourseStatsController controller = new StudentCourseStatsController(this);
 	DefaultMutableTreeNode root = new DefaultMutableTreeNode("Course contents");;
-	private JTree tree = new JTree(root);
+	JTree tree = new JTree(root);
 	
 	public StudentCourseStats(){
 		
@@ -50,6 +50,7 @@ public class StudentCourseStats extends LowerPanel{
 		north.setLayout(new GridLayout(1,2));
 		north.add(courseName);
 		north.add(courseMark);
+		north.setBackground(Color.white);
 		
 		central = generateCentralPanel();
 		
@@ -59,6 +60,7 @@ public class StudentCourseStats extends LowerPanel{
 		button = new JButton("Back to main");
 		button.addActionListener(e -> mainMoon.changeCard(mainMoon.MAIN));
 		south.add(button);
+		south.setBackground(Color.white);
 		
 		this.add(north, BorderLayout.NORTH);
 		this.add(south, BorderLayout.SOUTH);
@@ -73,6 +75,8 @@ public class StudentCourseStats extends LowerPanel{
 		centralPanel.setLayout(new BorderLayout(15,15));
 		centralPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		centralPanel.add(tree,BorderLayout.CENTER);
+		tree.addMouseListener(controller);
+		centralPanel.setBackground(Color.WHITE);
 		
 		return centralPanel;
 	}
@@ -84,7 +88,8 @@ public class StudentCourseStats extends LowerPanel{
 	public void setEverything(Student s, Course c) {
 		controller.setEverything(s, c);
 		root.removeAllChildren();
-		
+		courseName.setText(c.getName());
+		courseMark.setText("Mark: "+c.getCourseMark(s));
 		for(Unit unit : c.getUnits()){
 			if(unit.getVisibility()){
 				setNodes(root, unit);
