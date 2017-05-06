@@ -22,6 +22,7 @@ import icfs.teacher.main.*;
 import icfs.teacher.stats.TeacherCourseStats;
 import moon.Academy;
 import moon.course.*;
+import moon.course.question.Question;
 import moon.user.*;
 import icfs.UpperPanel;
 import icfs.general.course.GeneralCourseView;
@@ -54,6 +55,7 @@ public class mainMoon {
 	public final static String SELECT_COURSE = "selectCoursePanel";
 	public final static String COURSE_STATS = "courseStatsPanel";
 	public final static String EXERCISE_STATS = "exercieStatsPanel";
+	public final static String QUESTION_STATS = "questionStatsPanel";
 	
 	/*teacher*/
 	private static MainTeacherLower mainTeacherPanel;
@@ -105,6 +107,7 @@ public class mainMoon {
 		notePanel = new StudentNotePanel();
 		selectCourseStatsPanel = new StudentSelectCourseStatsPanel();
 		studentCourseStatsPanel = new StudentCourseStats();
+		exerciseStatsPanel = new StudentExerciseStats();
 		
 		lowerPanel.add(mainStudentPanel, MAIN);
 		lowerPanel.add(coursePanel, COURSE);
@@ -112,6 +115,7 @@ public class mainMoon {
 		lowerPanel.add(notePanel, NOTE);
 		lowerPanel.add(selectCourseStatsPanel, SELECT_COURSE);
 		lowerPanel.add(studentCourseStatsPanel, COURSE_STATS);
+		lowerPanel.add(exerciseStatsPanel, EXERCISE_STATS);
 		mainSetEverything(u);
 	}
 	
@@ -205,7 +209,7 @@ public class mainMoon {
 	 * @param selected
 	 */
 	public static void studentExerciseStatsSetEverything(Student s, Course c, Exercise e) {
-		// TODO Auto-generated method stub
+		exerciseStatsPanel.setEverything(s, e);
 		
 	}
 
@@ -215,6 +219,15 @@ public class mainMoon {
 	 */
 	public static void studentCourseStatsSetEverything(Student s, Course c) {
 		studentCourseStatsPanel.setEverything(s, c);
+	}
+
+	/**
+	 * @param s
+	 * @param e
+	 * @param question2
+	 */
+	public static void studentQuestionStatsSetEverything(Student s, Exercise e, Question q) {
+		
 	}
 	
 	

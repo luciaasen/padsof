@@ -127,4 +127,11 @@ abstract public class Question implements Serializable{
 	public ArrayList<MQuestion> getStudentMarks(){
 		return this.studentMarks;
 	}
+	
+	/**
+	 * To string method.
+	 */
+	public String toString(){
+		return question;
+	}
 }
