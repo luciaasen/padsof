@@ -41,11 +41,8 @@ public abstract class GeneralCourseView extends LowerPanel {
 	public GeneralCourseView() {
 		this.setLayout(new BorderLayout(20,20));
 		this.setVisible(true);
-
-		root = new DefaultMutableTreeNode("Course contents");
+		tree= new JTree();
 		
-		tree = new JTree(root) ;
-		getTree().setRootVisible(true);
 		centerPanel.setBackground(Academy.ORANGE);
 		southPanel.setBackground(Academy.ORANGE);
 		backButton.setVisible(true);
@@ -53,13 +50,11 @@ public abstract class GeneralCourseView extends LowerPanel {
 		this.add(southPanel, BorderLayout.SOUTH);
 		backButton.addActionListener((e) -> mainMoon.changeCard(mainMoon.MAIN));
 		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+		centerPanel.add(tree, BorderLayout.CENTER);
 		centerPanel.setBorder(border1);
 		centerPanel.setLayout(new BorderLayout());
-		centerPanel.add(getTree(), BorderLayout.CENTER);
 		this.add(centerPanel, BorderLayout.CENTER);
-		/* Let's configure the tree */
-		getTree().getSelectionModel()
-		.setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+		
 		
 		
 	}
@@ -71,13 +66,17 @@ public abstract class GeneralCourseView extends LowerPanel {
 	 */
 	public void setEverything(User u, Course c){
 		controller.setEverything(u, c);
-		root.removeAllChildren();
-		
+		centerPanel.remove(tree);
+		root = new DefaultMutableTreeNode(c.getName());
+		tree = new JTree(root);
 		for(Unit unit : c.getUnits()){
 			if(unit.getVisibility() || u.isTeacher()){
 				setNodes(root, unit, u);
 			}
 		}
+		tree.getSelectionModel()
+		.setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+		centerPanel.add(tree, BorderLayout.CENTER);
 	}
 	
 	/**
