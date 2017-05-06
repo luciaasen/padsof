@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import icfs.LowerPanel;
 import main.mainMoon;
+import moon.Academy;
 
 /**
  * @author Juan RIera and Lucia Asencio
@@ -22,10 +23,10 @@ import main.mainMoon;
 public class StudentCourseStats extends LowerPanel {
 	JPanel central = new JPanel();
 	JPanel south = new JPanel();
-	JLabel average = new JLabel();
-	JLabel nPasses = new JLabel();
-	JLabel nFails = new JLabel();
-	JLabel courseName = new JLabel();
+	JLabel average = new JLabel("Average mark: ");
+	JLabel nPasses = new JLabel("Number of passes: ");
+	JLabel nFails = new JLabel("Number of fails: ");
+	JLabel courseName = new JLabel("Course name: ");
 	
 	public StudentCourseStats(){
 		this.setLayout(new BorderLayout(20,20));
@@ -50,6 +51,7 @@ public class StudentCourseStats extends LowerPanel {
 		JPanel down = new JPanel();
 		JPanel superPanel = new JPanel();
 		superPanel.setLayout(new GridLayout(3,1,10,10));
+		superPanel.setBackground(Academy.ORANGE);
 		
 		up.add(courseName);
 		up.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

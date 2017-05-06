@@ -27,7 +27,7 @@ public class StudentCourseView extends GeneralCourseView {
 	public StudentCourseView(){
 		super();
 		controller = new StudentCourseViewController(this);
-		getTree().addTreeSelectionListener(controller);
+		getTree().addMouseListener(controller);
 	}
 
 
