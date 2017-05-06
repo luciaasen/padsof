@@ -81,18 +81,17 @@ public class MainTeacherLower extends LowerPanel{
 		this.courses = courses;
 		
 		this.courses.getList().addListSelectionListener(new ListSelectionListener(){
-
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				if (e.getValueIsAdjusting() == false) {
-					Course c = courses.getList().getSelectedValue();
-					if (c != null){
-						mainMoon.courseSetEverything((Teacher)(Academy.getMoonApp().getTeacher()), c);
-						mainMoon.changeCard(mainMoon.COURSE);
-					}
-			    }				
-			}			
-		});
+						@Override
+						public void valueChanged(ListSelectionEvent e) {
+							if (e.getValueIsAdjusting() == false) {
+								Course c = courses.getList().getSelectedValue();
+								if (c != null){
+									mainMoon.courseSetEverything((Teacher)(Academy.getMoonApp().getTeacher()), c);
+									mainMoon.changeCard(mainMoon.COURSE);
+								}
+						    }				
+						}			
+					});
 		/*Set constraints and add panels*/
 		layout.putConstraint(SpringLayout.NORTH, courses, this.separation, SpringLayout.NORTH, left);
 		layout.putConstraint(SpringLayout.NORTH, students, 2*this.separation, SpringLayout.SOUTH, courses);

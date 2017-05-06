@@ -28,10 +28,21 @@ public class FilteredList<V> extends JPanel {
 		this.setPreferredSize(d);
 		this.setBackground(Academy.ORANGE);
 		
+		
+		JPanel text = new JPanel();
+		text.setBackground(Academy.ORANGE);
+		
+		/*Create label*/
+		JLabel search = new JLabel("Search by name: ");		
 		/*Create the textfield that will filter the list*/
-		JTextField text = filteringTextField();
-		text.setSize(d.width, 40);
+		JTextField input = filteringTextField();
+		input.setSize(d.width-160, 25);
+		input.setPreferredSize(new Dimension(d.width-160, 25));
+		text.add(search, BorderLayout.WEST);
+		text.add(input, BorderLayout.EAST);
+		
 		text.setPreferredSize(new Dimension(d.width, 25));
+		
 		this.add(text, BorderLayout.NORTH);
 		
 		
@@ -39,10 +50,10 @@ public class FilteredList<V> extends JPanel {
 		this.defaultCollection = defaultCollection;
 		for (V element: defaultCollection) this.model.addElement(element);
 		JList<V> list = new JList<V>(this.model);
-		list.setSize(d.width, d.height - separation - text.getHeight());
-		list.setPreferredSize(new Dimension(d.width - 18, d.height - separation - text.getHeight()));
+		list.setSize(d.width-18, d.height - 33);
+		list.setPreferredSize(new Dimension(d.width - 18, d.height-33));
 		JScrollPane scroll = new JScrollPane(list);
-		scroll.setPreferredSize(new Dimension(d.width, d.height - separation - text.getHeight()));
+		scroll.setPreferredSize(new Dimension(d.width, d.height -33));
 		
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.list = list;

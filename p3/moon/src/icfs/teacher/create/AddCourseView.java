@@ -36,7 +36,6 @@ import java.time.LocalDate;;
 public class AddCourseView extends LowerPanel{
 	private int separation = 70;
 	private JTextField name;
-	//private DatePanel date;
 	
 	public static void main(String[] args){
 		JFrame window = new JFrame();
@@ -49,8 +48,6 @@ public class AddCourseView extends LowerPanel{
 		SpringLayout layout = new SpringLayout();
 		this.setLayout(layout);
 		JPanel up = up();
-		//up.setPreferredSize(new Dimension(this.getWidth()/3, this.getHeight()/10));
-		//up.setPreferredSize(new Dimension(40, 50));
 		
 		layout.putConstraint(SpringLayout.NORTH, up, this.separation, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.WEST, up, this.separation, SpringLayout.WEST, this);
@@ -58,7 +55,6 @@ public class AddCourseView extends LowerPanel{
 		
 		JPanel down = down();
 		
-		//down.setPreferredSize(new Dimension(this.getWidth() - 2* this.separation, 2*this.getHeight()/5));
 		
 		layout.putConstraint(SpringLayout.NORTH, down, this.separation, SpringLayout.SOUTH, up);
 		layout.putConstraint(SpringLayout.SOUTH, down, -2*this.separation, SpringLayout.SOUTH, this);
@@ -91,14 +87,14 @@ public class AddCourseView extends LowerPanel{
 									String nameT;
 									try{
 										nameT = getCourseName();
-										new Course(nameT);
+										Course c = new Course(nameT);
+										mainMoon.addUnitSetEverything(c);										
 									}catch(EmptyTextFieldException ex2){
 										UIManager UI=new UIManager();
 										UI.put("OptionPane.background", Academy.DARK_GREEN);
 										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
 										JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
 									}
-									mainMoon.mainSetEverything();
 									mainMoon.changeCard(mainMoon.ADD_UNIT);
 								});
 		exit.addActionListener(e->{
@@ -148,16 +144,6 @@ public class AddCourseView extends LowerPanel{
 		layout.putConstraint(SpringLayout.EAST, name, -separation/2, SpringLayout.HORIZONTAL_CENTER, down);
 		layout.putConstraint(SpringLayout.WEST, nameT, separation/2, SpringLayout.HORIZONTAL_CENTER, down);
 				
-		/*
-		DatePanel date = new DatePanel("Visibility starting day");
-		this.date = date;	
-		
-		layout.putConstraint(SpringLayout.NORTH, date, 2*separation, SpringLayout.SOUTH, name);
-		layout.putConstraint(SpringLayout.WEST, date, separation, SpringLayout.WEST, down);
-		layout.putConstraint(SpringLayout.EAST, date, separation, SpringLayout.EAST, down);
-		
-		down.add(date);
-		*/
 		down.add(name);
 		down.add(nameT);
 		
@@ -168,9 +154,4 @@ public class AddCourseView extends LowerPanel{
 		if(this.name.getText().equals("")) throw new EmptyTextFieldException();
 		return this.name.getText();
 	}
-	
-	/*
-	public LocalDate getDate() throws NumberFormatException{
-		return this.date.getDate();
-	}*/
 }

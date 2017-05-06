@@ -13,12 +13,11 @@ import icfs.student.course.StudentCourseView;
 import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.MainStudentPanel;
 import icfs.teacher.course.TeacherCourseView;
-import icfs.teacher.create.AddCourseView;
+import icfs.teacher.create.*;
 import icfs.teacher.main.MainTeacherLower;
 import icfs.teacher.main.MainTeacherPanel;
 import moon.Academy;
-import moon.course.Course;
-import moon.course.Exercise;
+import moon.course.*;
 import moon.user.*;
 import icfs.UpperPanel;
 import icfs.general.course.GeneralCourseView;
@@ -46,10 +45,14 @@ public class mainMoon {
 	/*teacher*/
 	private static MainTeacherLower mainTeacherPanel;
 	private static AddCourseView addCourseView;
-	private static TeacherCourseView teacherCoursePanel;
+	private static AddUnitView addUnitView;
+	private static AddNoteView addNoteView;
+	private static AddExeView addExeView;
 	
 	public final static String ADD_COURSE = "addCourse";
 	public final static String ADD_UNIT = "addUnit";
+	public final static String ADD_NOTE = "addNote";
+	public final static String ADD_EXE = "addExe";
 	
 	public static void main(String[] args){
 		
@@ -105,26 +108,52 @@ public class mainMoon {
 	public static void teacherMode(Teacher u){
 		//TODO habla con juan el quitar todas las cards actuales, ¿cambio de window Exc?
 		mainTeacherPanel = new MainTeacherLower();
-		addCourseView = new AddCourseView();
 		coursePanel = new TeacherCourseView();
+		addCourseView = new AddCourseView();
+		addUnitView = new AddUnitView();
+		addNoteView = new AddNoteView();
+		addExeView = new AddExeView();
 		
 		lowerPanel.add(mainTeacherPanel, MAIN);
 		lowerPanel.add(addCourseView, ADD_COURSE);
+		lowerPanel.add(addUnitView, ADD_UNIT);
 		lowerPanel.add(coursePanel, COURSE);
+		lowerPanel.add(addNoteView, ADD_NOTE);
+		lowerPanel.add(addExeView, ADD_EXE);
 	}
 	
+	
+	/*Mine*/
 	public static void mainSetEverything(){
 		mainTeacherPanel.setEverything();
-	}
-	
-	public static void courseSetEverything(Student s, Course c){
-		coursePanel.setEverything(s,c);
 	}
 	
 	public static void courseSetEverything(Teacher s, Course c){
 		coursePanel.setEverything(s,c);
 	}
 	
+	public static void addUnitSetEverything(Course c){
+		addUnitView.setEverything(c);
+	}
+	
+	public static void addUnitSetEverything(Unit u){
+		addUnitView.setEverything(u);
+	}
+	
+	public static void addNoteSetEverything(Unit u){
+		addNoteView.setEverything(u);
+	}
+	
+	public static void addExeSetEverything(Unit u){
+		addExeView.setEverything(u);
+	}
+	
+	/*Juan*/
+	
+	public static void courseSetEverything(Student s, Course c){
+		coursePanel.setEverything(s,c);
+	}
+
 	public static void mainSetEverything(Student s){
 		mainStudentPanel.setEverything(s);
 	}

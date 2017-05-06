@@ -103,7 +103,6 @@ public class CourseTest {
 		e3.setUnit(u2);
 		e4.setUnit(u2);
 		
-		
 		/*Students apply and are accepted*/
 		try{
 			a1 = s1.apply(c1);
