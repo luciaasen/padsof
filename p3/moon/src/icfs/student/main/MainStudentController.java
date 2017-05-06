@@ -15,7 +15,7 @@ import moon.user.Student;
  */
 public class MainStudentController {
 	
-	private Student s;
+	Student s;
 	
 	public ArrayList<Course> getAllCourses(){
 		return Academy.getMoonApp().getCourses();

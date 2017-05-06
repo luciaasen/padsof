@@ -27,12 +27,13 @@ import moon.user.Student;
  * @author juan
  *
  */
-public class StudentSelectCourseStatsPanel extends LowerPanel implements MouseListener {
+public class StudentSelectCourseStatsPanel extends LowerPanel{
 	JPanel centerPanel = new JPanel();
 	JPanel buttons = new JPanel();
 	JLabel label = new JLabel("Select a course to see it's statistics:");
 	private DefaultListModel<Course> coursesM = new DefaultListModel<Course>();
 	JList<Course> list = new JList<>(coursesM);
+	StudentSelectCourseStatsController controller = new StudentSelectCourseStatsController(this);
 
 	public StudentSelectCourseStatsPanel(){
 		this.setLayout(new BorderLayout(10,10));
@@ -41,7 +42,7 @@ public class StudentSelectCourseStatsPanel extends LowerPanel implements MouseLi
 		centerPanel.add(label, BorderLayout.NORTH);
 		centerPanel.add(list, BorderLayout.CENTER);
 		list.setBorder(BorderFactory.createLineBorder(Academy.DARK_GREEN));
-		list.addMouseListener(this);;
+		list.addMouseListener(controller);
 		centerPanel.setBackground(Color.WHITE);
 		
 		JButton button = new JButton("Back");
@@ -60,39 +61,7 @@ public class StudentSelectCourseStatsPanel extends LowerPanel implements MouseLi
 			System.out.println("Curso");
 			coursesM.addElement(c);
 		}
-	}
-
-	
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		Course selected = list.getSelectedValue();
-		if(selected == null){
-			return;
-		} else {
-			//setEverything
-			mainMoon.changeCard(mainMoon.COURSE_STATS);
-		}
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-	}
-
-	
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		
-	}
-
-	
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-	}
-
-	
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		
+		controller.setEverything(s);
 	}
 
 	
