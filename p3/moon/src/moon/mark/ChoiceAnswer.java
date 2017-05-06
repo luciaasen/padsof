@@ -49,4 +49,8 @@ public class ChoiceAnswer extends MQuestion implements Serializable{
 		return false;
 	}
 	
+	public ArrayList<Option> getAnswers(){
+		return answers;
+	}
+	
 }

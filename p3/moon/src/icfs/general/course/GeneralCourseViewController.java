@@ -23,7 +23,6 @@ public abstract class GeneralCourseViewController implements MouseListener {
 	public void setEverything(User u, Course c){
 		this.u=u;
 		this.c=c;
-		System.out.println(c);
 	}
 	
 	@Override

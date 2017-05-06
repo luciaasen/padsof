@@ -41,4 +41,8 @@ public class TfAnswer extends MQuestion implements Serializable{
 		}
 		return false;
 	}
+	
+	public boolean getAnswer(){
+		return answer;
+	}
 }
