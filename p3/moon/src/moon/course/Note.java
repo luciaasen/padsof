@@ -10,8 +10,30 @@ import java.io.Serializable;
  */
 public class Note extends CourseElement implements Serializable{
 	private String text;
-
+	private String title;
+	
+	/**
+	 * Constructor with no paremeters
+	 */
+	public Note(){
+		this("", "");
+	}
+	
+	/**
+	 * Contructor that receives only the text of the note.
+	 * @param text
+	 */
 	public Note(String text){
+		this("", text);
+	}
+	
+	/**
+	 * Constructor that recieves the text and the title.
+	 * @param title
+	 * @param text
+	 */
+	public Note(String title, String text){
+		this.title = title;
 		this.text=text;
 	}
 	/**
@@ -26,6 +48,22 @@ public class Note extends CourseElement implements Serializable{
 	 */
 	public void setText(String text) {
 		this.text = text;
+	}
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String toString(){
+		return title;
 	}
 	
 	

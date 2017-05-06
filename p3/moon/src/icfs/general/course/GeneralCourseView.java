@@ -14,9 +14,12 @@ import javax.swing.border.Border;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
+import icfs.LowerPanel;
 import main.mainMoon;
+import moon.Academy;
 import moon.course.Course;
 import moon.course.CourseElement;
+import moon.course.Exercise;
 import moon.course.Unit;
 import moon.user.User;
 
@@ -24,7 +27,7 @@ import moon.user.User;
  * @author Juan Riera and Lucia Asencio
  *
  */
-public abstract class GeneralCourseView extends JPanel {
+public abstract class GeneralCourseView extends LowerPanel {
 	
 	protected GeneralCourseViewController controller;
 	protected JButton backButton = new JButton("Back");
@@ -39,14 +42,16 @@ public abstract class GeneralCourseView extends JPanel {
 		this.setLayout(new BorderLayout(20,20));
 		this.setVisible(true);
 
-		root = new DefaultMutableTreeNode("Holas");
+		root = new DefaultMutableTreeNode("Course contents");
 		
 		tree = new JTree(root) ;
 		getTree().setRootVisible(true);
+		centerPanel.setBackground(Academy.ORANGE);
+		southPanel.setBackground(Academy.ORANGE);
 		backButton.setVisible(true);
 		southPanel.add(backButton, FlowLayout.LEFT);
 		this.add(southPanel, BorderLayout.SOUTH);
-		backButton.addActionListener((e) -> mainMoon.backCard());
+		backButton.addActionListener((e) -> mainMoon.changeCard(mainMoon.MAIN));
 		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		centerPanel.setBorder(border1);
 		centerPanel.setLayout(new BorderLayout());

@@ -10,12 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import icfs.student.course.StudentCourseView;
+import icfs.student.course.StudentNotePanel;
 import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.MainStudentPanel;
+import icfs.student.main.StudentSelectCourseStatsPanel;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
-import icfs.teacher.main.MainTeacherLower;
-import icfs.teacher.main.MainTeacherPanel;
+import icfs.teacher.main.*;
 import moon.Academy;
 import moon.course.*;
 import moon.user.*;
@@ -37,10 +38,14 @@ public class mainMoon {
 	private static MainStudentPanel mainStudentPanel;
 	private static GeneralCourseView coursePanel;
 	private static StudentQuestionView questionPanel;
+	private static StudentNotePanel notePanel;
+	private static StudentSelectCourseStatsPanel selectCourseStatsPanel;
 	
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
 	public final static String QUESTION = "questionPanel";
+	public final static String NOTE = "notePanel";
+	public final static String SELECT_COURSE = "selectCoursePanel";
 	
 	/*teacher*/
 	private static MainTeacherLower mainTeacherPanel;
@@ -88,21 +93,19 @@ public class mainMoon {
 		mainStudentPanel = new MainStudentPanel();
 		coursePanel = new StudentCourseView();
 		questionPanel = new StudentQuestionView();
+		notePanel = new StudentNotePanel();
+		selectCourseStatsPanel = new StudentSelectCourseStatsPanel();
 		
 		lowerPanel.add(mainStudentPanel, MAIN);
 		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(questionPanel, QUESTION);
-		mainStudentPanel.setEverything(u);
+		lowerPanel.add(notePanel, NOTE);
+		lowerPanel.add(selectCourseStatsPanel, SELECT_COURSE);
+		mainSetEverything(u);
 	}
 	
 	public static void changeCard(String newCard){
 		lowerLayout.show(lowerPanel, newCard);
-	}
-	
-	public static void backCard(){
-		lowerLayout.previous(lowerPanel);
-		lowerPanel.add(mainTeacherPanel, MAIN);
-		
 	}
 	
 	public static void teacherMode(Teacher u){
@@ -156,10 +159,19 @@ public class mainMoon {
 
 	public static void mainSetEverything(Student s){
 		mainStudentPanel.setEverything(s);
+		selectCourseStatsPanel.setEverything(s);
 	}
 	
 	public static void questionSetEverything(Student s, Course c, Exercise e){
 		questionPanel.setEverything(s, c, e);
 	}
+
+	/**
+	 * @param n the note
+	 */
+	public static void noteSetEverything(Note n) {
+		notePanel.setEverything(n);
+	}
+	
 	
 }

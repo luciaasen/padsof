@@ -78,7 +78,9 @@ public class AddCourseView extends LowerPanel{
 										UIManager UI=new UIManager();
 										UI.put("OptionPane.background", Academy.DARK_GREEN);
 										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
-										JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+										//JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+										JOptionPane.showOptionDialog(null, ex2.toString(), "Empty Course name", JOptionPane.YES_OPTION, 
+												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 									}
 									mainMoon.mainSetEverything();
 									mainMoon.changeCard(mainMoon.MAIN);
@@ -93,7 +95,9 @@ public class AddCourseView extends LowerPanel{
 										UIManager UI=new UIManager();
 										UI.put("OptionPane.background", Academy.DARK_GREEN);
 										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
-										JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+										//JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+										JOptionPane.showOptionDialog(null, ex2.toString(), "Empty Course name", JOptionPane.YES_OPTION, 
+												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 									}
 									mainMoon.changeCard(mainMoon.ADD_UNIT);
 								});

@@ -10,6 +10,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import icfs.general.course.GeneralCourseViewController;
 import main.mainMoon;
 import moon.course.Exercise;
+import moon.course.Note;
 import moon.user.Student;
 
 /**
@@ -31,8 +32,14 @@ public class StudentCourseViewController extends GeneralCourseViewController {
 		if(node==null){
 			return;
 		} else if (node.getUserObject() instanceof Exercise) {
-			mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
-			mainMoon.changeCard(mainMoon.QUESTION);
+			Exercise e = (Exercise)node.getUserObject();
+			if(e.getExercise((Student)u)==null && e.isActive()){
+				mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
+				mainMoon.changeCard(mainMoon.QUESTION);
+			}
+		} else if (node.getUserObject() instanceof Note){
+			mainMoon.noteSetEverything((Note)node.getUserObject());
+			mainMoon.changeCard(mainMoon.NOTE);
 		}
 		
 	}

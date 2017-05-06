@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
@@ -21,6 +23,7 @@ import main.mainMoon;
 import moon.Academy;
 import moon.course.Course;
 import moon.course.Exercise;
+import moon.course.Note;
 import moon.course.Unit;
 import moon.course.question.*;
 import moon.user.Student;
@@ -37,6 +40,7 @@ public class mainPruebas {
 		
 		LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
+
 		//studentModeTest();
 	}
 	
@@ -207,7 +211,9 @@ public class mainPruebas {
 		
 		u1.addElement(e);
 		u1.addElement(new Unit("Unit 1.1"));
-		
+		Note n = new Note("node.getUserObject() instanceof Exercisenode.getUserObject() instanceof Exercisenode.getUserObject() instanceof Exercisenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenote");
+		n.setTitle("Note1");
+		u1.addElement(n);
 		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");
 		s.apply(math).accept();
 
