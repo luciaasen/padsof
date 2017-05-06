@@ -14,6 +14,7 @@ import icfs.student.course.StudentNotePanel;
 import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.MainStudentPanel;
 import icfs.student.main.StudentSelectCourseStatsPanel;
+import icfs.student.stats.StudentCourseStats;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
 import icfs.teacher.main.*;
@@ -35,17 +36,20 @@ public class mainMoon {
 	private static JPanel superPanel;
 	private static CardLayout lowerLayout;
 	
+	/* Student */
 	private static MainStudentPanel mainStudentPanel;
 	private static GeneralCourseView coursePanel;
 	private static StudentQuestionView questionPanel;
 	private static StudentNotePanel notePanel;
 	private static StudentSelectCourseStatsPanel selectCourseStatsPanel;
+	private static StudentCourseStats courseStatsPanel;
 	
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
 	public final static String QUESTION = "questionPanel";
 	public final static String NOTE = "notePanel";
 	public final static String SELECT_COURSE = "selectCoursePanel";
+	public final static String COURSE_STATS = "courseStatsPanel";
 	
 	/*teacher*/
 	private static MainTeacherLower mainTeacherPanel;
@@ -95,12 +99,14 @@ public class mainMoon {
 		questionPanel = new StudentQuestionView();
 		notePanel = new StudentNotePanel();
 		selectCourseStatsPanel = new StudentSelectCourseStatsPanel();
+		courseStatsPanel = new StudentCourseStats();
 		
 		lowerPanel.add(mainStudentPanel, MAIN);
 		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(questionPanel, QUESTION);
 		lowerPanel.add(notePanel, NOTE);
 		lowerPanel.add(selectCourseStatsPanel, SELECT_COURSE);
+		lowerPanel.add(courseStatsPanel, COURSE_STATS);
 		mainSetEverything(u);
 	}
 	

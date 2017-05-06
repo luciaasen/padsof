@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import icfs.LowerPanel;
 import main.mainMoon;
@@ -23,7 +25,7 @@ import moon.user.Student;
  * @author juan
  *
  */
-public class StudentSelectCourseStatsPanel extends LowerPanel {
+public class StudentSelectCourseStatsPanel extends LowerPanel implements ListSelectionListener {
 	JPanel centerPanel = new JPanel();
 	JPanel buttons = new JPanel();
 	JLabel label = new JLabel("Select a course to see it's statistics:");
@@ -37,6 +39,7 @@ public class StudentSelectCourseStatsPanel extends LowerPanel {
 		centerPanel.add(label, BorderLayout.NORTH);
 		centerPanel.add(list, BorderLayout.CENTER);
 		list.setBorder(BorderFactory.createLineBorder(Academy.DARK_GREEN));
+		list.addListSelectionListener(this);
 		centerPanel.setBackground(Color.WHITE);
 		
 		JButton button = new JButton("Back");
@@ -54,6 +57,18 @@ public class StudentSelectCourseStatsPanel extends LowerPanel {
 		for(Course c : s.getCourses()){
 			System.out.println("Curso");
 			coursesM.addElement(c);
+		}
+	}
+
+	
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		Course selected = list.getSelectedValue();
+		if(selected == null){
+			return;
+		} else {
+			//setEverything
+			mainMoon.changeCard(mainMoon.COURSE_STATS);
 		}
 	}
 
