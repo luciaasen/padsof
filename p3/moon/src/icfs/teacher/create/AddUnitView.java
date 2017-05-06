@@ -187,9 +187,15 @@ public class AddUnitView extends LowerPanel{
 		this.parentUnit = parentUnit;
 		this.parentCourse = null;
 		
+		visibility.setSelected(false);
+		name.setEnabled(true);
 		message.setText("Add Unit to unit " + this.parentCourse + this.parentUnit);
 		name.setText(null);
 		
+	}
+	
+	public JTextField getText(){
+		return this.name;
 	}
 	
 	public String getUnitName() throws EmptyTextFieldException{

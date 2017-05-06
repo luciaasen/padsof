@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 
+import exception.DuplicateElementException;
 import exception.EmptyTextFieldException;
 import icfs.DatePanel;
 import icfs.LowerPanel;
@@ -37,12 +38,7 @@ public class AddCourseView extends LowerPanel{
 	private int separation = 70;
 	private JTextField name;
 	
-	public static void main(String[] args){
-		JFrame window = new JFrame();
-		window.setSize(Academy.DIMENSION);
-		window.getContentPane().add(new AddCourseView(), BorderLayout.CENTER);
-		window.setVisible(true);
-	}
+
 	public AddCourseView(){
 		super();
 		SpringLayout layout = new SpringLayout();
@@ -79,7 +75,14 @@ public class AddCourseView extends LowerPanel{
 										UI.put("OptionPane.background", Academy.DARK_GREEN);
 										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
 										//JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
-										JOptionPane.showOptionDialog(null, ex2.toString(), "Empty Course name", JOptionPane.YES_OPTION, 
+										JOptionPane.showOptionDialog(this, ex2.toString(), "Empty Course name", JOptionPane.YES_OPTION, 
+												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+									}catch(DuplicateElementException ex){
+										UIManager UI=new UIManager();
+										UI.put("OptionPane.background", Academy.DARK_GREEN);
+										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
+										//JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+										JOptionPane.showOptionDialog(this, ex.toString(), "Invalid name", JOptionPane.YES_OPTION, 
 												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 									}
 									mainMoon.mainSetEverything();
@@ -90,7 +93,6 @@ public class AddCourseView extends LowerPanel{
 									try{
 										nameT = getCourseName();
 										Course c = new Course(nameT);
-										System.out.println(c + "line 93 addcourseview");
 										mainMoon.addUnitSetEverything(c);	
 										mainMoon.changeCard(mainMoon.ADD_UNIT);
 									}catch(EmptyTextFieldException ex2){
@@ -98,7 +100,14 @@ public class AddCourseView extends LowerPanel{
 										UI.put("OptionPane.background", Academy.DARK_GREEN);
 										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
 										//JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
-										JOptionPane.showOptionDialog(null, ex2.toString(), "Empty Course name", JOptionPane.YES_OPTION, 
+										JOptionPane.showOptionDialog(this, ex2.toString(), "Empty Course name", JOptionPane.YES_OPTION, 
+												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+									}catch(DuplicateElementException ex){
+										UIManager UI=new UIManager();
+										UI.put("OptionPane.background", Academy.DARK_GREEN);
+										UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
+										//JOptionPane.showMessageDialog(this, ex2.toString(), "Empty Course name", JOptionPane.ERROR_MESSAGE);
+										JOptionPane.showOptionDialog(this, ex.toString(), "Invalid name", JOptionPane.YES_OPTION, 
 												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 									}
 								});
@@ -160,7 +169,12 @@ public class AddCourseView extends LowerPanel{
 		return this.name.getText();
 	}
 	
+	public JTextField getText(){
+		return this.name;
+	}
+	
 	public void setEverything(){
+		this.name.setEnabled(true);
 		this.name.setText(null);
 	}
 }

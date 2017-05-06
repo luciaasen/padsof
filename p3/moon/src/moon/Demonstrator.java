@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
 import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
+import exception.DuplicateElementException;
 import exception.InvalidUserException;
 import moon.course.Course;
 import moon.course.CourseElement;
@@ -35,7 +36,7 @@ public class Demonstrator {
 	 * will sequentally apply, log in and do the exercises.
 	 * @throws InvalidUserException 
 	 */
-	public static void main(String args[]) throws InvalidUserException{
+	public static void main(String args[]) throws InvalidUserException, DuplicateElementException{
 		User u;
 		Student s;
 		Course c;

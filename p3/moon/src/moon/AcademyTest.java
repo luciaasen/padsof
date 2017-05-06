@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
 import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
+import exception.DuplicateElementException;
 import exception.InvalidUserException;
 import moon.course.Course;
 import moon.user.Application;
@@ -35,7 +36,7 @@ public class AcademyTest {
 	int users;
 	
 	@Before
-	public void setUp() throws NumberFormatException, IOException{
+	public void setUp() throws NumberFormatException, IOException, DuplicateElementException{
 		a = new Academy();
 		Academy.setMoon(a);
 		c1 = new Course("PADSOF");

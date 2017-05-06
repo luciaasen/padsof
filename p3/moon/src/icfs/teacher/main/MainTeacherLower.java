@@ -27,8 +27,9 @@ import moon.user.Teacher;
  */
 public class MainTeacherLower extends LowerPanel{
 	private int separation = 70;
-	private JComboBox<String> action;
-	private JComboBox<String> element;
+	/*private JComboBox<String> action;
+	private JComboBox<String> element;*/
+	private JButton combos;
 	private FilteredList<Student> students;
 	private FilteredList<Course> courses;
 	
@@ -133,7 +134,7 @@ public class MainTeacherLower extends LowerPanel{
 		SpringLayout layout = new SpringLayout();
 		right.setLayout(layout);
 		
-		String[] opt1 =  {"Add", "Edit"};
+		/*String[] opt1 =  {"Add", "Edit"};
 		JComboBox<String> combo1= new JComboBox<String>(opt1);
 		this.action = combo1;
 		String[] opt2 =  {"Course", "Unit", "Note", "Exercise"};
@@ -141,7 +142,10 @@ public class MainTeacherLower extends LowerPanel{
 		JButton go = new JButton("Go");
 		this.element = combo2;
 		
-		JPanel combos = combos();
+		JPanel combos = combos();*/
+		JButton combos = new JButton("Add course");
+		combos.addActionListener(new MainTeacherController(this));
+		
 		layout.putConstraint(SpringLayout.NORTH, combos, this.separation, SpringLayout.NORTH, right);
 		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, combos, 0, SpringLayout.HORIZONTAL_CENTER, right);
 		right.add(combos);
@@ -157,7 +161,7 @@ public class MainTeacherLower extends LowerPanel{
 	}
 	
 
-	public JPanel combos(){
+/*	public JPanel combos(){
 		
 		String[] opt1 =  {"Add", "Edit"};
 		JComboBox<String> combo1= new JComboBox<String>(opt1);
@@ -201,9 +205,8 @@ public class MainTeacherLower extends LowerPanel{
 	
 	public String getElement(){
 		String s = this.element.getSelectedItem().toString();
-		System.out.println(s);
 		return s;
-	}
+	}*/
 	
 	public void setEverything(){
 		this.students.setModel(Academy.getMoonApp().getStudents());

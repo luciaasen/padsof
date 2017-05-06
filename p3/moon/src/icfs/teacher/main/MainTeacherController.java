@@ -21,7 +21,7 @@ public class MainTeacherController implements ActionListener{
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
-	@Override
+	/*@Override
 	public void actionPerformed(ActionEvent e) {
 		if(view.getAction().equals("Add")){
 			if(view.getElement().equals("Course")){
@@ -30,8 +30,10 @@ public class MainTeacherController implements ActionListener{
 			}
 		}
 		
+	}*/
+	@Override
+	public void actionPerformed(ActionEvent e) {
+			mainMoon.addCourseSetEverything();
+			mainMoon.changeCard(mainMoon.ADD_COURSE);
 	}
-	
-	
-	
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import es.uam.eps.padsof.emailconnection.*;
+import exception.DuplicateElementException;
 import moon.user.*;
 import moon.Academy;
 import moon.mark.*;
@@ -29,9 +30,10 @@ public class Course implements Serializable{
 	/**
 	 * Course Students getter
 	 * @return
+	 * @throws DuplicateElementException 
 	 */
 	
-	public Course(String name){
+	public Course(String name) throws DuplicateElementException{
 		Academy moon = Academy.getMoonApp();
 		this.name = name;
 		units=new ArrayList<>();
@@ -42,6 +44,8 @@ public class Course implements Serializable{
 
 		if(moon.getCourses().contains(this) == false){
 			moon.addCourse(this);
+		}else{
+			throw new DuplicateElementException(this);
 		}
 	}
 	

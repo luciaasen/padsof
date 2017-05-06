@@ -5,7 +5,6 @@ package icfs.teacher.create;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -16,17 +15,17 @@ import exception.EmptyTextFieldException;
 import main.mainMoon;
 import moon.Academy;
 import moon.course.Course;
+import moon.course.Note;
 import moon.course.Unit;
 
 /**
  * @author lucia
  *
  */
-public class AddUnitController implements ActionListener{
-
-	AddUnitView view;
+public class AddNoteController implements ActionListener{
+AddNoteView view;
 	
-	public AddUnitController(AddUnitView view){
+	public AddNoteController(AddNoteView view){
 		this.view = view;
 	}
 	/* (non-Javadoc)
@@ -36,8 +35,7 @@ public class AddUnitController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton)e.getSource();
 		
-		if (button.getText().equals("Back to main page")){
-			
+		if (button.getText().equals("Exit without saving")){			
 			mainMoon.mainSetEverything();
 			mainMoon.changeCard(mainMoon.MAIN);
 			
@@ -48,29 +46,20 @@ public class AddUnitController implements ActionListener{
 			UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
 			try{
 				/*Create course*/
-				String name = view.getUnitName();
-				Unit u = new Unit(name);
-				if(this.view.isUnitVisible() == true) u.makeVisible();
-				Unit parent = this.view.getParentUnit();
-				Course parent2 = this.view.getParentCourse();
-				if(parent != null)	u.setUnit(parent);
-				else if(parent2 != null) u.setCourse(parent2);
+				String name = view.getNoteName();
+				String content = view.getNoteContent();
+				Note u = new Note(name,  content);
+				if(this.view.isNoteVisible() == true) u.makeVisible();
+				u.setUnit(this.view.getUnit());
 				
 				/*Differentiate between buttons*/
-				if (button.getText().equals("Save & add subunit")){
-					mainMoon.addUnitSetEverything(u);
+				if (button.getText().equals("Save & back to add unit")){
+					this.view.getText().setEnabled(false);
 					mainMoon.changeCard(mainMoon.ADD_UNIT);
-				}else if (button.getText().equals("Save & add note")){
-					mainMoon.addNoteSetEverything(u);
-					mainMoon.changeCard(mainMoon.ADD_NOTE);
-				}else if (button.getText().equals("Save & add exe")){
-					mainMoon.addExeSetEverything(u);
-					mainMoon.changeCard(mainMoon.ADD_EXE);
-				}else if (button.getText().equals("Save & exit")){
+				}else if (button.getText().equals("Save & back to main page")){
 					mainMoon.mainSetEverything();
 					mainMoon.changeCard(mainMoon.MAIN);
 				}
-
 			
 			}catch(EmptyTextFieldException err){
 				JOptionPane.showMessageDialog(this.view, err.toString(), "Empty Unit name", JOptionPane.ERROR_MESSAGE);

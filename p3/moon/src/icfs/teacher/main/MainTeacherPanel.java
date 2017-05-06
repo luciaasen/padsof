@@ -21,29 +21,6 @@ import moon.course.Course;
 public class MainTeacherPanel extends JPanel{
 	private LowerPanel lower;
 	
-	public static void main(String[] args){
-		mainPruebas.setMoon();
-		Academy a = Academy.getMoonApp();
-		a.addCourse(new Course("J"));
-		a.addCourse(new Course("Ju"));
-		a.addCourse(new Course("Jua"));
-		a.addCourse(new Course("Juan"));
-		a.addCourse(new Course("Juan "));
-		a.addCourse(new Course("Juan n"));
-		a.addCourse(new Course("Juan no"));
-		
-		
-		JFrame window = new JFrame("TeacherView");
-		window.setSize(Academy.DIMENSION);
-	
-		Container pane = window.getContentPane();
-		pane.setLayout(new BorderLayout());
-		//pane.setBackground(Academy.LIGHT_GREEN);
-		MainTeacherPanel p = new MainTeacherPanel();
-		pane.add(p, BorderLayout.CENTER);
-		
-		window.setVisible(true);
-	}
 	public MainTeacherPanel(){
 		SpringLayout layout = new SpringLayout();
 		this.setLayout(layout);

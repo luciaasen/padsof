@@ -2,6 +2,7 @@ package moon.course;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import exception.*;
 
 /**
  * This class stores all the information of a Unit
@@ -79,17 +80,17 @@ public class Unit extends CourseElement implements Serializable{
 	/**
 	 * IMPORTANT sets the unit course but ALSO add the unit to the course list
 	 * @param c course to be added
+	 * @throws exception.DuplicateElementException 
 	 */
 	@Override
-	public void setCourse(Course c){
+	public void setCourse(Course c) throws exception.DuplicateElementException{
 		super.setCourse(c);
 		if(c.getUnits().contains(this)){
-			return;
+			throw new DuplicateElementException(this);
 		}
 		c.addUnit(this);
 	}
-	
-	
+
 	/**
 	 * Makes a Unit invisible. The unit will check if it has subunits and 
 	 * try to make them invisible. If this unit has a child exercise that

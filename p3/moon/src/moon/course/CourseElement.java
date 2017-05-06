@@ -2,6 +2,8 @@ package moon.course;
 
 import java.io.Serializable;
 
+import exception.DuplicateElementException;
+
 /**
  * This is an abstract class that is inherited by the course elements.
  * It stores a boolean value to mark if it is visible, the unit it belongs to
@@ -26,7 +28,7 @@ public abstract class CourseElement implements Serializable{
 	 * Sets the course of a course element
 	 * @param course
 	 */
-	public void setCourse(Course c){		
+	public void setCourse(Course c)throws DuplicateElementException{		
 		this.course = c;
 		
 	}
@@ -48,12 +50,15 @@ public abstract class CourseElement implements Serializable{
 	 * a unit and a courseElement, you should call this method and not 
 	 * Unit.addElement() because this method do the referrencing in both ways
 	 * @param unit the unit to set
+	 * @throws DuplicateElementException 
 	 */
-	public void setUnit(Unit unit) {
+	public void setUnit(Unit unit) throws DuplicateElementException {
 		if(unit.getContents().contains(this) == false){
 			this.unit = unit;
 			this.course = this.unit.course;
 			unit.addElement(this);
+		}else{
+			throw new DuplicateElementException(this);
 		}
 	}
 

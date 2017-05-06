@@ -50,7 +50,7 @@ public class FilteredList<V> extends JPanel {
 		this.defaultCollection = defaultCollection;
 		for (V element: defaultCollection) this.model.addElement(element);
 		JList<V> list = new JList<V>(this.model);
-		list.setSize(d.width-18, d.height - 33);
+		//list.setSize(d.width-18, d.height - 33);
 		list.setPreferredSize(new Dimension(d.width - 18, d.height-33));
 		JScrollPane scroll = new JScrollPane(list);
 		scroll.setPreferredSize(new Dimension(d.width, d.height -33));

@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import exception.DuplicateElementException;
+
 /**
  * This is a class that stores all the information of an exercise.
  * @author Juan Riera and Lucia Asencio
@@ -291,7 +293,7 @@ public class Exercise extends CourseElement implements Serializable{
 	 * Sets the course of an exercise
 	 * @param course
 	 */
-	public void setCourse(Course c){
+	public void setCourse(Course c) throws DuplicateElementException{
 		if(this.hasBeenDone() == false){
 			super.setCourse(c);
 		}		
@@ -299,9 +301,10 @@ public class Exercise extends CourseElement implements Serializable{
 	/**
 	 * If no one has done the exercise, sets the unit of it
 	 * @param unit, the unit to set in the exercise
+	 * @throws DuplicateElementException 
 	 */
 	@Override
-	public void setUnit(Unit unit) {
+	public void setUnit(Unit unit) throws DuplicateElementException {
 		if(this.hasBeenDone() == false){
 			super.setUnit(unit);
 		}
