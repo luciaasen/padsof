@@ -24,6 +24,10 @@ import moon.course.Unit;
 public class AddUnitController implements ActionListener{
 
 	AddUnitView view;
+	
+	public AddUnitController(AddUnitView view){
+		this.view = view;
+	}
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -45,7 +49,7 @@ public class AddUnitController implements ActionListener{
 				/*Create course*/
 				String name = view.getUnitName();
 				Unit u = new Unit(name);
-				if(this.view.isVisible() == true) u.makeVisible();
+				if(this.view.isUnitVisible() == true) u.makeVisible();
 				Unit parent = this.view.getParentUnit();
 				Course parent2 = this.view.getParentCourse();
 				if(parent != null)	u.setUnit(parent);

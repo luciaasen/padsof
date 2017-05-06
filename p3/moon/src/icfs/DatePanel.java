@@ -49,14 +49,15 @@ public class DatePanel extends JPanel{
 		monthC.addActionListener(new ActionListener(){
 									public void actionPerformed(ActionEvent e) {
 										int index = monthC.getSelectedIndex();
-										
+										int oldIndex = dayC.getSelectedIndex();
 								        if (index == 1){
-								            dayC.setModel(tweight);
+								        	dayC.setModel(tweight);
 								        } else if(index == 3 || index == 5 || index == 8 || index == 10){
 								        	dayC.setModel(thirty);
 								        }else {
 								        	dayC.setModel(thirtyone);		             
 								        }
+								        dayC.setSelectedIndex(oldIndex);
 								    }
 								});
 	

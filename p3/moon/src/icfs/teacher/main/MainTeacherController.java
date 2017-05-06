@@ -25,6 +25,7 @@ public class MainTeacherController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(view.getAction().equals("Add")){
 			if(view.getElement().equals("Course")){
+				mainMoon.addCourseSetEverything();
 				mainMoon.changeCard(mainMoon.ADD_COURSE);
 			}
 		}

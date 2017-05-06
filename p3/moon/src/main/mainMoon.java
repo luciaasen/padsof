@@ -123,6 +123,7 @@ public class mainMoon {
 		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(addNoteView, ADD_NOTE);
 		lowerPanel.add(addExeView, ADD_EXE);
+		mainSetEverything();
 	}
 	
 	
@@ -135,6 +136,9 @@ public class mainMoon {
 		coursePanel.setEverything(s,c);
 	}
 	
+	public static void addCourseSetEverything(){
+		addCourseView.setEverything();
+	}
 	public static void addUnitSetEverything(Course c){
 		addUnitView.setEverything(c);
 	}

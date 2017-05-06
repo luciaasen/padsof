@@ -31,6 +31,7 @@ import moon.course.Unit;
 public class AddUnitView extends LowerPanel{
 	private int separation = 70;
 	private JTextField name;
+	private JLabel message;
 	/*private DatePanel dateIni;
 	private DatePanel dateEnd;
 	*/
@@ -84,6 +85,12 @@ public class AddUnitView extends LowerPanel{
 		this.add(addExe);
 		this.add(addNote);
 		this.add(addSub);
+		
+		exit.addActionListener(new AddUnitController(this));
+		save.addActionListener(new AddUnitController(this));
+		addExe.addActionListener(new AddUnitController(this));
+		addNote.addActionListener(new AddUnitController(this));
+		addSub.addActionListener(new AddUnitController(this));
 	}
 	
 	
@@ -91,14 +98,16 @@ public class AddUnitView extends LowerPanel{
 		
 		JLabel label;
 		if(this.parentCourse != null){
-			label = new JLabel("Add Unit to course " + this.parentCourse);
+			label = new JLabel("Add Unit to course " + this.parentCourse + this.parentUnit);
 		}else{
-			label = new JLabel("Add Unit to unit " + this.parentUnit);
+			label = new JLabel("Add Unit to unit " + this.parentUnit + this.parentCourse);
 		}
 		
 		JPanel panel = new JPanel();
 		panel.add(label, BorderLayout.WEST);
 		panel.setBackground(Color.WHITE);
+		this.message = label;
+		
 		return panel;
 	}
 	
@@ -127,11 +136,13 @@ public class AddUnitView extends LowerPanel{
 		/*Add visibility*/
 		
 		JCheckBox visibility = new JCheckBox("Visible");
+		visibility.setBackground(Color.white);
 		this.visibility = visibility;
-		layout.putConstraint(SpringLayout.NORTH, visibility, 2*separation, SpringLayout.HORIZONTAL_CENTER, down);
+		layout.putConstraint(SpringLayout.NORTH, visibility, 2*separation, SpringLayout.VERTICAL_CENTER, down);
 		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, visibility, 0, SpringLayout.HORIZONTAL_CENTER, down);
 		
 				
+		
 		/*Add unit dates things*/
 /*		DatePanel date = new DatePanel("Visibility starting day");
 		this.dateIni = date;	
@@ -166,11 +177,19 @@ public class AddUnitView extends LowerPanel{
 	public void setEverything(Course parentCourse){
 		this.parentCourse = parentCourse;
 		this.parentUnit = null;
+		
+		message.setText("Add Unit to course " + this.parentCourse + this.parentUnit);
+		name.setText(null);
+		
 	}
 	
 	public void setEverything(Unit parentUnit){
 		this.parentUnit = parentUnit;
 		this.parentCourse = null;
+		
+		message.setText("Add Unit to unit " + this.parentCourse + this.parentUnit);
+		name.setText(null);
+		
 	}
 	
 	public String getUnitName() throws EmptyTextFieldException{
@@ -178,7 +197,7 @@ public class AddUnitView extends LowerPanel{
 		return this.name.getText();
 	}
 	
-	public boolean isVisible(){
+	public boolean isUnitVisible(){
 		return this.visibility.isSelected();
 	}
 	

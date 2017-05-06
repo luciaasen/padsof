@@ -90,7 +90,9 @@ public class AddCourseView extends LowerPanel{
 									try{
 										nameT = getCourseName();
 										Course c = new Course(nameT);
-										mainMoon.addUnitSetEverything(c);										
+										System.out.println(c + "line 93 addcourseview");
+										mainMoon.addUnitSetEverything(c);	
+										mainMoon.changeCard(mainMoon.ADD_UNIT);
 									}catch(EmptyTextFieldException ex2){
 										UIManager UI=new UIManager();
 										UI.put("OptionPane.background", Academy.DARK_GREEN);
@@ -99,7 +101,6 @@ public class AddCourseView extends LowerPanel{
 										JOptionPane.showOptionDialog(null, ex2.toString(), "Empty Course name", JOptionPane.YES_OPTION, 
 												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 									}
-									mainMoon.changeCard(mainMoon.ADD_UNIT);
 								});
 		exit.addActionListener(e->{
 			mainMoon.mainSetEverything();
@@ -157,5 +158,9 @@ public class AddCourseView extends LowerPanel{
 	public String getCourseName() throws EmptyTextFieldException{
 		if(this.name.getText().equals("")) throw new EmptyTextFieldException();
 		return this.name.getText();
+	}
+	
+	public void setEverything(){
+		this.name.setText(null);
 	}
 }
