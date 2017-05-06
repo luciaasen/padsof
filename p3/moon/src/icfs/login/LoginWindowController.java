@@ -29,7 +29,6 @@ public class LoginWindowController implements ActionListener{
 	public void actionPerformed(ActionEvent e)  {
 		User u;
 		try{ 
-			System.out.println(view.getUser() + " " + view.getPassword());
 			u= Academy.getMoonApp().login(view.getUser(), view.getPassword());
 			mainMoon.userMode(u, Academy.getMoonApp());
 			view.setVisible(false);

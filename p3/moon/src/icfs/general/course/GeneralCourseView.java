@@ -31,7 +31,7 @@ public abstract class GeneralCourseView extends LowerPanel {
 	
 	protected GeneralCourseViewController controller;
 	protected JButton backButton = new JButton("Back");
-	private JTree tree;
+	protected JTree tree;
 	JPanel southPanel = new JPanel();
 	protected JPanel centerPanel = new JPanel();
 	DefaultMutableTreeNode root;
