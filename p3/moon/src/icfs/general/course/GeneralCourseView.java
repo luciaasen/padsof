@@ -42,6 +42,7 @@ public abstract class GeneralCourseView extends LowerPanel {
 		this.setLayout(new BorderLayout(20,20));
 		this.setVisible(true);
 		tree= new JTree();
+		tree.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		
 		centerPanel.setBackground(Academy.ORANGE);
 		southPanel.setBackground(Academy.ORANGE);
@@ -68,7 +69,10 @@ public abstract class GeneralCourseView extends LowerPanel {
 		controller.setEverything(u, c);
 		centerPanel.remove(tree);
 		root = new DefaultMutableTreeNode(c.getName());
+		root.setUserObject(c);
 		tree = new JTree(root);
+
+		tree.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		for(Unit unit : c.getUnits()){
 			if(unit.getVisibility() || u.isTeacher()){
 				setNodes(root, unit, u);

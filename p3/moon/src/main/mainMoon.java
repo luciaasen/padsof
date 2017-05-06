@@ -16,10 +16,12 @@ import icfs.student.main.MainStudentPanel;
 import icfs.student.main.StudentSelectCourseStatsPanel;
 import icfs.student.stats.StudentCourseStats;
 import icfs.student.stats.StudentExerciseStats;
+import icfs.student.stats.question.StudentQuestionStats;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
 import icfs.teacher.main.*;
 import icfs.teacher.stats.TeacherCourseStats;
+import icfs.teacher.stats.TeacherExerciseStats;
 import moon.Academy;
 import moon.course.*;
 import moon.course.question.Question;
@@ -47,6 +49,7 @@ public class mainMoon {
 	private static StudentSelectCourseStatsPanel selectCourseStatsPanel;
 	private static StudentCourseStats studentCourseStatsPanel;
 	private static StudentExerciseStats exerciseStatsPanel;
+	private static StudentQuestionStats studentQuestionStatsPanel;
 	
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
@@ -64,6 +67,7 @@ public class mainMoon {
 	private static AddNoteView addNoteView;
 	private static AddExeView addExeView;
 	private static TeacherCourseStats courseStatsPanel;
+	private static TeacherExerciseStats teacherExerciseStatsPanel;
 	
 	public final static String ADD_COURSE = "addCourse";
 	public final static String ADD_UNIT = "addUnit";
@@ -108,6 +112,7 @@ public class mainMoon {
 		selectCourseStatsPanel = new StudentSelectCourseStatsPanel();
 		studentCourseStatsPanel = new StudentCourseStats();
 		exerciseStatsPanel = new StudentExerciseStats();
+		studentQuestionStatsPanel = new StudentQuestionStats();
 		
 		lowerPanel.add(mainStudentPanel, MAIN);
 		lowerPanel.add(coursePanel, COURSE);
@@ -116,6 +121,7 @@ public class mainMoon {
 		lowerPanel.add(selectCourseStatsPanel, SELECT_COURSE);
 		lowerPanel.add(studentCourseStatsPanel, COURSE_STATS);
 		lowerPanel.add(exerciseStatsPanel, EXERCISE_STATS);
+		lowerPanel.add(studentQuestionStatsPanel, QUESTION_STATS);
 		mainSetEverything(u);
 	}
 	
@@ -132,6 +138,7 @@ public class mainMoon {
 		addNoteView = new AddNoteView();
 		addExeView = new AddExeView();
 		courseStatsPanel = new TeacherCourseStats();
+		teacherExerciseStatsPanel = new TeacherExerciseStats();
 		
 		lowerPanel.add(mainTeacherPanel, MAIN);
 		lowerPanel.add(addCourseView, ADD_COURSE);
@@ -140,6 +147,7 @@ public class mainMoon {
 		lowerPanel.add(addNoteView, ADD_NOTE);
 		lowerPanel.add(addExeView, ADD_EXE);
 		lowerPanel.add(courseStatsPanel, COURSE_STATS);
+		lowerPanel.add(teacherExerciseStatsPanel, EXERCISE_STATS);
 		mainSetEverything();
 	}
 	
@@ -170,6 +178,10 @@ public class mainMoon {
 	
 	public static void addExeSetEverything(Unit u){
 		addExeView.setEverything(u);
+	}
+	
+	public static void teacherExerciseStatisticsSetEverything(Exercise e){
+		teacherExerciseStatsPanel.setEverything(e);
 	}
 	
 	/*Juan*/
@@ -227,6 +239,13 @@ public class mainMoon {
 	 * @param question2
 	 */
 	public static void studentQuestionStatsSetEverything(Student s, Exercise e, Question q) {
+		studentQuestionStatsPanel.setEverything(s,q);
+	}
+
+	/**
+	 * @param selected
+	 */
+	public static void teacherQuestionsStatisticsSetEverything(Question selected) {
 		
 	}
 	
