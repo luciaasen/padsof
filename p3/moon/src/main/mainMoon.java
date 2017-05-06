@@ -14,9 +14,12 @@ import icfs.student.course.StudentNotePanel;
 import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.MainStudentPanel;
 import icfs.student.main.StudentSelectCourseStatsPanel;
+import icfs.student.stats.StudentCourseStats;
+import icfs.student.stats.StudentExerciseStats;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
 import icfs.teacher.main.*;
+import icfs.teacher.stats.TeacherCourseStats;
 import moon.Academy;
 import moon.course.*;
 import moon.user.*;
@@ -35,17 +38,22 @@ public class mainMoon {
 	private static JPanel superPanel;
 	private static CardLayout lowerLayout;
 	
+	/* Student */
 	private static MainStudentPanel mainStudentPanel;
 	private static GeneralCourseView coursePanel;
 	private static StudentQuestionView questionPanel;
 	private static StudentNotePanel notePanel;
 	private static StudentSelectCourseStatsPanel selectCourseStatsPanel;
+	private static StudentCourseStats studentCourseStatsPanel;
+	private static StudentExerciseStats exerciseStatsPanel;
 	
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
 	public final static String QUESTION = "questionPanel";
 	public final static String NOTE = "notePanel";
 	public final static String SELECT_COURSE = "selectCoursePanel";
+	public final static String COURSE_STATS = "courseStatsPanel";
+	public final static String EXERCISE_STATS = "exercieStatsPanel";
 	
 	/*teacher*/
 	private static MainTeacherLower mainTeacherPanel;
@@ -53,6 +61,7 @@ public class mainMoon {
 	private static AddUnitView addUnitView;
 	private static AddNoteView addNoteView;
 	private static AddExeView addExeView;
+	private static TeacherCourseStats courseStatsPanel;
 	
 	public final static String ADD_COURSE = "addCourse";
 	public final static String ADD_UNIT = "addUnit";
@@ -95,12 +104,14 @@ public class mainMoon {
 		questionPanel = new StudentQuestionView();
 		notePanel = new StudentNotePanel();
 		selectCourseStatsPanel = new StudentSelectCourseStatsPanel();
+		studentCourseStatsPanel = new StudentCourseStats();
 		
 		lowerPanel.add(mainStudentPanel, MAIN);
 		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(questionPanel, QUESTION);
 		lowerPanel.add(notePanel, NOTE);
 		lowerPanel.add(selectCourseStatsPanel, SELECT_COURSE);
+		lowerPanel.add(studentCourseStatsPanel, COURSE_STATS);
 		mainSetEverything(u);
 	}
 	
@@ -116,6 +127,7 @@ public class mainMoon {
 		addUnitView = new AddUnitView();
 		addNoteView = new AddNoteView();
 		addExeView = new AddExeView();
+		courseStatsPanel = new TeacherCourseStats();
 		
 		lowerPanel.add(mainTeacherPanel, MAIN);
 		lowerPanel.add(addCourseView, ADD_COURSE);
@@ -123,6 +135,7 @@ public class mainMoon {
 		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(addNoteView, ADD_NOTE);
 		lowerPanel.add(addExeView, ADD_EXE);
+		lowerPanel.add(courseStatsPanel, COURSE_STATS);
 		mainSetEverything();
 	}
 	
@@ -175,6 +188,33 @@ public class mainMoon {
 	 */
 	public static void noteSetEverything(Note n) {
 		notePanel.setEverything(n);
+	}
+
+	/**
+	 * @param s 
+	 * @param selected
+	 */
+	public static void teacherCourseStatsSetEverything(Course selected) {
+		mainMoon.courseStatsPanel.setEverything(selected);
+		
+	}
+
+	/**
+	 * @param s
+	 * @param c
+	 * @param selected
+	 */
+	public static void studentExerciseStatsSetEverything(Student s, Course c, Exercise e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * @param s
+	 * @param selected
+	 */
+	public static void studentCourseStatsSetEverything(Student s, Course c) {
+		studentCourseStatsPanel.setEverything(s, c);
 	}
 	
 	

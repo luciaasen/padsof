@@ -4,6 +4,8 @@
 package icfs.student.course;
 
 
+import java.awt.event.MouseEvent;
+
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -26,8 +28,9 @@ public class StudentCourseViewController extends GeneralCourseViewController {
 		
 	}
 	
+	
 	@Override
-	public void valueChanged(TreeSelectionEvent arg0) {
+	public void mouseClicked(MouseEvent event) {
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
 		if(node==null){
 			return;
@@ -40,7 +43,10 @@ public class StudentCourseViewController extends GeneralCourseViewController {
 		} else if (node.getUserObject() instanceof Note){
 			mainMoon.noteSetEverything((Note)node.getUserObject());
 			mainMoon.changeCard(mainMoon.NOTE);
-		}
-		
+		}		
 	}
+	
+
+	
+	
 }
