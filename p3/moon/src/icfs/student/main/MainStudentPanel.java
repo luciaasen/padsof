@@ -8,6 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import icfs.LowerPanel;
 import moon.course.Course;
 import moon.user.Student;
 
@@ -16,7 +17,7 @@ import moon.user.Student;
  *
  */
 @SuppressWarnings("serial")
-public class MainStudentPanel extends JPanel {
+public class MainStudentPanel extends LowerPanel {
 	
 	MainStudentRightPanel right;
 	MainStudentLeftPanel left;

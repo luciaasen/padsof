@@ -5,6 +5,7 @@ package icfs.student.main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -16,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 
+import moon.Academy;
 import moon.course.Course;
 import moon.user.Student;
 
@@ -42,10 +44,15 @@ public class MainStudentLeftPanel extends JPanel {
 		
 		this.setBorder(border1);
 		coursesL.setBorder(border1);
+		
+		JPanel borderForTheList = new JPanel();
+		borderForTheList.setLayout(new GridLayout(1,1));
+		borderForTheList.setBorder(BorderFactory.createLineBorder(Academy.DARK_GREEN, 10, false));
+		borderForTheList.add(coursesL);
 		this.add(options, BorderLayout.NORTH);
-		this.add(coursesL, BorderLayout.CENTER);
+		this.add(borderForTheList, BorderLayout.CENTER);
 
-		this.setBackground(Color.black);
+		this.setBackground(Academy.ORANGE);
 		this.setVisible(true);
 		this.setSize(100, 200);
 		

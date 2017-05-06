@@ -100,11 +100,11 @@ public class StudentQuestionView extends LowerPanel{
 		save.addActionListener(e -> { 
 			
 			controller.save(cards);
-			mainMoon.backCard();
+			mainMoon.changeCard(mainMoon.COURSE);
 		});
 		exit.addActionListener(e -> { 
 			controller.cancel();
-			mainMoon.backCard();});
+			mainMoon.changeCard(mainMoon.COURSE);});
 		
 		this.questionNumber.addActionListener(e -> {
 			layout.show(center, (String)questionNumber.getSelectedItem());

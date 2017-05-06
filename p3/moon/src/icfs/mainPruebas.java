@@ -23,6 +23,7 @@ import main.mainMoon;
 import moon.Academy;
 import moon.course.Course;
 import moon.course.Exercise;
+import moon.course.Note;
 import moon.course.Unit;
 import moon.course.question.*;
 import moon.user.Student;
@@ -40,8 +41,7 @@ public class mainPruebas {
 		//LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
 		studentModeTest();
-		//JOptionPane.showOptionDialog(null, "message", "title", JOptionPane.YES_OPTION, 
-		//		JOptionPane.INFORMATION_MESSAGE, null, new String[]{"Ok"}, null);
+		
 		
 	}
 	
@@ -212,7 +212,9 @@ public class mainPruebas {
 		
 		u1.addElement(e);
 		u1.addElement(new Unit("Unit 1.1"));
-		
+		Note n = new Note("node.getUserObject() instanceof Exercisenode.getUserObject() instanceof Exercisenode.getUserObject() instanceof Exercisenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenote");
+		n.setTitle("Note1");
+		u1.addElement(n);
 		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");
 		s.apply(math).accept();
 

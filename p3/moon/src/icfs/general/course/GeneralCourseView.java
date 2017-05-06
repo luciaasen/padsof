@@ -51,7 +51,7 @@ public abstract class GeneralCourseView extends LowerPanel {
 		backButton.setVisible(true);
 		southPanel.add(backButton, FlowLayout.LEFT);
 		this.add(southPanel, BorderLayout.SOUTH);
-		backButton.addActionListener((e) -> mainMoon.backCard());
+		backButton.addActionListener((e) -> mainMoon.changeCard(mainMoon.MAIN));
 		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 		centerPanel.setBorder(border1);
 		centerPanel.setLayout(new BorderLayout());

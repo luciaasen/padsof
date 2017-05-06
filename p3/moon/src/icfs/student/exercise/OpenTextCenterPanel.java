@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import moon.course.question.Option;
@@ -20,7 +21,7 @@ import moon.mark.MExercise;
  */
 public class OpenTextCenterPanel extends CenterStudentQuestionPanel {
 	
-	private JTextField text = new JTextField();
+	private JTextArea text = new JTextArea(20,60);
 	/**
 	 * @param quest
 	 */
