@@ -209,7 +209,7 @@ public class MainTeacherLower extends LowerPanel{
 	}*/
 	
 	public void setEverything(){
-		this.students.setModel(Academy.getMoonApp().getStudents());
-		this.courses.setModel(Academy.getMoonApp().getCourses());
+		this.students.setEverything(Academy.getMoonApp().getStudents());
+		this.courses.setEverything(Academy.getMoonApp().getCourses());
 	}
 }

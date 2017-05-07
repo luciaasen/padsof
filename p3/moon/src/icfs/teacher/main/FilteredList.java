@@ -91,7 +91,8 @@ public class FilteredList<V> extends JPanel {
 	public JList<V> getList(){
 		return this.list;
 	}
-	public void setModel(Collection<V> newModel){
+	public void setEverything(Collection<V> newModel){
+		this.filteringTextField().setText(null);
 		this.model.removeAllElements();
 		for (V element: newModel) this.model.addElement(element);		
 	}

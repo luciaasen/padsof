@@ -29,13 +29,16 @@ import moon.course.Unit;
  */
 public class AddNoteView extends LowerPanel{
 	private AddUnitView view;
-	public Unit parentUnit;
+	protected Unit parentUnit;
 	private int separation = 70;
-	private JTextField name;
-	private JLabel message;
+	protected JLabel nameLabel;
+	protected JTextField name;
+	protected JLabel message;
 	private JPanel down;
-	private JCheckBox visibility;
-	private JTextArea content;
+	protected JCheckBox visibility;
+	protected JLabel contentsLabel;
+	protected JTextArea content;
+	protected JButton save;
 	
 	public AddNoteView(){
 		super();
@@ -78,6 +81,7 @@ public class AddNoteView extends LowerPanel{
 		//this.add(add);
 		this.add(exit);
 		this.add(save);
+		this.save = save;
 	}
 	
 	
@@ -100,6 +104,7 @@ public class AddNoteView extends LowerPanel{
 		
 		/*Add unit name things*/
 		JLabel name = new JLabel("Note name: ");
+		this.nameLabel = name;
 		JTextField nameT = new JTextField(10);
 		this.name = nameT;
 		
@@ -188,10 +193,12 @@ public class AddNoteView extends LowerPanel{
 	 */
 	public void setEverything(Unit parentUnit) {
 		name.setEnabled(true);
+		content.setEnabled(true);
 		this.visibility.setSelected(false);
 		this.parentUnit = parentUnit;		
 		message.setText("Add Note to unit " + this.parentUnit);
 		name.setText(null);
+		content.setText(null);
 	}
 
 }

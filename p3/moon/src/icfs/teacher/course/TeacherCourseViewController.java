@@ -20,21 +20,24 @@ import moon.course.Unit;
  * @author Juan Riera and Lucia Asencio
  *
  */
-public class TeacherCourseViewController extends GeneralCourseViewController implements TreeSelectionListener{
+//public class TeacherCourseViewController extends GeneralCourseViewController implements TreeSelectionListener{
+public class TeacherCourseViewController extends GeneralCourseViewController{
 	
 	TeacherCourseView view;
 	public TeacherCourseViewController(TeacherCourseView view){
+		super();
 		this.view=view;
 		
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-	/*	DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
+		System.out.println("Menuda mierda");
+		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
 		if(node==null){
 			return;
 		} else if (node.getUserObject() instanceof Unit) {
-			
+						
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(true);
@@ -57,13 +60,13 @@ public class TeacherCourseViewController extends GeneralCourseViewController imp
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(true);
 			
-		}*/
+		}
 	}
 	
 	/* (non-Javadoc)
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
 	 */
-	@Override
+	/*@Override
 	public void valueChanged(TreeSelectionEvent e) {
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
 		if(node==null){
@@ -93,7 +96,7 @@ public class TeacherCourseViewController extends GeneralCourseViewController imp
 			view.getVisibility().setEnabled(false);
 			
 		}
-	}
+	}*/
 }
 /*Unit: edit element and contents, remove, visib*/
 /*Note: edit element and contents, visib*/

@@ -9,19 +9,16 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import icfs.student.course.StudentCourseView;
-import icfs.student.course.StudentNotePanel;
+import icfs.student.course.*;
 import icfs.student.exercise.StudentQuestionView;
-import icfs.student.main.MainStudentPanel;
-import icfs.student.main.StudentSelectCourseStatsPanel;
-import icfs.student.stats.StudentCourseStats;
-import icfs.student.stats.StudentExerciseStats;
+import icfs.student.main.*;
+import icfs.student.stats.*;
 import icfs.student.stats.question.StudentQuestionStats;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
+import icfs.teacher.edit.*;
 import icfs.teacher.main.*;
-import icfs.teacher.stats.TeacherCourseStats;
-import icfs.teacher.stats.TeacherExerciseStats;
+import icfs.teacher.stats.*;
 import moon.Academy;
 import moon.course.*;
 import moon.course.question.Question;
@@ -66,6 +63,10 @@ public class mainMoon {
 	private static AddUnitView addUnitView;
 	private static AddNoteView addNoteView;
 	private static AddExeView addExeView;
+	private static EditCourseView editCourseView;
+	private static EditUnitView editUnitView;
+	private static EditNoteView editNoteView;
+	private static EditExeView editExeView;
 	private static TeacherCourseStats courseStatsPanel;
 	private static TeacherExerciseStats teacherExerciseStatsPanel;
 	
@@ -73,6 +74,10 @@ public class mainMoon {
 	public final static String ADD_UNIT = "addUnit";
 	public final static String ADD_NOTE = "addNote";
 	public final static String ADD_EXE = "addExe";
+	public final static String EDIT_COURSE = "editCourse";
+	public final static String EDIT_UNIT = "editUnit";
+	public final static String EDIT_NOTE = "editNote";
+	public final static String EDIT_EXE = "editExe";
 	
 	public static void main(String[] args){
 		
@@ -137,15 +142,23 @@ public class mainMoon {
 		addUnitView = new AddUnitView();
 		addNoteView = new AddNoteView();
 		addExeView = new AddExeView();
+		editCourseView = new EditCourseView();
+		editUnitView = new EditUnitView();
+		editNoteView = new EditNoteView();
+		editExeView = new EditExeView();
 		courseStatsPanel = new TeacherCourseStats();
 		teacherExerciseStatsPanel = new TeacherExerciseStats();
 		
 		lowerPanel.add(mainTeacherPanel, MAIN);
 		lowerPanel.add(addCourseView, ADD_COURSE);
 		lowerPanel.add(addUnitView, ADD_UNIT);
-		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(addNoteView, ADD_NOTE);
 		lowerPanel.add(addExeView, ADD_EXE);
+		lowerPanel.add(editCourseView, EDIT_COURSE);
+		lowerPanel.add(editUnitView, EDIT_UNIT);
+		lowerPanel.add(editNoteView, EDIT_NOTE);
+		lowerPanel.add(editExeView, EDIT_EXE);
+		lowerPanel.add(coursePanel, COURSE);
 		lowerPanel.add(courseStatsPanel, COURSE_STATS);
 		lowerPanel.add(teacherExerciseStatsPanel, EXERCISE_STATS);
 		mainSetEverything();

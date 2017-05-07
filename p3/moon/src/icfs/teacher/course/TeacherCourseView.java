@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
 import icfs.general.course.GeneralCourseView;
+import icfs.student.course.StudentCourseViewController;
 import icfs.teacher.course.TeacherCourseViewController;
 import moon.Academy;
 import moon.course.Course;
@@ -36,7 +37,8 @@ public class TeacherCourseView extends GeneralCourseView {
 		
 		JPanel options = options();		
 		centerPanel.add(options, BorderLayout.EAST);
-		tree.addTreeSelectionListener(new TeacherCourseViewController(this));
+		//tree.addTreeSelectionListener(new TeacherCourseViewController(this));
+		getTree().addMouseListener(new TeacherCourseViewController(this));
 	}
 
 	private JPanel options(){
@@ -114,7 +116,6 @@ public class TeacherCourseView extends GeneralCourseView {
 	@Override
 	public void setEverything(User u, Course c){
 		super.setEverything(u, c);
-		visibility.setSelected(false);
 		getEdit().setEnabled(false);
 		getRemove().setEnabled(false);
 		getVisibility().setEnabled(false);
