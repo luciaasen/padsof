@@ -16,6 +16,7 @@ import icfs.student.stats.*;
 import icfs.student.stats.question.StudentQuestionStats;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
+import icfs.teacher.create.exercise.AddExeView;
 import icfs.teacher.edit.*;
 import icfs.teacher.main.*;
 import icfs.teacher.stats.*;
