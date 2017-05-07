@@ -36,8 +36,8 @@ public class OpenAnswerPopUp extends BasicPopup {
 	private ArrayList<Option> options = new ArrayList<>();
 	private DefaultListModel<Option> model = new DefaultListModel<>();
 	private JList<Option> list = new JList<>(model);
-	private JTextField text = new JTextField(20);
-	private JTextArea contentsT = new JTextArea();
+	private JTextField text;
+	private JTextArea contentsT;
 	
 	
 	public OpenAnswerPopUp(AddExeController controller, Exercise exe){
@@ -52,6 +52,7 @@ public class OpenAnswerPopUp extends BasicPopup {
 		
 		upper.setLayout(new BorderLayout(10,10));
 		upper.add(new JLabel("Question text: "), BorderLayout.WEST);
+		contentsT = new JTextArea();
 		contentsT.setBorder(BorderFactory.createLineBorder(Academy.DARK_GREEN));
 		contentsT.setLineWrap(true);
 		upper.add(contentsT, BorderLayout.CENTER);
@@ -68,6 +69,7 @@ public class OpenAnswerPopUp extends BasicPopup {
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		north.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		north.add(new JLabel("Add a correct answer: "));
+		text = new JTextField(20);
 		north.add(text);
 		JButton button = new JButton("Add");
 		button.addActionListener(e -> {

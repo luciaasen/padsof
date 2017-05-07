@@ -70,6 +70,13 @@ public class AddExeController {
 	/**
 	 * @return
 	 */
+	public void openAnswerQuestion() {
+		new OpenAnswerPopUp(this, exer);
+	}
+	
+	/**
+	 * @return
+	 */
 	public void TfQuestion() {
 		
 	}
@@ -88,10 +95,5 @@ public class AddExeController {
 		
 	}
 
-	/**
-	 * @return
-	 */
-	public void openAnswerQuestion() {
-		
-	}
+	
 }
