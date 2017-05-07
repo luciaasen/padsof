@@ -25,7 +25,7 @@ import moon.user.User;
  *
  */
 public class TeacherCourseView extends GeneralCourseView {
-	private JPanel options;
+	
 	private int separation = 20;
 	private JCheckBox visibility;
 	private JCheckBox randomQuest;
@@ -33,15 +33,19 @@ public class TeacherCourseView extends GeneralCourseView {
 	private JButton remove;
 	private JButton edit;
 	
-	
 	public TeacherCourseView(){
 		super();
 		controller = new TeacherCourseViewController(this);
 		this.tree.addMouseListener(controller);
-		//getTree().addMouseListener(controller);
 		
 		JPanel options = options();		
 		centerPanel.add(options, BorderLayout.EAST);
+		JButton button = new JButton("Students list");
+		button.addActionListener(e -> controller.changeToStudentsList());
+		this.southPanel.add(button);
+		button = new JButton("Statistics");
+		button.addActionListener(e -> controller.changeToStatistics());
+		this.southPanel.add(button);
 		//tree.addTreeSelectionListener(new TeacherCourseViewController(this));
 		//getTree().addMouseListener(new TeacherCourseViewController(this));
 	}

@@ -32,7 +32,7 @@ public abstract class GeneralCourseView extends LowerPanel {
 	protected GeneralCourseViewController controller;
 	protected JButton backButton = new JButton("Back");
 	protected JTree tree;
-	JPanel southPanel = new JPanel();
+	protected JPanel southPanel = new JPanel();
 	protected JPanel centerPanel = new JPanel();
 	DefaultMutableTreeNode root;
 	
@@ -55,6 +55,7 @@ public abstract class GeneralCourseView extends LowerPanel {
 		centerPanel.setBorder(border1);
 		centerPanel.setLayout(new BorderLayout());
 		this.add(centerPanel, BorderLayout.CENTER);
+		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		
 		
 		

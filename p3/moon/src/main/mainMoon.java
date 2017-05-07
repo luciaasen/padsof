@@ -16,9 +16,13 @@ import icfs.student.stats.*;
 import icfs.student.stats.question.StudentQuestionStats;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
+import icfs.teacher.create.exercise.AddExeView;
 import icfs.teacher.edit.*;
 import icfs.teacher.main.*;
 import icfs.teacher.stats.*;
+import icfs.teacher.teacherWatchingStudents.TeacherListOfStudentsCourse;
+import icfs.teacher.teacherWatchingStudents.TeacherStudentCard;
+import icfs.teacher.teacherWatchingStudents.TeacherStudentStatisticsMenu;
 //import icfs.teacher.teacherWatchingStudents.TeacherListOfStudentsCourse;
 //import icfs.teacher.teacherWatchingStudents.TeacherStudentCard;
 //import icfs.teacher.teacherWatchingStudents.TeacherStudentStatisticsMenu;
@@ -73,9 +77,9 @@ public class mainMoon {
 	private static TeacherCourseStats courseStatsPanel;
 	private static TeacherExerciseStats teacherExerciseStatsPanel;
 	private static TeacherQuestionStats teacherQuestionStats;
-//	private static TeacherListOfStudentsCourse listOfStudentsPanel;
-	//private static TeacherStudentCard studentCardPanel;
-	//private static TeacherStudentStatisticsMenu teacherStudentSatsMenu;
+	private static TeacherListOfStudentsCourse listOfStudentsPanel;
+	private static TeacherStudentCard studentCardPanel;
+	private static TeacherStudentStatisticsMenu teacherStudentSatsMenu;
 	
 	public final static String ADD_COURSE = "addCourse";
 	public final static String ADD_UNIT = "addUnit";
@@ -161,10 +165,10 @@ public class mainMoon {
 		editExeView = new EditExeView();
 		courseStatsPanel = new TeacherCourseStats();
 		teacherExerciseStatsPanel = new TeacherExerciseStats();
-	//	listOfStudentsPanel = new TeacherListOfStudentsCourse();
+		listOfStudentsPanel = new TeacherListOfStudentsCourse();
 		teacherQuestionStats = new TeacherQuestionStats();
-		//studentCardPanel = new TeacherStudentCard();
-		//teacherStudentSatsMenu = new TeacherStudentStatisticsMenu();
+		studentCardPanel = new TeacherStudentCard();
+		teacherStudentSatsMenu = new TeacherStudentStatisticsMenu();
 		studentCourseStatsPanel = new StudentCourseStats();
 		exerciseStatsPanel = new StudentExerciseStats();
 		studentQuestionStatsPanel = new StudentQuestionStats();
@@ -182,9 +186,9 @@ public class mainMoon {
 		lowerPanel.add(courseStatsPanel, TEACHER_COURSE_STATS);
 		lowerPanel.add(teacherExerciseStatsPanel, TEACHER_EXERCISE_STATS);
 		lowerPanel.add(teacherQuestionStats, TEACHER_QUESTION_STATS);
-		//lowerPanel.add(listOfStudentsPanel, LIST_STUDENTS);
-		//lowerPanel.add(studentCardPanel, STUDENT_CARD);
-		//lowerPanel.add(teacherStudentSatsMenu, STUDENT_STATS_MENU);
+		lowerPanel.add(listOfStudentsPanel, LIST_STUDENTS);
+		lowerPanel.add(studentCardPanel, STUDENT_CARD);
+		lowerPanel.add(teacherStudentSatsMenu, STUDENT_STATS_MENU);
 		lowerPanel.add(studentCourseStatsPanel, COURSE_STATS);
 		lowerPanel.add(exerciseStatsPanel, EXERCISE_STATS);
 		lowerPanel.add(studentQuestionStatsPanel, QUESTION_STATS);
@@ -199,7 +203,7 @@ public class mainMoon {
 	
 	public static void courseSetEverything(Teacher s, Course c){
 		coursePanel.setEverything(s,c);
-	//	listOfStudentsPanel.setEverything(c);
+		listOfStudentsPanel.setEverything(c);
 	}
 	
 	public static void addCourseSetEverything(){
@@ -302,14 +306,14 @@ public class mainMoon {
 	 * @param selected
 	 */
 	public static void teacherStudentCardSetEverything(Course c, Student s) {
-		//studentCardPanel.setEverything(c, s);
+		studentCardPanel.setEverything(c, s);
 	}
 
 	/**
 	 * @param s
 	 */
 	public static void teacherStudentStatsSelectSetEverything(Student s) {
-		//teacherStudentSatsMenu.setEverything(s);
+		teacherStudentSatsMenu.setEverything(s);
 		
 	}
 	

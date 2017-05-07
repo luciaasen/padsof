@@ -19,6 +19,7 @@ import moon.course.Note;
 import moon.course.Unit;
 import moon.course.question.Question;
 import moon.user.Student;
+import moon.user.User;
 
 /**
  * @author Juan Riera and Lucia Asencio
@@ -151,5 +152,9 @@ public class TeacherCourseViewController extends GeneralCourseViewController imp
 	
 		}
 
+	}
+	
+	public void setEverything(User u, Course c){
+		super.setEverything(u,c);
 	}
 }
