@@ -15,12 +15,11 @@ public class EditNoteView extends AddNoteView{
 	private Note oldNote;
 	public EditNoteView(){
 		super();
-		message.setText("Edit note from unit " + parentUnit);;
+		message.setText("Edit note ");
 		nameLabel.setText("Edit name: ");
 		contentsLabel.setText("Edit content: ");
-		content.setText(oldNote.getText());
-		name.setText(oldNote.getTitle());
-		visibility.setSelected(oldNote.getVisibility());
+		name.setText(null);
+		visibility.setSelected(false);
 		save.setText("Save & back to course tree");
 	}
 	

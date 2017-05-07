@@ -11,10 +11,12 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import icfs.general.course.GeneralCourseViewController;
 import icfs.teacher.course.TeacherCourseView;
+import main.mainMoon;
 import moon.course.Course;
 import moon.course.Exercise;
 import moon.course.Note;
 import moon.course.Unit;
+import moon.user.Student;
 
 /**
  * @author Juan Riera and Lucia Asencio
@@ -29,7 +31,23 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 		this.view=view;
 		
 	}
-	
+	@Override
+	public void mouseClicked(MouseEvent event) {
+		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
+		if(node==null){
+			return;
+		} else if (node.getUserObject() instanceof Exercise) {
+			Exercise e = (Exercise)node.getUserObject();
+			if(e.getExercise((Student)u)==null && e.isActive()){
+				mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
+				mainMoon.changeCard(mainMoon.QUESTION);
+			}
+		} else if (node.getUserObject() instanceof Note){
+			mainMoon.noteSetEverything((Note)node.getUserObject());
+			mainMoon.changeCard(mainMoon.NOTE);
+		}		
+	}
+	/*
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		System.out.println("Menuda mierda");
@@ -61,7 +79,7 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 			view.getVisibility().setEnabled(true);
 			
 		}
-	}
+	}*/
 	
 	/* (non-Javadoc)
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
@@ -98,7 +116,3 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 		}
 	}*/
 }
-/*Unit: edit element and contents, remove, visib*/
-/*Note: edit element and contents, visib*/
-/*Exercise: edit element and contents, remove, visib*/
-/*Course: edit element*/

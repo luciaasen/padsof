@@ -34,11 +34,12 @@ public class TeacherCourseView extends GeneralCourseView {
 		super();
 		controller = new TeacherCourseViewController(this);
 		getTree().addMouseListener(controller);
+		getTree().addMouseListener(controller);
 		
 		JPanel options = options();		
 		centerPanel.add(options, BorderLayout.EAST);
 		//tree.addTreeSelectionListener(new TeacherCourseViewController(this));
-		getTree().addMouseListener(new TeacherCourseViewController(this));
+		//getTree().addMouseListener(new TeacherCourseViewController(this));
 	}
 
 	private JPanel options(){

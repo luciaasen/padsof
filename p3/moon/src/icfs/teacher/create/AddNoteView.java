@@ -127,6 +127,7 @@ public class AddNoteView extends LowerPanel{
 		contentsT.setBorder(BorderFactory.createLineBorder(Academy.DARK_GREEN));
 		contentsT.setLineWrap(true);
 		this.content = contentsT;
+		this.contentsLabel = contents;
 		
 		layout.putConstraint(SpringLayout.NORTH, contents, 2*separation, SpringLayout.SOUTH, visibility);
 		layout.putConstraint(SpringLayout.NORTH, contentsT, 2*separation, SpringLayout.SOUTH, visibility);
