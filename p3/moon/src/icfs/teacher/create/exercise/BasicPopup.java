@@ -4,14 +4,19 @@
 package icfs.teacher.create.exercise;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.SpinnerNumberModel;
+
 
 import moon.Academy;
 import moon.course.Exercise;
@@ -23,14 +28,15 @@ import moon.course.question.Question;
  */
 public abstract class BasicPopup extends JFrame{
 	AddExeController controller;
-	SpinnerNumberModel qNumberModel = new SpinnerNumberModel();
-	SpinnerNumberModel relevanceModel = new SpinnerNumberModel();
+	SpinnerNumberModel qNumberModel = new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1);
+	SpinnerNumberModel relevanceModel = new SpinnerNumberModel(1.0, 0.0, Double.MAX_VALUE, 0.1);
 	protected Exercise exe;
+	protected JTextArea contentsT;
 	
 	public BasicPopup(AddExeController controller, String text, Exercise exe){
 		super(text);
 		this.setVisible(true);
-		this.setSize(100, 100);
+		this.setSize(700, 5000);
 		this.controller = controller;
 		this.setContentPane(getPanel());
 		this.revalidate();
@@ -47,12 +53,6 @@ public abstract class BasicPopup extends JFrame{
 		north.setLayout(new GridLayout(1,2,20,20));
 		qNumber.setBorder(BorderFactory.createTitledBorder("Question number"));
 		relevance.setBorder(BorderFactory.createTitledBorder("Relevance in exercise"));
-		qNumberModel.setValue(1);
-		qNumberModel.setMinimum(1);
-		qNumberModel.setStepSize(1);
-		relevanceModel.setValue(1);
-		relevanceModel.setMinimum(0);
-		relevanceModel.setStepSize(0.1);
 		north.add(qNumber);
 		north.add(relevance);
 		north.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
@@ -60,8 +60,12 @@ public abstract class BasicPopup extends JFrame{
 		south.setBackground(Academy.ORANGE);
 		JButton button = new JButton("Save and exit");
 		button.addActionListener(e -> {
-			save();
-			this.dispose();
+			if(save()==false){
+				JOptionPane.showOptionDialog(null, "Invalid question", "Error", JOptionPane.YES_OPTION, 
+						JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			} else {
+				this.dispose();
+			}
 		});
 		south.add(button);
 		button = new JButton("Close without saving");
@@ -73,16 +77,39 @@ public abstract class BasicPopup extends JFrame{
 		panel.setBorder(BorderFactory.createLineBorder(Academy.DARK_GREEN, 5));
 		panel.setLayout(new BorderLayout(10,10));
 		panel.add(north, BorderLayout.NORTH);
-		panel.add(getCentralPanel(), BorderLayout.CENTER);
+		panel.add(center(), BorderLayout.CENTER);
 		panel.add(south, BorderLayout.SOUTH);
 		
 		return panel;
 	}
 	
-	private void save(){
-		controller.addQuestion((int)qNumberModel.getValue(), getQuestion((int)relevanceModel.getValue()));
+	private JPanel center(){
+		JPanel superPanel = new JPanel();
+		JPanel upper = new JPanel();
+		superPanel.setLayout(new GridLayout(2,1));
+		
+		upper.setLayout(new BorderLayout(10,10));
+		upper.add(new JLabel("Question text: "), BorderLayout.WEST);
+		contentsT = new JTextArea();
+		contentsT.setBorder(BorderFactory.createLineBorder(Academy.DARK_GREEN));
+		contentsT.setLineWrap(true);
+		upper.add(contentsT, BorderLayout.CENTER);
+		
+		superPanel.add(upper);
+		superPanel.add(getCentralPanel());
+		superPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		return superPanel;
 	}
-	protected abstract JPanel getCentralPanel();
+	
+	private boolean save(){
+		Question q = getQuestion((Double)relevanceModel.getValue());
+		if(q == null){
+			return false;
+		}
+		controller.addQuestion(((Integer)qNumberModel.getValue()), q);
+		return true;
+	}
+	protected abstract Component getCentralPanel();
 	
 	protected abstract Question getQuestion(double relevance);
 }

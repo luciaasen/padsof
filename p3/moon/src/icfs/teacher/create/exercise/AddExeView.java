@@ -31,10 +31,10 @@ import moon.course.Unit;
 public class AddExeView extends LowerPanel{
 	private DatePanel dateIni;
 	private DatePanel dateEnd;
-	private JCheckBox randomOrder = new JCheckBox();
-	private JTextField name = new JTextField();
-	private SpinnerNumberModel relevanceModel = new SpinnerNumberModel();
-	private SpinnerNumberModel penaltyModel = new SpinnerNumberModel();
+	private JCheckBox randomOrder = new JCheckBox("Random order");
+	private JTextField name = new JTextField(20);
+	private SpinnerNumberModel relevanceModel = new SpinnerNumberModel(1.0, 0.0, Double.MAX_VALUE, 0.1);
+	private SpinnerNumberModel penaltyModel = new SpinnerNumberModel(-1.0, 0-Double.MAX_VALUE, 0.0, 0.1);
 	private JSpinner relevance = new JSpinner(relevanceModel);
 	private JSpinner penalty = new JSpinner(penaltyModel);
 	private AddExeController controller = new AddExeController(this);
@@ -50,12 +50,15 @@ public class AddExeView extends LowerPanel{
 		center = generateCenter();
 		
 		JButton button = new JButton("Back to main page");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.MAIN));
+		button.addActionListener(e -> {
+			mainMoon.mainSetEverything();
+			mainMoon.changeCard(mainMoon.MAIN);});
 		south.add(button);
 		button = new JButton("Save and back");
 		button.addActionListener(e -> {
-			controller.save();
-			mainMoon.changeCard(mainMoon.MAIN);});
+			if(controller.save()==0){
+				mainMoon.mainSetEverything();
+				mainMoon.changeCard(mainMoon.MAIN);}});
 		south.add(button);
 		south.setBackground(Academy.ORANGE);
 		
@@ -98,6 +101,7 @@ public class AddExeView extends LowerPanel{
 		questionsOrder.setLayout(new GridLayout(2,1,5,5));
 		questionsOrder.setBackground(Color.WHITE);
 		randomOrder.setBorder(BorderFactory.createTitledBorder("Question displaying"));
+		randomOrder.setBackground(Color.WHITE);
 		questionsOrder.add(randomOrder);
 		name.setBorder(BorderFactory.createTitledBorder("Exercise name"));
 		questionsOrder.add(name);
@@ -120,15 +124,11 @@ public class AddExeView extends LowerPanel{
 		
 		/* Relevance and penalty */
 		relevanceAndPenalty.setBackground(Color.WHITE);
+		relevanceAndPenalty.setLayout(new GridLayout(2,1,10,10));
 		relevance.setBorder(BorderFactory.createTitledBorder("Relevance of the exercise"));
-		relevance.setValue(1);
-		relevanceModel.setMinimum(0);
-		relevanceModel.setStepSize(0.1);
+		
 		relevanceAndPenalty.add(relevance);
 		penalty.setBorder(BorderFactory.createTitledBorder("Penalty of the exercise"));
-		penalty.setValue(0);
-		penaltyModel.setMaximum(0);
-		penaltyModel.setStepSize(0.1);
 		relevanceAndPenalty.add(penalty);
 		
 		/* We finally set up the center */

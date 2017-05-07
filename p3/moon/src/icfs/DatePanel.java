@@ -40,10 +40,10 @@ public class DatePanel extends JPanel{
 		
 		/*Day*/
 		JComboBox<Integer> dayC = new JComboBox<Integer>();
-		
-		DefaultComboBoxModel tweight = new DefaultComboBoxModel(new Integer[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28});
-		DefaultComboBoxModel thirty = new DefaultComboBoxModel(new Integer[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30});
-		DefaultComboBoxModel thirtyone = new DefaultComboBoxModel(new Integer[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30, 31});
+		day = dayC;
+		DefaultComboBoxModel<Integer> tweight = new DefaultComboBoxModel<>(new Integer[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28});
+		DefaultComboBoxModel<Integer> thirty = new DefaultComboBoxModel<>(new Integer[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30});
+		DefaultComboBoxModel<Integer> thirtyone = new DefaultComboBoxModel<>(new Integer[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28, 29, 30, 31});
 		
 		dayC.setModel(thirtyone);
 		monthC.addActionListener(new ActionListener(){
@@ -87,6 +87,6 @@ public class DatePanel extends JPanel{
 		int month = this.month.getSelectedIndex();
 		int year = Integer.parseInt(this.year.getText());
 		
-		return LocalDate.of(year, month, day);
+		return LocalDate.of(year, month+1, day+1);
 	}	
 }
