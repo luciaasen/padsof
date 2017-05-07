@@ -20,7 +20,7 @@ import main.mainMoon;
 import moon.course.question.*;
 
 /**
- * @author juan
+ * @author Juan Riera Gomez
  *
  */
 public class TeacherQuestionStats extends LowerPanel {
@@ -51,11 +51,11 @@ public class TeacherQuestionStats extends LowerPanel {
 		center.add(notAnswered);
 		
 		JButton button = new JButton("Back to exercise");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.EXERCISE_STATS));
+		button.addActionListener(e -> mainMoon.changeCard(mainMoon.TEACHER_EXERCISE_STATS));
 		south.add(button);
 		
 		button = new JButton("Back to course statistics");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE_STATS));
+		button.addActionListener(e -> mainMoon.changeCard(mainMoon.TEACHER_COURSE_STATS));
 		south.add(button);
 		
 		button = new JButton("Back to course");

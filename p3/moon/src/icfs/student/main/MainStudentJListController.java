@@ -43,6 +43,9 @@ public class MainStudentJListController implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Course selected = view.left.coursesL.getSelectedValue();
+		if(selected == null){
+			return;
+		}
 		if(!(s.getCourses().contains(selected))){
 			for(Application a : s.getApps()){
 				if(a.getCourse()==selected){
