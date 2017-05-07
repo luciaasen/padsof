@@ -29,7 +29,7 @@ import moon.user.Student;
  */
 public class StudentSelectCourseStatsPanel extends LowerPanel{
 	JPanel centerPanel = new JPanel();
-	JPanel buttons = new JPanel();
+	protected JPanel buttons = new JPanel();
 	JLabel label = new JLabel("Select a course to see it's statistics:");
 	private DefaultListModel<Course> coursesM = new DefaultListModel<Course>();
 	JList<Course> list = new JList<>(coursesM);
