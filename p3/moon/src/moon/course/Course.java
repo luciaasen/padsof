@@ -334,7 +334,10 @@ public class Course implements Serializable{
 			return false;
 		return true;
 	}	
-	
+	@Override
+	public int hashCode(){
+		return this.name.hashCode();
+	}
 	@Override
 	public String toString(){
 		return name;
