@@ -53,7 +53,6 @@ public class EditButtonController implements ActionListener{
 						
 					}else if(button.getText().equals("Remove")){
 						selected.getCourse().removeUnit(selected);
-						view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
 					}
 				}else if(check != null){
 					if(check.isSelected()){
@@ -62,6 +61,8 @@ public class EditButtonController implements ActionListener{
 						selected.makeInvisible();
 					}
 				}
+				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
+				
 							
 			/*     COURSE     */	
 			}else if (node.getUserObject() instanceof Course) {
@@ -92,6 +93,8 @@ public class EditButtonController implements ActionListener{
 					}
 				}
 				
+				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
+								
 			/*      NOTE      */
 			}else if (node.getUserObject() instanceof Note) {
 				Note selected = (Note)node.getUserObject();
@@ -112,6 +115,8 @@ public class EditButtonController implements ActionListener{
 					}
 				}
 				
+				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
+				
 			/*     QUESTION      */
 			}else if (node.getUserObject() instanceof Question) {
 				Question selected = (Question)node.getUserObject();
@@ -125,8 +130,11 @@ public class EditButtonController implements ActionListener{
 				}else if(check != null){
 					//TODO set randor to options era un requisito??
 				}
-		
+				
+				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getExercise().getCourse());
+								
 			}
+			
 		}catch(DoneExerciseException ex){
 			JOptionPane.showOptionDialog(view, ex.toString(), "Invalid operation", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
