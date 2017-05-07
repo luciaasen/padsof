@@ -2,6 +2,7 @@ package moon.course;
 
 import java.io.Serializable;
 
+import exception.DoneExerciseException;
 import exception.DuplicateElementException;
 
 /**
@@ -72,7 +73,7 @@ public abstract class CourseElement implements Serializable{
 	/** 
 	 * Makes an element invisible.
 	 */
-	public void makeInvisible(){
+	public void makeInvisible() throws DoneExerciseException{
 		visible=false;
 	}
 	
