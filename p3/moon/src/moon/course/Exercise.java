@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import exception.DoneExerciseException;
 import exception.DuplicateElementException;
 
 /**
@@ -119,9 +120,11 @@ public class Exercise extends CourseElement implements Serializable{
 	 * Sets the order to random if randord = true
 	 * @param randord
 	 */
-	public void setRandord(Boolean randord) {
+	public void setRandord(Boolean randord) throws DoneExerciseException{
 		if(this.hasBeenDone() == false){
 			this.randord = randord;
+		}else{
+			throw new DoneExerciseException();
 		}
 	}
 
@@ -178,12 +181,15 @@ public class Exercise extends CourseElement implements Serializable{
 	 * Removes question to the exercise if it has not been done and the question was there before
 	 * IMPORTANT: SAME REFERENCE, if when used the parameter is just a copy, we have to change implementation
 	 * @param question
+	 * @throws DoneExerciseException 
 	 */
-	public void removeQuestion(Question question){
+	public void removeQuestion(Question question) throws DoneExerciseException{
 		if(this.hasBeenDone() == false){
 			if(this.questions.contains(question)){
 				this.questions.remove(question);
 			}
+		}else{
+			throw new DoneExerciseException();
 		}
 	}
 	
@@ -311,9 +317,9 @@ public class Exercise extends CourseElement implements Serializable{
 	}
 	
 	@Override 
-	public void makeInvisible(){
+	public void makeInvisible() throws DoneExerciseException{
 		if(studentMarks.size()!=0){
-			return;
+			throw new DoneExerciseException();
 		}
 		this.visible=false;
 	}

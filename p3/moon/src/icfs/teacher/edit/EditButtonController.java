@@ -13,6 +13,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
 
 import exception.DoneExerciseException;
 import icfs.teacher.course.TeacherCourseView;
+import main.mainMoon;
+import moon.Academy;
 import moon.course.*;
 import moon.course.question.Question;
 
@@ -43,6 +45,7 @@ public class EditButtonController implements ActionListener{
 		try{
 			if(node==null){
 				return;				
+			/*    UNIT     */
 			}else if (node.getUserObject() instanceof Unit) {
 				Unit selected = (Unit)node.getUserObject();
 				if(button != null){
@@ -50,18 +53,24 @@ public class EditButtonController implements ActionListener{
 						
 					}else if(button.getText().equals("Remove")){
 						selected.getCourse().removeUnit(selected);
-						//TODO recargar el arbols
+						view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
 					}
 				}else if(check != null){
-					selected.s
+					if(check.isSelected()){
+						selected.makeVisible();
+					}else{
+						selected.makeInvisible();
+					}
 				}
 							
+			/*     COURSE     */	
 			}else if (node.getUserObject() instanceof Course) {
 				
 				if(button.getText().equals("Edit element and contents")){
 					
 				}	
 				
+			/*     EXERCISE     */
 			}else if (node.getUserObject() instanceof Exercise) {
 				Exercise selected = (Exercise)node.getUserObject();
 				
@@ -73,40 +82,48 @@ public class EditButtonController implements ActionListener{
 					}
 				}else if(check != null){
 					if(check.getText().equals("Visibility")){
-						
+						if(check.isSelected()){
+							selected.makeVisible();
+						}else{
+							selected.makeInvisible();
+						}
 					}else if(check.getText().equals("Random questions order")){
-						
+						selected.setRandord(check.isSelected());
 					}
 				}
 				
+			/*      NOTE      */
 			}else if (node.getUserObject() instanceof Note) {
-	
+				Note selected = (Note)node.getUserObject();
+				
 				if(button != null){
 					if(button.getText().equals("Edit element and contents")){
-						
+						mainMoon.editNoteSetEverything(selected.getUnit(), selected);
 					}else if(button.getText().equals("Remove")){
-						
+						selected.getUnit().removeElement(selected);
 					}
 				}else if(check != null){
 					if(check.getText().equals("Visibility")){
-						
+						if(check.isSelected()){
+							selected.makeVisible();
+						}else{
+							selected.makeInvisible();
+						}
 					}
 				}
 				
+			/*     QUESTION      */
 			}else if (node.getUserObject() instanceof Question) {
+				Question selected = (Question)node.getUserObject();
 	
 				if(button != null){
 					if(button.getText().equals("Edit element and contents")){
 						
 					}else if(button.getText().equals("Remove")){
-						
+						selected.getExercise().removeQuestion(selected);
 					}
 				}else if(check != null){
-					if(check.getText().equals("Visibility")){
-						
-					}else if(check.getText().equals("Random options order")){
-						
-					}
+					//TODO set randor to options era un requisito??
 				}
 		
 			}
