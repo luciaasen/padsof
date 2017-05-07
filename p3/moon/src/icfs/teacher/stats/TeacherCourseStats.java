@@ -46,6 +46,7 @@ public class TeacherCourseStats extends LowerPanel {
 		button = new JButton("Back to main");
 		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE));
 		south.add(button);
+		south.setBackground(Color.white);
 		this.add(south, BorderLayout.SOUTH);
 		this.add(central, BorderLayout.CENTER);
 	}

@@ -61,6 +61,9 @@ public class Course implements Serializable{
 			mc =mcourse.getMark();
 			avg += mc;
 		}
+		if(studentMarks.size()==0){
+			return 0;
+		}
 		avg/=studentMarks.size();
 		return avg;
 	}
