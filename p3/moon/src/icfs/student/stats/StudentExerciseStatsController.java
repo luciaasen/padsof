@@ -11,10 +11,11 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import main.mainMoon;
 import moon.course.Exercise;
 import moon.course.question.Question;
+import moon.mark.MQuestion;
 import moon.user.Student;
 
 /**
- * @author juan
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class StudentExerciseStatsController implements MouseListener {
@@ -35,14 +36,34 @@ public class StudentExerciseStatsController implements MouseListener {
 		for(Question q : e.getQuestions()){
 			view.questionsModel.addElement(q);
 		}
+		
+		view.mark.setText((new Double(e.getExerciseMark(s))).toString());
+		
+		int number = 0;
+		for(MQuestion mq : e.getExercise(s).getmQuestions()){
+			if(mq.getMark()>0){
+				number++;
+			}
+		}
+		view.nCorrect.setText((new Integer(number)).toString());
+		
+		number = 0;
+		for(MQuestion mq : e.getExercise(s).getmQuestions()){
+			if(mq.getMark()<=0){
+				number++;
+			}
+		}
+		view.nIncorrect.setText((new Integer(number)).toString());
+		view.relevance.setText((new Double(e.getRelevance())).toString());
+		view.name.setText(e.getName());
 	}
+	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		Question question = view.questions.getSelectedValue();
 		if (question == null){
 			return;
 		} 
-		
 		mainMoon.studentQuestionStatsSetEverything(s,e,question);
 		mainMoon.changeCard(mainMoon.QUESTION_STATS);
 		

@@ -11,7 +11,9 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import icfs.teacher.stats.TeacherCourseStatsController;
 import main.mainMoon;
 import moon.course.Course;
+import moon.course.CourseElement;
 import moon.course.Exercise;
+import moon.course.Unit;
 import moon.user.Student;
 
 /**
@@ -33,6 +35,41 @@ public class StudentCourseStatsController implements MouseListener {
 	public void setEverything(Student s, Course c){
 		this.s=s;
 		this.c=c;
+		view.root.removeAllChildren();
+		view.courseName.setText(c.getName());
+		view.courseMark.setText("Mark: "+c.getCourseMark(s));
+		for(Unit unit : c.getUnits()){
+			if(unit.getVisibility()){
+			}
+		}
+	}
+
+	/**
+	 * Recursive method to set the nodes of the tree.
+	 * @param fatherNode
+	 * @param element
+	 * @param u
+	 */
+	public void setNodes(DefaultMutableTreeNode fatherNode, CourseElement element){
+		if(element.getVisibility()){	
+			DefaultMutableTreeNode node;
+			if(element instanceof Unit){
+				node = new DefaultMutableTreeNode();
+				Unit unit = (Unit) element;
+				node.setUserObject(element);
+				for(CourseElement elem : unit.getContents()){
+					setNodes(node, elem);
+				}
+				fatherNode.add(node);
+			} else if(element instanceof Exercise){
+				if(((Exercise)element).getExercise(s)!=null){
+					node = new DefaultMutableTreeNode();
+					node.setUserObject(element);
+					fatherNode.add(node);
+				}
+			}
+		}
+	
 	}
 	
 	@Override

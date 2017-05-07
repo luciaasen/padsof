@@ -15,7 +15,9 @@ import es.uam.eps.padsof.emailconnection.FailedInternetConnectionException;
 import es.uam.eps.padsof.emailconnection.InvalidEmailAddressException;
 import icfs.student.course.StudentCourseView;
 import main.mainMoon;
+import moon.Academy;
 import moon.course.Course;
+import moon.user.Application;
 import moon.user.Student;
 
 /**
@@ -42,6 +44,13 @@ public class MainStudentJListController implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		Course selected = view.left.coursesL.getSelectedValue();
 		if(!(s.getCourses().contains(selected))){
+			for(Application a : s.getApps()){
+				if(a.getCourse()==selected){
+					JOptionPane.showOptionDialog(null, "You have already sent an application for this course", 
+							"You will have to wait", JOptionPane.YES_NO_OPTION, 
+							JOptionPane.QUESTION_MESSAGE, null, new String[]{"Ok"}, null);
+				}
+			}
 			int choice = JOptionPane.showOptionDialog(null, "Do you want to apply for this course?", " ", JOptionPane.YES_NO_OPTION, 
 					JOptionPane.QUESTION_MESSAGE, null, new String[]{"Yes", "No"}, null);
 			if(choice==0){

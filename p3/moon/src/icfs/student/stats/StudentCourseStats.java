@@ -87,36 +87,5 @@ public class StudentCourseStats extends LowerPanel{
 	 */
 	public void setEverything(Student s, Course c) {
 		controller.setEverything(s, c);
-		root.removeAllChildren();
-		courseName.setText(c.getName());
-		courseMark.setText("Mark: "+c.getCourseMark(s));
-		for(Unit unit : c.getUnits()){
-			if(unit.getVisibility()){
-				setNodes(root, unit);
-			}
-		}
-	}
-	
-	/**
-	 * Recursive method to set the nodes of the tree.
-	 * @param fatherNode
-	 * @param element
-	 * @param u
-	 */
-	public void setNodes(DefaultMutableTreeNode fatherNode, CourseElement element){
-		if(element.getVisibility()){	
-			DefaultMutableTreeNode node = new DefaultMutableTreeNode();
-			if(element instanceof Unit){
-				Unit unit = (Unit) element;
-				node.setUserObject(element);
-				for(CourseElement elem : unit.getContents()){
-					setNodes(node, elem);
-				}
-				fatherNode.add(node);
-			} else {
-				node.setUserObject(element);
-				fatherNode.add(node);
-			}
-		}
 	}
 }

@@ -11,43 +11,44 @@ import icfs.teacher.stats.TeacherCourseStats;
 import main.mainMoon;
 import moon.course.Course;
 import moon.course.Exercise;
+import moon.course.question.Question;
 import moon.user.Student;
 
 /**
  * @author juan
  *
  */
-public class TeacherCourseStatsController implements MouseListener{
+public class TeacherExerciseStatsController implements MouseListener{
 	 
-	Course c;
-	TeacherCourseStats view;
+	Exercise e;
+	TeacherExerciseStats view;
 	
-	public TeacherCourseStatsController(TeacherCourseStats view){
+	public TeacherExerciseStatsController(TeacherExerciseStats view){
 		this.view= view;
 	}
 	
-	public void setEverything(Course c){
-		this.c=c;
+	public void setEverything(Exercise e){
+		this.e=e;
 		view.listModel.removeAllElements();
-		for(Exercise ce : c.getExercises()){
+		for(Question ce : e.getQuestions()){
 			view.listModel.addElement(ce);
 		}
-		view.courseName.setText(c.getName());
-		view.average.setText("Average mark: " + c.calcAverage());
-		view.nPasses.setText("Number of passes: " + c.calcNPasses());
-		view.nFails.setText("Number of fails: " + c.calcNFails());
+		view.exerciseName.setText(e.getName());
+		view.average.setText("Average mark: " + e.calcAverage());
+		view.nPasses.setText("Number of passes: " + e.calcNPasses());
+		view.nFails.setText("Number of fails: " + e.calcNFails());
 		
 	}
 	
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		Exercise selected = view.list.getSelectedValue();
+		Question selected = view.list.getSelectedValue();
 		if(selected == null){
 			return;
 		} else {
-			mainMoon.teacherExerciseStatisticsSetEverything(selected);
-			mainMoon.changeCard(mainMoon.EXERCISE_STATS);
+			mainMoon.teacherQuestionsStatisticsSetEverything(selected);
+			mainMoon.changeCard(mainMoon.QUESTION_STATS);
 		}
 	}
 

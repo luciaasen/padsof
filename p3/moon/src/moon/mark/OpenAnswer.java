@@ -40,4 +40,12 @@ public class OpenAnswer extends MQuestion implements Serializable{
 		}
 		return false;
 	}
+	
+	/**
+	 * Returns the answer given by the student.
+	 * @return
+	 */
+	public String getAnswer(){
+		return answer.getOption();
+	}
 }
