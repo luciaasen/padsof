@@ -88,6 +88,9 @@ public class mainMoon {
 	public final static String LIST_STUDENTS = "listStudents";
 	public final static String STUDENT_CARD = "studentCard";
 	public final static String STUDENT_STATS_MENU = "studentStatsMenu";
+	public final static String TEACHER_COURSE_STATS = "tcourseStatsPanel";
+	public final static String TEACHER_EXERCISE_STATS = "texercieStatsPanel";
+	public final static String TEACHER_QUESTION_STATS = "tquestionStatsPanel";
 	
 	public static void main(String[] args){
 		
@@ -162,6 +165,9 @@ public class mainMoon {
 		teacherQuestionStats = new TeacherQuestionStats();
 		studentCardPanel = new TeacherStudentCard();
 		teacherStudentSatsMenu = new TeacherStudentStatisticsMenu();
+		studentCourseStatsPanel = new StudentCourseStats();
+		exerciseStatsPanel = new StudentExerciseStats();
+		studentQuestionStatsPanel = new StudentQuestionStats();
 		
 		lowerPanel.add(mainTeacherPanel, MAIN);
 		lowerPanel.add(addCourseView, ADD_COURSE);
@@ -173,12 +179,15 @@ public class mainMoon {
 		lowerPanel.add(editNoteView, EDIT_NOTE);
 		lowerPanel.add(editExeView, EDIT_EXE);
 		lowerPanel.add(coursePanel, COURSE);
-		lowerPanel.add(courseStatsPanel, COURSE_STATS);
-		lowerPanel.add(teacherExerciseStatsPanel, EXERCISE_STATS);
-		lowerPanel.add(teacherQuestionStats, QUESTION_STATS);
+		lowerPanel.add(courseStatsPanel, TEACHER_COURSE_STATS);
+		lowerPanel.add(teacherExerciseStatsPanel, TEACHER_EXERCISE_STATS);
+		lowerPanel.add(teacherQuestionStats, TEACHER_QUESTION_STATS);
 		lowerPanel.add(listOfStudentsPanel, LIST_STUDENTS);
 		lowerPanel.add(studentCardPanel, STUDENT_CARD);
 		lowerPanel.add(teacherStudentSatsMenu, STUDENT_STATS_MENU);
+		lowerPanel.add(studentCourseStatsPanel, COURSE_STATS);
+		lowerPanel.add(exerciseStatsPanel, EXERCISE_STATS);
+		lowerPanel.add(studentQuestionStatsPanel, QUESTION_STATS);
 		mainSetEverything();
 	}
 	

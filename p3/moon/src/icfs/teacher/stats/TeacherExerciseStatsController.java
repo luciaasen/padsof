@@ -48,7 +48,7 @@ public class TeacherExerciseStatsController implements MouseListener{
 			return;
 		} else {
 			mainMoon.teacherQuestionsStatisticsSetEverything(selected);
-			mainMoon.changeCard(mainMoon.QUESTION_STATS);
+			mainMoon.changeCard(mainMoon.TEACHER_QUESTION_STATS);
 		}
 	}
 

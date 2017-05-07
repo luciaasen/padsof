@@ -36,9 +36,9 @@ public class mainPruebas {
 	
 	public static void main(String[] args) throws Exception {
 		/*PARA SETTEAR MOON, ANIADE STUDENTS*/
-		//setMoon();
+		setMoon();
 		
-		//LoginWindowView l = new LoginWindowView();
+		LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
 		//studentModeTest();
 	}

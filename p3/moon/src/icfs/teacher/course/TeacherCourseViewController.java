@@ -51,7 +51,6 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		System.out.println("Menuda mierda");
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
 		if(node==null){
 			return;
