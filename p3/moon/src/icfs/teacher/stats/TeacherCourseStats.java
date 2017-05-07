@@ -41,10 +41,10 @@ public class TeacherCourseStats extends LowerPanel {
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		central = generateCentralPanel();
 		JButton button = new JButton("Back to course selection");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.SELECT_COURSE));
+		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE_STATS));
 		south.add(button);
 		button = new JButton("Back to main");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.MAIN));
+		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE));
 		south.add(button);
 		this.add(south, BorderLayout.SOUTH);
 		this.add(central, BorderLayout.CENTER);

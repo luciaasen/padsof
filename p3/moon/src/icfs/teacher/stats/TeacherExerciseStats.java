@@ -44,8 +44,8 @@ public class TeacherExerciseStats extends LowerPanel {
 		JButton button = new JButton("Back to exercise selection");
 		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE_STATS));
 		south.add(button);
-		button = new JButton("Back to main");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.MAIN));
+		button = new JButton("Back to course");
+		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE));
 		south.add(button);
 		this.add(south, BorderLayout.SOUTH);
 		this.add(central, BorderLayout.CENTER);
