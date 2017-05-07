@@ -18,6 +18,7 @@ public class Unit extends CourseElement implements Serializable{
 	 * @param name
 	 */
 	public Unit(String name){
+		
 		this.name=name;
 		contents=new ArrayList<>();
 	}
@@ -27,10 +28,11 @@ public class Unit extends CourseElement implements Serializable{
 	 * called by element.setUnit()
 	 * @param element
 	 * @return boolean result of the operation of adding the element to contents.
+	 * @throws DuplicateElementException 
 	 */
-	public boolean addElement(CourseElement element){
+	public boolean addElement(CourseElement element) throws DuplicateElementException{
 		if(contents.contains(element)==true){
-			return false;
+			throw new DuplicateElementException(element.toString());
 		}
 		return contents.add(element);
 	}
@@ -64,9 +66,22 @@ public class Unit extends CourseElement implements Serializable{
 	/**
 	 * Sets the name of the unit.
 	 * @param name
+	 * @throws DuplicateElementException 
 	 */
-	public void setName(String name) {
+	public void setName(String name) throws DuplicateElementException {
+		if(this.getUnit() == null){
+			for (Unit u: this.getCourse().getUnits()){
+				if(u.getName().equals(name) && !(u.equals(this))) throw new DuplicateElementException(name);
+			}
+		}else{
+			for(CourseElement c: this.getUnit().getContents()){
+				if(c instanceof Unit){
+					if(((Unit) c).getName().equals(name) && !(c.equals(this))) throw new DuplicateElementException(name);
+				}
+			}				
+		}
 		this.name = name;
+		
 	}
 
 	/**

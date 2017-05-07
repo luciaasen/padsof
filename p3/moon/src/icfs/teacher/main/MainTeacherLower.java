@@ -89,6 +89,8 @@ public class MainTeacherLower extends LowerPanel{
 								if (c != null){
 									mainMoon.courseSetEverything((Teacher)(Academy.getMoonApp().getTeacher()), c);
 									mainMoon.changeCard(mainMoon.COURSE);
+									courses.getList().clearSelection();
+									students.getList().clearSelection();
 								}
 						    }				
 						}			
@@ -211,5 +213,6 @@ public class MainTeacherLower extends LowerPanel{
 	public void setEverything(){
 		this.students.setEverything(Academy.getMoonApp().getStudents());
 		this.courses.setEverything(Academy.getMoonApp().getCourses());
+		this.revalidate();
 	}
 }

@@ -35,14 +35,21 @@ import java.time.LocalDate;;
  *
  */
 public class AddCourseView extends LowerPanel{
-	private int separation = 70;
-	private JTextField name;
+	protected int separation = 70;
+	protected JTextField name;
+	protected SpringLayout layout;
+	protected JButton add;
+	protected JButton save;
+	protected JButton exit;
+	protected JLabel message;
+	protected JLabel nameLabel;
+	protected JPanel down;
 	
-
 	public AddCourseView(){
 		super();
 		SpringLayout layout = new SpringLayout();
 		this.setLayout(layout);
+		this.layout = layout;
 		JPanel up = up();
 		
 		layout.putConstraint(SpringLayout.NORTH, up, this.separation, SpringLayout.NORTH, this);
@@ -50,7 +57,7 @@ public class AddCourseView extends LowerPanel{
 		layout.putConstraint(SpringLayout.EAST, up, -this.separation, SpringLayout.EAST, this);
 		
 		JPanel down = down();
-		
+		this.down = down;
 		
 		layout.putConstraint(SpringLayout.NORTH, down, this.separation, SpringLayout.SOUTH, up);
 		layout.putConstraint(SpringLayout.SOUTH, down, -2*this.separation, SpringLayout.SOUTH, this);
@@ -127,12 +134,16 @@ public class AddCourseView extends LowerPanel{
 		this.add(save);
 		this.add(exit);
 		
+		this.save = save;
+		this.exit = exit;
+		this.add = add;
 		this.setVisible(true);
 	
 	}
 	
 	private JPanel up(){
 		JLabel label = new JLabel("Add Course");
+		this.message = label;
 		
 		JPanel panel = new JPanel();
 		panel.add(label, BorderLayout.WEST);
@@ -150,6 +161,7 @@ public class AddCourseView extends LowerPanel{
 		down.setBackground(Color.WHITE);
 		
 		JLabel name = new JLabel("Course name: ");
+		this.nameLabel = name;
 		JTextField nameT = new JTextField(10);
 		this.name = nameT;
 		
