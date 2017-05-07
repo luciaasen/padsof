@@ -15,6 +15,7 @@ import javax.swing.SpringLayout;
 import icfs.general.course.GeneralCourseView;
 import icfs.student.course.StudentCourseViewController;
 import icfs.teacher.course.TeacherCourseViewController;
+import icfs.teacher.edit.EditButtonController;
 import moon.Academy;
 import moon.course.Course;
 import moon.user.User;
@@ -79,6 +80,12 @@ public class TeacherCourseView extends GeneralCourseView {
 		this.visibility = visibility;
 		this.randomOpt = randomOpt;
 		this.randomQuest = randomQuest;
+		
+		remove.addActionListener(new EditButtonController(this));
+		edit.addActionListener(new EditButtonController(this));
+		visibility.addActionListener(new EditButtonController(this));
+		randomOpt.addActionListener(new EditButtonController(this));
+		randomQuest.addActionListener(new EditButtonController(this));
 		
 		layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, edit, 0, SpringLayout.HORIZONTAL_CENTER, inner);
 		layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, remove, 0, SpringLayout.HORIZONTAL_CENTER, edit);

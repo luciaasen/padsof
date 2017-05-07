@@ -30,21 +30,23 @@ import moon.course.Unit;
 public class AddNoteView extends LowerPanel{
 	private AddUnitView view;
 	protected Unit parentUnit;
-	private int separation = 70;
+	protected int separation = 70;
 	protected JLabel nameLabel;
 	protected JTextField name;
 	protected JLabel message;
-	private JPanel down;
+	protected JPanel down;
 	protected JCheckBox visibility;
 	protected JLabel contentsLabel;
 	protected JTextArea content;
 	protected JButton save;
+	protected JButton exit;
+	protected SpringLayout layout;
 	
 	public AddNoteView(){
 		super();
-		this.view = view;
 		SpringLayout layout = new SpringLayout();
 		this.setLayout(layout);
+		this.layout = layout;
 		JPanel up = up();
 		
 		layout.putConstraint(SpringLayout.NORTH, up, this.separation , SpringLayout.NORTH, this);
@@ -82,6 +84,7 @@ public class AddNoteView extends LowerPanel{
 		this.add(exit);
 		this.add(save);
 		this.save = save;
+		this.exit = exit;
 	}
 	
 	
@@ -186,7 +189,9 @@ public class AddNoteView extends LowerPanel{
 		return this.name;
 	}
 	
-	public String getNoteContent(){
+	public String getNoteContent() throws EmptyTextFieldException{
+		if(this.content.getText().equals("")) throw new EmptyTextFieldException();
+		
 		return this.content.getText();
 	}
 	/**

@@ -51,6 +51,7 @@ public class EditButtonController implements ActionListener{
 				if(button != null){
 					if(button.getText().equals("Edit element and contents")){
 						
+						
 					}else if(button.getText().equals("Remove")){
 						selected.getCourse().removeUnit(selected);
 					}
@@ -62,15 +63,22 @@ public class EditButtonController implements ActionListener{
 					}
 				}
 				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
+				view.revalidate();
 				
 							
 			/*     COURSE     */	
 			}else if (node.getUserObject() instanceof Course) {
 				
+				Course selected = (Course)node.getUserObject();
+				
 				if(button.getText().equals("Edit element and contents")){
-					
+					mainMoon.editCourseSetEverything(selected);
+					mainMoon.changeCard(mainMoon.EDIT_COURSE);
 				}	
 				
+				view.setEverything(Academy.getMoonApp().getTeacher(), selected);
+				view.revalidate();
+			
 			/*     EXERCISE     */
 			}else if (node.getUserObject() instanceof Exercise) {
 				Exercise selected = (Exercise)node.getUserObject();
@@ -94,7 +102,8 @@ public class EditButtonController implements ActionListener{
 				}
 				
 				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
-								
+				view.revalidate();
+				
 			/*      NOTE      */
 			}else if (node.getUserObject() instanceof Note) {
 				Note selected = (Note)node.getUserObject();
@@ -102,6 +111,7 @@ public class EditButtonController implements ActionListener{
 				if(button != null){
 					if(button.getText().equals("Edit element and contents")){
 						mainMoon.editNoteSetEverything(selected.getUnit(), selected);
+						mainMoon.changeCard(mainMoon.EDIT_NOTE);
 					}else if(button.getText().equals("Remove")){
 						selected.getUnit().removeElement(selected);
 					}
@@ -116,6 +126,7 @@ public class EditButtonController implements ActionListener{
 				}
 				
 				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
+				view.revalidate();
 				
 			/*     QUESTION      */
 			}else if (node.getUserObject() instanceof Question) {
@@ -132,7 +143,7 @@ public class EditButtonController implements ActionListener{
 				}
 				
 				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getExercise().getCourse());
-								
+				view.revalidate();
 			}
 			
 		}catch(DoneExerciseException ex){

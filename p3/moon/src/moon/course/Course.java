@@ -249,8 +249,14 @@ public class Course implements Serializable{
 	/**
 	 * Sets the name of the course.
 	 * @param name
+	 * @throws DuplicateElementException 
 	 */
-	public void setName(String name) {
+	public void setName(String name) throws DuplicateElementException {
+		for(Course c: Academy.getMoonApp().getCourses()){
+			if(c.getName().equals(name) && !(c.equals(this))){
+				throw new DuplicateElementException(name);
+			}
+		}
 		this.name = name;
 	}
 	

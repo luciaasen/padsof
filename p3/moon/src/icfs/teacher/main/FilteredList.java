@@ -95,6 +95,7 @@ public class FilteredList<V> extends JPanel {
 		this.list.clearSelection();
 		this.filteringTextField().setText(null);
 		this.model.removeAllElements();
-		for (V element: newModel) this.model.addElement(element);		
+		for (V element: newModel) this.model.addElement(element);	
+		this.revalidate();
 	}
 }

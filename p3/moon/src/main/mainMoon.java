@@ -225,6 +225,9 @@ public class mainMoon {
 		editNoteView.setEverything(parent, oldNote);
 	}
 	
+	public static void editCourseSetEverything(Course oldCourse){
+		editCourseView.setEverything(oldCourse);
+	}
 	public static void teacherExerciseStatisticsSetEverything(Exercise e){
 		teacherExerciseStatsPanel.setEverything(e);
 	}
