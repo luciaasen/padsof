@@ -33,8 +33,8 @@ public class TeacherCourseView extends GeneralCourseView {
 	public TeacherCourseView(){
 		super();
 		controller = new TeacherCourseViewController(this);
-		getTree().addMouseListener(controller);
-		getTree().addMouseListener(controller);
+		this.tree.addMouseListener(controller);
+		//getTree().addMouseListener(controller);
 		
 		JPanel options = options();		
 		centerPanel.add(options, BorderLayout.EAST);
@@ -120,6 +120,7 @@ public class TeacherCourseView extends GeneralCourseView {
 		getEdit().setEnabled(false);
 		getRemove().setEnabled(false);
 		getVisibility().setEnabled(false);
+		this.tree.addMouseListener(controller);
 	}
 
 }

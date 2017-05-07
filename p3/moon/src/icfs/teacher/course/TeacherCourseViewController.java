@@ -31,7 +31,8 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 		this.view=view;
 		
 	}
-	@Override
+	
+	/*@Override
 	public void mouseClicked(MouseEvent event) {
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
 		if(node==null){
@@ -46,8 +47,8 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 			mainMoon.noteSetEverything((Note)node.getUserObject());
 			mainMoon.changeCard(mainMoon.NOTE);
 		}		
-	}
-	/*
+	}*/
+	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		System.out.println("Menuda mierda");
@@ -79,7 +80,7 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 			view.getVisibility().setEnabled(true);
 			
 		}
-	}*/
+	}
 	
 	/* (non-Javadoc)
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)

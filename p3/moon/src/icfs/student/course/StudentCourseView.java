@@ -17,6 +17,7 @@ import icfs.general.course.GeneralCourseView;
 import main.mainMoon;
 import moon.course.*;
 import moon.user.Student;
+import moon.user.User;
 
 /**
  * @author Juan Riera and Lucia Asencio
@@ -28,6 +29,12 @@ public class StudentCourseView extends GeneralCourseView {
 		super();
 		controller = new StudentCourseViewController(this);
 		getTree().addMouseListener(controller);
+	}
+	
+	@Override
+	public void setEverything(User u, Course c){
+		super.setEverything(u, c);
+		this.tree.addMouseListener(controller);
 	}
 
 
