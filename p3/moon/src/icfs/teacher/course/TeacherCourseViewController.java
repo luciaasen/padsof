@@ -13,17 +13,19 @@ import icfs.general.course.GeneralCourseViewController;
 import icfs.teacher.course.TeacherCourseView;
 import main.mainMoon;
 import moon.course.Course;
+import moon.course.CourseElement;
 import moon.course.Exercise;
 import moon.course.Note;
 import moon.course.Unit;
+import moon.course.question.Question;
 import moon.user.Student;
 
 /**
  * @author Juan Riera and Lucia Asencio
  *
  */
-//public class TeacherCourseViewController extends GeneralCourseViewController implements TreeSelectionListener{
-public class TeacherCourseViewController extends GeneralCourseViewController{
+public class TeacherCourseViewController extends GeneralCourseViewController implements TreeSelectionListener{
+//public class TeacherCourseViewController extends GeneralCourseViewController{
 	
 	TeacherCourseView view;
 	public TeacherCourseViewController(TeacherCourseView view){
@@ -32,27 +34,10 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 		
 	}
 	
-	/*@Override
-	public void mouseClicked(MouseEvent event) {
-		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
-		if(node==null){
-			return;
-		} else if (node.getUserObject() instanceof Exercise) {
-			Exercise e = (Exercise)node.getUserObject();
-			if(e.getExercise((Student)u)==null && e.isActive()){
-				mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
-				mainMoon.changeCard(mainMoon.QUESTION);
-			}
-		} else if (node.getUserObject() instanceof Note){
-			mainMoon.noteSetEverything((Note)node.getUserObject());
-			mainMoon.changeCard(mainMoon.NOTE);
-		}		
-	}*/
-	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		System.out.println("Menuda mierda");
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
+		
 		if(node==null){
 			return;
 		} else if (node.getUserObject() instanceof Unit) {
@@ -60,60 +45,111 @@ public class TeacherCourseViewController extends GeneralCourseViewController{
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(true);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
+			
+			view.getVisibility().setSelected(((CourseElement)node.getUserObject()).getVisibility());
 			
 		}else if (node.getUserObject() instanceof Course) {
 
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(false);
 			view.getVisibility().setEnabled(false);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
+			
 			
 		}else if (node.getUserObject() instanceof Exercise) {
 
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(true);
+			view.getRandQuest().setEnabled(true);
+			view.getRandOpt().setEnabled(false);
 			
+			view.getVisibility().setSelected(((CourseElement)node.getUserObject()).getVisibility());
+			view.getRandQuest().setSelected(((Exercise)node.getUserObject()).getRandord());
+						
 		}else if (node.getUserObject() instanceof Note) {
 
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(true);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
 			
+			view.getVisibility().setSelected(((CourseElement)node.getUserObject()).getVisibility());
+						
+		}else if (node.getUserObject() instanceof Question) {
+
+			view.getEdit().setEnabled(true);
+			view.getRemove().setEnabled(true);
+			view.getVisibility().setEnabled(false);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
+	
 		}
+
 	}
 	
 	/* (non-Javadoc)
 	 * @see javax.swing.event.TreeSelectionListener#valueChanged(javax.swing.event.TreeSelectionEvent)
 	 */
-	/*@Override
+	@Override
 	public void valueChanged(TreeSelectionEvent e) {
 		DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.getTree().getLastSelectedPathComponent();
+		
 		if(node==null){
 			return;
 		} else if (node.getUserObject() instanceof Unit) {
-			
+						
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(true);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
+			
+			view.getVisibility().setSelected(((CourseElement)node.getUserObject()).getVisibility());
 			
 		}else if (node.getUserObject() instanceof Course) {
 
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(false);
 			view.getVisibility().setEnabled(false);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
+			
 			
 		}else if (node.getUserObject() instanceof Exercise) {
 
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(true);
+			view.getRandQuest().setEnabled(true);
+			view.getRandOpt().setEnabled(false);
 			
+			view.getVisibility().setSelected(((CourseElement)node.getUserObject()).getVisibility());
+			view.getRandQuest().setSelected(((Exercise)node.getUserObject()).getRandord());
+						
 		}else if (node.getUserObject() instanceof Note) {
 
 			view.getEdit().setEnabled(true);
 			view.getRemove().setEnabled(true);
-			view.getVisibility().setEnabled(false);
+			view.getVisibility().setEnabled(true);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
 			
+			view.getVisibility().setSelected(((CourseElement)node.getUserObject()).getVisibility());
+						
+		}else if (node.getUserObject() instanceof Question) {
+
+			view.getEdit().setEnabled(true);
+			view.getRemove().setEnabled(true);
+			view.getVisibility().setEnabled(false);
+			view.getRandQuest().setEnabled(false);
+			view.getRandOpt().setEnabled(false);
+	
 		}
-	}*/
+
+	}
 }

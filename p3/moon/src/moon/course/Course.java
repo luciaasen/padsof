@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import es.uam.eps.padsof.emailconnection.*;
+import exception.DoneExerciseException;
 import exception.DuplicateElementException;
 import moon.user.*;
 import moon.Academy;
@@ -295,6 +296,14 @@ public class Course implements Serializable{
 		return exe;
 	}
 
+	public void removeUnit(Unit u) throws DoneExerciseException{
+		for(Exercise e: u.getExercises()){
+			if(e.hasBeenDone() == true){
+				throw new DoneExerciseException();
+			}
+		}
+		this.units.remove(u);
+	}
 	
 	/**
 	 * Equals method that consider equal two courses if they have the same name

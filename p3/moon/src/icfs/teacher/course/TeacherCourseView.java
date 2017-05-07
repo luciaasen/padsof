@@ -27,8 +27,11 @@ public class TeacherCourseView extends GeneralCourseView {
 	private JPanel options;
 	private int separation = 20;
 	private JCheckBox visibility;
+	private JCheckBox randomQuest;
+	private JCheckBox randomOpt;
 	private JButton remove;
 	private JButton edit;
+	
 	
 	public TeacherCourseView(){
 		super();
@@ -45,8 +48,9 @@ public class TeacherCourseView extends GeneralCourseView {
 	private JPanel options(){
 		
 		/*Unit: edit element and contents, remove, visib*/
-		/*Note: edit element and contents, visib*/
-		/*Exercise: edit element and contents, remove, visib*/
+		/*Note: edit element and contents, remove, visib*/		
+		/*Exercise: edit element and contents, remove, visib, randQuest */
+		/*Question: edit element and contents, remove, randOpt*/
 		/*Course: edit element*/
 		
 		JPanel options = new JPanel();
@@ -60,26 +64,39 @@ public class TeacherCourseView extends GeneralCourseView {
 		SpringLayout layout2 = new SpringLayout();
 		inner.setLayout(layout2);
 		inner.setBackground(Academy.ORANGE);
-		inner.setPreferredSize(new Dimension(300, 250));
+		inner.setPreferredSize(new Dimension(300, 350));
 
 		JButton remove = new JButton("Remove");
 		JButton edit = new JButton("Edit element and contents");
 		JCheckBox visibility = new JCheckBox("Visibility");
+		JCheckBox randomOpt = new JCheckBox("Random options order");
+		JCheckBox randomQuest = new JCheckBox("Random questions order");
 		visibility.setBackground(Academy.ORANGE);
+		randomQuest.setBackground(Academy.ORANGE);
+		randomOpt.setBackground(Academy.ORANGE);
 		this.remove = remove;
 		this.edit = edit;
 		this.visibility = visibility;
+		this.randomOpt = randomOpt;
+		this.randomQuest = randomQuest;
 		
 		layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, edit, 0, SpringLayout.HORIZONTAL_CENTER, inner);
 		layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, remove, 0, SpringLayout.HORIZONTAL_CENTER, edit);
 		layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, visibility, 0, SpringLayout.HORIZONTAL_CENTER, edit);
-		layout2.putConstraint(SpringLayout.SOUTH, edit, -2*separation, SpringLayout.VERTICAL_CENTER, inner);
-		layout2.putConstraint(SpringLayout.VERTICAL_CENTER, remove, 0, SpringLayout.VERTICAL_CENTER, inner);
-		layout2.putConstraint(SpringLayout.NORTH, visibility, 2*separation, SpringLayout.VERTICAL_CENTER, inner);
+		layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, randomQuest, 0, SpringLayout.HORIZONTAL_CENTER, edit);
+		layout2.putConstraint(SpringLayout.HORIZONTAL_CENTER, randomOpt, 0, SpringLayout.HORIZONTAL_CENTER, edit);
+		
+		layout2.putConstraint(SpringLayout.SOUTH, edit, -2*separation, SpringLayout.VERTICAL_CENTER, remove);
+		layout2.putConstraint(SpringLayout.SOUTH, remove, -2*separation, SpringLayout.VERTICAL_CENTER, inner);
+		layout2.putConstraint(SpringLayout.VERTICAL_CENTER, visibility, 0, SpringLayout.VERTICAL_CENTER, inner);
+		layout2.putConstraint(SpringLayout.NORTH, randomQuest, 2*separation, SpringLayout.VERTICAL_CENTER, inner);
+		layout2.putConstraint(SpringLayout.NORTH, randomOpt, 2*separation, SpringLayout.VERTICAL_CENTER, randomQuest);
 		
 		inner.add(remove);
 		inner.add(edit);
 		inner.add(visibility);
+		inner.add(randomQuest);
+		inner.add(randomOpt);
 		
 		layout.putConstraint(SpringLayout.VERTICAL_CENTER, inner, 0, SpringLayout.VERTICAL_CENTER, options);
 		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, inner, 0, SpringLayout.HORIZONTAL_CENTER, options);
@@ -114,12 +131,37 @@ public class TeacherCourseView extends GeneralCourseView {
 	public JCheckBox getVisibility(){
 		return visibility;
 	}
+	
+	/**
+	 * Gets the random questions jcheckbox
+	 * @return jcheckbox random question order
+	 */
+	public JCheckBox getRandQuest(){
+		return randomQuest;
+	}
+	
+	/**
+	 * Gets de random option order jcheckbox
+	 * @return jcheckbox random option order
+	 */
+	public JCheckBox getRandOpt(){
+		return randomOpt;
+	}
+	
+	
+	/**
+	 * Sets the teacher course view
+	 * @param u the user
+	 * @param c the course to set
+	 */
 	@Override
 	public void setEverything(User u, Course c){
 		super.setEverything(u, c);
 		getEdit().setEnabled(false);
 		getRemove().setEnabled(false);
 		getVisibility().setEnabled(false);
+		getRandQuest().setEnabled(false);
+		getRandOpt().setEnabled(false);
 		this.tree.addMouseListener(controller);
 	}
 
