@@ -51,7 +51,6 @@ public class UpperPanel extends JPanel{
 		exit.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent e) {
 									try {
-										System.out.println("con exit");
 										Academy.serialize();
 									} catch (IOException e1) {
 										JOptionPane.showOptionDialog(null, "Error serialiazing academy", "Error", JOptionPane.YES_OPTION, 

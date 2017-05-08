@@ -27,7 +27,6 @@ public class LoginWindowView extends JFrame{
 	public LoginWindowView(){
 		super("moon");
 		try {
-			System.out.println("Deserializo 1");
 			Academy.deserialize();
 		} catch (IOException e1) {
 			JOptionPane.showOptionDialog(null, "Error deserialiazing academy", "Error", JOptionPane.YES_OPTION, 

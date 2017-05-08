@@ -101,7 +101,7 @@ public abstract class BasicPopup extends JFrame{
 	private boolean save(){
 		Question q = getQuestion((Double)relevanceModel.getValue());
 		if(q == null){
-			JOptionPane.showOptionDialog(null, "Invalid question", "Error", JOptionPane.YES_OPTION, 
+			JOptionPane.showOptionDialog(null, "Invalid question, make sure you entered ALL text fields", "Error", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			return false;
 		}

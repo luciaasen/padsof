@@ -5,6 +5,7 @@ package icfs.teacher.course;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -30,10 +31,12 @@ public class ApplicationsView extends LowerPanel{
 	DefaultListModel<Application> listModel = new DefaultListModel<>();
 	JList<Application> list = new JList<>(listModel);
 	ApplicationsController controller = new ApplicationsController(this);
-	JButton accept = new JButton("Acept");
+	JButton accept = new JButton("Accept");
 	JButton reject = new JButton("Reject");
 	
 	public ApplicationsView(){
+		
+		list.setPreferredSize(new Dimension(5000, 5000));
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setLayout(new BorderLayout(10,10));
 		

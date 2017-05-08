@@ -6,11 +6,13 @@ package icfs.student.course;
 
 import java.awt.event.MouseEvent;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import icfs.general.course.GeneralCourseViewController;
 import main.mainMoon;
+import moon.Academy;
 import moon.course.Exercise;
 import moon.course.Note;
 import moon.user.Student;
@@ -36,7 +38,10 @@ public class StudentCourseViewController extends GeneralCourseViewController {
 			return;
 		} else if (node.getUserObject() instanceof Exercise) {
 			Exercise e = (Exercise)node.getUserObject();
-			if(e.getExercise((Student)u)==null && e.isActive()){
+			if(e.isActive() == false){
+				JOptionPane.showOptionDialog(view, "Inactive exercise", "Error", JOptionPane.YES_OPTION, 
+						JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);			}
+			if(e.getExercise((Student)u)==null){
 				mainMoon.questionSetEverything((Student)u, c, (Exercise)node.getUserObject());
 				mainMoon.changeCard(mainMoon.QUESTION);
 			}
