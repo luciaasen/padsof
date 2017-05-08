@@ -49,7 +49,7 @@ public class AddExeController {
 			}
 			maxIndex=index;
 		} else if(questions.get(index)!=null){
-			int answer = JOptionPane.showOptionDialog(view, "There is already a question with this number. This one will be put after it", 
+			int answer = JOptionPane.showOptionDialog(view, "There is already a question with this number. Do you wantto override it?", 
 					"Caution", JOptionPane.YES_NO_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok", "Cancel"}, null);
 			if(answer==1){
@@ -133,6 +133,7 @@ public class AddExeController {
 		}
 		
 		int questionCount = 0;
+		exer.removeAllQuestions();
 		for(Question q : questions){
 			if(q!=null){
 				exer.addQuestion(q);
