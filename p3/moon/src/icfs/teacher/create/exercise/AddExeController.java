@@ -23,10 +23,10 @@ import moon.course.question.*;
  *
  */
 public class AddExeController {
-	AddExeView view;
-	Unit container;
-	Exercise exer;
-	ArrayList<Question> questions;
+	private AddExeView view;
+	protected Unit container;
+	protected Exercise exer;
+	protected ArrayList<Question> questions;
 	int maxIndex;
 	
 	public AddExeController(AddExeView view){
@@ -84,10 +84,6 @@ public class AddExeController {
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 		}
 		
-		if(questions.size()==0){
-			JOptionPane.showOptionDialog(view, "The exercise must have at least one question", "Error", JOptionPane.YES_OPTION, 
-					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
-		}
 		
 		try {
 			view.getIni();
@@ -136,10 +132,18 @@ public class AddExeController {
 			return -1;
 		}
 		
+		int questionCount = 0;
 		for(Question q : questions){
 			if(q!=null){
 				exer.addQuestion(q);
+				questionCount++;
 			}
+		}
+		
+		if(questionCount==0){
+			JOptionPane.showOptionDialog(view, "The exercise must have at least one question", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
 		}
 			
 		try {
@@ -181,5 +185,12 @@ public class AddExeController {
 		new SingleChoicePopup(this,exer);
 	}
 
+	public Exercise getExer(){
+		return exer;
+	}
+	
+	public void setExer(Exercise exer){
+		this.exer = exer;
+	}
 	
 }

@@ -13,6 +13,7 @@ import moon.course.Exercise;
  */
 public class EditExeView extends AddExeView{
 	private Exercise oldExercise;
+	private EditExeController controller = new EditExeController(this);
 	
 	public EditExeView(){
 		super();
@@ -27,8 +28,8 @@ public class EditExeView extends AddExeView{
 		save.removeActionListener(save.getActionListeners()[0]);
 		exit.removeActionListener(exit.getActionListeners()[0]);
 	
-		save.addActionListener(new EditExerciseController(this));
-		exit.addActionListener(new EditExerciseController(this));
+		save.addActionListener(new EditExeController(this));
+		exit.addActionListener(new EditExeController(this));
 	}
 	
 	public void setEverything(Exercise oldExercise){
@@ -41,6 +42,7 @@ public class EditExeView extends AddExeView{
 		penaltyModel.setValue(oldExercise.getPenalty());
 		dateIni.setDate(oldExercise.getIni());
 		dateEnd.setDate(oldExercise.getEnd());
+		controller.setExer(oldExercise);
 	}
 	
 	public Exercise getOldExercise(){
