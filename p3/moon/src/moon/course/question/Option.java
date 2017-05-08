@@ -55,6 +55,9 @@ public class Option implements Serializable{
 		return true;
 	}
 	
+	public String toString(){
+		return option;
+	}
 	
 	
 }

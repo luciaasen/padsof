@@ -25,6 +25,13 @@ public class LoginWindowView extends JFrame{
 	 */
 	public LoginWindowView(){
 		super("moon");
+		this.addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				// TODO
+				//Academy.serialize();
+				System.exit(0);
+			}
+		});
 		JFrame loginWindow = this;
 		loginWindow.setSize(Academy.DIMENSION);
 		Container panel = loginWindow.getContentPane();

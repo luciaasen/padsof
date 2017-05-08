@@ -3,10 +3,12 @@
  */
 package icfs.teacher.create.exercise;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -25,6 +27,7 @@ import moon.course.question.Question;
 public class MultipleChoicePopup extends BasicPopup {
 	OptionsPanel correct;
 	OptionsPanel incorrect;
+	JCheckBox random;
 	/**
 	 * @param controller
 	 * @param exe
@@ -36,12 +39,18 @@ public class MultipleChoicePopup extends BasicPopup {
 	@Override
 	protected Component getCentralPanel() {
 		JPanel panel= new JPanel();
+		JPanel superPanel = new JPanel();
 		panel.setLayout(new GridLayout(2,1));
 		correct = new OptionsPanel("Add correct answers");
 		incorrect = new OptionsPanel("Add incorrect answers");
+		random = new JCheckBox("Random order of options");
+		panel.add(random,BorderLayout.SOUTH);
 		panel.add(correct);
 		panel.add(incorrect);
-		return new JScrollPane(panel);
+		superPanel.setLayout(new BorderLayout());
+		superPanel.add(panel, BorderLayout.CENTER);
+		superPanel.add(random, BorderLayout.SOUTH);
+		return new JScrollPane(superPanel);
 	}
 
 	
@@ -52,7 +61,9 @@ public class MultipleChoicePopup extends BasicPopup {
 		}
 		ArrayList<Option>all = new ArrayList<>(correct.getOptions());
 		all.addAll(incorrect.getOptions());
-		return new MultiChoiceQuestion(contentsT.getText(), relevance, all, correct.getOptions(), exe);
+		MultiChoiceQuestion q = new MultiChoiceQuestion(contentsT.getText(), relevance, all, correct.getOptions(), exe);
+		q.setRandom(random.isSelected());
+		return q;
 	}
 
 }

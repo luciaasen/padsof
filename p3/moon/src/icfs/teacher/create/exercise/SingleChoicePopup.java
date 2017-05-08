@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -30,6 +31,7 @@ import moon.course.question.Question;
 public class SingleChoicePopup extends BasicPopup{
 	private OptionsPanel opPanel;
 	private JTextField correct;
+	private JCheckBox random;
 	
 	
 	public SingleChoicePopup(AddExeController controller, Exercise exe){
@@ -52,7 +54,10 @@ public class SingleChoicePopup extends BasicPopup{
 		options.add(new Option(correct.getText()));
 		ArrayList<Option>correctList = new ArrayList<>();
 		correctList.add(new Option(correct.getText()));
-		return new OneChoiceQuestion(contentsT.getText(), relevance, options, correctList, exe);
+		OneChoiceQuestion q =
+				new OneChoiceQuestion(contentsT.getText(), relevance, options, correctList, exe);
+		q.setRandom(random.isSelected());
+		return q;
 	}
 
 
@@ -69,6 +74,8 @@ public class SingleChoicePopup extends BasicPopup{
 		north.add(correct);
 		panel.add(north, BorderLayout.NORTH);
 		panel.add(central(), BorderLayout.CENTER);
+		random = new JCheckBox("Random order of options");
+		panel.add(random,BorderLayout.SOUTH);
 		return new JScrollPane(panel);
 	}
 	

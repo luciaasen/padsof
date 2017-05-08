@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public abstract class ChoiceQuestion extends OpenQuestion implements Serializable{
 	protected ArrayList<Option> options;
-	
+	private boolean random;
 	/**
 	  * ChoiceQuestion constructor
 	  * If any of the correct options are not in the possible options, they are added to the possible
@@ -34,6 +34,7 @@ public abstract class ChoiceQuestion extends OpenQuestion implements Serializabl
 			 }
 		 }
 		 this.options = options;
+		 this.setRandom(false);
 	 }
 	
 	/**
@@ -60,5 +61,19 @@ public abstract class ChoiceQuestion extends OpenQuestion implements Serializabl
 			}
 			return true;
 		}
+
+	/**
+	 * @return the random
+	 */
+	public boolean isRandom() {
+		return random;
+	}
+
+	/**
+	 * @param random the random to set
+	 */
+	public void setRandom(boolean random) {
+		this.random = random;
+	}
 
 }

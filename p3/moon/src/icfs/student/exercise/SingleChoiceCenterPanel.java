@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -36,7 +37,9 @@ public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
 	public SingleChoiceCenterPanel(Question quest) {
 		super(quest);
 		options = ((OneChoiceQuestion)quest).getOptions();
-		
+		if(((OneChoiceQuestion)quest).isRandom()){
+			Collections.shuffle(options);
+		}
 		center.setLayout(new GridLayout(options.size(), 1));
 		
 		JRadioButton button;
@@ -50,7 +53,7 @@ public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
 	
 	@Override
 	public void generateMQuestion(MExercise me) {
-		group.getSelection();
+		((JRadioButton)group.getSelection()).getText();
 		q.answer(true, me);
 		
 	}

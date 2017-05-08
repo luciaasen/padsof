@@ -5,6 +5,7 @@ package icfs.student.exercise;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -35,7 +36,9 @@ public class MultipleChoiceCenterPanel extends CenterStudentQuestionPanel {
 		public MultipleChoiceCenterPanel(Question quest) {
 			super(quest);
 			options = ((MultiChoiceQuestion)quest).getOptions();
-			
+			if(((MultiChoiceQuestion)quest).isRandom()){
+				Collections.shuffle(options);
+			}
 			center.setLayout(new GridLayout(options.size(), 1));
 			
 			JCheckBox button;
@@ -47,9 +50,7 @@ public class MultipleChoiceCenterPanel extends CenterStudentQuestionPanel {
 		}
 		
 		
-		/* (non-Javadoc)
-		 * @see icfs.student.exercise.CenterStudentQuestionPanel#generateMQuestion(moon.mark.MExercise)
-		 */
+		
 		@Override
 		public void generateMQuestion(MExercise me) {
 			//q.answer(, me);
