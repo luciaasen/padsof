@@ -27,7 +27,7 @@ public class AddExeController {
 	protected Unit container;
 	protected Exercise exer;
 	protected ArrayList<Question> questions;
-	int maxIndex;
+	protected int maxIndex;
 	
 	public AddExeController(AddExeView view){
 		this.view = view;

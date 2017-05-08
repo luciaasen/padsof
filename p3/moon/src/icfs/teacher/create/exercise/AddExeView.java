@@ -43,6 +43,7 @@ public class AddExeView extends LowerPanel{
 	protected JLabel message;
 	protected JButton save;
 	protected JButton exit;
+	protected JButton TfQuestion, MCQuestion, SCQuestion, OAQuestion;
 	
 	public AddExeView(){
 		JPanel north = new JPanel();
@@ -132,18 +133,18 @@ public class AddExeView extends LowerPanel{
 		/* Add question */
 		addQuestion.setLayout(new GridLayout(4,1,5,5));
 		addQuestion.setBackground(Color.white);
-		JButton button = new JButton("True/falseQuestion");
-		button.addActionListener(e -> controller.TfQuestion());
-		addQuestion.add(button);
-		button = new JButton("Multiple choice question");
-		button.addActionListener(e -> controller.multiChoiceQuestion());
-		addQuestion.add(button);
-		button = new JButton("Single choice question");
-		button.addActionListener(e -> controller.singleChoiceQuestion());
-		addQuestion.add(button);
-		button = new JButton("Open answer question");
-		button.addActionListener(e -> controller.openAnswerQuestion());
-		addQuestion.add(button);
+		TfQuestion = new JButton("True/falseQuestion");
+		TfQuestion.addActionListener(e -> controller.TfQuestion());
+		addQuestion.add(TfQuestion);
+		MCQuestion = new JButton("Multiple choice question");
+		MCQuestion.addActionListener(e -> controller.multiChoiceQuestion());
+		addQuestion.add(MCQuestion);
+		SCQuestion = new JButton("Single choice question");
+		SCQuestion.addActionListener(e -> controller.singleChoiceQuestion());
+		addQuestion.add(SCQuestion);
+		OAQuestion = new JButton("Open answer question");
+		OAQuestion.addActionListener(e -> controller.openAnswerQuestion());
+		addQuestion.add(OAQuestion);
 		
 		/* Relevance and penalty */
 		relevanceAndPenalty.setBackground(Color.WHITE);
