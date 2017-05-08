@@ -27,8 +27,8 @@ public class EditExeView extends AddExeView{
 		save.removeActionListener(save.getActionListeners()[0]);
 		exit.removeActionListener(exit.getActionListeners()[0]);
 	
-		save.addActionListener(new EditExeController(this));
-		exit.addActionListener(new EditExeController(this));
+		save.addActionListener(new EditExerciseController(this));
+		exit.addActionListener(new EditExerciseController(this));
 	}
 	
 	public void setEverything(Exercise oldExercise){

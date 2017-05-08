@@ -60,10 +60,7 @@ public abstract class BasicPopup extends JFrame{
 		south.setBackground(Academy.ORANGE);
 		JButton button = new JButton("Save and exit");
 		button.addActionListener(e -> {
-			if(save()==false){
-				JOptionPane.showOptionDialog(null, "Invalid question", "Error", JOptionPane.YES_OPTION, 
-						JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
-			} else {
+			if(save()==true){
 				this.dispose();
 			}
 		});
@@ -104,9 +101,13 @@ public abstract class BasicPopup extends JFrame{
 	private boolean save(){
 		Question q = getQuestion((Double)relevanceModel.getValue());
 		if(q == null){
+			JOptionPane.showOptionDialog(null, "Invalid question", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			return false;
 		}
-		controller.addQuestion(((Integer)qNumberModel.getValue()), q);
+		if(controller.addQuestion(((Integer)qNumberModel.getValue()), q)==false){
+			return false;
+		}
 		return true;
 	}
 	protected abstract Component getCentralPanel();

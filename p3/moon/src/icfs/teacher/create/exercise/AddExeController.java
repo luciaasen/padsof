@@ -3,6 +3,7 @@
  */
 package icfs.teacher.create.exercise;
 
+import java.awt.HeadlessException;
 import java.time.DateTimeException;
 import java.util.ArrayList;
 
@@ -40,16 +41,24 @@ public class AddExeController {
 		maxIndex=0;
 	}
 	
-	public void addQuestion(int index, Question q){
+	public boolean addQuestion(int index, Question q){
 		index--;
 		if(index > maxIndex){
 			for(int i=maxIndex;i<index;i++){
 				questions.add(null);
 			}
 			maxIndex=index;
+		} else if(questions.get(index)!=null){
+			int answer = JOptionPane.showOptionDialog(view, "You are about to override a question! Are you sure?", 
+					"Caution", JOptionPane.YES_NO_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Yes", "No"}, null);
+			if(answer==1){
+				return false;
+			}
 		}
 		
 		questions.add(index,q);
+		return true;
 	}
 	
 	public int save() {
@@ -63,6 +72,21 @@ public class AddExeController {
 			JOptionPane.showOptionDialog(view, e.toString(), "Error", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			return -1;
+		}
+		
+		try {
+			if(view.getExerciseName().length()==0){
+				JOptionPane.showOptionDialog(view, "The exercise must have a name", "Error", JOptionPane.YES_OPTION, 
+						JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			}
+		} catch (HeadlessException | EmptyTextFieldException e1) {
+			JOptionPane.showOptionDialog(view, "The exercise must have a name", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+		}
+		
+		if(questions.size()==0){
+			JOptionPane.showOptionDialog(view, "The exercise must have at least one question", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 		}
 		
 		try {
@@ -81,14 +105,6 @@ public class AddExeController {
 			return -1;
 		} catch (DoneExerciseException e) {
 			JOptionPane.showOptionDialog(view, e.toString(), "Uneditable exercise", JOptionPane.YES_OPTION, 
-					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
-			return -1;
-		}
-		
-		try {
-			exer.setUnit(container);
-		} catch (DuplicateElementException e) {
-			JOptionPane.showOptionDialog(view, "Cyclic illegal addition", "Error", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			return -1;
 		}
@@ -125,6 +141,15 @@ public class AddExeController {
 				exer.addQuestion(q);
 			}
 		}
+			
+		try {
+			exer.setUnit(container);
+		} catch (DuplicateElementException e) {
+			JOptionPane.showOptionDialog(view, "Cyclic illegal addition", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
+		}
+			
 		return 0;
 	}
 
