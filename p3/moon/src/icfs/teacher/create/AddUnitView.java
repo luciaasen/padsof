@@ -29,16 +29,23 @@ import moon.course.Unit;
  *
  */
 public class AddUnitView extends LowerPanel{
-	private int separation = 70;
-	private JTextField name;
-	private JLabel message;
+	protected int separation = 70;
+	protected JTextField name;
+	protected JLabel message;
+	protected JLabel nameLabel;
+	protected JButton exit;
+	protected JButton save;
+	protected JButton addSub;
+	protected JButton addExe;
+	protected JButton addNote;
+	protected JCheckBox visibility;
+	
 	/*private DatePanel dateIni;
 	private DatePanel dateEnd;
 	*/
-	private Unit parentUnit;
-	private Course parentCourse;
-	JPanel down;
-	JCheckBox visibility;
+	protected Unit parentUnit;
+	protected Course parentCourse;
+	protected JPanel down;
 	
 	public AddUnitView(){
 		super();
@@ -86,6 +93,12 @@ public class AddUnitView extends LowerPanel{
 		this.add(addNote);
 		this.add(addSub);
 		
+		this.exit = exit;
+		this.save = save;
+		this.addExe = addExe;
+		this.addNote = addNote;
+		this.addSub = addSub;
+		
 		exit.addActionListener(new AddUnitController(this));
 		save.addActionListener(new AddUnitController(this));
 		addExe.addActionListener(new AddUnitController(this));
@@ -125,6 +138,7 @@ public class AddUnitView extends LowerPanel{
 		
 		/*Add unit name things*/
 		JLabel name = new JLabel("Unit name: ");
+		this.nameLabel = name;
 		JTextField nameT = new JTextField(10);
 		this.name = nameT;
 		
@@ -178,7 +192,9 @@ public class AddUnitView extends LowerPanel{
 		this.parentCourse = parentCourse;
 		this.parentUnit = null;
 		
-		message.setText("Add Unit to course " + this.parentCourse + this.parentUnit);
+		visibility.setSelected(false);
+		name.setEnabled(true);
+		message.setText("Add Unit to course " + this.parentCourse);
 		name.setText(null);
 		
 	}
@@ -189,7 +205,7 @@ public class AddUnitView extends LowerPanel{
 		
 		visibility.setSelected(false);
 		name.setEnabled(true);
-		message.setText("Add Unit to unit " + this.parentCourse + this.parentUnit);
+		message.setText("Add Unit to unit " + this.parentUnit);
 		name.setText(null);
 		
 	}

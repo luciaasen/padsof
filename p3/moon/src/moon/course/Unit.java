@@ -169,6 +169,15 @@ public class Unit extends CourseElement implements Serializable{
 		return exes;
 	}
 
+	public boolean equals(Object o){
+		if(o == null) return false;
+		if(!(o instanceof Unit)) return false;
+		return ((Unit)o).getName().equals(this.name) ;
+	}
+	
+	public int hashCode(){
+		return this.name.hashCode();
+	}
 	@Override
 	public String toString(){
 		return name;

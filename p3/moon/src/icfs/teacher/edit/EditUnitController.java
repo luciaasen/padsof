@@ -1,11 +1,10 @@
 /**
  * 
  */
-package icfs.teacher.create;
+package icfs.teacher.edit;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -17,29 +16,30 @@ import main.mainMoon;
 import moon.Academy;
 import moon.course.Course;
 import moon.course.Unit;
+import moon.user.Teacher;
 
 /**
  * @author lucia
  *
  */
-public class AddUnitController implements ActionListener{
-
-	AddUnitView view;
+public class EditUnitController implements ActionListener{
+	private EditUnitView view;
 	
-	public AddUnitController(AddUnitView view){
+	public EditUnitController(EditUnitView view){
 		this.view = view;
 	}
+
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton button = (JButton)e.getSource();
+JButton button = (JButton)e.getSource();
 		
-		if (button.getText().equals("Back to main page")){
+		if (button.getText().equals("Back to course page")){
 			
-			mainMoon.mainSetEverything();
-			mainMoon.changeCard(mainMoon.MAIN);
+			mainMoon.courseSetEverything((Teacher)Academy.getMoonApp().getTeacher(), view.getOldUnit().getCourse());
+			mainMoon.changeCard(mainMoon.COURSE);
 			
 		}else{
 			
@@ -49,26 +49,22 @@ public class AddUnitController implements ActionListener{
 			try{
 				/*Create course*/
 				String name = view.getUnitName();
-				Unit u = new Unit(name);
-				if(this.view.isUnitVisible() == true) u.makeVisible();
-				Unit parent = this.view.getParentUnit();
-				Course parent2 = this.view.getParentCourse();
-				if(parent != null)	u.setUnit(parent);
-				else if(parent2 != null) u.setCourse(parent2);
+				view.getOldUnit().setName(name);
+				if(this.view.isUnitVisible() == true) view.getOldUnit().makeVisible();
 				
 				/*Differentiate between buttons*/
 				if (button.getText().equals("Save & add subunit")){
-					mainMoon.addUnitSetEverything(u);
+					mainMoon.addUnitSetEverything(view.getOldUnit());
 					mainMoon.changeCard(mainMoon.ADD_UNIT);
 				}else if (button.getText().equals("Save & add note")){
-					mainMoon.addNoteSetEverything(u);
+					mainMoon.addNoteSetEverything(view.getOldUnit());
 					mainMoon.changeCard(mainMoon.ADD_NOTE);
 				}else if (button.getText().equals("Save & add exe")){
-					mainMoon.addExeSetEverything(u);
+					mainMoon.addExeSetEverything(view.getOldUnit());
 					mainMoon.changeCard(mainMoon.ADD_EXE);
 				}else if (button.getText().equals("Save & exit")){
-					mainMoon.mainSetEverything();
-					mainMoon.changeCard(mainMoon.MAIN);
+					mainMoon.courseSetEverything((Teacher)Academy.getMoonApp().getTeacher(), view.getOldUnit().getCourse());
+					mainMoon.changeCard(mainMoon.COURSE);
 				}
 
 			
@@ -78,9 +74,7 @@ public class AddUnitController implements ActionListener{
 				JOptionPane.showOptionDialog(view, err2.toString(), "Invalid name", JOptionPane.YES_OPTION, 
 						JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			}
-			
 		}
-		
+			
 	}
-
 }
