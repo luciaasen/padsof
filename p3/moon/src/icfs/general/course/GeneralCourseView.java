@@ -97,8 +97,10 @@ public abstract class GeneralCourseView extends LowerPanel {
 		ImageIcon exe = new ImageIcon("exe.jpg");
 		ImageIcon course = new ImageIcon("course.jpg");
 		ImageIcon unit = new ImageIcon("unit.jpg");
-		if(note!= null  && exe!= null  && unit!=null && course!= null){
-			tree.setCellRenderer(new WeWantBeautifulTrees(note, exe, course, unit));
+		ImageIcon question = new ImageIcon("question.jpg");
+		
+		if(note!= null  && exe!= null  && unit!=null && course!= null && question != null){
+			tree.setCellRenderer(new WeWantBeautifulTrees(note, exe, course, unit, question));
 		}else{
 			System.out.println("we went wrong");
 		}
