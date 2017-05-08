@@ -115,7 +115,6 @@ public class mainMoon {
 					public void windowClosing(WindowEvent e){
 						try {
 							Academy.serialize();
-							System.out.println("Serializa");
 						} catch (IOException e1) {
 							JOptionPane.showOptionDialog(null, "Error serialiazing academy", "Error", JOptionPane.YES_OPTION, 
 									JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);

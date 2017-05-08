@@ -11,6 +11,7 @@ import java.awt.Component;
 //import com.sun.xml.internal.ws.api.Component;
 
 import moon.course.*;
+import moon.course.question.Question;
 
 /**
  * @author lucia
@@ -21,13 +22,15 @@ public class WeWantBeautifulTrees extends DefaultTreeCellRenderer{
 	Icon exeIcon;
 	Icon courseIcon;
 	Icon unitIcon;
+	Icon questionIcon;
 	
 	
-	public WeWantBeautifulTrees(Icon note, Icon exe, Icon course, Icon unit){
+	public WeWantBeautifulTrees(Icon note, Icon exe, Icon course, Icon unit, Icon question){
 		this.exeIcon = exe;
 		this.noteIcon = note;
 		this.courseIcon = course;
 		this.unitIcon = unit;		
+		this.questionIcon = question;
 	}
 	
 	
@@ -48,6 +51,8 @@ public class WeWantBeautifulTrees extends DefaultTreeCellRenderer{
 	        	setIcon(noteIcon);
 	        } else if (isExe(value)){
 	        	setIcon(exeIcon);
+	        } else if(isQuestion(value)){
+	        	setIcon(questionIcon);
 	        }
 
 	        return this;
@@ -76,6 +81,12 @@ public class WeWantBeautifulTrees extends DefaultTreeCellRenderer{
 				(DefaultMutableTreeNode)value;
 			
 		return node.getUserObject() instanceof Unit;
+	}	
+	private boolean isQuestion(Object value){
+		DefaultMutableTreeNode node =
+				(DefaultMutableTreeNode)value;
+			
+		return node.getUserObject() instanceof Question;
 	}
 	
 }
