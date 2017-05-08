@@ -17,6 +17,7 @@ import exception.EmptyTextFieldException;
 import exception.InvalidDatesException;
 import main.mainMoon;
 import moon.Academy;
+import moon.course.question.Question;
 import moon.user.Teacher;
 
 /**
@@ -73,6 +74,8 @@ public class EditExeController implements ActionListener {
 				JOptionPane.showOptionDialog(view, err4.toString(), "Uneditable exercisse", JOptionPane.YES_OPTION, 
 						JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			}
+			
+			
 			
 			mainMoon.courseSetEverything((Teacher)Academy.getMoonApp().getTeacher(), view.getOldExercise().getCourse());
 			mainMoon.changeCard(mainMoon.COURSE);

@@ -79,6 +79,10 @@ public class AddExeController {
 			JOptionPane.showOptionDialog(view, e2.toString(), "Error", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			return -1;
+		} catch (DoneExerciseException e) {
+			JOptionPane.showOptionDialog(view, e.toString(), "Uneditable exercise", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
 		}
 		
 		try {
@@ -105,9 +109,9 @@ public class AddExeController {
 			return -1;
 		}
 		try {
-			exer.setPenalty(view.getPenalty());			
+			exer.setPenalty((double)view.getPenalty());			
 			exer.setRandord(view.getRandom());
-			exer.setRelevance(view.getRelevance());
+			exer.setRelevance((double)view.getRelevance());
 			
 		} catch (DoneExerciseException e) {
 			/* This is impossible to happen, because we have just created the empty exercise */

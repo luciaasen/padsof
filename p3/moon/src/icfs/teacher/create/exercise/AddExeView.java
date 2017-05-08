@@ -64,7 +64,7 @@ public class AddExeView extends LowerPanel{
 		south.add(button);
 		
 		JButton button2 = new JButton("Save and back");
-		button2 = save;
+		save = button2;
 		button2.addActionListener(e -> {
 			if(controller.save()==0){
 				mainMoon.mainSetEverything();
@@ -83,6 +83,13 @@ public class AddExeView extends LowerPanel{
 	 */
 	public void setEverything(Unit u) {
 		controller.setEverything(u);
+		this.penaltyModel.setValue(-1);
+		this.relevanceModel.setValue(1);
+		this.name.setText("");
+		this.dateIni.reset();
+		this.dateEnd.reset();
+		this.randomOrder.setSelected(false);
+		this.visibility.setSelected(false);
 		
 	}
 	
@@ -221,11 +228,18 @@ public class AddExeView extends LowerPanel{
 			return randomOrder.isSelected();
 		}
 		
-		public Double getRelevance() {
-			return (Double)relevanceModel.getValue();
+		public double getRelevance() {
+			
+			if(relevanceModel.getValue() instanceof Integer){
+				return (double) ((Integer)relevanceModel.getValue()).intValue();
+			}
+			return (double)(relevanceModel.getValue());
 		}
 		
-		public Double getPenalty(){
-			return (Double)relevanceModel.getValue();
+		public double getPenalty(){
+			if(penaltyModel.getValue() instanceof Integer){
+				return (double) ((Integer)penaltyModel.getValue()).intValue();
+			}
+			return (double)(penaltyModel.getValue());
 		}
 }

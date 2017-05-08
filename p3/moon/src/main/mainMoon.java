@@ -251,6 +251,10 @@ public class mainMoon {
 		editUnitView.setEverything(oldUnit);
 	}
 	
+	public static void editExeSetEverything(Exercise oldExercise){
+		editExeView.setEverything(oldExercise);
+	}
+	
 	public static void teacherExerciseStatisticsSetEverything(Exercise e){
 		teacherExerciseStatsPanel.setEverything(e);
 	}

@@ -59,7 +59,7 @@ public abstract class CourseElement implements Serializable{
 			this.course = this.unit.course;
 			unit.addElement(this);
 		}else{
-			throw new DuplicateElementException(this);
+			//TODO  throw new DuplicateElementException(this);
 		}
 	}
 

@@ -84,25 +84,26 @@ public class EditButtonController implements ActionListener{
 			/*     EXERCISE     */
 			}else if (node.getUserObject() instanceof Exercise) {
 				Exercise selected = (Exercise)node.getUserObject();
-				
-				if(button != null){
-					if(button.getText().equals("Edit element and contents")){
-						
-					}else if(button.getText().equals("Remove")){
-						selected.getUnit().removeElement(selected);
-					}
-				}else if(check != null){
-					if(check.getText().equals("Visibility")){
-						if(check.isSelected()){
-							selected.makeVisible();
-						}else{
-							selected.makeInvisible();
+				if(selected.hasBeenDone() == false){
+					if(button != null){
+						if(button.getText().equals("Edit element and contents")){
+							mainMoon.editExeSetEverything(selected);
+							mainMoon.changeCard(mainMoon.EDIT_EXE);
+						}else if(button.getText().equals("Remove")){
+							selected.getUnit().removeElement(selected);
 						}
-					}else if(check.getText().equals("Random questions order")){
-						selected.setRandord(check.isSelected());
+					}else if(check != null){
+						if(check.getText().equals("Visibility")){
+							if(check.isSelected()){
+								selected.makeVisible();
+							}else{
+								selected.makeInvisible();
+							}
+						}else if(check.getText().equals("Random questions order")){
+							selected.setRandord(check.isSelected());
+						}
 					}
-				}
-				
+				}else throw new DoneExerciseException();
 				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getCourse());
 				view.revalidate();
 				
@@ -135,13 +136,11 @@ public class EditButtonController implements ActionListener{
 				Question selected = (Question)node.getUserObject();
 	
 				if(button != null){
-					if(button.getText().equals("Edit element and contents")){
-						
-					}else if(button.getText().equals("Remove")){
+					if(button.getText().equals("Remove")){
 						selected.getExercise().removeQuestion(selected);
 					}
 				}else if(check != null){
-					//TODO set randor to options era un requisito??
+					//TODO add shuffle de las options
 				}
 				
 				view.setEverything(Academy.getMoonApp().getTeacher(), selected.getExercise().getCourse());

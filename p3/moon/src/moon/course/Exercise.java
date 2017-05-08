@@ -113,7 +113,9 @@ public class Exercise extends CourseElement implements Serializable{
 			throw new DoneExerciseException();
 		}
 		for(Exercise e: this.getUnit().getExercises()){
-			if(e.getName().equals(this.getName()) && !(this.equals(e))) throw new DuplicateElementException(e);
+			if(e.getName() != null){
+				if(e.getName().equals(name) && !(this.equals(e))) throw new DuplicateElementException(e);
+			}
 		}
 		this.name = name;
 	}
@@ -282,17 +284,18 @@ public class Exercise extends CourseElement implements Serializable{
 	 * @param from, date from which exercise will be active
 	 * @param to, date until which exercise will be activa
 	 * @throws InvalidDatesException 
+	 * @throws DoneExerciseException 
 	 */
-	public void setDates(LocalDate from, LocalDate to) throws InvalidDatesException{
+	public void setDates(LocalDate from, LocalDate to) throws InvalidDatesException, DoneExerciseException{
 		if(this.hasBeenDone() == false){
-			if(to.isBefore(from)){
-				this.activeFrom = to;
-				this.activeTo = from;
+			if(from.isBefore(to)){
+				this.activeFrom = from;
+				this.activeTo = to;
 			}
 			else{
 				throw new InvalidDatesException();
 			}
-		}
+		}else throw new DoneExerciseException();
 	}
 	
 	/**

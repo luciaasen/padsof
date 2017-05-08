@@ -83,11 +83,11 @@ public class TeacherCourseViewController extends GeneralCourseViewController imp
 						
 		}else if (node.getUserObject() instanceof Question) {
 
-			view.getEdit().setEnabled(true);
+			view.getEdit().setEnabled(false);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(false);
 			view.getRandQuest().setEnabled(false);
-			view.getRandOpt().setEnabled(false);
+			view.getRandOpt().setEnabled(true);
 	
 		}
 
@@ -144,11 +144,11 @@ public class TeacherCourseViewController extends GeneralCourseViewController imp
 						
 		}else if (node.getUserObject() instanceof Question) {
 
-			view.getEdit().setEnabled(true);
+			view.getEdit().setEnabled(false);
 			view.getRemove().setEnabled(true);
 			view.getVisibility().setEnabled(false);
 			view.getRandQuest().setEnabled(false);
-			view.getRandOpt().setEnabled(false);
+			view.getRandOpt().setEnabled(true);
 	
 		}
 

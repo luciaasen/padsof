@@ -95,4 +95,9 @@ public class DatePanel extends JPanel{
 		month.setSelectedItem(date.getMonth().getValue()-1);
 		year.setText(((Integer)date.getYear()).toString());
 	}
+	public void reset(){
+		this.day.setSelectedIndex(0);
+		this.month.setSelectedIndex(0);
+		this.year.setText("");
+	}
 }
