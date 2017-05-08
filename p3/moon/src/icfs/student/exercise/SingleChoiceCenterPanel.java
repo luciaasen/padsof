@@ -12,6 +12,7 @@ import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
@@ -48,14 +49,19 @@ public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
 			button.setVisible(true);
 			center.add(button);
 			group.add(button);
+			buttons.add(button);
 		}
 	}
 	
 	@Override
 	public void generateMQuestion(MExercise me) {
 		ArrayList<Option> listO = new ArrayList<>();
-		listO.add(new Option(((JRadioButton)group.getSelection()).getText()));
-		
+		for(JRadioButton box : buttons){
+			if(box.isSelected()){
+				listO.add(new Option(box.getText()));
+				break;
+			}
+		}
 		q.answer(listO, me);
 		
 	}

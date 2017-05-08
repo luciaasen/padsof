@@ -46,6 +46,11 @@ public class Academy implements Serializable{
 		teacher = new Teacher("Tea", "cher", "0", 1, "0.0@0.0");
 		
 		users.add(teacher);
+		try {
+			this.loadUsers("StudentData.txt");
+		} catch (NumberFormatException | IOException e) {
+			System.out.println("Unable to load users.");
+		}
 	}
 	
 
