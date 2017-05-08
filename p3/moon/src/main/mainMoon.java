@@ -4,6 +4,8 @@
 package main;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.swing.JFrame;
@@ -14,6 +16,7 @@ import icfs.student.exercise.StudentQuestionView;
 import icfs.student.main.*;
 import icfs.student.stats.*;
 import icfs.student.stats.question.StudentQuestionStats;
+import icfs.teacher.course.ApplicationsView;
 import icfs.teacher.course.TeacherCourseView;
 import icfs.teacher.create.*;
 import icfs.teacher.create.exercise.AddExeView;
@@ -54,6 +57,7 @@ public class mainMoon {
 	private static StudentCourseStats studentCourseStatsPanel;
 	private static StudentExerciseStats exerciseStatsPanel;
 	private static StudentQuestionStats studentQuestionStatsPanel;
+
 	
 	public final static String MAIN = "mainPanel";
 	public final static String COURSE = "coursePanel";
@@ -80,6 +84,7 @@ public class mainMoon {
 	private static TeacherListOfStudentsCourse listOfStudentsPanel;
 	private static TeacherStudentCard studentCardPanel;
 	private static TeacherStudentStatisticsMenu teacherStudentSatsMenu;
+	private static ApplicationsView applications;
 	
 	public final static String ADD_COURSE = "addCourse";
 	public final static String ADD_UNIT = "addUnit";
@@ -95,6 +100,7 @@ public class mainMoon {
 	public final static String TEACHER_COURSE_STATS = "tcourseStatsPanel";
 	public final static String TEACHER_EXERCISE_STATS = "texercieStatsPanel";
 	public final static String TEACHER_QUESTION_STATS = "tquestionStatsPanel";
+	public final static String APPLICATIONS = "applications";
 	
 	public static void main(String[] args){
 		
@@ -105,7 +111,13 @@ public class mainMoon {
 		//TODO discute con juan si esto no deberia de estar despues del if (caso de re log in)
 		window.setVisible(true);
 		window.setSize(Academy.DIMENSION);
-	
+		window.addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				// TODO
+				//Academy.serialize();
+				System.exit(0);
+			}
+		});
 		lowerPanel = new JPanel();
 		superPanel = new JPanel();
 		upperPanel = new UpperPanel();
@@ -172,6 +184,7 @@ public class mainMoon {
 		studentCourseStatsPanel = new StudentCourseStats();
 		exerciseStatsPanel = new StudentExerciseStats();
 		studentQuestionStatsPanel = new StudentQuestionStats();
+		applications = new ApplicationsView();
 		
 		lowerPanel.add(mainTeacherPanel, MAIN);
 		lowerPanel.add(addCourseView, ADD_COURSE);
@@ -192,6 +205,7 @@ public class mainMoon {
 		lowerPanel.add(studentCourseStatsPanel, COURSE_STATS);
 		lowerPanel.add(exerciseStatsPanel, EXERCISE_STATS);
 		lowerPanel.add(studentQuestionStatsPanel, QUESTION_STATS);
+		lowerPanel.add(applications, APPLICATIONS);
 		mainSetEverything();
 	}
 	
@@ -319,9 +333,10 @@ public class mainMoon {
 	 */
 	public static void teacherStudentStatsSelectSetEverything(Student s) {
 		teacherStudentSatsMenu.setEverything(s);
-		
 	}
 	
-	
-	
+	public static void applicationsSetEverything(Course c){
+		applications.setEverything(c);
+	}	
+
 }

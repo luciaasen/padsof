@@ -16,6 +16,7 @@ import icfs.general.course.GeneralCourseView;
 import icfs.student.course.StudentCourseViewController;
 import icfs.teacher.course.TeacherCourseViewController;
 import icfs.teacher.edit.EditButtonController;
+import main.mainMoon;
 import moon.Academy;
 import moon.course.Course;
 import moon.user.User;
@@ -45,6 +46,9 @@ public class TeacherCourseView extends GeneralCourseView {
 		this.southPanel.add(button);
 		button = new JButton("Statistics");
 		button.addActionListener(e -> controller.changeToStatistics());
+		this.southPanel.add(button);
+		button = new JButton("Applications");
+		button.addActionListener(e -> controller.changeToApplications());
 		this.southPanel.add(button);
 		//tree.addTreeSelectionListener(new TeacherCourseViewController(this));
 		//getTree().addMouseListener(new TeacherCourseViewController(this));

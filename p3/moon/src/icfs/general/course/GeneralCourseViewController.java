@@ -46,4 +46,12 @@ public abstract class GeneralCourseViewController implements MouseListener {
 		mainMoon.teacherCourseStatsSetEverything(c);
 		mainMoon.changeCard(mainMoon.TEACHER_COURSE_STATS);
 	}
+
+	/**
+	 * @return
+	 */
+	public void changeToApplications() {
+		mainMoon.applicationsSetEverything(c);
+		mainMoon.changeCard(mainMoon.APPLICATIONS);
+	}
 }

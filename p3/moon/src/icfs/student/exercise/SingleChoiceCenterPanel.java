@@ -53,8 +53,10 @@ public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
 	
 	@Override
 	public void generateMQuestion(MExercise me) {
-		((JRadioButton)group.getSelection()).getText();
-		q.answer(true, me);
+		ArrayList<Option> listO = new ArrayList<>();
+		listO.add(new Option(((JRadioButton)group.getSelection()).getText()));
+		
+		q.answer(listO, me);
 		
 	}
 }
