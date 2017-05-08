@@ -112,9 +112,12 @@ public class Exercise extends CourseElement implements Serializable{
 		if(this.hasBeenDone() == true){
 			throw new DoneExerciseException();
 		}
-		for(Exercise e: this.getUnit().getExercises()){
-			if(e.getName() != null){
-				if(e.getName().equals(name) && !(this.equals(e))) throw new DuplicateElementException(e);
+		if(this.getUnit()!=null){
+		
+			for(Exercise e: this.getUnit().getExercises()){
+				if(e.getName() != null){
+					if(e.getName().equals(name) && !(this.equals(e))) throw new DuplicateElementException(e);
+				}
 			}
 		}
 		this.name = name;

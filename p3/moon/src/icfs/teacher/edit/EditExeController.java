@@ -15,6 +15,7 @@ import exception.DoneExerciseException;
 import exception.DuplicateElementException;
 import exception.EmptyTextFieldException;
 import exception.InvalidDatesException;
+import icfs.teacher.create.exercise.AddExeController;
 import main.mainMoon;
 import moon.Academy;
 import moon.course.question.Question;
@@ -24,17 +25,16 @@ import moon.user.Teacher;
  * @author lucia
  *
  */
-public class EditExeController implements ActionListener {
+public class EditExeController extends AddExeController implements ActionListener {
 
 	private EditExeView view;
 	
 	public EditExeController(EditExeView view){
+		super(view);
 		this.view = view;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton button = (JButton)e.getSource();

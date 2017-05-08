@@ -21,6 +21,7 @@ import moon.course.Course;
 import moon.course.CourseElement;
 import moon.course.Exercise;
 import moon.course.Unit;
+import moon.course.question.Question;
 import moon.user.User;
 
 /**
@@ -100,11 +101,25 @@ public abstract class GeneralCourseView extends LowerPanel {
 					setNodes(node, elem, u);
 				}
 				fatherNode.add(node);
+			} else if ((element instanceof Exercise) && u.isTeacher()){
+				Exercise exer = (Exercise)element;
+				node.setUserObject(element);
+				DefaultMutableTreeNode questionNode;
+				for(Question q : exer.getQuestions()){
+					questionNode = new DefaultMutableTreeNode();
+					questionNode.setUserObject(q);
+					node.add(questionNode);
+				}
+				fatherNode.add(node);
 			} else {
 				node.setUserObject(element);
 				fatherNode.add(node);
 			}
 		}
+	}
+	
+	public void setQuestionNodes(DefaultMutableTreeNode fatherNode, Question q){
+		
 	}
 
 	/**
