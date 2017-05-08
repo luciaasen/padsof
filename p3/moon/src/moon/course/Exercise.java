@@ -242,7 +242,9 @@ public class Exercise extends CourseElement implements Serializable{
 	 */
 	public MExercise getExercise(Student student){
 		for(MExercise m: this.studentMarks){
-			if(m.getStudent().equals(student)){
+			if(m.getStudent()==null){
+				
+			}else if(m.getStudent().equals(student)){
 				return m;
 			}
 		}

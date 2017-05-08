@@ -52,6 +52,7 @@ public class MainStudentJListController implements MouseListener {
 					JOptionPane.showOptionDialog(null, "You have already sent an application for this course", 
 							"You will have to wait", JOptionPane.YES_NO_OPTION, 
 							JOptionPane.QUESTION_MESSAGE, null, new String[]{"Ok"}, null);
+					return;
 				}
 			}
 			int choice = JOptionPane.showOptionDialog(null, "Do you want to apply for this course?", " ", JOptionPane.YES_NO_OPTION, 

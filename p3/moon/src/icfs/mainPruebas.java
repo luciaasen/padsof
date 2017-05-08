@@ -37,10 +37,10 @@ public class mainPruebas {
 	public static void main(String[] args) throws Exception {
 		/*PARA SETTEAR MOON, ANIADE STUDENTS*/
 		setMoon();
-		
+		//studentModeTest();
 		LoginWindowView l = new LoginWindowView();
 		//epilepsiaFotosensible();
-		//studentModeTest();
+		//
 	}
 	
 	public static void setMoon(){
@@ -213,10 +213,10 @@ public class mainPruebas {
 		Note n = new Note("node.getUserObject() instanceof Exercisenode.getUserObject() instanceof Exercisenode.getUserObject() instanceof Exercisenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenotenote");
 		n.setTitle("Note1");
 		u1.addElement(n);
-		Student s = new Student("pepe", "Rodriguez", "134", 1, "superpep.e@uam.es");
+		Student s = new Student("pepe", "Rodriguez", "1", 1, "1.1@1.1");
 		s.apply(math).accept();
 
 		u1.makeVisible();
-		mainMoon.userMode(s, Academy.getMoonApp());
+		//mainMoon.userMode(s, Academy.getMoonApp());
 	}
 }
