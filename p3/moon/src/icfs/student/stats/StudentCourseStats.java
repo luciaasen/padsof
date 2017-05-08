@@ -98,6 +98,7 @@ public class StudentCourseStats extends LowerPanel{
 		root = new DefaultMutableTreeNode(c.getName());
 		root.setUserObject(c);
 		tree = new JTree(root);
+		tree.addMouseListener(controller);
 
 		tree.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		for(Unit unit : c.getUnits()){

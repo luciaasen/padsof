@@ -49,7 +49,7 @@ public class StudentQuestionViewController {
 		for(CenterStudentQuestionPanel card : cards){
 			card.generateMQuestion(me);
 		}
-		
+		me.setStudent(s);
 	}
 
 	/**
