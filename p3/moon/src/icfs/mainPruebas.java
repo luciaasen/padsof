@@ -51,6 +51,12 @@ public class mainPruebas {
 		}catch(NumberFormatException | IOException e){
 			System.out.println("Error en la lectura de usuarios");
 		}
+		try {
+			Academy.serialize();
+		} catch (IOException e) {
+			JOptionPane.showOptionDialog(null, "Error deserialiazing academy", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+		}
 	}
 	
 	/**

@@ -13,6 +13,8 @@ import javax.swing.JTree;
 import javax.swing.border.Border;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeSelectionModel;
+import javax.swing.ImageIcon;
+import javax.swing.Icon;
 
 import icfs.LowerPanel;
 import main.mainMoon;
@@ -58,8 +60,13 @@ public abstract class GeneralCourseView extends LowerPanel {
 		this.add(centerPanel, BorderLayout.CENTER);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		
-		
-		
+		/*ImageIcon note = new ImageIcon("note.jpg");
+		ImageIcon exe = new ImageIcon("exe.jpg");
+		ImageIcon course = new ImageIcon("course.jpg");
+		ImageIcon unit = new ImageIcon("unit.jpg");
+		if(note!= null  && exe!= null  && unit!=null && course!= null){
+			tree.setCellRenderer(new WeWantBeautifulTrees(note, exe, course, unit));
+		}		*/
 	}
 	
 	/**
@@ -83,6 +90,16 @@ public abstract class GeneralCourseView extends LowerPanel {
 		tree.getSelectionModel()
 		.setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		centerPanel.add(tree, BorderLayout.CENTER);
+		
+		ImageIcon note = new ImageIcon("note.jpg");
+		ImageIcon exe = new ImageIcon("exe.jpg");
+		ImageIcon course = new ImageIcon("course.jpg");
+		ImageIcon unit = new ImageIcon("unit.jpg");
+		if(note!= null  && exe!= null  && unit!=null && course!= null){
+			tree.setCellRenderer(new WeWantBeautifulTrees(note, exe, course, unit));
+		}else{
+			System.out.println("we went wrong");
+		}
 	}
 	
 	/**
@@ -118,17 +135,10 @@ public abstract class GeneralCourseView extends LowerPanel {
 		}
 	}
 	
-	public void setQuestionNodes(DefaultMutableTreeNode fatherNode, Question q){
-		
-	}
-
 	/**
 	 * @return the tree
 	 */
 	public JTree getTree() {
 		return tree;
 	}
-	
-	
-
 }

@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import icfs.student.course.*;
@@ -108,16 +109,24 @@ public class mainMoon {
 	
 	public static void userMode(User u, Academy a){
 		window = new JFrame();
-		//TODO discute con juan si esto no deberia de estar despues del if (caso de re log in)
 		window.setVisible(true);
 		window.setSize(Academy.DIMENSION);
 		window.addWindowListener(new WindowAdapter(){
-			public void windowClosing(WindowEvent e){
-				// TODO
-				//Academy.serialize();
-				System.exit(0);
-			}
-		});
+					public void windowClosing(WindowEvent e){
+						try {
+							Academy.serialize();
+							System.out.println("Serializa");
+						} catch (IOException e1) {
+							JOptionPane.showOptionDialog(null, "Error serialiazing academy", "Error", JOptionPane.YES_OPTION, 
+									JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+						}
+						System.exit(0);
+					}
+				});
+		
+		
+		
+		
 		lowerPanel = new JPanel();
 		superPanel = new JPanel();
 		upperPanel = new UpperPanel();
@@ -164,7 +173,6 @@ public class mainMoon {
 	}
 	
 	public static void teacherMode(Teacher u){
-		//TODO habla con juan el quitar todas las cards actuales, ¿cambio de window Exc?
 		mainTeacherPanel = new MainTeacherLower();
 		coursePanel = new TeacherCourseView();
 		addCourseView = new AddCourseView();

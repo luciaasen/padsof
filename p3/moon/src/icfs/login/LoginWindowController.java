@@ -31,7 +31,7 @@ public class LoginWindowController implements ActionListener{
 		try{ 
 			u= Academy.getMoonApp().login(view.getUser(), view.getPassword());
 			mainMoon.userMode(u, Academy.getMoonApp());
-			view.setVisible(false);
+			view.dispose();
 		}catch(InvalidUserException ex){
 			UIManager UI=new UIManager();
 			UI.put("OptionPane.background", Academy.DARK_GREEN);

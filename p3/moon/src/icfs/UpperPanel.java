@@ -5,6 +5,7 @@ package icfs;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -50,9 +51,14 @@ public class UpperPanel extends JPanel{
 		exit.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent e) {
 									new LoginWindowView();
+									try {
+										Academy.serialize();
+									} catch (IOException e1) {
+										JOptionPane.showOptionDialog(null, "Error serialiazing academy", "Error", JOptionPane.YES_OPTION, 
+												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+									}
 									//TODO why exceptions?
-									mainMoon.window.dispose();
-									
+									mainMoon.window.dispose();									
 								}
 							});		
 		return panel;
