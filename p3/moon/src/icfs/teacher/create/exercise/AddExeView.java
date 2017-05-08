@@ -102,7 +102,7 @@ public class AddExeView extends LowerPanel{
 		JPanel relevanceAndPenalty = new JPanel();
 		
 		/* Set the borders */
-		dates.setBorder(BorderFactory.createTitledBorder("Visibility dates"));
+		dates.setBorder(BorderFactory.createTitledBorder("Activity dates"));
 		addQuestion.setBorder(BorderFactory.createTitledBorder("Add a question"));
 		
 		/*Add dates */

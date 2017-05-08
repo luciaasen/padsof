@@ -99,5 +99,6 @@ public class TeacherQuestionStats extends LowerPanel {
 				answersPanel.add(new JLabel("False"));
 			}
 		}
+		correctAnswer.add(answersPanel);
 	}
 }

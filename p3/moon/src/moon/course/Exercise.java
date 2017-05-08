@@ -156,6 +156,9 @@ public class Exercise extends CourseElement implements Serializable{
 		for (MExercise m: this.studentMarks){
 			count += m.getMark();
 		}
+		if(this.studentMarks.size()==0){
+			return 0;
+		}
 		count /= this.studentMarks.size();
 		return count;
 	}
