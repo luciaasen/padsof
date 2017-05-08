@@ -38,6 +38,9 @@ public class OneChoiceQuestion extends ChoiceQuestion implements Serializable{
 		 if(opt instanceof ArrayList<?> == false){
 			 return false;
 		 }
+		 if(((ArrayList<?>) opt).size()==0){
+			 return false;
+		 }
 		 if(((ArrayList<?>)opt).get(0) instanceof Option == false){
 			 return false;
 		 }
