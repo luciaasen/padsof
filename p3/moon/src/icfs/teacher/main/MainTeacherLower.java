@@ -144,8 +144,8 @@ public class MainTeacherLower extends LowerPanel{
 		JButton go = new JButton("Go");
 		this.element = combo2;
 		
-		JPanel combos = combos();*/
-		JButton combos = new JButton("Add course");
+		JPanel combos = combos();
+		*/JButton combos = new JButton("Add course");
 		combos.addActionListener(new MainTeacherController(this));
 		
 		layout.putConstraint(SpringLayout.NORTH, combos, this.separation, SpringLayout.NORTH, right);

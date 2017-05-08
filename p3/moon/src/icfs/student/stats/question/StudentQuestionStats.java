@@ -89,5 +89,6 @@ public class StudentQuestionStats extends LowerPanel{
 		} else if(q instanceof OpenQuestion){
 			return new OpenQuestionStatsPanel(s,mquestion);
 		}
+		return null;
 	}
 }

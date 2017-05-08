@@ -6,10 +6,13 @@ package icfs.teacher.create.exercise;
 import java.time.DateTimeException;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import exception.DoneExerciseException;
 import exception.DuplicateElementException;
+import exception.EmptyTextFieldException;
+import exception.InvalidDatesException;
 import moon.course.Exercise;
 import moon.course.Unit;
 import moon.course.question.*;
@@ -49,42 +52,69 @@ public class AddExeController {
 		questions.add(index,q);
 	}
 	
-	public int save(){
+	public int save() {
+		
+		try{
+			
+			if(view.getVisibility().isSelected()) exer.makeVisible();
+			else exer.makeInvisible();
+			
+		}catch(DoneExerciseException e){
+			JOptionPane.showOptionDialog(view, e.toString(), "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
+		}
+		
 		try {
 			view.getIni();
 			view.getEnd();
 			
-			if(view.getIni().isAfter(view.getEnd())){
-				throw new NumberFormatException();
-			}
-		}catch(DateTimeException | NumberFormatException e) {
-				JOptionPane.showOptionDialog(null, "Invalid dates", "Error", JOptionPane.YES_OPTION, 
+			exer.setDates(view.getIni(), view.getEnd());
+			
+		}catch(DateTimeException  | NumberFormatException e) {
+				JOptionPane.showOptionDialog(view, "Invalid dates", "Error", JOptionPane.YES_OPTION, 
 						JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
-				//TODO eliminar:
-				e.printStackTrace();
 				return -1;
+		}catch(InvalidDatesException e2){
+			JOptionPane.showOptionDialog(view, e2.toString(), "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
 		}
 		
 		try {
 			exer.setUnit(container);
 		} catch (DuplicateElementException e) {
-			JOptionPane.showOptionDialog(null, "Cyclic illegal addition", "Error", JOptionPane.YES_OPTION, 
+			JOptionPane.showOptionDialog(view, "Cyclic illegal addition", "Error", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			return -1;
 		}
 		
-		exer.setDates(view.getIni(), view.getEnd());
-		exer.setName(view.getName());
-		exer.setPenalty(view.getPenalty());
-		try {
-			exer.setRandord(view.getRandom());
+		try{
+			exer.setName(view.getExerciseName());
+		}catch(EmptyTextFieldException e){
+			JOptionPane.showOptionDialog(view, e.toString(), "Empty field", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
 		} catch (DoneExerciseException e) {
-			/* This is impossible to happen, because we have just created the empty exercise */
-			JOptionPane.showOptionDialog(null, "Internal error", "Error", JOptionPane.YES_OPTION, 
+			JOptionPane.showOptionDialog(view, e.toString(), "Uneditable exercise", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
+		} catch (DuplicateElementException e) {
+			JOptionPane.showOptionDialog(view, e.toString(), "Duplicate", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 			return -1;
 		}
-		exer.setRelevance(view.getRelevance());
+		try {
+			exer.setPenalty(view.getPenalty());			
+			exer.setRandord(view.getRandom());
+			exer.setRelevance(view.getRelevance());
+			
+		} catch (DoneExerciseException e) {
+			/* This is impossible to happen, because we have just created the empty exercise */
+			JOptionPane.showOptionDialog(view, "Internal error", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+			return -1;
+		}
 		
 		for(Question q : questions){
 			if(q!=null){

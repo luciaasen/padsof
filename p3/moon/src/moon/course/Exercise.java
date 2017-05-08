@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import exception.DoneExerciseException;
 import exception.DuplicateElementException;
+import exception.InvalidDatesException;
 
 /**
  * This is a class that stores all the information of an exercise.
@@ -50,13 +51,16 @@ public class Exercise extends CourseElement implements Serializable{
 	/**
 	 * Sets relevance if noone has done the exercise
 	 * @param relevance
+	 * @throws DoneExerciseException 
 	 */
-	public void setRelevance(double relevance) {
+	public void setRelevance(double relevance) throws DoneExerciseException {
 		if(this.hasBeenDone() == false){
 			if(relevance <= 0){
 				relevance = 1;
 			}
 			this.relevance = relevance;
+		}else{
+			throw new DoneExerciseException();
 		}
 	}
 
@@ -75,13 +79,16 @@ public class Exercise extends CourseElement implements Serializable{
 	/**
 	 * Sets penalty if noone has done it
 	 * @param penalty
+	 * @throws DoneExerciseException 
 	 */
-	public void setPenalty(double penalty) {
+	public void setPenalty(double penalty) throws DoneExerciseException {
 		if(this.hasBeenDone() == false){
 			if(penalty > 0){
 				penalty = -1;
 			}
 			this.penalty = penalty;
+		}else{
+			throw new DoneExerciseException();
 		}
 	}
 
@@ -98,10 +105,15 @@ public class Exercise extends CourseElement implements Serializable{
 	/**
 	 * Sets the name of an exercise
 	 * @param name
+	 * @throws DoneExerciseException 
+	 * @throws DuplicateElementException 
 	 */
-	public void setName(String name){
+	public void setName(String name) throws DoneExerciseException, DuplicateElementException{
 		if(this.hasBeenDone() == true){
-			return;
+			throw new DoneExerciseException();
+		}
+		for(Exercise e: this.getUnit().getExercises()){
+			if(e.getName().equals(this.getName()) && !(this.equals(e))) throw new DuplicateElementException(e);
 		}
 		this.name = name;
 	}
@@ -269,16 +281,16 @@ public class Exercise extends CourseElement implements Serializable{
 	 * If 'from' is after 'to', they're swapped
 	 * @param from, date from which exercise will be active
 	 * @param to, date until which exercise will be activa
+	 * @throws InvalidDatesException 
 	 */
-	public void setDates(LocalDate from, LocalDate to){
+	public void setDates(LocalDate from, LocalDate to) throws InvalidDatesException{
 		if(this.hasBeenDone() == false){
 			if(to.isBefore(from)){
 				this.activeFrom = to;
 				this.activeTo = from;
 			}
 			else{
-				this.activeFrom = from;
-				this.activeTo = to;
+				throw new InvalidDatesException();
 			}
 		}
 	}
@@ -316,6 +328,14 @@ public class Exercise extends CourseElement implements Serializable{
 		}
 	}
 	
+	
+	public LocalDate getIni(){
+		return activeFrom;
+	}
+	
+	public LocalDate getEnd(){
+		return activeTo;
+	}
 	@Override 
 	public void makeInvisible() throws DoneExerciseException{
 		if(studentMarks.size()!=0){

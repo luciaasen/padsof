@@ -50,7 +50,9 @@ public class EditButtonController implements ActionListener{
 				Unit selected = (Unit)node.getUserObject();
 				if(button != null){
 					if(button.getText().equals("Edit element and contents")){
-						
+
+						mainMoon.editUnitSetEverything(selected);
+						mainMoon.changeCard(mainMoon.EDIT_UNIT);
 						
 					}else if(button.getText().equals("Remove")){
 						selected.getCourse().removeUnit(selected);

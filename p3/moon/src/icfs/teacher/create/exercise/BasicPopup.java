@@ -36,7 +36,7 @@ public abstract class BasicPopup extends JFrame{
 	public BasicPopup(AddExeController controller, String text, Exercise exe){
 		super(text);
 		this.setVisible(true);
-		this.setSize(700, 5000);
+		this.setSize(700, 700);
 		this.controller = controller;
 		this.setContentPane(getPanel());
 		this.revalidate();

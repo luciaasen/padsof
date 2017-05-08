@@ -28,7 +28,7 @@ public class OptionsPanel extends JPanel{
 	private JList<Option> list;
 	private JTextField text;
 	
-	public OptionsPanel(String s){
+	public OptionsPanel(String s, String s2){
 		JPanel north = new JPanel();
 		
 		this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -48,7 +48,7 @@ public class OptionsPanel extends JPanel{
 		model = new DefaultListModel<>();
 		list = new JList<>(model);
 		list.setBorder(BorderFactory.createTitledBorder( 
-				BorderFactory.createLineBorder(Academy.DARK_GREEN, 5),"Correct answers:"));
+				BorderFactory.createLineBorder(Academy.DARK_GREEN, 5), s2));
 		this.setLayout(new BorderLayout(20,20));
 		this.add(north,BorderLayout.NORTH);
 		this.add(new JScrollPane(list), BorderLayout.CENTER);

@@ -89,4 +89,10 @@ public class DatePanel extends JPanel{
 		
 		return LocalDate.of(year, month+1, day+1);
 	}	
+	
+	public void setDate(LocalDate date){
+		day.setSelectedItem(date.getDayOfMonth());
+		month.setSelectedItem(date.getMonth().getValue()-1);
+		year.setText(((Integer)date.getYear()).toString());
+	}
 }

@@ -43,7 +43,7 @@ public class OpenAnswerPopUp extends BasicPopup {
 	
 	@Override
 	protected JPanel getCentralPanel(){
-		opPanel = new OptionsPanel("Correct answers");
+		opPanel = new OptionsPanel("Add correct answers", "Correct answers: ");
 		return opPanel;
 	}
 	

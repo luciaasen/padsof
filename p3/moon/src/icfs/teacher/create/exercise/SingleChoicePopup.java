@@ -41,7 +41,7 @@ public class SingleChoicePopup extends BasicPopup{
 	
 	
 	protected JPanel central(){
-		opPanel = new OptionsPanel("Add incorrect answers");
+		opPanel = new OptionsPanel("Add incorrect answers", "Incorrect answers: ");
 		return opPanel;
 	}
 	

@@ -34,7 +34,7 @@ public class EditUnitController implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-JButton button = (JButton)e.getSource();
+		JButton button = (JButton)e.getSource();
 		
 		if (button.getText().equals("Back to course page")){
 			
@@ -47,7 +47,7 @@ JButton button = (JButton)e.getSource();
 			UI.put("OptionPane.background", Academy.DARK_GREEN);
 			UI.put("OptionPane.messageForeground", Academy.DARK_GREEN);
 			try{
-				/*Create course*/
+				/*Edit*/
 				String name = view.getUnitName();
 				view.getOldUnit().setName(name);
 				if(this.view.isUnitVisible() == true) view.getOldUnit().makeVisible();

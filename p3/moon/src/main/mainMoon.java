@@ -232,6 +232,11 @@ public class mainMoon {
 	public static void editCourseSetEverything(Course oldCourse){
 		editCourseView.setEverything(oldCourse);
 	}
+	
+	public static void editUnitSetEverything(Unit oldUnit){
+		editUnitView.setEverything(oldUnit);
+	}
+	
 	public static void teacherExerciseStatisticsSetEverything(Exercise e){
 		teacherExerciseStatsPanel.setEverything(e);
 	}

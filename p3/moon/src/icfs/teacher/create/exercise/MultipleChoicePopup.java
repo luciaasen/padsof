@@ -41,8 +41,8 @@ public class MultipleChoicePopup extends BasicPopup {
 		JPanel panel= new JPanel();
 		JPanel superPanel = new JPanel();
 		panel.setLayout(new GridLayout(2,1));
-		correct = new OptionsPanel("Add correct answers");
-		incorrect = new OptionsPanel("Add incorrect answers");
+		correct = new OptionsPanel("Add correct answers", "Correct answers: ");
+		incorrect = new OptionsPanel("Add incorrect answers", "Incorrect aswers: ");
 		random = new JCheckBox("Random order of options");
 		panel.add(random,BorderLayout.SOUTH);
 		panel.add(correct);

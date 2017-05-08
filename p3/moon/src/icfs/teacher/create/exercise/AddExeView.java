@@ -17,6 +17,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
+import exception.EmptyTextFieldException;
 import icfs.DatePanel;
 import icfs.LowerPanel;
 import main.mainMoon;
@@ -29,15 +30,19 @@ import moon.course.Unit;
  *
  */
 public class AddExeView extends LowerPanel{
-	private DatePanel dateIni;
-	private DatePanel dateEnd;
-	private JCheckBox randomOrder = new JCheckBox("Random order");
-	private JTextField name = new JTextField(20);
-	private SpinnerNumberModel relevanceModel = new SpinnerNumberModel(1.0, 0.0, Double.MAX_VALUE, 0.1);
-	private SpinnerNumberModel penaltyModel = new SpinnerNumberModel(-1.0, 0-Double.MAX_VALUE, 0.0, 0.1);
+	protected DatePanel dateIni;
+	protected DatePanel dateEnd;
+	protected JCheckBox visibility = new JCheckBox("Visibility");
+	protected JCheckBox randomOrder = new JCheckBox("Random order");
+	protected JTextField name = new JTextField(20);
+	protected SpinnerNumberModel relevanceModel = new SpinnerNumberModel(1.0, 0.0, Double.MAX_VALUE, 0.1);
+	protected SpinnerNumberModel penaltyModel = new SpinnerNumberModel(-1.0, 0-Double.MAX_VALUE, 0.0, 0.1);
 	private JSpinner relevance = new JSpinner(relevanceModel);
 	private JSpinner penalty = new JSpinner(penaltyModel);
 	private AddExeController controller = new AddExeController(this);
+	protected JLabel message;
+	protected JButton save;
+	protected JButton exit;
 	
 	public AddExeView(){
 		JPanel north = new JPanel();
@@ -45,21 +50,26 @@ public class AddExeView extends LowerPanel{
 		JPanel south = new JPanel();
 		
 		north.setBackground(Color.WHITE);
-		north.add(new JLabel("Add exercise"));
+		JLabel message = new JLabel("Add exercise");
+		north.add(message);
+		this.message = message;
 		
 		center = generateCenter();
 		
 		JButton button = new JButton("Back to main page");
+		this.exit = button;
 		button.addActionListener(e -> {
 			mainMoon.mainSetEverything();
 			mainMoon.changeCard(mainMoon.MAIN);});
 		south.add(button);
-		button = new JButton("Save and back");
-		button.addActionListener(e -> {
+		
+		JButton button2 = new JButton("Save and back");
+		button2 = save;
+		button2.addActionListener(e -> {
 			if(controller.save()==0){
 				mainMoon.mainSetEverything();
 				mainMoon.changeCard(mainMoon.MAIN);}});
-		south.add(button);
+		south.add(button2);
 		south.setBackground(Academy.ORANGE);
 		
 		this.setLayout(new BorderLayout(10,10));
@@ -100,9 +110,15 @@ public class AddExeView extends LowerPanel{
 		/* Question order */
 		questionsOrder.setLayout(new GridLayout(2,1,5,5));
 		questionsOrder.setBackground(Color.WHITE);
-		randomOrder.setBorder(BorderFactory.createTitledBorder("Question displaying"));
-		randomOrder.setBackground(Color.WHITE);
-		questionsOrder.add(randomOrder);
+		
+		JPanel check = new JPanel();
+		randomOrder.setBackground(Color.white);
+		visibility.setBackground(Color.white);
+		check.add(randomOrder);
+		check.add(visibility);
+		check.setBorder(BorderFactory.createTitledBorder(""));
+		check.setBackground(Color.WHITE);
+		questionsOrder.add(check);
 		name.setBorder(BorderFactory.createTitledBorder("Exercise name"));
 		questionsOrder.add(name);
 		
@@ -141,6 +157,53 @@ public class AddExeView extends LowerPanel{
 		center.add(relevanceAndPenalty);
 		return center;
 	}
+	
+	
+	/**
+	 * Gets message JLabel
+	 * @return JLabel
+	 */
+		public JLabel getMessage(){
+			return this.message;
+		}
+		/**
+		 * gets visibility checkbox
+		 * @return checkbox
+		 */
+		public JCheckBox getVisibility(){
+			return visibility;
+		}
+		
+		/**
+		 * Gets the name textfield
+		 * @return
+		 */
+		public JTextField getNameField(){
+			return this.name;
+		}
+		
+		/**
+		 * Gets the relevance spinner
+		 * @return
+		 */
+		public SpinnerNumberModel getRelevanceModel(){
+			return this.relevanceModel;
+		}
+		
+		/**
+		 * Gets de penalty spinner
+		 * @return
+		 */
+		public SpinnerNumberModel getPenaltyModel(){
+			return this.penaltyModel;
+		}
+		
+		/**
+		 * 
+		 * @return
+		 * @throws NumberFormatException
+		 */
+		
 		public LocalDate getIni() throws NumberFormatException{
 			return this.dateIni.getDate();
 		}
@@ -149,7 +212,8 @@ public class AddExeView extends LowerPanel{
 			return this.dateEnd.getDate();
 		}
 		
-		public String getName(){
+		public String getExerciseName() throws EmptyTextFieldException{
+			if(name.getText().equals("")) throw new EmptyTextFieldException();
 			return name.getText();
 		}
 		
