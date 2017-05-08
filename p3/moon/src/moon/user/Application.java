@@ -92,4 +92,17 @@ public class Application implements Serializable{
 		return course;
 	}
 	
+	/**
+	 * Getter for the student
+	 * @return The Student associated with this application.
+	 */
+	public Student getStudent(){
+		return student;
+	}
+	
+	@Override
+	public String toString(){
+		return student.toString();
+	}
+	
 }

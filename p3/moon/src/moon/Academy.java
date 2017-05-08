@@ -227,4 +227,38 @@ public class Academy implements Serializable{
 	public static void setMoon(Academy newMoon){
 		Academy.moonApp = newMoon;
 	}
+	
+	/**
+	 * Auxiliar method to deserialize moon.
+	 * @return
+	 * @throws IOException 
+	 * @throws ClassNotFoundException 
+	 */
+	public static void deserialize() throws IOException, ClassNotFoundException{
+			
+		FileInputStream fileIn =
+				new FileInputStream("moon.ser");
+		ObjectInputStream in =
+				new ObjectInputStream(fileIn);
+		moonApp = (Academy) in.readObject();
+		in.close();
+		fileIn.close();
+	}
+	
+	/**
+	 * Auxiliar method to serialize moon.
+	 * @param moon
+	 * @throws IOException
+	 */
+	public static void serialize() throws IOException {
+		
+		FileOutputStream fileOut =
+				new FileOutputStream("moon.ser");
+		ObjectOutputStream out = 
+				new ObjectOutputStream(fileOut);
+		out.writeObject(moonApp);
+		out.close();
+		fileOut.close();
+		
+	}
 }

@@ -55,9 +55,12 @@ public class TrueFalsePopup extends BasicPopup{
 	}
 	@Override
 	protected Question getQuestion(double relevance) {
-		if(group.getSelection()==tre){
+		if(contentsT.getText().length()==0){
+			return null;
+		}
+		if(tre.isSelected()){
 			return new TfQuestion(contentsT.getText(), relevance, true, exe);
-		} else if(group.getSelection()==flse) {
+		} else if(flse.isSelected()) {
 			return new TfQuestion(contentsT.getText(), relevance, false, exe);
 		} else {
 			return null;

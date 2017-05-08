@@ -159,6 +159,8 @@ public class MainTeacherLower extends LowerPanel{
 		layout.putConstraint(SpringLayout.HORIZONTAL_CENTER, calendar, 0, SpringLayout.HORIZONTAL_CENTER, right);
 		right.add(calendar);
 		
+		JButton apps = new JButton("Applications");
+		
 		return right;
 	}
 	

@@ -53,7 +53,13 @@ public class MultipleChoiceCenterPanel extends CenterStudentQuestionPanel {
 		
 		@Override
 		public void generateMQuestion(MExercise me) {
-			//q.answer(, me);
+			ArrayList<Option> listO = new ArrayList<>();
+			for(JCheckBox box : buttons){
+				if(box.isSelected()){
+					listO.add(new Option(box.getText()));
+				}
+			}
+			q.answer(listO, me);
 		}
 
 }
