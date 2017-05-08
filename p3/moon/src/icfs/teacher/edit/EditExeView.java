@@ -3,6 +3,8 @@
  */
 package icfs.teacher.edit;
 
+import javax.swing.JButton;
+
 import icfs.LowerPanel;
 import icfs.teacher.create.exercise.AddExeView;
 import moon.course.Exercise;
@@ -12,7 +14,6 @@ import moon.course.Exercise;
  *
  */
 public class EditExeView extends AddExeView{
-	private Exercise oldExercise;
 	private EditExeController controller = new EditExeController(this);
 	
 	public EditExeView(){
@@ -28,12 +29,22 @@ public class EditExeView extends AddExeView{
 		save.removeActionListener(save.getActionListeners()[0]);
 		exit.removeActionListener(exit.getActionListeners()[0]);
 	
-		save.addActionListener(new EditExeController(this));
-		exit.addActionListener(new EditExeController(this));
+		save.addActionListener(controller);
+		exit.addActionListener(controller);
+		
+		TfQuestion.removeActionListener(TfQuestion.getActionListeners()[0]);
+		MCQuestion.removeActionListener(MCQuestion.getActionListeners()[0]); 
+		SCQuestion.removeActionListener(SCQuestion.getActionListeners()[0]);
+		OAQuestion.removeActionListener(OAQuestion.getActionListeners()[0]);
+		
+		TfQuestion.addActionListener(e -> controller.TfQuestion());
+		MCQuestion.addActionListener(e -> controller.multiChoiceQuestion());
+		SCQuestion.addActionListener(e -> controller.singleChoiceQuestion());
+		OAQuestion.addActionListener(e -> controller.openAnswerQuestion());
 	}
 	
 	public void setEverything(Exercise oldExercise){
-		this.oldExercise = oldExercise;
+		controller.setEverything(oldExercise);
 		message.setText("Edit exercise "+ oldExercise.getName());
 		name.setText(oldExercise.getName());
 		randomOrder.setSelected(oldExercise.getRandord());
@@ -42,11 +53,7 @@ public class EditExeView extends AddExeView{
 		penaltyModel.setValue(oldExercise.getPenalty());
 		dateIni.setDate(oldExercise.getIni());
 		dateEnd.setDate(oldExercise.getEnd());
-		controller.setExer(oldExercise);
 	}
 	
-	public Exercise getOldExercise(){
-		return oldExercise;
-	}
 	
 }

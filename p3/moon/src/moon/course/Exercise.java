@@ -354,4 +354,14 @@ public class Exercise extends CourseElement implements Serializable{
 	public String toString(){
 		return name;
 	}
+
+
+
+	/**
+	 * 
+	 */
+	public void removeAllQuestions() {
+		questions.removeAll(questions);
+		
+	}
 }
