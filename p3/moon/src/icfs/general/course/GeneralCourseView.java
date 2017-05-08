@@ -27,6 +27,7 @@ import moon.course.question.Question;
 import moon.user.User;
 
 /**
+ * This class is a JPanel that Student a Teacher can use where they enter a course
  * @author Juan Riera and Lucia Asencio
  *
  */

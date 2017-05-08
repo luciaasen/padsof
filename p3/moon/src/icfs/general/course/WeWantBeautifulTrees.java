@@ -14,7 +14,8 @@ import moon.course.*;
 import moon.course.question.Question;
 
 /**
- * @author lucia
+ * Class created to make opur course trees look beautifukl
+ * @author lucia and juan
  *
  */
 public class WeWantBeautifulTrees extends DefaultTreeCellRenderer{
