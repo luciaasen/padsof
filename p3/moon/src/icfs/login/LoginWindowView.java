@@ -12,7 +12,7 @@ import icfs.ImgPanel;
 import moon.Academy;
 
 /**
- * This class constructs de login window
+ * This class constructs de login window for users ans students
  * @author Lucia Asencio y Juan Riera, este ultimo responsable de todos los males del codigo y del mundo
  */
 public class LoginWindowView extends JFrame{

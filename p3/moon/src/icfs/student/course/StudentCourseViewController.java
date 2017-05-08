@@ -18,6 +18,7 @@ import moon.course.Note;
 import moon.user.Student;
 
 /**
+ * Controls the course view of a student
  * @author Juan Riera and Lucia Asencio
  *
  */

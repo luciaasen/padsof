@@ -20,6 +20,7 @@ import moon.user.Student;
 import moon.user.User;
 
 /**
+ * JPanel that shows the view a students has of a course
  * @author Juan Riera and Lucia Asencio
  *
  */

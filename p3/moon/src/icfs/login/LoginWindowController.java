@@ -15,6 +15,7 @@ import moon.user.User;
 import main.*;
 
 /**
+ * Login frame controller
  * @author Lucia Asencio y Juan Riera
  *
  */

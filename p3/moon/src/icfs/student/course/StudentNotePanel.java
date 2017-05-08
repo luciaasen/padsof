@@ -16,6 +16,7 @@ import moon.Academy;
 import moon.course.Note;
 
 /**
+ * Student JPanel for the student to see his notes
  * @author Juan Riera and Lucia Asencio
  *
  */
@@ -24,7 +25,7 @@ public class StudentNotePanel extends LowerPanel {
 	private JPanel buttons;
 	public StudentNotePanel(){
 		text = new JTextPane();
-		
+		text.setEditable(false);
 		buttons = new JPanel();
 		JButton button = new JButton("Back");
 		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE));

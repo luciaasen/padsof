@@ -14,6 +14,7 @@ import moon.user.Student;
 import moon.user.User;
 
 /**
+ * Controller of the buttons in a course view
  * @author Juan Riera and Lucia Asencio
  *
  */
