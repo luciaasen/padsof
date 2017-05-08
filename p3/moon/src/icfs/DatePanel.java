@@ -57,7 +57,6 @@ public class DatePanel extends JPanel{
 								        }else {
 								        	dayC.setModel(thirtyone);		             
 								        }
-								        //TODO comprobar que el dia antiguo esta en el mes
 								        dayC.setSelectedIndex(oldIndex);
 								    }
 								});
