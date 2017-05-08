@@ -11,6 +11,7 @@ import moon.course.Exercise;
 import moon.course.question.Question;
 import moon.mark.MExercise;
 import moon.user.Student;
+import moon.user.Teacher;
 
 /**
  * @author Juan Riera and Lucia Asencio
@@ -49,5 +50,19 @@ public class StudentQuestionViewController {
 			card.generateMQuestion(me);
 		}
 		
+	}
+
+	/**
+	 * @return
+	 */
+	public Student getStudent() {
+		return s;
+	}
+
+	/**
+	 * @return
+	 */
+	public Course getCourse() {
+		return c;
 	}
 }

@@ -77,8 +77,10 @@ public class TeacherCourseStats extends LowerPanel {
 		center.setBackground(Color.WHITE);
 				
 		down.setLayout(new BorderLayout(20, 20));
-		down.add(new JLabel("Exercise  statistics: "), BorderLayout.WEST);
 		down.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+		down.add(new JLabel("Exercise  statistics: "), BorderLayout.WEST);
+		down.add(list, BorderLayout.CENTER);
+		list.addMouseListener(controller);
 		down.setBackground(Color.white);
 		
 		superPanel.add(up);

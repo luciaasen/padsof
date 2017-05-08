@@ -68,11 +68,14 @@ public class StudentExerciseStats extends LowerPanel {
 		center.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		center.add(new JLabel("Question's statistics:"), BorderLayout.NORTH);
 		JScrollPane listScroll = new JScrollPane(questions);
+		questions.addMouseListener(controller);
 		center.add(listScroll, BorderLayout.CENTER);
 		center.setBackground(Color.white);
 		
 		auxButton = new JButton("Back to course statistics");
-		auxButton.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE_STATS));
+		auxButton.addActionListener(e -> {
+			mainMoon.mainSetEverything(controller.getStudent());
+			mainMoon.changeCard(mainMoon.COURSE_STATS);});
 		south.add(auxButton);
 		auxButton = new JButton("Back to main window");
 		auxButton.addActionListener(e -> mainMoon.changeCard(mainMoon.MAIN));

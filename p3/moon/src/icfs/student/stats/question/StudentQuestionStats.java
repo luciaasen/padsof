@@ -25,6 +25,7 @@ public class StudentQuestionStats extends LowerPanel{
 	JPanel south;
 	JPanel center = new JPanel();
 	JLabel question = new JLabel();
+	Student s;
 	
 	public StudentQuestionStats(){
 		this.setLayout(new BorderLayout(10,10));
@@ -50,7 +51,9 @@ public class StudentQuestionStats extends LowerPanel{
 		button.addActionListener(e -> mainMoon.changeCard(mainMoon.COURSE_STATS));
 		south.add(button);
 		button = new JButton("Back to main page");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.MAIN));
+		button.addActionListener(e -> {
+			mainMoon.mainSetEverything(s);
+			mainMoon.changeCard(mainMoon.MAIN);});
 		south.add(button);
 		return south;
 	}
@@ -68,6 +71,7 @@ public class StudentQuestionStats extends LowerPanel{
 		this.remove(center);
 		center=newCenter(s, q);
 		this.add(center);
+		this.s=s;
 	}
 	
 	private JPanel newCenter(Student s, Question q){

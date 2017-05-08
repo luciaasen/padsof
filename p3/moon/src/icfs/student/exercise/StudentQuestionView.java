@@ -36,6 +36,8 @@ public class StudentQuestionView extends LowerPanel{
 	ArrayList<CenterStudentQuestionPanel> cards = new ArrayList<>();
 	JComboBox<String> questionNumber = new JComboBox<>();
 	ArrayList<JLabel> questionNumbers= new ArrayList<>();
+	JButton previous;
+	JButton next;
 	private final static int NCOLS = 15;
 	int actualQuestion = 1;
 	
@@ -61,11 +63,11 @@ public class StudentQuestionView extends LowerPanel{
 	
 	private JPanel questionButtons(){
 		JPanel buttons = new JPanel();
-		JButton previous = new JButton("Previous");
-		JButton next = new JButton("Next");
+		previous = new JButton("Previous");
+		next = new JButton("Next");
 		JButton save = new JButton("End exercise and send my answers");
 		JButton exit = new JButton("Exit without saving");
-		previous.setEnabled(false);
+		
 		
 		previous.addActionListener(e -> {layout.previous(center);
 			actualQuestion--;
@@ -155,6 +157,10 @@ public class StudentQuestionView extends LowerPanel{
 			i++;
 		}
 		actualQuestion = 1;
+		previous.setEnabled(false);
+		if(controller.getQuestionsOrder().size()==1){
+			next.setEnabled(false);
+		}
 		questionNumbers.get(0).setBorder(BorderFactory.createLineBorder(Color.black, 1, true));
 	}
 
