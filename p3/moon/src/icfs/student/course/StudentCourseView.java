@@ -24,16 +24,22 @@ import moon.user.User;
  *
  */
 public class StudentCourseView extends GeneralCourseView {
-	
+	Student s;
 	public StudentCourseView(){
 		super();
 		controller = new StudentCourseViewController(this);
 		getTree().addMouseListener(controller);
+		backButton.removeActionListener(backButton.getActionListeners()[0]);
+		backButton.addActionListener(e -> {
+			mainMoon.mainSetEverything((s));
+			mainMoon.changeCard(mainMoon.MAIN);
+		});
 	}
 	
 	@Override
 	public void setEverything(User u, Course c){
 		super.setEverything(u, c);
+		s = (Student)u;
 		this.tree.addMouseListener(controller);
 	}
 

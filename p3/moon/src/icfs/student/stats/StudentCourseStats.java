@@ -63,7 +63,9 @@ public class StudentCourseStats extends LowerPanel{
 		button.addActionListener(e -> mainMoon.changeCard(mainMoon.SELECT_COURSE));
 		south.add(button);
 		button = new JButton("Back to main");
-		button.addActionListener(e -> mainMoon.changeCard(mainMoon.MAIN));
+		button.addActionListener(e -> {
+			mainMoon.mainSetEverything(controller.getStudent());
+			mainMoon.changeCard(mainMoon.MAIN);});
 		south.add(button);
 		south.setBackground(Color.white);
 		
@@ -113,8 +115,6 @@ public class StudentCourseStats extends LowerPanel{
 		ImageIcon unit = new ImageIcon("unit.jpg");
 		if(note!= null  && exe!= null  && unit!=null && course!= null){
 			tree.setCellRenderer(new WeWantBeautifulTrees(note, exe, course, unit));
-		}else{
-			System.out.println("we went wrong");
 		}
 	}
 	

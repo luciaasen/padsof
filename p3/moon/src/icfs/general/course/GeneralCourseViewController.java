@@ -10,6 +10,7 @@ import javax.swing.event.TreeSelectionListener;
 
 import main.mainMoon;
 import moon.course.Course;
+import moon.user.Student;
 import moon.user.User;
 
 /**
@@ -54,4 +55,5 @@ public abstract class GeneralCourseViewController implements MouseListener {
 		mainMoon.applicationsSetEverything(c);
 		mainMoon.changeCard(mainMoon.APPLICATIONS);
 	}
+
 }

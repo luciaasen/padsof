@@ -98,4 +98,11 @@ public class StudentCourseStatsController implements MouseListener {
 	
 	@Override
 	public void mouseReleased(MouseEvent arg0) {}
+
+	/**
+	 * @return
+	 */
+	public Student getStudent() {
+		return s;
+	}
 }

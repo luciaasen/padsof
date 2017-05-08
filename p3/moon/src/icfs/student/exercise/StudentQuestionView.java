@@ -102,6 +102,8 @@ public class StudentQuestionView extends LowerPanel{
 		save.addActionListener(e -> { 
 			
 			controller.save(cards);
+			mainMoon.courseSetEverything(controller.getStudent(), 
+					controller.getCourse());
 			mainMoon.changeCard(mainMoon.COURSE);
 		});
 		exit.addActionListener(e -> { 
