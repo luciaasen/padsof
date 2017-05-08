@@ -51,13 +51,22 @@ public class DatePanel extends JPanel{
 										int index = monthC.getSelectedIndex();
 										int oldIndex = dayC.getSelectedIndex();
 								        if (index == 1){
+								        	
 								        	dayC.setModel(tweight);
+								        	if(oldIndex > 27) dayC.setSelectedIndex(27);
+								        	else dayC.setSelectedIndex(oldIndex);
+								        	
 								        } else if(index == 3 || index == 5 || index == 8 || index == 10){
+								        	
 								        	dayC.setModel(thirty);
+								        	if(oldIndex > 29) dayC.setSelectedIndex(29);
+								        	else dayC.setSelectedIndex(oldIndex);
+								        	
 								        }else {
+								        	
 								        	dayC.setModel(thirtyone);		             
-								        }
-								        dayC.setSelectedIndex(oldIndex);
+									        dayC.setSelectedIndex(oldIndex);
+								        } 
 								    }
 								});
 	
