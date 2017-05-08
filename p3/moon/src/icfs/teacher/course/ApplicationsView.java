@@ -36,7 +36,6 @@ public class ApplicationsView extends LowerPanel{
 	
 	public ApplicationsView(){
 		
-		list.setPreferredSize(new Dimension(5000, 5000));
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setLayout(new BorderLayout(10,10));
 		
@@ -67,6 +66,8 @@ public class ApplicationsView extends LowerPanel{
 		list.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addMouseListener(controller);
+		list.setPreferredSize(new Dimension(500, 500));
+		
 		up.add(new JScrollPane(list));
 		lower.setLayout(new GridLayout(1,2,10,10));
 		accept.addActionListener(e -> {
@@ -84,6 +85,7 @@ public class ApplicationsView extends LowerPanel{
 		return center;
 	}
 
+	
 	public void setEverything(Course c){
 		controller.setEverything(c);
 		accept.setEnabled(false);

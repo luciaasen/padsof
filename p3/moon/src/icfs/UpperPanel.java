@@ -36,7 +36,7 @@ public class UpperPanel extends JPanel{
 		
 	}
 	
-	public JPanel exitPanel(){
+	private JPanel exitPanel(){
 		
 		SpringLayout layout = new SpringLayout();
 		JPanel panel = new JPanel(new BorderLayout());

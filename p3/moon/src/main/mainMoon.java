@@ -104,7 +104,7 @@ public class mainMoon {
 	public final static String APPLICATIONS = "applications";
 	
 	public static void main(String[] args){
-		
+		LoginWindowView l = new LoginWindowView();
 	}
 	
 	public static void userMode(User u, Academy a){

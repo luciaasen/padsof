@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 /**
+ * This class creates a JPanel where you can enter a date
  * @author lucia
  *
  */
