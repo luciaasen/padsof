@@ -29,7 +29,7 @@ public class LoginWindowView extends JFrame{
 		try {
 			System.out.println("Deserializo 1");
 			Academy.deserialize();
-		} catch (ClassNotFoundException | IOException e1) {
+		} catch (IOException e1) {
 			JOptionPane.showOptionDialog(null, "Error deserialiazing academy", "Error", JOptionPane.YES_OPTION, 
 					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 		}

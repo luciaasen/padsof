@@ -234,15 +234,26 @@ public class Academy implements Serializable{
 	 * @throws IOException 
 	 * @throws ClassNotFoundException 
 	 */
-	public static void deserialize() throws IOException, ClassNotFoundException{
+	public static void deserialize() throws IOException{
 			
-		FileInputStream fileIn =
-				new FileInputStream("moon.ser");
-		ObjectInputStream in =
-				new ObjectInputStream(fileIn);
-		moonApp = (Academy) in.readObject();
-		in.close();
-		fileIn.close();
+		try {
+			FileInputStream fileIn;
+			
+			fileIn = new FileInputStream("moon.ser");
+			ObjectInputStream in;
+			in = new ObjectInputStream(fileIn);
+			moonApp = (Academy) in.readObject();
+			in.close();
+			fileIn.close();
+		} catch (IOException e) {
+			Academy a = new Academy();
+			Academy.setMoon(a);
+			Academy.serialize();
+		} catch (ClassNotFoundException e) {
+			Academy a = new Academy();
+			Academy.setMoon(a);
+			Academy.serialize();
+		}
 	}
 	
 	/**

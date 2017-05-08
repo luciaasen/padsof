@@ -50,13 +50,15 @@ public class UpperPanel extends JPanel{
 		panel.add(exit);
 		exit.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent e) {
-									new LoginWindowView();
 									try {
+										System.out.println("con exit");
 										Academy.serialize();
 									} catch (IOException e1) {
 										JOptionPane.showOptionDialog(null, "Error serialiazing academy", "Error", JOptionPane.YES_OPTION, 
 												JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
 									}
+									new LoginWindowView();
+									
 									//TODO why exceptions?
 									mainMoon.window.dispose();									
 								}
