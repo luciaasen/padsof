@@ -49,14 +49,14 @@ public class AddExeController {
 			}
 			maxIndex=index;
 		} else if(questions.get(index)!=null){
-			int answer = JOptionPane.showOptionDialog(view, "You are about to override a question! Are you sure?", 
+			int answer = JOptionPane.showOptionDialog(view, "There is already a question with this number. This one will be put after it", 
 					"Caution", JOptionPane.YES_NO_OPTION, 
-					JOptionPane.ERROR_MESSAGE, null, new String[]{"Yes", "No"}, null);
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok", "Cancel"}, null);
 			if(answer==1){
 				return false;
 			}
 		}
-		
+		questions.remove(questions.get(index));
 		questions.add(index,q);
 		return true;
 	}

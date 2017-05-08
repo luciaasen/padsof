@@ -171,20 +171,13 @@ public class EditExeController extends AddExeController implements ActionListene
 			return -1;
 		}
 		
-		int questionCount = 0;
 		oldExercise.removeAllQuestions();
 		for(Question q : questions){
 			if(q!=null){
 				oldExercise.addQuestion(q);
-				questionCount++;
 			}
 		}
-		
-		if(questionCount==0){
-			JOptionPane.showOptionDialog(view, "The exercise must have at least one question", "Error", JOptionPane.YES_OPTION, 
-					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
-			return -1;
-		}
+	
 			
 		return 0;
 	}
