@@ -5,6 +5,7 @@ package icfs.login;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 import javax.swing.*;
 import icfs.ImgPanel;
@@ -25,10 +26,21 @@ public class LoginWindowView extends JFrame{
 	 */
 	public LoginWindowView(){
 		super("moon");
+		try {
+			System.out.println("Deserializo 1");
+			Academy.deserialize();
+		} catch (ClassNotFoundException | IOException e1) {
+			JOptionPane.showOptionDialog(null, "Error deserialiazing academy", "Error", JOptionPane.YES_OPTION, 
+					JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+		}
 		this.addWindowListener(new WindowAdapter(){
 			public void windowClosing(WindowEvent e){
-				// TODO
-				//Academy.serialize();
+				/*try {
+					Academy.serialize();
+				} catch (IOException e1) {
+					JOptionPane.showOptionDialog(null, "Error serialiazing academy", "Error", JOptionPane.YES_OPTION, 
+							JOptionPane.ERROR_MESSAGE, null, new String[]{"Ok"}, null);
+				}*/
 				System.exit(0);
 			}
 		});

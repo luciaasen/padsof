@@ -95,6 +95,22 @@ public class MainTeacherLower extends LowerPanel{
 						    }				
 						}			
 					});
+		
+		this.students.getList().addListSelectionListener(new ListSelectionListener(){
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				if (e.getValueIsAdjusting() == false) {
+					Student c = students.getList().getSelectedValue();
+					if (c != null){
+						mainMoon.teacherStudentStatsSelectSetEverything(c);
+						mainMoon.changeCard(mainMoon.STUDENT_STATS_MENU);
+						courses.getList().clearSelection();
+						students.getList().clearSelection();
+					}
+			    }				
+			}			
+		});
+		
 		/*Set constraints and add panels*/
 		layout.putConstraint(SpringLayout.NORTH, courses, this.separation, SpringLayout.NORTH, left);
 		layout.putConstraint(SpringLayout.NORTH, students, 2*this.separation, SpringLayout.SOUTH, courses);

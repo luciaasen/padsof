@@ -54,16 +54,28 @@ public class WeWantBeautifulTrees extends DefaultTreeCellRenderer{
 	}
 	
 	private boolean isNote(Object value){
-		return value instanceof Note;
+		
+		DefaultMutableTreeNode node =
+			(DefaultMutableTreeNode)value;
+		return (node.getUserObject() instanceof Note);
 	}
 	private boolean isCourse(Object value){
-		return value instanceof Course;
+		DefaultMutableTreeNode node =
+				(DefaultMutableTreeNode)value;
+			
+		return node.getUserObject() instanceof Course;
 	}
 	private boolean isExe(Object value){
-		return value instanceof Exercise;
+		DefaultMutableTreeNode node =
+				(DefaultMutableTreeNode)value;
+			
+		return node.getUserObject() instanceof Exercise;
 	}
 	private boolean isUnit(Object value){
-		return value instanceof Unit;
+		DefaultMutableTreeNode node =
+				(DefaultMutableTreeNode)value;
+			
+		return node.getUserObject() instanceof Unit;
 	}
 	
 }
