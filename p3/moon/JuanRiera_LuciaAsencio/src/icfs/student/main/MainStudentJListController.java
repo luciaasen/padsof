@@ -21,6 +21,7 @@ import moon.user.Application;
 import moon.user.Student;
 
 /**
+ * Controller of the list of the main view of the student.
  * @author Juan Riera Gomez and Lucia Asencio Martin
  *
  */
@@ -97,8 +98,11 @@ public class MainStudentJListController implements MouseListener {
 		
 	}
 	
+	/**
+	 * Sets everything to match the arguments.
+	 * @param s
+	 */
 	public void setEverything(Student s){
-		
 		this.s=s;
 	}
 	

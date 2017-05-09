@@ -19,7 +19,9 @@ import moon.course.question.*;
 import moon.mark.MExercise;
 
 /**
- * 
+ * Abstract class of the central panel of the question view, from which
+ * all the other central panels will extend. 
+ * (See documentation of StudentQuestionView)
  * @author Juan Riera and Lucia Asencio
  *
  */
@@ -30,6 +32,10 @@ public abstract class CenterStudentQuestionPanel extends JPanel {
 	private int rowsOfText;
 	Question q;
 	
+	/**
+	 * Constructor of the panel.
+	 * @param quest the actual question.
+	 */
 	public CenterStudentQuestionPanel(Question quest){
 		this.setLayout(new BorderLayout(10, 10));
 		north.setBorder(BorderFactory.createDashedBorder(Color.BLACK, 5f, 5f, 2f, true));
@@ -58,6 +64,11 @@ public abstract class CenterStudentQuestionPanel extends JPanel {
 		q=quest;
 	}
 	
+	/**
+	 * Abstract method that generates the question mark associated with
+	 * the actual values of the fields.
+	 * @param me
+	 */
 	public abstract void generateMQuestion(MExercise me);
 	
 }

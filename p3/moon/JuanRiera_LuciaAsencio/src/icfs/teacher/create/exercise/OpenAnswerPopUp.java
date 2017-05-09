@@ -29,13 +29,18 @@ import moon.course.question.*;
 
 
 /**
+ * Class of a open answer question creation popup.
  * @author Juan Riera and Lucia Asencio
  *
  */
 public class OpenAnswerPopUp extends BasicPopup {
 	private OptionsPanel opPanel;
 	
-	
+	/**
+	 * Constructor of the popup.
+	 * @param controller
+	 * @param exe
+	 */
 	public OpenAnswerPopUp(AddExeController controller, Exercise exe){
 		super(controller, "Open answer question wizard", exe);
 	}

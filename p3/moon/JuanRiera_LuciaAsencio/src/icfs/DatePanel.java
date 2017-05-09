@@ -92,6 +92,11 @@ public class DatePanel extends JPanel{
 		this.add(year);
 	}
 	
+	/**
+	 * Returns the LocalDate associated with this object.
+	 * @return
+	 * @throws NumberFormatException
+	 */
 	public LocalDate getDate() throws NumberFormatException{
 		int day = this.day.getSelectedIndex();
 		int month = this.month.getSelectedIndex();
@@ -100,11 +105,19 @@ public class DatePanel extends JPanel{
 		return LocalDate.of(year, month+1, day+1);
 	}	
 	
+	/**
+	 * Sets the DatePanel associated with the LocalDate.
+	 * @param date the LocalDate to save
+	 */
 	public void setDate(LocalDate date){
 		day.setSelectedItem(date.getDayOfMonth());
 		month.setSelectedItem(date.getMonth().getValue()-1);
 		year.setText(((Integer)date.getYear()).toString());
 	}
+	
+	/**
+	 * Resets this date panel (day to 1, month to january, and clears the year)
+	 */
 	public void reset(){
 		this.day.setSelectedIndex(0);
 		this.month.setSelectedIndex(0);

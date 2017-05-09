@@ -26,7 +26,8 @@ import moon.course.question.Question;
 import moon.course.question.TfQuestion;
 
 /**
- * @author juan
+ * Popup class to create true false popup
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class TrueFalsePopup extends BasicPopup{
@@ -34,6 +35,11 @@ public class TrueFalsePopup extends BasicPopup{
 	private JRadioButton tre;
 	private JRadioButton flse;
 	
+	/**
+	 * Constructor of the popup.
+	 * @param controller
+	 * @param exe
+	 */
 	public TrueFalsePopup(AddExeController controller, Exercise exe){
 		super(controller, "True/false answer question wizard", exe);
 	}

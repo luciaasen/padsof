@@ -22,7 +22,9 @@ import moon.course.question.*;
 import moon.mark.MExercise;
 
 /**
- * @author e336799
+ * Central panel associated with the single choice questions.
+ * (See documentation of StudentQuestionView)
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
@@ -31,10 +33,11 @@ public class SingleChoiceCenterPanel extends CenterStudentQuestionPanel {
 	private List<Option> options;
 	private ArrayList<JRadioButton> buttons = new ArrayList<>();
 	ButtonGroup group = new ButtonGroup();
-	/**
-	 * @param quest
-	 */
 	
+	/**
+	 * Constructor.
+	 * @param quest the question to set the fields.
+	 */
 	public SingleChoiceCenterPanel(Question quest) {
 		super(quest);
 		options = ((OneChoiceQuestion)quest).getOptions();

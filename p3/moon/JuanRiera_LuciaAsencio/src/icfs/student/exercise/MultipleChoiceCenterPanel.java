@@ -17,11 +17,10 @@ import moon.course.question.Question;
 import moon.mark.MExercise;
 
 
-//TODO preparar esta clase para mostrar aleatoriamente las respuestas.
-
-
 /**
- * @author e336799
+ * Central panel associated with mutiple choice questions.
+ * (See documentation of StudentQuestionView)
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class MultipleChoiceCenterPanel extends CenterStudentQuestionPanel {
@@ -30,6 +29,7 @@ public class MultipleChoiceCenterPanel extends CenterStudentQuestionPanel {
 		private List<Option> options;
 		private ArrayList<JCheckBox> buttons = new ArrayList<>();
 		/**
+		 * Constructor of the panel
 		 * @param quest
 		 */
 		

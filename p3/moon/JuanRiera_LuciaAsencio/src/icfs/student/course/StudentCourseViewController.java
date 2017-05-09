@@ -18,13 +18,18 @@ import moon.course.Note;
 import moon.user.Student;
 
 /**
- * Controls the course view of a student
+ * Controls the course view of a student.
  * @author Juan Riera and Lucia Asencio
  *
  */
 public class StudentCourseViewController extends GeneralCourseViewController {
 	
 	StudentCourseView view;
+	
+	/**
+	 * Constructor that receives the view of the panel.
+	 * @param view
+	 */
 	public StudentCourseViewController(StudentCourseView view){
 		super();
 		this.view=view;

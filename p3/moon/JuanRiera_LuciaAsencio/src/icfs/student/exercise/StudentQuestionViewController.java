@@ -14,6 +14,8 @@ import moon.user.Student;
 import moon.user.Teacher;
 
 /**
+ * Controller of the question view of a student. (What is shown when a 
+ * student tries to do an exercise)
  * @author Juan Riera and Lucia Asencio
  *
  */
@@ -25,6 +27,12 @@ public class StudentQuestionViewController {
 	StudentQuestionView view;
 	MExercise me;
 	
+	/**
+	 * Sets everything to match the parameters.
+	 * @param s the student
+	 * @param c the course
+	 * @param e the exercise
+	 */
 	public void setEverything(Student s, Course c, Exercise e){
 		questionsOrder = e.getQuestions();
 		if(e.getRandord()){
@@ -34,15 +42,23 @@ public class StudentQuestionViewController {
 		me = new MExercise(e);
 	}
 	
+	/**
+	 * Cancels the exercise.
+	 */
 	protected void cancel(){
 		me.cancel();
 	}
 	
+	/**
+	 * Gets the questions in order.
+	 * @return ArrayList<Question> of questions.
+	 */
 	ArrayList<Question> getQuestionsOrder(){
 		return this.questionsOrder;
 	}
 
 	/**
+	 * Saves the exercise acording to the actual values of the fields.
 	 * @param cards
 	 */
 	public void save(ArrayList<CenterStudentQuestionPanel> cards) {
@@ -53,6 +69,7 @@ public class StudentQuestionViewController {
 	}
 
 	/**
+	 * Gets the student.
 	 * @return
 	 */
 	public Student getStudent() {
@@ -60,6 +77,7 @@ public class StudentQuestionViewController {
 	}
 
 	/**
+	 * Gets the course.
 	 * @return
 	 */
 	public Course getCourse() {

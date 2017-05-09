@@ -21,14 +21,17 @@ import moon.course.question.Option;
 import moon.course.question.Question;
 
 /**
- * @author juan
+ * Class of a multiple choice question creation popup.
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class MultipleChoicePopup extends BasicPopup {
 	OptionsPanel correct;
 	OptionsPanel incorrect;
 	JCheckBox random;
+	
 	/**
+	 * Constructor of the popup.
 	 * @param controller
 	 * @param exe
 	 */

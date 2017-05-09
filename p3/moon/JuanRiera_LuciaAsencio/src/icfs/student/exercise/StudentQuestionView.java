@@ -25,6 +25,11 @@ import moon.course.question.*;
 import moon.user.Student;
 
 /**
+ * The view that will be shown when a student tries to answer a question.
+ * Objects of this class will have inside of them a central panel with a card 
+ * layout. Every time that setEverything(Question q) is called, this central
+ * panel will be filled with cards (it has a card layout) associated with each
+ * question. Every time you change the question, this cards will be switched.
  * @author Juan Riera and Lucia Asencio
  *
  */
@@ -41,6 +46,9 @@ public class StudentQuestionView extends LowerPanel{
 	private final static int NCOLS = 15;
 	int actualQuestion = 1;
 	
+	/**
+	 * Constructor with no parameters of the class.
+	 */
 	public StudentQuestionView(){
 		this.setLayout(new BorderLayout(10, 10));
 		Border border1 = BorderFactory.createEmptyBorder(10, 10, 10, 10);
@@ -126,6 +134,14 @@ public class StudentQuestionView extends LowerPanel{
 		return buttons;
 	}
 	
+	/**
+	 * This method sets everything and fills the central panel
+	 * with cards (it has a card layout) each of which will
+	 * be associated with a card.
+	 * @param s the student doing the exercise.
+	 * @param c the course to which the exercise belongs.
+	 * @param e the exercise to be done.
+	 */
 	public void setEverything(Student s, Course c, Exercise e){
 		center.removeAll();
 		controller.setEverything(s, c, e);
