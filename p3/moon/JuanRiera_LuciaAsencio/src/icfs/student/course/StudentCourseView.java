@@ -20,12 +20,15 @@ import moon.user.Student;
 import moon.user.User;
 
 /**
- * JPanel that shows the view a students has of a course
+ * JPanel that shows the view a students has of a course.
  * @author Juan Riera and Lucia Asencio
  *
  */
 public class StudentCourseView extends GeneralCourseView {
 	Student s;
+	/**
+	 * Constructor without parameters of the class.
+	 */
 	public StudentCourseView(){
 		super();
 		controller = new StudentCourseViewController(this);

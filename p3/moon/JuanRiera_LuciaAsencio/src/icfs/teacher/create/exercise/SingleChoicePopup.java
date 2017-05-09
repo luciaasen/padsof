@@ -25,7 +25,8 @@ import moon.course.question.Option;
 import moon.course.question.Question;
 
 /**
- * @author juan
+ * Class of the single choice question creation popup.
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class SingleChoicePopup extends BasicPopup{
@@ -33,12 +34,15 @@ public class SingleChoicePopup extends BasicPopup{
 	private JTextField correct;
 	private JCheckBox random;
 	
-	
+	/**
+	 * Constructor of the popup.
+	 * @param controller
+	 * @param exe
+	 */
 	public SingleChoicePopup(AddExeController controller, Exercise exe){
 		super(controller, "Single choice question wizard", exe);
 	}
 
-	
 	
 	protected JPanel central(){
 		opPanel = new OptionsPanel("Add incorrect answers", "Incorrect answers: ");

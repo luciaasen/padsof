@@ -23,7 +23,8 @@ import moon.course.Exercise;
 import moon.course.question.Question;
 
 /**
- * @author juan
+ * Popup abstract class from which all popups will inherit.
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public abstract class BasicPopup extends JFrame{
@@ -33,6 +34,12 @@ public abstract class BasicPopup extends JFrame{
 	protected Exercise exe;
 	protected JTextArea contentsT;
 	
+	/**
+	 * Constructor of the class.
+	 * @param controller the controller in which to save the question.
+	 * @param text string with the name of the popup.
+	 * @param exe exercise in which the question will be stored.
+	 */
 	public BasicPopup(AddExeController controller, String text, Exercise exe){
 		super(text);
 		this.setVisible(true);
@@ -43,6 +50,10 @@ public abstract class BasicPopup extends JFrame{
 		this.exe = exe;
 	}
 	
+	/**
+	 * Gets the main panel of the popup.
+	 * @return
+	 */
 	private JPanel getPanel(){
 		JPanel panel = new JPanel();
 		JPanel north = new JPanel();
@@ -80,6 +91,10 @@ public abstract class BasicPopup extends JFrame{
 		return panel;
 	}
 	
+	/**
+	 * Generates the central panel. It calls getCentralPanel().
+	 * @return
+	 */
 	private JPanel center(){
 		JPanel superPanel = new JPanel();
 		JPanel upper = new JPanel();
@@ -98,6 +113,10 @@ public abstract class BasicPopup extends JFrame{
 		return superPanel;
 	}
 	
+	/**
+	 * Saves the question calling generateQuestion().
+	 * @return true if everything went right and false in any other case.
+	 */
 	private boolean save(){
 		Question q = getQuestion((Double)relevanceModel.getValue());
 		if(q == null){
@@ -110,7 +129,17 @@ public abstract class BasicPopup extends JFrame{
 		}
 		return true;
 	}
+	
+	/**
+	 * Gets the central panel, in the main central panel, that will change for each subclass.
+	 * @return
+	 */
 	protected abstract Component getCentralPanel();
 	
+	/**
+	 * Generates the question associated with the actual fields of the popup.
+	 * @param relevance
+	 * @return
+	 */
 	protected abstract Question getQuestion(double relevance);
 }

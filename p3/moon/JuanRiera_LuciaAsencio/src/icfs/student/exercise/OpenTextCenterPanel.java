@@ -16,14 +16,17 @@ import moon.course.question.Question;
 import moon.mark.MExercise;
 
 /**
- * @author e336799
+ * Central panel of the question view associated with open answer questions.
+ * (See documentation of StudentQuestionView)
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class OpenTextCenterPanel extends CenterStudentQuestionPanel {
 	
 	private JTextArea text = new JTextArea(20,60);
 	/**
-	 * @param quest
+	 * Constructor.
+	 * @param quest the questions
 	 */
 	public OpenTextCenterPanel(Question quest) {
 		super(quest);

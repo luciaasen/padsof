@@ -16,7 +16,7 @@ import moon.Academy;
 import moon.course.Note;
 
 /**
- * Student JPanel for the student to see his notes
+ * Extension of JPanel for the student to see his notes (text notes).
  * @author Juan Riera and Lucia Asencio
  *
  */
@@ -37,6 +37,10 @@ public class StudentNotePanel extends LowerPanel {
 		this.add(buttons,BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Sets everything to match the parameter
+	 * @param n
+	 */
 	public void setEverything(Note n){
 		text.setText(n.getText());
 	}

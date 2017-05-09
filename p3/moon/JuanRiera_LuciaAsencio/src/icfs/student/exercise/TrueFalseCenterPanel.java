@@ -12,7 +12,9 @@ import moon.course.question.Question;
 import moon.mark.MExercise;
 
 /**
- * @author e336799
+ * Central panel associated with the true/false questions. 
+ * (See documentation of StudentQuestionView)
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class TrueFalseCenterPanel extends CenterStudentQuestionPanel {

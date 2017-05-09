@@ -19,7 +19,13 @@ import moon.Academy;
 import moon.course.question.Option;
 
 /**
- * @author juan
+ * Panel that has a list, a text field and a button with the text "add".
+ * Whenever you click on add, an Option (moon.course.question.Option) 
+ * with the text of the text field will be added to the list.
+ * 
+ * It will be used by the popups in multiple ocasions.
+ * 
+ * @author Juan Riera and Lucia Asencio
  *
  */
 public class OptionsPanel extends JPanel{
@@ -28,6 +34,11 @@ public class OptionsPanel extends JPanel{
 	private JList<Option> list;
 	private JTextField text;
 	
+	/**
+	 * Constructor of the panel.
+	 * @param s string to put in the label
+	 * @param s2 string to put in the border
+	 */
 	public OptionsPanel(String s, String s2){
 		JPanel north = new JPanel();
 		
@@ -55,6 +66,10 @@ public class OptionsPanel extends JPanel{
 		
 	}
 	
+	/**
+	 * Gets the elements of the list.
+	 * @return
+	 */
 	public ArrayList<Option> getOptions(){
 		return options;
 	}

@@ -26,8 +26,9 @@ import moon.course.Exercise;
 import moon.course.Unit;
 
 /**
- * @author lucia
- *
+ * This class is the view of the exercise creation.
+ * @author Lucia Asencio and Juan Riera
+ * @extends JPanel
  */
 public class AddExeView extends LowerPanel{
 	protected DatePanel dateIni;
@@ -45,6 +46,9 @@ public class AddExeView extends LowerPanel{
 	protected JButton exit;
 	protected JButton TfQuestion, MCQuestion, SCQuestion, OAQuestion;
 	
+	/**
+	 * Constructor without parameters.
+	 */
 	public AddExeView(){
 		JPanel north = new JPanel();
 		JPanel center;
@@ -79,8 +83,10 @@ public class AddExeView extends LowerPanel{
 		this.add(south,BorderLayout.SOUTH);
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 	}
+	
 	/**
-	 * @param u
+	 * Sets everything in the panel to match the parameter.
+	 * @param u the unit.
 	 */
 	public void setEverything(Unit u) {
 		controller.setEverything(u);
@@ -94,6 +100,7 @@ public class AddExeView extends LowerPanel{
 		
 	}
 	
+
 	private JPanel generateCenter(){
 		JPanel center = new JPanel();
 		JPanel dates = new JPanel();
@@ -199,7 +206,7 @@ public class AddExeView extends LowerPanel{
 		}
 		
 		/**
-		 * Gets de penalty spinner
+		 * Gets the penalty spinner
 		 * @return
 		 */
 		public SpinnerNumberModel getPenaltyModel(){
@@ -207,7 +214,7 @@ public class AddExeView extends LowerPanel{
 		}
 		
 		/**
-		 * 
+		 * Gets the initial date that is currently in the panel.
 		 * @return
 		 * @throws NumberFormatException
 		 */
@@ -216,19 +223,37 @@ public class AddExeView extends LowerPanel{
 			return this.dateIni.getDate();
 		}
 		
+		/**
+		 * Gets the end date currenctly in the panel.
+		 * @return
+		 * @throws NumberFormatException
+		 */
 		public LocalDate getEnd() throws NumberFormatException{
 			return this.dateEnd.getDate();
 		}
 		
+		/**
+		 * Gets the name of the exercise that is currently in the textField.
+		 * @return
+		 * @throws EmptyTextFieldException
+		 */
 		public String getExerciseName() throws EmptyTextFieldException{
 			if(name.getText().equals("")) throw new EmptyTextFieldException();
 			return name.getText();
 		}
 		
+		/**
+		 * Gets if the random checkBox is selected.
+		 * @return
+		 */
 		public boolean getRandom(){
 			return randomOrder.isSelected();
 		}
 		
+		/**
+		 * Gets the value of the relevance currently selected in the panel.
+		 * @return
+		 */
 		public double getRelevance() {
 			
 			if(relevanceModel.getValue() instanceof Integer){
@@ -237,6 +262,10 @@ public class AddExeView extends LowerPanel{
 			return (double)(relevanceModel.getValue());
 		}
 		
+		/**
+		 * Gets the current selected penalty.
+		 * @return
+		 */
 		public double getPenalty(){
 			if(penaltyModel.getValue() instanceof Integer){
 				return (double) ((Integer)penaltyModel.getValue()).intValue();
