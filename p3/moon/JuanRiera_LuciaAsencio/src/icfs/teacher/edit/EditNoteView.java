@@ -16,11 +16,15 @@ import moon.course.Note;
 import moon.course.Unit;
 
 /**
- * @author lucia
+ * Class that creates a view for a teacher to edit a note
+ * @author lucia and juan
  *
  */
 public class EditNoteView extends AddNoteView{
 	private Note oldNote;
+	/**
+	 * Note editor constructor
+	 */
 	public EditNoteView(){
 		super();
 		message.setText("Edit note ");
@@ -45,6 +49,11 @@ public class EditNoteView extends AddNoteView{
 		newSave.addActionListener(new EditNoteController(this));
 	}
 	
+	/**
+	 * Sets the view to match the parameters
+	 * @param parentUnit
+	 * @param oldNote
+	 */
 	public void setEverything(Unit parentUnit, Note oldNote){
 		name.setEnabled(true);
 		content.setEnabled(true);
@@ -57,6 +66,10 @@ public class EditNoteView extends AddNoteView{
 		visibility.setSelected(oldNote.getVisibility());
 	}
 	
+	/**
+	 * Gets the note to edit
+	 * @return note to edit
+	 */
 	public Note getOldNote(){
 		return oldNote;
 	}

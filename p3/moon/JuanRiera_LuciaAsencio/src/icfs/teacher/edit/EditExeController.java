@@ -31,7 +31,8 @@ import moon.course.question.Question;
 import moon.user.Teacher;
 
 /**
- * @author lucia
+ * This class controls the edition of an exercise panel
+ * @author lucia and juan
  *
  */
 public class EditExeController extends AddExeController implements ActionListener {
@@ -39,6 +40,10 @@ public class EditExeController extends AddExeController implements ActionListene
 	private EditExeView view;
 	private Exercise oldExercise;
 	
+	/**
+	 * Prepares the controller to match the edition of the given exercise
+	 * @param e the exercise to edit
+	 */
 	public void setEverything(Exercise e){
 		this.oldExercise = e;
 		this.container = e.getUnit();
@@ -48,10 +53,15 @@ public class EditExeController extends AddExeController implements ActionListene
 		maxIndex=questions.size();
 	}
 	
+	/**
+	 * Constructor of the controller
+	 * @param view
+	 */
 	public EditExeController(EditExeView view){
 		super(view);
 		this.view = view;
 	}
+	
 	
 	
 	@Override
@@ -183,6 +193,7 @@ public class EditExeController extends AddExeController implements ActionListene
 	}
 	
 	/**
+	 * Creates a popup for the open answer question
 	 * @return
 	 */
 	public void openAnswerQuestion() {
@@ -190,6 +201,7 @@ public class EditExeController extends AddExeController implements ActionListene
 	}
 	
 	/**
+	 * Creates a pop up for the tf question
 	 * @return
 	 */
 	public void TfQuestion() {
@@ -197,6 +209,7 @@ public class EditExeController extends AddExeController implements ActionListene
 	}
 
 	/**
+	 * Creates pop up for multi choice questions
 	 * @return
 	 */
 	public void multiChoiceQuestion() {
@@ -204,6 +217,7 @@ public class EditExeController extends AddExeController implements ActionListene
 	}
 
 	/**
+	 * creates popups ffot single choice questions
 	 * @return
 	 */
 	public void singleChoiceQuestion() {

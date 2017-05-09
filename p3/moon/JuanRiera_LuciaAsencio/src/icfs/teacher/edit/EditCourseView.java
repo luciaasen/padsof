@@ -13,7 +13,8 @@ import moon.course.Note;
 import moon.course.Unit;
 
 /**
- * @author lucia
+ * this class implements what the teacher sees when editing a course
+ * @author lucia and juan
  *
  */
 public class EditCourseView extends AddCourseView{
@@ -49,7 +50,11 @@ public class EditCourseView extends AddCourseView{
 		newAdd.addActionListener(new EditCourseController(this));
 		
 	}
-	
+
+	/**
+	 * Sets everything in the panel to match the paramete
+	 * @param oldCourserthe course to edit
+	 */
 	public void setEverything(Course oldCourse){
 		name.setEnabled(true);
 		this.oldCourse = oldCourse;

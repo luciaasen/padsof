@@ -19,6 +19,7 @@ import moon.course.Course;
 import moon.course.Unit;
 
 /**
+ * Controls the buttons and fields in the add unit view
  * @author lucia
  *
  */
@@ -26,6 +27,10 @@ public class AddUnitController implements ActionListener{
 
 	AddUnitView view;
 	
+	/**
+	 * Constructs the controller
+	 * @param view
+	 */
 	public AddUnitController(AddUnitView view){
 		this.view = view;
 	}

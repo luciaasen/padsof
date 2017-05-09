@@ -18,6 +18,7 @@ import moon.course.Course;
 import moon.user.Teacher;
 
 /**
+ * This class implements the controller of the edit course panel
  * @author lucia
  *
  */

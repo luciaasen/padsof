@@ -19,12 +19,17 @@ import moon.course.Note;
 import moon.course.Unit;
 
 /**
- * @author lucia
+ * Controls the note creation
+ * @author lucia and juan
  *
  */
 public class AddNoteController implements ActionListener{
 AddNoteView view;
 	
+	/**
+	 * Constructor of the controller
+	 * @param view
+	 */
 	public AddNoteController(AddNoteView view){
 		this.view = view;
 	}

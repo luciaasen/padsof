@@ -19,12 +19,17 @@ import moon.course.Unit;
 import moon.user.Teacher;
 
 /**
- * @author lucia
+ * Controls the buttons in the unit edition view
+ * @author lucia and juan
  *
  */
 public class EditUnitController implements ActionListener{
 	private EditUnitView view;
 	
+	/**
+	 * Controller constructor
+	 * @param view
+	 */
 	public EditUnitController(EditUnitView view){
 		this.view = view;
 	}

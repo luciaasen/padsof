@@ -4,7 +4,8 @@
 package exception;
 
 /**
- * @author lucia
+ * This is an Exception used  when an edition is done in a component that has a done exercise inside
+ * @author lucia y juan
  *
  */
 public class DoneExerciseException extends Exception{

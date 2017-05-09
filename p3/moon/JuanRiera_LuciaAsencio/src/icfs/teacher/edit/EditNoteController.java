@@ -18,13 +18,18 @@ import moon.Academy;
 import moon.course.Note;
 
 /**
- * @author lucia
+ * class that controls the edition of note buttons
+ * @author lucia and juan
  *
  */
 public class EditNoteController implements ActionListener {
 	
 	private EditNoteView view;
 	
+	/**
+	 * Controller constructor
+	 * @param view of note edition
+	 */
 	public EditNoteController(EditNoteView view){
 		this.view = view;
 	}

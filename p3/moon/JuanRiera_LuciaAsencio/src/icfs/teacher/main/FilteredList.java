@@ -15,6 +15,8 @@ import moon.course.Course;
 import moon.user.User;
 
 /**
+ * This class creates a panel for the lists in the course view, wher you can filter your search with a string
+ * 
  * @author lucia
  *
  */
@@ -24,6 +26,11 @@ public class FilteredList<V> extends JPanel {
 	private Collection<V> defaultCollection;
 	private int separation = 0;
 	
+	/**
+	 * Constructor of the oanel
+	 * @param d dimension
+	 * @param defaultCollection info to put in the list
+	 */
 	public FilteredList(Dimension d, Collection<V> defaultCollection){
 		this.setPreferredSize(d);
 		this.setBackground(Academy.ORANGE);
@@ -88,9 +95,18 @@ public class FilteredList<V> extends JPanel {
 		}
 	}
 	
+	/**
+	 * Gets the list in the panel
+	 * @return
+	 */
 	public JList<V> getList(){
 		return this.list;
 	}
+	
+	/**
+	 * Sets the list with a new model, clearing the previosus selection	º
+	 * @param newModel
+	 */
 	public void setEverything(Collection<V> newModel){
 		this.list.clearSelection();
 		this.filteringTextField().setText(null);

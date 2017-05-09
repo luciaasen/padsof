@@ -4,6 +4,8 @@
 package exception;
 
 /**
+ * 
+ * Exception used to get errors, for example, when a deadline is set before the activity begining date
  * @author lucia
  *
  */

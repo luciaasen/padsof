@@ -20,6 +20,7 @@ import main.mainMoon;
 import moon.course.question.*;
 
 /**
+ * View for the question statistics
  * @author Juan Riera Gomez
  *
  */
@@ -32,6 +33,9 @@ public class TeacherQuestionStats extends LowerPanel {
 	JLabel notAnswered = new JLabel("Not answered");
 	JLabel answered = new JLabel("Answered");
 	
+	/**
+	 * Constructor of the view
+	 */
 	public TeacherQuestionStats(){
 		JPanel north = new JPanel();
 		JPanel center = new JPanel();
@@ -69,6 +73,10 @@ public class TeacherQuestionStats extends LowerPanel {
 		this.add(south, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Sets the view so that it matches the current question
+	 * @param q
+	 */
 	public void setEverything(Question q){
 		name.setText(q.getQuestion());
 		penalty.setText("Penalty: " + q.getExercise().getPenalty());

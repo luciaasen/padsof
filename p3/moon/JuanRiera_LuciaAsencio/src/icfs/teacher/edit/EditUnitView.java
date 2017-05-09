@@ -9,13 +9,17 @@ import moon.course.Note;
 import moon.course.Unit;
 
 /**
- * @author lucia
+ * Class for the view seen when editing a unit
+ * @author lucia and juan
  *
  */
 public class EditUnitView extends AddUnitView{
 	
 	private Unit oldUnit;
 	
+	/**
+	 * Edit unit view co structor
+	 */
 	public  EditUnitView(){
 		super();
 		
@@ -37,6 +41,10 @@ public class EditUnitView extends AddUnitView{
 		nameLabel.setText("Edit name: ");
 	}
 	
+	/**
+	 * Sets the view so thay it matches the  editing unitç
+	 * @param oldUnit the edited unit
+	 */
 	public void setEverything(Unit oldUnit){
 		name.setEnabled(true);
 		this.oldUnit = oldUnit;
@@ -46,6 +54,10 @@ public class EditUnitView extends AddUnitView{
 		visibility.setSelected(oldUnit.getVisibility());
 	}
 	
+	/**
+	 * Gets the ediiting unit
+	 * @return Unit to edit
+	 */
 	public Unit getOldUnit(){
 		return oldUnit;
 		

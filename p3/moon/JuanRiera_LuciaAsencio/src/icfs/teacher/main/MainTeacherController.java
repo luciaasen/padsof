@@ -9,12 +9,17 @@ import java.awt.event.ActionListener;
 import main.mainMoon;
 
 /**
- * @author lucia
+ * Controls the teache main panel
+ * @author lucia and juan
  *
  */
 public class MainTeacherController implements ActionListener{
 	private MainTeacherLower view;
 
+	/**
+	 * Constructor of the controller
+	 * @param view
+	 */
 	public MainTeacherController(MainTeacherLower view){
 		this.view = view;
 	}

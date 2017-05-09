@@ -25,6 +25,8 @@ import moon.course.CourseElement;
 import moon.course.Unit;
 
 /**
+ * 
+ * Implements the unit adding view
  * @author lucia
  *
  */
@@ -47,6 +49,9 @@ public class AddUnitView extends LowerPanel{
 	protected Course parentCourse;
 	protected JPanel down;
 	
+	/**
+	 * Constructs the view
+	 */
 	public AddUnitView(){
 		super();
 		SpringLayout layout = new SpringLayout();
@@ -188,6 +193,10 @@ public class AddUnitView extends LowerPanel{
 		return down;
 	}
 	
+	/**
+	 * sets the view to match the parent course
+	 * @param parentCourse
+	 */
 	public void setEverything(Course parentCourse){
 		this.parentCourse = parentCourse;
 		this.parentUnit = null;
@@ -199,6 +208,11 @@ public class AddUnitView extends LowerPanel{
 		
 	}
 	
+	/**
+	 * 
+	 * Sets the view to match the oarent unit
+	 * @param parentUnit
+	 */
 	public void setEverything(Unit parentUnit){
 		this.parentUnit = parentUnit;
 		this.parentCourse = null;
@@ -210,23 +224,44 @@ public class AddUnitView extends LowerPanel{
 		
 	}
 	
+	/**
+	 * Gets the name textfield
+	 * @return
+	 */
 	public JTextField getText(){
 		return this.name;
 	}
 	
+	/**
+	 * Gets the string fot the name
+	 * @return
+	 * @throws EmptyTextFieldException
+	 */
 	public String getUnitName() throws EmptyTextFieldException{
 		if(this.name.getText().equals("")) throw new EmptyTextFieldException();
 		return this.name.getText();
 	}
 	
+	/**
+	 * Gets the visibikity set in the checkbox
+	 * @return
+	 */
 	public boolean isUnitVisible(){
 		return this.visibility.isSelected();
 	}
 	
+	/**
+	 * Gets parent course of uni
+	 * @return
+	 */
 	public Course getParentCourse(){
 		return this.parentCourse;
 	}
 	
+	/**
+	 * Gets parent unit of the unit
+	 * @return
+	 */
 	public Unit getParentUnit(){
 		return this.parentUnit;
 	}

@@ -31,7 +31,8 @@ import java.awt.GridBagLayout;
 import java.time.LocalDate;;
 
 /**
- * @author lucia
+ * Implments the view seen when adding a course
+ * @author lucia and juan
  *
  */
 public class AddCourseView extends LowerPanel{
@@ -45,6 +46,9 @@ public class AddCourseView extends LowerPanel{
 	protected JLabel nameLabel;
 	protected JPanel down;
 	
+	/**
+	 * View constructor
+	 */
 	public AddCourseView(){
 		super();
 		SpringLayout layout = new SpringLayout();
@@ -176,15 +180,27 @@ public class AddCourseView extends LowerPanel{
 		return down;
 	}
 	
+	/**
+	 * Gets the nae¡me in the view
+	 * @return the name
+	 * @throws EmptyTextFieldException when name is not fille
+	 */
 	public String getCourseName() throws EmptyTextFieldException{
 		if(this.name.getText().equals("")) throw new EmptyTextFieldException();
 		return this.name.getText();
 	}
 	
+	/**
+	 * GEts the tectfield of the name
+	 * @return
+	 */
 	public JTextField getText(){
 		return this.name;
 	}
 	
+	/**
+	 * Sets the view cleaning it
+	 */
 	public void setEverything(){
 		this.name.setEnabled(true);
 		this.name.setText(null);

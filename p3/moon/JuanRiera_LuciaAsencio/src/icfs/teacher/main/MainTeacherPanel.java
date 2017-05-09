@@ -14,10 +14,7 @@ import icfs.teacher.create.AddCourseView;
 import moon.Academy;
 import moon.course.Course;
 
-/**
- * @author lucia
- *
- */
+
 public class MainTeacherPanel extends JPanel{
 	private LowerPanel lower;
 	

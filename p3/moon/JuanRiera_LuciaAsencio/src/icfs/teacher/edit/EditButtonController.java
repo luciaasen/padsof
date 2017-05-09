@@ -19,13 +19,18 @@ import moon.course.*;
 import moon.course.question.Question;
 
 /**
- * @author lucia
+ * Controlls the right panel of the teache course view, where he/she can press to edit an element
+ * @author lucia and juan
  *
  */
 public class EditButtonController implements ActionListener{
 
 	private  TeacherCourseView view;
 	
+	/**
+	 * Constructor of controller
+	 * @param view of the teacher course view
+	 */
 	public EditButtonController(TeacherCourseView view){
 		this.view = view;
 	}

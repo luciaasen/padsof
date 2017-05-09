@@ -10,6 +10,7 @@ import icfs.teacher.create.exercise.AddExeView;
 import moon.course.Exercise;
 
 /**
+ * This class implements the JPanel you see when creatin gan exercise
  * @author lucia
  *
  */
@@ -43,6 +44,11 @@ public class EditExeView extends AddExeView{
 		OAQuestion.addActionListener(e -> controller.openAnswerQuestion());
 	}
 	
+	
+	/**
+	 * Sets the view to match the given exercise
+	 * @param oldExercise the exe to edit
+	 */
 	public void setEverything(Exercise oldExercise){
 		controller.setEverything(oldExercise);
 		message.setText("Edit exercise "+ oldExercise.getName());

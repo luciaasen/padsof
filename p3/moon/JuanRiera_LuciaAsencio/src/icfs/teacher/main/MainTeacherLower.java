@@ -22,6 +22,7 @@ import moon.user.Student;
 import moon.user.Teacher;
 
 /**
+ * This view is the main teacher panel with the students and courses list, and the calendar
  * @author lucia
  *
  */
@@ -33,6 +34,9 @@ public class MainTeacherLower extends LowerPanel{
 	private FilteredList<Student> students;
 	private FilteredList<Course> courses;
 	
+	/**
+	 * Constructor of the class
+	 */
 	public MainTeacherLower(){
 		super();
 		SpringLayout layout = new SpringLayout();
@@ -228,6 +232,9 @@ public class MainTeacherLower extends LowerPanel{
 		return s;
 	}*/
 	
+	/**
+	 * Sets the panel so tha it matches the current students and courses
+	 */
 	public void setEverything(){
 		this.students.setEverything(Academy.getMoonApp().getStudents());
 		this.courses.setEverything(Academy.getMoonApp().getCourses());

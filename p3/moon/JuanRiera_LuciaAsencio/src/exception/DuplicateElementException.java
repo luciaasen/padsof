@@ -4,7 +4,8 @@
 package exception;
 
 /**
- * @author lucia
+ * Exception used when you try to create an element that has the same name as another existing element in the same container
+ * @author lucia and juan
  *
  */
 public class DuplicateElementException extends Exception {

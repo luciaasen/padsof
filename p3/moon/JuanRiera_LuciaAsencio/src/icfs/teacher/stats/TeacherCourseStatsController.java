@@ -14,7 +14,8 @@ import moon.course.Exercise;
 import moon.user.Student;
 
 /**
- * @author juan
+ * Controls the teacher statistics view
+ * @author juan and lucia
  *
  */
 public class TeacherCourseStatsController implements MouseListener{
@@ -22,6 +23,10 @@ public class TeacherCourseStatsController implements MouseListener{
 	Course c;
 	TeacherCourseStats view;
 	
+	/**
+	 * Consructor of the controller
+	 * @param view of the statistics 
+	 */
 	public TeacherCourseStatsController(TeacherCourseStats view){
 		this.view= view;
 	}

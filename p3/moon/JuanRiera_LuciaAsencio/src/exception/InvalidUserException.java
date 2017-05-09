@@ -6,7 +6,8 @@ package exception;
 import javax.swing.JOptionPane;
 
 /**
- * @author e337572
+ * Exception thrown when the credentials are wrongly typed
+ * @author lucia and juan
  *
  */
 public class InvalidUserException extends Exception{

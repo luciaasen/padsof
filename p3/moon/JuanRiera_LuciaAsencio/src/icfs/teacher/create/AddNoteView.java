@@ -24,6 +24,7 @@ import moon.course.Note;
 import moon.course.Unit;
 
 /**
+ * Class that implement the note creating view
  * @author lucia
  *
  */
@@ -42,6 +43,9 @@ public class AddNoteView extends LowerPanel{
 	protected JButton exit;
 	protected SpringLayout layout;
 	
+	/**
+	 * Constructor of the view
+	 */
 	public AddNoteView(){
 		super();
 		SpringLayout layout = new SpringLayout();
@@ -152,13 +156,6 @@ public class AddNoteView extends LowerPanel{
 
 
 
-
-
-
-
-	/**
-	 * @return
-	 */
 	private JPanel up() {
 		JLabel label = new JLabel("Add Note to unit " + this.parentUnit);
 		
@@ -171,30 +168,52 @@ public class AddNoteView extends LowerPanel{
 	}
 
 
-
+	/**
+	 * Gets the unit
+	 * @return Unit
+	 */
 	public Unit getUnit(){
 		return this.parentUnit;
 	}
 	
+	/**
+	 * Gets the result in the visibikity checkbox
+	 * @return  true if the visibility is selecte
+	 */
 	public boolean isNoteVisible(){
 		return this.visibility.isSelected();
 	}
 
+	/**
+	 * Gets the string in the name field
+	 * @return name
+	 * @throws EmptyTextFieldException
+	 */
 	public String getNoteName() throws EmptyTextFieldException{
 		if(this.name.getText().equals("")) throw new EmptyTextFieldException();
 		return this.name.getText();
 	}
 
+	/**
+	 * Gets the name textfiel
+	 * @return
+	 */
 	public JTextField getText(){
 		return this.name;
 	}
 	
+	/**
+	 * Gets the note conten
+	 * @return
+	 * @throws EmptyTextFieldException
+	 */
 	public String getNoteContent() throws EmptyTextFieldException{
 		if(this.content.getText().equals("")) throw new EmptyTextFieldException();
 		
 		return this.content.getText();
 	}
 	/**
+	 * Sets the view to mar¡tch the parent unit
 	 * @param u
 	 */
 	public void setEverything(Unit parentUnit) {

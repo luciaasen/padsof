@@ -22,6 +22,7 @@ import moon.course.Exercise;
 import moon.course.question.Question;
 
 /**
+ * Class for the Exercisestatistics for a teacher
  * @author Juan RIera and Lucia Asencio
  *
  */
@@ -36,6 +37,9 @@ public class TeacherExerciseStats extends LowerPanel {
 	DefaultListModel<Question> listModel = new DefaultListModel<>();
 	JList<Question> list = new JList<>(listModel);
 	
+	/**
+	 * Class constructor
+	 */
 	public TeacherExerciseStats(){
 		
 		this.setLayout(new BorderLayout(20,20));
@@ -51,9 +55,7 @@ public class TeacherExerciseStats extends LowerPanel {
 		this.add(central, BorderLayout.CENTER);
 	}
 
-	/**
-	 * @return
-	 */
+	
 	private JPanel generateCentralPanel() {
 		JPanel up = new JPanel();
 		JPanel center = new JPanel();
@@ -87,7 +89,7 @@ public class TeacherExerciseStats extends LowerPanel {
 	}
 
 	/**
-	 * @param s
+	 * Sets the view so that it matches the current exercise
 	 * @param selected
 	 */
 	public void setEverything(Exercise selected) {

@@ -4,6 +4,7 @@
 package exception;
 
 /**
+ * Exception used to get when someone leaves a textfield with no content in it
  * @author lucia
  *
  */

@@ -21,6 +21,7 @@ import moon.course.Course;
 import moon.course.Exercise;
 
 /**
+ * Panel for the teacher statistics for a course
  * @author Juan RIera and Lucia Asencio
  *
  */
@@ -35,6 +36,9 @@ public class TeacherCourseStats extends LowerPanel {
 	DefaultListModel<Exercise> listModel = new DefaultListModel<Exercise>();
 	JList<Exercise> list = new JList<>(listModel);
 	
+	/**
+	 * Constrcutor of the class
+	 */
 	public TeacherCourseStats(){
 		
 		this.setLayout(new BorderLayout(20,20));
@@ -90,7 +94,7 @@ public class TeacherCourseStats extends LowerPanel {
 	}
 
 	/**
-	 * @param s
+	 * Sets the panel so that it matches the course
 	 * @param selected
 	 */
 	public void setEverything(Course selected) {

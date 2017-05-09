@@ -15,6 +15,7 @@ import moon.course.question.Question;
 import moon.user.Student;
 
 /**
+ * Controls the exercise stats view for a teacher
  * @author juan
  *
  */
@@ -23,10 +24,18 @@ public class TeacherExerciseStatsController implements MouseListener{
 	Exercise e;
 	TeacherExerciseStats view;
 	
+	/**
+	 * Controller constructor
+	 * @param view
+	 */
 	public TeacherExerciseStatsController(TeacherExerciseStats view){
 		this.view= view;
 	}
 	
+	/**
+	 * Stes the controller so that it matches the exercisse
+	 * @param e
+	 */
 	public void setEverything(Exercise e){
 		this.e=e;
 		view.listModel.removeAllElements();
