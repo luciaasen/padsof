@@ -1,5 +1,0 @@
-package moon.course.question;
-
-public lass OpenQuestion {
-	private String answer;
-}

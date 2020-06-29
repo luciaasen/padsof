@@ -1,6 +1,0 @@
-package moon.course.question;
-
-public class TfQuestion extends Question{
-	private boolean answer;
-	
-}
