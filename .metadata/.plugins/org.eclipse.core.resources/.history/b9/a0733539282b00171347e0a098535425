@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package p5;
+
+import p5.interf.ObservableProperty;
+import p5.interf.PropertyObserver;
+
+/**
+ * @author lucia
+ *
+ */
+public abstract class DefaultObservableProperty<V>  implements ObservableProperty<V>{
+	public V getValue(){
+		
+	}
+	public void addObserver( PropertyObserver<V> o){
+		
+	}
+	public void removeObserver(PropertyObserver<V> o){
+		
+	}
+	protected void setValue(V newValue){
+		
+	}
+}

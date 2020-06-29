@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package icfs;
+
+import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.*;
+
+import moon.Academy;
+
+/**
+ * This class defines the Panel which is in the upper side of each view.
+ * @author lucia
+ *
+ */
+public class UpperPanel extends JPanel{
+	private Dimension dim;
+	
+	public UpperPanel(){
+		this.dim = new Dimension(Academy.DIMENSION.width, 100);
+		this.setLayout(new BorderLayout());
+		
+		ImgPanel logo = new ImgPanel(new ImageIcon("logo1.png").getImage(), 8);
+		this.add(logo, BorderLayout.EAST);
+		
+		JButton exit = new JButton("Exit");
+		this.add(exit, BorderLayout.WEST);
+		exit.addActionListener(new ActionListener() {
+								public void actionPerformed(ActionEventEvent e) {
+									
+								}
+							});
+		
+	}
+	
+
+}

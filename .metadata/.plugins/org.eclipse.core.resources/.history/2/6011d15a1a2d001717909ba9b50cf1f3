@@ -1,0 +1,101 @@
+package p5;
+
+import java.util.*;
+
+import com.sun.javafx.collections.UnmodifiableListSet;
+
+
+public class Task {
+	
+	public static Task Tasks = new Task();
+	
+	private HashMap<String,Task> subtasks = new HashMap();	
+	private String name;
+	private Task parent;
+	private MyAdjustableTime estimated;
+	private MyAdjustableTime dedicated;
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	/**
+	 * If possible, adds t to this subtasks (and sets t parent as this)
+	 * If already contained in this, returns false
+	 * Adds t's times to this times
+	 * @param t task to add
+	 * @return true if correctly added, false else
+	 * @throws IllegalArgumentException when t already contained in this ancestors
+	 */
+	public boolean addTask(Task t) throws IllegalArgumentException{
+		if(this.containsTask(t)) return false;
+		if(Task.Tasks.containsTask(t)) throw new IllegalArgumentException();
+		this.subtasks.put(t.name, t);
+		t.parent = this;
+		this.estimated.incrementTime(t.estimated.getValue());
+		this.dedicated.incrementTime(t.dedicated.getValue());
+		return true;
+	}
+	
+	/**
+	 * If possible, removes t from this subtasks, removing t from t's parent subtasks
+	 * and putting t's parent to null
+	 * Removes t's times from this times
+	 * @param t task to remove
+	 * @return true if successfuly removed, false else
+	 */
+	public boolean removeTask(Task t){
+		if (this.containsTask(t)){
+			Task parent = t.parent;
+			parent.subtasks.remove(t.name);
+			t.parent = null;
+			this.estimated.incrementTime(-1 * t.estimated.getValue());
+			this.dedicated.incrementTime(-1 * t.dedicated.getValue());			
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Gets this subtasks in a set
+	 * @return an unmodifiable set containing this subtasks
+	 */
+	public Set<Task> getTasks(){
+		UnmodifiableListSet<Task> u;
+		return Collections.unmodifiableSet(new HashSet<Task>(this.subtasks.values()));
+	}
+	
+	
+	public boolean containsTask(Task t){
+		if(this.subtasks.isEmpty()) return true;
+		for(Task subt: this.subtasks.values()){
+			if(subt.containsTask(t)) return true;
+		}
+		return false;
+	}
+	
+	public Task getParent();
+	public void setParent(Task parent);
+	public AdjustableTime getEstimated();
+	public AdjustableTime getDedicated();
+
+	@Override
+	public boolean equals(Object o){
+		if(o == null) return false;
+		if(!(o instanceof Task)) return false;
+		Task t = (Task)o;
+		if(!t.name.equals(this.name)) return false;
+		return true;		
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.hashCode();
+	}
+	
+	@Override
+	public String toString(){
+		return this.name;
+	}
+	
+}

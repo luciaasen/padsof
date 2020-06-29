@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package icfs;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.JPanel;
+
+
+/**
+ * This class is needed to create a pannel that shows and image each time its drawn
+ * It extends JPanel and overrides the painting method
+ * @author lucia
+ *
+ */
+public class ImgPanel {
+private Image img;	
+	
+	/**
+	 * ImgPanel constructor
+	 * @param img the imag to be shown
+	 * @param proportion between the img given and the panel returned
+	 */
+	public ImgPanel(Image img, Double proportion){
+		this.img = img;
+		Dimension size = new Dimension(img.getWidth(null)/2, img.getHeight(null)/2);
+	    setPreferredSize(size);
+	    setMinimumSize(size);
+	    setMaximumSize(size);
+	    setSize(size);
+	    setLayout(null);
+	    setPreferredSize(size);
+	    	}
+	
+	@Override	
+	protected void paintComponent(Graphics g) {
+		g.drawImage(img, 0, 0, img.getWidth(null)/2, img.getHeight(null)/2, null);
+	} 
+}

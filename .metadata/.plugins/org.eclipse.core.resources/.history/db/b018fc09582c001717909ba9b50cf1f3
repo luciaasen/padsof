@@ -1,0 +1,43 @@
+package p5;
+
+import java.util.*;
+
+public class Task {
+	
+	public static Task Tasks = new Task();
+	
+	private TreeMap<String,Task> subtasks = new TreeMap((String x,String y)-> x>y);	
+	private String name;
+	private Task parent;
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public boolean addTask(Task t){
+		
+	}
+	public boolean removeTask(Task t);
+	public Set<Task> getTasks();
+	public boolean containsTask(Task t);
+	public Task getParent();
+	public void setParent(Task parent);
+	public AdjustableTime getEstimated();
+	public AdjustableTime getDedicated();
+
+	@Override
+	public boolean equals(Object o){
+		if(o == null) return false;
+		if(!(o instanceof Task)) return false;
+		Task t = (Task)o;
+		if(!t.name.equals(this.name)) return false;
+		return true;		
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.hashCode();
+	}
+	
+	
+}

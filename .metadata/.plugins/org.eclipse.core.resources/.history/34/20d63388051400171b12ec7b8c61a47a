@@ -1,0 +1,152 @@
+/**
+ * 
+ */
+package moon.course.question.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * @author lucia
+ *
+ */
+public class OneChoiceQuestionTest {
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.OneChoiceQuestion#answer(java.lang.Object, moon.mark.MExercise)}.
+	 */
+	@Test
+	public void testAnswer() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.OneChoiceQuestion#OneChoiceQuestion(java.lang.String, double, java.util.ArrayList, java.util.ArrayList, moon.course.Exercise)}.
+	 */
+	@Test
+	public void testOneChoiceQuestion() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.ChoiceQuestion#ChoiceQuestion(java.lang.String, double, java.util.ArrayList, java.util.ArrayList, moon.course.Exercise)}.
+	 */
+	@Test
+	public void testChoiceQuestion() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.ChoiceQuestion#getOptions()}.
+	 */
+	@Test
+	public void testGetOptions() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.OpenQuestion#OpenQuestion(java.lang.String, double, java.util.ArrayList, moon.course.Exercise)}.
+	 */
+	@Test
+	public void testOpenQuestion() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.OpenQuestion#getAnswer()}.
+	 */
+	@Test
+	public void testGetAnswer() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#Question(java.lang.String, double, moon.course.Exercise)}.
+	 */
+	@Test
+	public void testQuestion() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#getRelevance()}.
+	 */
+	@Test
+	public void testGetRelevance() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#getExercise()}.
+	 */
+	@Test
+	public void testGetExercise() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#calcNPasses()}.
+	 */
+	@Test
+	public void testCalcNPasses() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#calcNFails()}.
+	 */
+	@Test
+	public void testCalcNFails() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#calcNAnswered()}.
+	 */
+	@Test
+	public void testCalcNAnswered() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#calcNUnanswered()}.
+	 */
+	@Test
+	public void testCalcNUnanswered() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#getQuestion()}.
+	 */
+	@Test
+	public void testGetQuestion() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#getAnswer()}.
+	 */
+	@Test
+	public void testGetAnswer1() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link moon.course.question.Question#getStudentMarks()}.
+	 */
+	@Test
+	public void testGetStudentMarks() {
+		fail("Not yet implemented");
+	}
+
+}

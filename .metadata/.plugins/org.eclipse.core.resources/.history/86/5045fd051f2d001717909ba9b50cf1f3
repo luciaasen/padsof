@@ -1,0 +1,16 @@
+package p5;
+
+import java.util.HashMap;
+
+public class Tasks {
+	public static HashMap<String,Task> tasks= new HashMap();
+	
+	public Task newTask(String taskName) throws IllegalArgumentException{
+		Task t = new Task(taskName);
+		if(Tasks.contains(t)) throw new IllegalArgumentException();
+	}
+	
+	public static boolean contains(Task t){
+		return Tasks.tasks.values().contains(t);
+	}
+}

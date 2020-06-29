@@ -42,8 +42,8 @@ public class Academy implements Serializable{
 	 * be likely to call it somewhere in the Interface.
 	 */
 	public Academy(){
-		teacher = new Teacher("Tea", "cher", "IsALotOfWork13579", 1, "tea.cher@edu.es");
-		//teacher = new Teacher("Tea", "cher", "0", 1, "0.0@0.0");
+		//teacher = new Teacher("Tea", "cher", "IsALotOfWork13579", 1, "tea.cher@edu.es");
+		teacher = new Teacher("Tea", "cher", "0", 1, "0.0@0.0");
 		
 		users.add(teacher);
 		try {

@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package icfs.teacher.main;
+
+import icfs.LowerPanel;
+
+/**
+ * @author lucia
+ *
+ */
+public class MainTeacherLower extends LowerPanel{
+	
+	public MainTeacherLower(){
+		super();
+	}
+	
+
+}

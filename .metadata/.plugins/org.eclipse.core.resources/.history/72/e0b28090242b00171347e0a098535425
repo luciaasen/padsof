@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package p5.interf;
+
+/**
+ * @author lucia
+ *
+ */
+public interface PropertyObserver {
+	void propertyChanged(ObservableProperty<V> property, V oldValue);
+}

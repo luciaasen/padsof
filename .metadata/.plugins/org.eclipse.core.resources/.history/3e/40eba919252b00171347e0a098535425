@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package p5.interf;
+
+/**
+ * @author lucia
+ *
+ */
+public class IllegalArgumentException {
+
+}

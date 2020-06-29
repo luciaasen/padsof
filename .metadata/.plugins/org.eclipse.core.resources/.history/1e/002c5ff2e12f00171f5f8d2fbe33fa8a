@@ -1,0 +1,24 @@
+package p5.test;
+
+import p5.*;
+
+public class Apartado2 {
+	public static void main(String[] args){
+		System.out.println("Creamos 5 tareas");
+		
+		Task t1, t2, t3, t4, t5;
+		t1 = new Task("Ir a la feria");
+		t1.getEstimated().incrementTime(1);
+		t2 = new Task("Beber rebujito");
+		t2.getEstimated().incrementTime(2);
+		t3 = new Task("Bailar muchas sevillanas");
+		t3.getEstimated().incrementTime(3);
+		t4 = new Task("Bailar con mi amiga");
+		t4.getEstimated().incrementTime(4);
+		t5 = new Task("Bailar con un tio guapo");
+		t5.getEstimated().incrementTime(5);
+		
+		System.out
+		
+	}
+}

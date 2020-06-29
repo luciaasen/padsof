@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package icfs.teacher.main;
+
+import javax.swing.JPanel;
+import javax.swing.SpringLayout;
+
+import icfs.LowerPanel;
+
+/**
+ * @author lucia
+ *
+ */
+public class MainTeacherLower extends LowerPanel{
+	
+	public MainTeacherLower(){
+		super();
+		SpringLayout layout = new SpringLayout();
+		this.setLayout(layout);
+		
+		JPanel right = right();
+		JPanel left = left();
+		layout.putConstraint(SpringLayout.NORTH, right, 0,SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.NORTH, left, 0,SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.EAST, right, 0,SpringLayout.EAST, this);
+		layout.putConstraint(SpringLayout.WEST, left, 0,SpringLayout.WEST, this);
+
+	}
+	
+	private JPanel left(){
+		JPanel left = new JPanel();
+		
+		return left;
+	}
+	private JPanel right(){
+		JPanel right = new JPanel();
+		
+		return right;
+	}
+
+}

@@ -1,0 +1,5 @@
+package moon.course.question;
+
+class OpenQuestion {
+	private String answer;
+}

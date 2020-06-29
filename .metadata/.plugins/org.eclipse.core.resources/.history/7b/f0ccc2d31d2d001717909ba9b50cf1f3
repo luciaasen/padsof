@@ -1,0 +1,7 @@
+package p5;
+
+import java.util.HashMap;
+
+public class Tasks {
+	public static HashMap<String,Task> tasks= new HashMap();
+}

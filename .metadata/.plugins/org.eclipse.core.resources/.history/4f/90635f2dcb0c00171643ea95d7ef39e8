@@ -1,0 +1,14 @@
+package moon.mark;
+
+import moon.course.question.*;
+
+
+public class MQuestion extends Mark{
+	private Question question;
+	
+	public MQuestion(Question question){
+		super();
+		this.question = question;
+	}
+	
+}

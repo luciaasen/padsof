@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package p5.exc;
+
+import p5.Task;
+
+/**
+ * @author lucia
+ *
+ */
+public class IllegalArgumentException<V> extends RuntimeException{
+	
+	
+	public IllegalArgumentException(V value){
+		System.out.println("No es posible manejar el argumento "+ value);
+	}
+
+}

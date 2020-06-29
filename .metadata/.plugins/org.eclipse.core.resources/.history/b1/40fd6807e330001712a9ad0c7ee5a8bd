@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package icfs;
+
+import javax.swing.JPanel;
+
+/**
+ * @author lucia
+ *
+ */
+public class DatePanel extends JPanel(){
+	
+	public DatePanel(){
+		super();
+		
+	}
+}

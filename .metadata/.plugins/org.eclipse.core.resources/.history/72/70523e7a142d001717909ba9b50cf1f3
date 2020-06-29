@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package p5.exc;
+
+/**
+ * @author lucia
+ *
+ */
+public class IllegalArgumentException extends RuntimeException{
+	
+	public IllegalArgumentException(Task t){
+		System.out.println("La tarea" + t + " ya tiene otro padre");
+	}
+	public IllegalArgumentException(Integer value){
+		System.out.println("No es posible establecer el value a "+ value);
+	}
+
+}

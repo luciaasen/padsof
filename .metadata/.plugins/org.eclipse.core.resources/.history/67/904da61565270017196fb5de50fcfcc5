@@ -1,0 +1,26 @@
+/**
+ * 
+ */
+package icfs.login;
+
+import java.awt.*;
+import javax.swing.*;
+
+/**
+ * @author lusilu
+ *
+ */
+public class LuciasTrial {
+	public static void main(String []args){
+		JFrame loginWindow = new JFrame("moon");
+		Container cont = loginWindow.getContentPane();
+		cont.setLayout(new BorderLayout());
+		
+		JLabel text = new JLabel("Your name");
+		cont.add(text, BorderLayout.CENTER);
+		
+		cont.setBackground(Color.getHSBColor(30, 20, 100));
+		cont.setSize(400, 400);
+		cont.setVisible(true);
+	}
+}

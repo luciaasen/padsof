@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package exception;
+
+/**
+ * @author lucia
+ *
+ */
+public class EmptyTextFieldException {
+
+}

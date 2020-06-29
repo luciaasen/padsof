@@ -1,0 +1,15 @@
+package p5.test;
+import p5.*;
+
+/**
+ * Esta clase hace un test del funcionamiento de la clase MyAdjustableTime
+ * Al implementar Observer y AdjustableTime, y extender de la implementada DefaultPropertyObersver,
+ * testeando esta clase comprobamos el funcionamiento de todas las clases implementadas
+ * @author lucia
+ *
+ */
+public class Apartado1 {
+	public static void main(String[] args){
+		
+	}
+}

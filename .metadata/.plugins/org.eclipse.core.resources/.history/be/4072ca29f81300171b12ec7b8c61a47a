@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package moon.course.question;
+
+
+import moon.course.*;
+import java.util.ArrayList;
+/**
+ * @author lucia and juan
+ *
+ */
+public abstract class ChoiceQuestion extends OpenQuestion implements Serializable{
+	protected ArrayList<Option> options;
+	
+	public ChoiceQuestion(String question, double relevance, Exercise exe){
+		super(question, relevance, exe);
+	}
+
+}

@@ -1,0 +1,12 @@
+package p5;
+
+import java.util.HashMap;
+
+public class Tasks {
+	public static HashMap<String,Task> tasks= new HashMap();
+	
+	
+	public static boolean contains(Task t){
+		return Tasks.tasks.values().contains(t);
+	}
+}

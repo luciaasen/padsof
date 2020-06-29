@@ -1,0 +1,64 @@
+package moon.course.question.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class QuestionTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testQuestion() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetRelevance() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetExercise() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCalcNPasses() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCalcNFails() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCalcNAnswered() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testCalcNUnanswered() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAnswer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEqualsObject() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetAnswer() {
+		fail("Not yet implemented");
+	}
+
+}

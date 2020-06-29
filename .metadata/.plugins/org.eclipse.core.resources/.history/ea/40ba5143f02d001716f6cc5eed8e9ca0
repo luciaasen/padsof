@@ -1,0 +1,50 @@
+/**
+ * 
+ */
+package icfs.teacher.main;
+
+import java.awt.CardLayout;
+
+import javax.swing.*;
+
+import icfs.*;
+import moon.Academy;
+
+/**
+ * @author lucia
+ *
+ */
+public class MainTeacherPanel extends JPanel{
+	private UpperPanel upper;
+	private LowerPanel lower;
+	
+	public static void main(String[] args){
+		JFrame window = new JFrame();
+		window.setVisible(true);
+		window.setSize(Academy.DIMENSION);
+	
+		JPanel superPanel = new JPanel();
+		
+		CardLayout superLayout = new CardLayout();
+		superPanel.setLayout(superLayout);
+		window.getContentPane().add(superPanel);
+		superPanel.setVisible(true);
+		
+		superPanel.add(new MainTeacherPanel(), "main");
+	}
+	public MainTeacherPanel(){
+		SpringLayout layout = new SpringLayout();
+		this.setLayout(layout);
+		
+		this.upper = new UpperPanel();
+		this.lower = new LowerPanel();
+		
+		layout.putConstraint(SpringLayout.NORTH, upper, 0, SpringLayout.NORTH, this);
+		layout.putConstraint(SpringLayout.NORTH, lower, 0, SpringLayout.SOUTH, upper);
+		layout.putConstraint(SpringLayout.WEST, upper, 0, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.WEST, lower, 0, SpringLayout.WEST, this);
+		
+		this.add(upper);
+		this.add(lower);
+	}
+}

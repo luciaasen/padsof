@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package icfs.teacher.main;
+
+import java.awt.Dimension;
+
+import javax.swing.*;
+
+/**
+ * @author lucia
+ *
+ */
+public class FilteredList<V> extends JPanel {
+	public FilteredList(Dimension d){
+		this.setPreferredSize(d);
+		JList<V> list = new JList<V>():
+	}
+}

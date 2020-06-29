@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package icfs.teacher.create;
+
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+import icfs.LowerPanel;
+
+/**
+ * @author lucia
+ *
+ */
+public class AddCourseView extends LowerPanel{
+	
+	public CreateCourseView(){
+		super();
+	}
+	
+	private JPanel up(){
+		JPanel up = new JPanel();
+		up.setBackground(Color.WHITE);
+		JLabel Label = new JLabel("")
+		return up;
+	}
+	
+
+}

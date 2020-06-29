@@ -1,0 +1,72 @@
+package moon.mark.tests;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import moon.course.Exercise;
+import moon.course.question.*;
+import moon.mark.*;
+
+public class ChoiceAnswerTest {
+	private Exercise e1;
+	private ChoiceQuestion q1;
+	private ChoiceAnswer answer1;
+	private ArrayList<Option> op1;
+	private ArrayList<Option> correct1;
+	private ArrayList<Option> op2;
+	private ArrayList<Option> correct2;
+
+	
+	@Before
+	public void setUp() throws Exception {
+		/*Creates list of options*/
+		Option option1 = new Option("Yes");
+		Option option2 = new Option("No");
+		Option opAnswer2 = new Option("Yes");
+		Option opAnswer1 = new Option("No");
+		
+		op1 = new ArrayList<Option>();
+		correct1 = new ArrayList<Option>();
+				
+		op1.add(option1);
+		op1.add(option2);
+		correct1.add(opAnswer1);
+		
+		/*Creates exercise, question and answers*/
+		e1 = new Exercise();
+		e1.setPenalty(-3);
+		q1 = new ChoiceQuestion("Am I silly?", 5, "No", e1);
+		answer1 = new ChoiceAnswer(q1, "No");
+		answer2 = new ChoiceAnswer(q1, "Yes");		
+	}
+
+	@Test
+	public void testIsCorrect() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testChoiceAnswer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetMark() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMQuestion() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetQuestion() {
+		fail("Not yet implemented");
+	}
+
+}

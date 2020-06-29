@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package icfs;
+
+import java.awt.Dimension;
+
+import javax.swing.*;
+
+import moon.Academy;
+
+/**
+ * This class defines the Panel which is in the upper side of each view.
+ * @author lucia
+ *
+ */
+public class UpperPanel extends JPanel{
+	private Dimension dim;
+	
+	public UpperPanel(){
+		this.dim = new Dimension(Academy.DIMENSION.width, 100);
+		this.setLayout(new BorderLayout());
+		
+	}
+	
+
+}

@@ -1,0 +1,33 @@
+package moon.mark;
+
+import moon.course.question.*;
+
+public class OpenAnswer extends MQuestion{
+	private String answer;
+	
+	/**
+	 * OpenAnswer constructor
+	 * @param question
+	 * @param answer
+	 */
+	public OpenAnswer(Question question, String answer){
+		super(question);
+		this.answer = answer;
+	}
+	
+	/**
+	 * Returns true if the question was correctly answered
+	 * @return Boolean
+	 */
+	@Override
+	public Boolean isCorrect(){
+		
+		if (super.question instanceof TfQuestion){
+			//TODO How to stop this warning? getCorrect will return Boolean if Question is of type TfQuestion! 
+			if(compare(this.answer, (Boolean)super.question.getCorrect()) == 0){
+				return true;
+			}
+		}
+		return false;
+	}
+}

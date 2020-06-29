@@ -1,0 +1,10 @@
+package moon.mark;
+
+import moon.course.question.*;
+
+
+public class MQuestion {
+	private Question Question;
+	
+	
+}

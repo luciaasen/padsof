@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package moon.course.question;
+
+import java.io.Serializable;
+
+/**
+ * @author lucia
+ *
+ */
+public class OneChoiceQuestion extends ChoiceQuestion implements Serializable{
+
+}
